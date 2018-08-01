@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="906384191970-n96eii1dt986cgrh7krom313i4us4kab.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        <meta charset="UTF-8">
+        <title>login</title>
+
+        <style>
+            .total{
+                width:30%;
+                margin-top: 20%;
+                margin-left: 40%;
+                margin-right: 40%;
+                border: 1px black solid;
+                border-style: groove;
+                border-collapse: collapse;
+
+            }
+
+            .loginBox:after, .oogle:after, .naver:after,
+            .dashes:after, .inputBox:after, .email:after,
+            .password:after, .submitBtn:after, .haveAccount:after,
+            .forgotPassword:after{
+                content: "";
+                display: block;
+                clear: both;
+
+            }
+
+            .google, .naver{
+                wieth:100%;
+                padding-top:2%;
+                padding-bottom: 2%;
+                padding-left:35%;
+                padding-right:30%;
+            }
+
+            .dashes, .forgotPassword{
+                padding-top:2%;
+                padding-bottom: 2%;
+                padding-left:35%;
+                padding-right:30%;
+            }
+
+            .dashes{
+                padding-top:2%;
+                padding-bottom: 2%;
+                padding-left:20%;
+                padding-right:20%;
+            }
+
+            .haveAccount{
+                padding-top:2%;
+                padding-bottom: 2%;
+                padding-left:20%;
+                padding-right:20%;
+            }
+
+            .forgotPassword{
+                padding-top:2%;
+                padding-bottom: 2%;
+                padding-left:30%;
+                padding-right:15%;
+            }
+
+
+            .inputBox{
+                padding-top:2%;
+                padding-bottom: 2%;
+                padding-left:35%;
+                padding-right:35%;
+
+                height: 30%;
+
+
+
+            }
+
+            .submitBtn{
+                padding-top:4%;
+                padding-bottom: 4%;
+                padding-left:30%;
+                padding-right:30%;
+
+                /*#ff4543*/
+                text-align: center;
+                background-color: #fa6462;
+                color:white;
+            }
+
+            .email, .password{
+                width:100%;
+                height:40%;
+                font-size:1rem;
+
+            }
+
+
+        </style>
+    </head>
+
+    <body>
+        <div class="total">
+            <div class="loginBox">
+
+                <div class="google">
+                    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                </div>
+                <div class="naver">네이버 아이디로 로그인</div>
+                <div class="dashes">----------------  또는  ----------------</div>
+
+
+
+                <form class="inputBox" action="">
+                    <div><input type="text" class="email" name="email" value="이메일 주소 입력"></div>
+                    <div><input type="text" class="password" name="password" value="비밀번호 입력"></div>
+                    <div class="submitBtn">로그인</div>
+                </form>
+
+
+
+                <div class="haveAccount">아직 계정이 없으신가요? <a href="">텀블벅 가입하기</a></div>
+                <div class="dashes"><hr></div>
+                <div class="forgotPassword"><a href="">혹시 비밀번호를 잊으셨나요?</a></div>
+
+            </div>
+
+        </div>
+
+
+    </body>
+
+</html>
