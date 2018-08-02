@@ -12,6 +12,10 @@
 	Hello World <br>
 	
 	<a href="googlelogin.do">google login</a>
+	<a href="loginPage.do">login</a>
+	<a href="joinPage.do">join</a>
+	<a href="signBtn.do">btn settings</a>
+	
 
 </body>
 </html>

@@ -1,15 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<!--<html lang="ko">-->
+<html lang="ko">
 <head>
     <meta charset="utf-8">
+    
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-    <script
-            src="https://code.jquery.com/jquery-3.3.1.js"
-            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-            crossorigin="anonymous"></script>
+	
 
 
 
@@ -19,8 +20,8 @@
 
 
 
-    <meta charset="UTF-8">
-    <title>Title</title>
+   
+    <title>로그인</title>
 
     <style>
 
@@ -74,6 +75,27 @@
         }
 
     </style>
+    
+    
+    <script>
+      function onSignIn(googleUser) {
+    	 
+    	console.log('start');
+    	  
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+      };
+    </script>
 
 </head>
 <body>
@@ -104,6 +126,8 @@
                         </form>
                         <hr/>
                         <center><h4>OR</h4></center>
+                        
+         
                         <input class="btn btn-lg btn-facebook btn-block" type="submit" value="회원가입">
                     </div>
                 </div>

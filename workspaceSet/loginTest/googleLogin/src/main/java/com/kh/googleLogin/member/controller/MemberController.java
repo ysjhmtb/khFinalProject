@@ -12,4 +12,21 @@ public class MemberController {
 		return "member/googleLogin";
 	}
 	
+	@RequestMapping("loginPage.do")
+	public String loginPage() {
+		return "member/loginPage";
+	}
+	
+	@RequestMapping("joinPage.do")
+	public String joinPage() {
+		return "member/joinPage";
+				
+	}
+	
+	@RequestMapping("signBtn.do")
+	public String signBtn() {
+		return "member/signBtn";
+	}
+	
+	
 }
