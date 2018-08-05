@@ -76,11 +76,15 @@ public class MemberController {
 			@RequestParam("profileImage") MultipartFile profile_img,
 			HttpServletRequest request) {
 		
+		System.out.println("join.do");
+		
 		Member member = new Member();
 		member.setEmail(email);
 		member = memberService.selectMemeber(member);
 		
-		if(member == null) {
+		System.out.println("join.do : " + member);
+		
+		if(member != null) {
 			return "redirect:index.do";
 		}
 		
@@ -112,7 +116,7 @@ public class MemberController {
 		member = new Member(email, name, password, profile_img.getOriginalFilename());
 		String view = "redirect:index.do";
 		
-		int result = memberService.insertMember(member);
+//		int result = memberService.insertMember(member);
 		
 		return view;
 		
