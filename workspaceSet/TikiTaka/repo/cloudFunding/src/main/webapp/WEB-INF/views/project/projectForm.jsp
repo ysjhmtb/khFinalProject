@@ -1,260 +1,2820 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE>
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-      <meta charset="utf-8">
-      <title data-react-helmet="true">프로젝트 시작하기 :: 텀블벅</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-      <link rel="dns-prefetch" href="https://tumblbug-assets.imgix.net/">
-      <link rel="dns-prefetch" href="https://tumblbug-pci2.imgix.net/">
-      <link rel="dns-prefetch" href="https://tumblbug-psi.imgix.net/">
-      <link rel="dns-prefetch" href="https://tumblbug-upi.imgix.net/">
-      <link rel="dns-prefetch" href="https://www.google-analytics.com/">
-      <link rel="dns-prefetch" href="https://cdn.astronomer.io/">
-      <link rel="dns-prefetch" href="https://api.astronomer.io/">
-      <link rel="dns-prefetch" href="https://d2om2e6rfn032x.cloudfront.net/">
-      <link rel="dns-prefetch" href="https://qysoaxc73e-dsn.algolia.net/">
-      <link rel="dns-prefetch" href="https://stats.g.doubleclick.net/">
-      <meta data-react-helmet="true" property="og:image:width" content="620"/><meta data-react-helmet="true" property="og:image:height" content="465"/><meta data-react-helmet="true" property="fb:app_id" content="200842993269405"/><meta data-react-helmet="true" property="og:site_name" content="tumblbug"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="og:image" content="../d2om2e6rfn032x.cloudfront.net/wpa/dabb26ec110984e82ebaec18aacadd2c.jpg"/><meta data-react-helmet="true" property="og:url" content="start.html"/><meta data-react-helmet="true" property="og:title" content="마음 속 프로젝트 아이디어, 텀블벅에서 현실로"/><meta data-react-helmet="true" property="og:description" content="크라우드 펀딩으로 프로젝트를 위한 자금도 모으고, 든든한 후원자 네트워크도 확보할 수 있습니다."/><meta data-react-helmet="true" name="twitter:site" content="tumblbug"/><meta data-react-helmet="true" name="twitter:creator" content="tumblbug"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:image" content="../d2om2e6rfn032x.cloudfront.net/wpa/dabb26ec110984e82ebaec18aacadd2c.jpg"/><meta data-react-helmet="true" name="twitter:url" content="start.html"/><meta data-react-helmet="true" name="twitter:title" content="마음 속 프로젝트 아이디어, 텀블벅에서 현실로"/><meta data-react-helmet="true" name="twitter:description" content="크라우드 펀딩으로 프로젝트를 위한 자금도 모으고, 든든한 후원자 네트워크도 확보할 수 있습니다."/>
-      <link rel="stylesheet" type="text/css" href="../d2om2e6rfn032x.cloudfront.net/wpa/app.f0ed3932e778a7f95ef1c52983d12741.css">
-      <link href=../tumblbug-assets.imgix.net/appicon/favicon/favicon-32x32.png rel="icon" type="image/x-icon">
+<meta charset=UTF-8>
+<title>프로젝트 만드기 :: 티키타카</title>
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="dns-prefetch" href="https://tumblbug-assets.imgix.net">
+<link rel="dns-prefetch" href="https://tumblbug-pci2.imgix.net">
+<link rel="dns-prefetch" href="https://tumblbug-psi.imgix.net">
+<link rel="dns-prefetch" href="https://tumblbug-upi.imgix.net">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="dns-prefetch" href="https://cdn.astronomer.io">
+<link rel="dns-prefetch" href="https://api.astronomer.io">
+<link rel="dns-prefetch" href="https://d2om2e6rfn032x.cloudfront.net">
+<link rel="dns-prefetch" href="https://qysoaxc73e-dsn.algolia.net">
+<link rel="dns-prefetch" href="https://stats.g.doubleclick.net">
+<meta data-react-helmet="true" property="fb:app_id"
+	content="200842993269405">
+<meta data-react-helmet="true" property="og:site_name"
+	content="tumblbug">
+<meta data-react-helmet="true" property="og:type" content="website">
+<meta data-react-helmet="true" property="og:image:width" content="620">
+<meta data-react-helmet="true" property="og:image:height" content="465">
+<meta data-react-helmet="true" name="twitter:site" content="tumblbug">
+<meta data-react-helmet="true" name="twitter:creator" content="tumblbug">
+<meta data-react-helmet="true" name="twitter:card"
+	content="summary_large_image">
+<link rel="stylesheet" type="text/css"
+	href="https://d2om2e6rfn032x.cloudfront.net/wpa/app.f0ed3932e778a7f95ef1c52983d12741.css">
+<link
+	href="https://tumblbug-assets.imgix.net/appicon/favicon/favicon-32x32.png"
+	rel="icon" type="image/x-icon">
+
+<link rel="apple-touch-icon" sizes="120x120"
+	href="https://tumblbug-assets.imgix.net/appicon/home-icon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="152x152"
+	href="https://tumblbug-assets.imgix.net/appicon/home-icon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180"
+	href="https://tumblbug-assets.imgix.net/appicon/home-icon/apple-icon-180x180.png">
+
+<link rel="icon" type="image/png" sizes="48x48"
+	href="https://tumblbug-assets.imgix.net/appicon/home-icon/android-icon-48x48.png">
+<link rel="icon" type="image/png" sizes="72x72"
+	href="https://tumblbug-assets.imgix.net/appicon/home-icon/android-icon-72x72.png">
+<link rel="icon" type="image/png" sizes="96x96"
+	href="https://tumblbug-assets.imgix.net/appicon/home-icon/android-icon-96x96.png">
+<link rel="icon" type="image/png" sizes="144x144"
+	href="https://tumblbug-assets.imgix.net/appicon/home-icon/android-icon-144x144.png">
+<link rel="icon" type="image/png" sizes="192x192"
+	href="https://tumblbug-assets.imgix.net/appicon/home-icon/android-icon-192x192.png">
+
+<meta name="apple-mobile-web-app-title" content="tumblbug">
+<meta name="application-name" content="tumblbug">
+
+<script type="text/javascript" async=""
+	src="https://www.google-analytics.com/analytics.js"></script>
+<script type="text/javascript" async=""
+	src="https://cdn.astronomer.io/analytics.js/v1/jMrtLL6v6xXmMGP7h/analytics.min.js"></script>
+<script type="application/javascript">
+	
+        window.MOBX_STATE = {"app":{"ssrLocation":"/"},"currentUser":{"isLoading":false,"isLoaded":true,"id":757220,"uuid":"4779dc72-e6ff-4b2e-a9c8-aef90143556b","fullname":"나신의","userPermalink":"doneyanibetaruza","avatarUrl":"https://tumblbug-upi.imgix.net/defaults/avatar_0.png?ixlib=rb-1.1.0&w=200&h=250&auto=format%2Ccompress&fit=facearea&facepad=2.0&ch=Save-Data&mask=ellipse&s=87ba671c98b3debfae8ac85d36d0e7b4","email":"tlsdml7410@gmail.com","isCreator":true,"isAdmin":false},"pledgeStore":{"apiEndpoint":"/api/v1/pledges.json?fields=id,createdAt,amount,isSurveyRequested,isSurveyResponded,paymentStatus&project=title,coverImageUrl,creatorName,fundingStatus&reward=description,items&&coverImageUrl[h]=240&coverImageUrl[w]=320&coverImageUrl[fit]=crop","isLoading":false,"isLoaded":false,"pledges":[],"pledgesCount":{},"currentPage":1,"filterType":"all","isPledgeDataLoading":false,"isMetaDataLoaded":false,"isPledgeDetailsDataLoading":true},"surveyStore":{"apiEndpoint":"/api/v1/pledges.json?fields=id,createdAt,amount,isSurveyRequested,isSurveyResponded,paymentStatus&project=title,coverImageUrl,creatorName,fundingStatus&reward=description,items&filter=surveyResponseNeeded&coverImageUrl[h]=240&coverImageUrl[w]=320&coverImageUrl[fit]=crop"},"taxpayerInformationStore":{"isLoaded":false},"collectionStore":{"collections":{"0c2e12a5-0778-4a9d-9879-bd5aad92bc2e":{"id":"0c2e12a5-0778-4a9d-9879-bd5aad92bc2e","title":"에디터 추천 프로젝트","permalink":"editorspick","isPublic":true,"description":"텀블벅 분야별 에디터들이 매주 주목할 만한 프로젝트들을 추천해 드립니다.","authorId":136643,"coverImage":{"imageUrl":"https://tumblbug-cci.imgix.net/0c2e12a5-0778-4a9d-9879-bd5aad92bc2e/c6fa60a7-5a3e-4b01-9593-e05d020ef479.jpg?ixlib=rb-1.1.0&w=465&h=465&q=100&fit=crop&s=7cd29efe8a5263a0c042f1825befcbf9","color":"#adbfbd"},"projects":[{"title":"같은 날 같은 회사를 그만두었습니다, <퇴사동료>","summary":"1년차 디자이너, 3년차 마케터, 11년차 오퍼레이터 - 같이 퇴사한 세 사람의 에세이.","permalink":"1311","category":"nonfiction","fundingGoal":1500000,"fundingDeadline":"2018-08-19T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/e19d09fa2ddd88baeac7eb80b38c23ffabeebb6e/bbf3a285168bb574d7551b8750187ef3195f0913/9871c2ee4418d52340ac2f3d926ba3db25997c09/299bd47a-6a12-4a45-8490-cbc10a9d2f27.jpeg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=ef22e6a929d634587b06dcce2a959558","id":"7a7d7dab-17db-4049-a439-f98ab730aee5","creatorName":"퇴사동료","fundingStatus":"ongoing_reached","fundedAmount":1599842},{"title":"불안한 당신에게 건네는 '관악구 동네책방'의 위로","summary":"불안하고 힘든가요? 관악구 동네책방 5곳이 여러분을 위해 인생책 추천해줄게요.","permalink":"gwanakbookshop","category":"nonfiction","fundingGoal":2500000,"fundingDeadline":"2018-08-31T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/0a67984fa5f64c8ba098fd5a26c48b67f8e47d48/89e6019163428e2db8448212b7bc794e601e85a8/c355355a53f17dc4b77b8c77faa3e171a37f9725/5e3281b4-7db1-48b5-8b79-aa67b16e4b4b.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=bc4a36f438277fd86853c182d93a317c","id":"5baf05ea-5017-4bbd-b111-3569ed63fc2c","creatorName":"관악구 책방연합","fundingStatus":"ongoing_not_reached","fundedAmount":663500},{"title":"이태원 우사단길 예술가들과 <망고서림>의 만남","summary":"이태원 우사단길에 위치한 동네서점 '망고서림'의 추천도서와 동네사람들이 만드는 리워드","permalink":"mangoseolim00","category":"publication","fundingGoal":3500000,"fundingDeadline":"2018-09-04T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/4b161a793b1b7d9646d00b52f112de112a6e75e0/6c82493c34ecda05f42387f53f23cc80808cfe76/c514b7b14d04cfc9009a5f867767bc6db5e77e2a/f2e14505-a3e3-43d9-bdff-4cdec14fc05f.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=92c1381598f22afb29cab6196a99fbfd","id":"80c93fb0-30f0-48d7-90b6-d3472d8c0a04","creatorName":"망고서림","fundingStatus":"ongoing_not_reached","fundedAmount":561400},{"title":"책 읽는 조향사가 선물하는 일상의 여유","summary":"조향사인 책방 주인장이 직접만든 향과 블라인드 북을 한곳에 담았습니다.","permalink":"prescent14","category":"publication","fundingGoal":1000000,"fundingDeadline":"2018-08-23T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/4b161a793b1b7d9646d00b52f112de112a6e75e0/7afec9efebf6554726d0d460b38d04be64c45073/c7e05cd912f8c66b33a6041ab11b246b2fed2672/ff300c55-71da-460e-aa25-274777e7103e.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=d459239d36e5a1683497ac063f963485","id":"e20a7258-f28b-4e4c-9b30-45f10f6593c4","creatorName":"프레센트.14","fundingStatus":"ongoing_not_reached","fundedAmount":246000},{"title":"[YOYO] 데코라 일러스트 북","summary":"약 3년간 그린 데코라 소녀들의 일러스트를 모아서 책을 만듭니다","permalink":"kimedeco","category":"illustration","fundingGoal":2500000,"fundingDeadline":"2018-09-02T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/e19d09fa2ddd88baeac7eb80b38c23ffabeebb6e/207dea0b739941ffe7ed714a79b9bf1ca9ae5c0b/95757dd7ccde8cbcaea60e31492fb23a46ed411e/c1ea68fd-fc5b-4a5e-91e7-eda0792d1ffe.png?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=7d9a8ab9efc28018707090135f88b66a","id":"37b00bab-4b66-42af-8dc0-410ff9bf8ed5","creatorName":"yoyo","fundingStatus":"ongoing_reached","fundedAmount":4205300},{"title":"다시 만난 세계로 가는 <포탈>","summary":"언니미티드 기획 전시 <포탈> X 여예기네 <보스들의 네트워킹 파티>","permalink":"unnimited2","category":"art-exhibition","fundingGoal":2000000,"fundingDeadline":"2018-08-07T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/4b161a793b1b7d9646d00b52f112de112a6e75e0/11faa5d77ebf6f727a870f5563dd4c9464314776/f1dd16bbcf7b61a577e408271502facc0fd82249/b4ddad32-526a-4e31-95fa-50dc7d263189.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=daa088f447b7fd69f588a566cd37b32a","id":"ba7eeca8-1776-4b29-b8a5-eeae5e13fa5c","creatorName":"언니미티드","fundingStatus":"ongoing_not_reached","fundedAmount":1708000},{"title":"필름카메라를 사랑하는 모든 분들을 위한 안내서","summary":"'일삼오-삼육' 의 '필름생활안내서'","permalink":"filmguidebook","category":"photography","fundingGoal":1000000,"fundingDeadline":"2018-08-28T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/4b161a793b1b7d9646d00b52f112de112a6e75e0/ba66876acd8823742bb2b717b5d7a00a5bc39a79/684a03cfc00c0cd0fbff5734d225df5d06416343/c7edc7af-04b2-4aef-8713-0dabd80f9c48.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=1543866695500e983cf90f3b4091dcf5","id":"2622b2d1-83f8-4475-acac-8a91b9f0b6e7","creatorName":"일삼오-삼육","fundingStatus":"ongoing_reached","fundedAmount":11044000},{"title":"뱃지포스터[2018 평창 에디션]","summary":"2018 평창 동계올림픽의 폐현수막을 재활용한 뱃지포스터[2018 평창 에디션]","permalink":"badgeposter_pyeongchang","category":"product-design","fundingGoal":2200000,"fundingDeadline":"2018-08-19T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/4c91156c8bb2e286b5bb757da8ee918a5be6de16/c6c169a36ce8be7588f5185ed251a86141d6cd24/664addaaf5145737a16886d99dfd237157c94823/d1258768-29ed-45e5-bd30-a775a40c9732.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=dc5e343334a378b763c6765702134244","id":"f73c6956-04e4-4087-bac7-187844b4bdad","creatorName":"PRAG(프래그)","fundingStatus":"ongoing_reached","fundedAmount":2402000},{"title":"공예를 통한 연대: 페미니스트 손뜨개질 공동 작품 참여하기","summary":"거대한 코바늘 타페스트리, 함께 만들어봐요!","permalink":"witchknitcrew","category":"crafts","fundingGoal":500000,"fundingDeadline":"2018-08-08T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/4b161a793b1b7d9646d00b52f112de112a6e75e0/0c980930a1f9695a78dbb4f105612a185eb9b083/b80370d83084cf3684f0834a2917a9e6a97f0415/32d8d6fb-bf84-4578-9b59-050c6b3b92a2.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=31d59b05a36fd3074a716a652ee0a60b","id":"f855f8c8-af1b-403e-b45f-cc4dbe6e4595","creatorName":"위치니트크루","fundingStatus":"ongoing_not_reached","fundedAmount":497666},{"title":"내 안에 쌓인 독소를 날려버리자! 네이처샵 레몬머틀 플러스","summary":"올여름, 몸과 마음에 쌓여있는 독소를 날리자! 티톡스 프로젝트, 네이처샵 레몬머틀 플러스!","permalink":"natureshop_lemonmyrtle","category":"food","fundingGoal":1000000,"fundingDeadline":"2018-08-26T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/e19d09fa2ddd88baeac7eb80b38c23ffabeebb6e/ab0bfc22a0d2404fb7ab763bd868aef06e53ae2e/54951c105c2f3b32062e28f27a505130bc4dcfef/fe4be58a-1951-4b79-ae3c-e70821f2d5ae.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=7d0c81c9bbb189f2047f84c7d383afe6","id":"c6325aef-bd86-42cf-b942-9f3d568ce57d","creatorName":"네이처샵","fundingStatus":"ongoing_reached","fundedAmount":1677500},{"title":"1950년대 항구의 라이프 스타일을 담은 캔버스화, 캐치볼","summary":"1950년대 미국 동부 항구의 라이프스타일을 담은 CATCH BALL 두번째 협업","permalink":"catchball2","category":"fashion","fundingGoal":10000000,"fundingDeadline":"2018-08-15T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/4b161a793b1b7d9646d00b52f112de112a6e75e0/79cb1e9a63a04ee35ca3fdf6661c3a110e6399ee/97d10f990f4bb2429938854661b0d83a6c815f12/2f2feac3-b4ae-4002-8820-d67cda1f7cc6.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=6e794f5dbf46495ae855eae7f20aceed","id":"79dcf7ab-a8be-45c5-9a8c-94834aaa22c2","creatorName":"브러셔","fundingStatus":"ongoing_reached","fundedAmount":16245700},{"title":"지방청소부 귀리우유, 어떻게 선택 할까요? #산패방지가공","summary":"영양소 파괴, 산패, 변비 걱정 끝 : 렛츠귀리","permalink":"grainluvfam","category":"food","fundingGoal":5000000,"fundingDeadline":"2018-08-06T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/f85c7e07d406f25fd3ea73c668eaa69a8712eaa8/cdb39540a5432e2b181769978492a71a8da486d7/61c3a5febcf9341ea6ae52b4f4a5ed13693b52fb/59968a0e-cb47-4372-8f44-9c1e97b4a884.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=5766d19cf0d510890f80ccef0c29db96","id":"4e31b626-7189-4fd0-bb58-5d1ec441b400","creatorName":"애곡가","fundingStatus":"ongoing_not_reached","fundedAmount":3295877},{"title":"[앵콜]깊고 달콤한 꿀잠을 책임질게요. 딥-슬립 테라피","summary":"밤늦도록 잠들지 못하는 분이시라면, 아로마테라피 기반의 굿슬립 필로우 미스트를 만나보세요!","permalink":"deepsleep2","category":"product-design","fundingGoal":500000,"fundingDeadline":"2018-08-22T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/4b161a793b1b7d9646d00b52f112de112a6e75e0/3929952430e14ce8bed92af8e76e37bd674122cc/7fb7adf422d70f8f769451acc8997a28789fc3f6/b5cc4357-c118-4c04-b087-482131a65230.png?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=ca1ae5cc5e73f5bac483280fda915c93","id":"0e9ce9ac-ea23-4152-b6e5-da2ffb9a763e","creatorName":"라이프스타일 브랜드 휘겔리다올리","fundingStatus":"ongoing_reached","fundedAmount":12844500},{"title":"농부를 살리고 환경을 살리는 머시주스의 100% 수박주스","summary":"맛과 영양엔 이상이 없는 못난이 과일을 클렌즈 주스로 변화시키는 '어글리뷰티' 프로젝트","permalink":"uglybeauty187","category":"food","fundingGoal":1000000,"fundingDeadline":"2018-08-17T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/4b161a793b1b7d9646d00b52f112de112a6e75e0/5ebd18f21d3f0276ca253cfbfdfdfe2e08a061f4/bfba98425443439994976e894d314a50bb4c024f/2eb261a3-81de-4a49-950a-fa3e865c3b29.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=ce7f78ec540a4356e66d455edf5cfe3d","id":"e89dc68a-6ab8-4bca-bed5-c964000bd5ac","creatorName":"머시주스","fundingStatus":"ongoing_reached","fundedAmount":2197000},{"title":"짜먹는 아보카도는 처음이지? 보존료, 색소 무첨가!","summary":"무거운 쨈은 이제 그만! 짜먹는 아보카도로 건강하게 가벼워질까요?","permalink":"kinimeal","category":"baking","fundingGoal":500000,"fundingDeadline":"2018-08-31T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/8b085638008ca0dae709b236a3d55e79acf01841/abfbdd6a4ca243183576b5e229da312e250bd5d8/b8c2439cc044696c28130cce33c6dbf1469998b9/31382f3a-f3df-4c74-95be-f6b6288b3985.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=f5048b98b4bfbb93b5f2c85c85d8aa87","id":"f43b7ad2-de21-471a-bccd-7e967f1fbbbe","creatorName":"끼니밀","fundingStatus":"ongoing_reached","fundedAmount":814600},{"title":"조테타","summary":"조테타는 2~6인이 즐길 수 있는 보드게임입니다.","permalink":"zoteta","category":"board-game","fundingGoal":5000000,"fundingDeadline":"2018-09-30T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/e19d09fa2ddd88baeac7eb80b38c23ffabeebb6e/7210710668ef6107aabdeff1cddc9f04bfb47332/0369e37c8f64ccdf6b271c4f1fb0432d14ac1e6e/6174207e-d1bc-4607-8b61-c9b0acb05710.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=b35c0101aeb7a42d71b0049dbeb7b1d9","id":"54f34186-8eb2-484c-8a3a-27693fb6bac0","creatorName":"앵무","fundingStatus":"ongoing_not_reached","fundedAmount":1907000},{"title":"산후우울증을 앓는 초보 엄마들을 위한 영화, <산후>","summary":"산후우울증을 앓는 초보엄마 수현의 다양한 감정을 보여주고 일상을 따라가는 이야기입니다.","permalink":"a_film_soo","category":"narrative-film","fundingGoal":1200000,"fundingDeadline":"2018-08-28T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/4b161a793b1b7d9646d00b52f112de112a6e75e0/d248bfd62799eaf31e1a4623f714a5f9e578ff71/6e664cd39621088d3a64d8b78a48a5b942d22e67/759ed55f-8b59-43d7-ba7b-a06af78c359d.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=9593b2d187d84c44eb1e1e7312e47c4c","id":"de4aadec-52a7-468d-be68-39c309d88eea","creatorName":"영상제작소 홍수","fundingStatus":"ongoing_not_reached","fundedAmount":461000},{"title":"온 가족이 함께 즐기는 역사 보드게임 '세종'","summary":"세종과 수많은 역사영웅들, 그리고 조선의 중앙행정조직을 컨셉으로 만든 역사보드게임입니다.","permalink":"sejong","category":"board-game","fundingGoal":5000000,"fundingDeadline":"2018-08-15T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/8b085638008ca0dae709b236a3d55e79acf01841/5a140a2e64562e60e5edb02afc5f7175e74ce3d4/dd41977fb780634a498779ef339831396ac0ecd4/df30072e-0c73-4d23-9b43-a583d923719b.png?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=c865c4f9c947077a7ffe25a207c440c4","id":"770f2dd6-b959-47fe-9cb0-054314dbce3b","creatorName":"이동건","fundingStatus":"ongoing_reached","fundedAmount":5045000},{"title":"식물 킬러, 당신도 키울 수 있다! '식물 기초 클럽'","summary":"식물에 관련된 책 큐레이션과 식물 워크숍","permalink":"overgreenpark","category":"publication","fundingGoal":1000000,"fundingDeadline":"2018-08-22T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/4b161a793b1b7d9646d00b52f112de112a6e75e0/53300c01a733a47ab2a29b582c18386c7160d053/a58cc239f30e388fadc537b5c7875984381b99ce/2ed31fbd-ccf8-46e3-80e2-12dde1e0afe9.jpg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=efb63829c22bd587a6ac0675cc555e22","id":"e743f2dd-fcdc-4e98-8ac9-6e9ca1a84aa2","creatorName":"오버그린파크","fundingStatus":"ongoing_not_reached","fundedAmount":200000},{"title":"윤하윤의 첫 번째 싱글 앨범 \"Prunus\"","summary":"작곡가, 프로듀서가 아닌 아티스트 윤하윤의 첫 시작을 함께 도와주세요","permalink":"prunus","category":"music","fundingGoal":500000,"fundingDeadline":"2018-08-25T23:59:59+09:00","coverImageUrl":"https://tumblbug-pci.imgix.net/d3257920215d297de816e473e280cbe3f3e8ec3f/7ed264021a912dc0b191ebe0f56264f8be7f8316/434c0fd94744bcfea8fd9c48dec14f7d66acd0a8/a9ffd4f3-744f-42f9-99c3-f9fab25597ba.jpeg?ixlib=rb-1.1.0&w=620&h=465&auto=format%2Ccompress&lossless=true&fit=crop&s=6ead6751fbd780ce2d25ce2b66072524","id":"5107edf5-b3e0-4802-9f55-bf932773f10b","creatorName":"윤하윤","fundingStatus":"ongoing_reached","fundedAmount":512000}],"coverImagePath":"","backgroundColorHexCode":"#adbfbd","ongoingProjectsCount":20}},"featuredCollections":[{"id":"73df1830-2410-41b2-8762-c500dc675323","title":"좋음직허여: 제주 청년들의 문화예술 프로젝트","permalink":"jfac2018","coverImagePath":"https://tumblbug-assets.imgix.net/banners/banner-jfac2018-3.png?w=2000&h=250","backgroundColorHexCode":"#19378a"},{"id":"0c2e12a5-0778-4a9d-9879-bd5aad92bc2e","title":"에디터 추천 프로젝트","permalink":"editorspick","coverImagePath":"","backgroundColorHexCode":"#adbfbd"},{"id":"8512a359-66df-4e0f-92b8-690691ed9574","title":"동네책방에서 건져 올린 인생책","permalink":"bookstores2018","coverImagePath":"https://tumblbug-assets.imgix.net/banners/banner-bookstores2018.png?w=2000&h=250","backgroundColorHexCode":"#e59b42"},{"id":"d92cd673-a2f3-456d-b8ce-b98c6ac353e4","title":"#한여름의음료","permalink":"summerdrink","coverImagePath":"","backgroundColorHexCode":"#46ccc2"},{"id":"2386b858-d0bf-4d8a-a6ed-19d1f69b1860","title":"#피서는텀블벅에서","permalink":"tumblbugsummer","coverImagePath":"","backgroundColorHexCode":"#ff4b2f"},{"id":"61630265-ee15-4b1a-8b52-9fd553cd9e73","title":"#스타트업","permalink":"startup","coverImagePath":"","backgroundColorHexCode":"#ead303"},{"id":"73bec309-1dc4-42b5-8dd5-d4467c934043","title":"#문화생활","permalink":"cultural","coverImagePath":"","backgroundColorHexCode":"#ffa47a"},{"id":"8710d3b2-2d21-4fad-aef7-8c33268686aa","title":"#돌아온창작자","permalink":"comeback","coverImagePath":"","backgroundColorHexCode":"#73b6ff"},{"id":"68604208-5cab-42d6-b159-7e245e3062ca","title":"#광복절","permalink":"815","coverImagePath":"","backgroundColorHexCode":"#afb9c6"}]},"projectStore":{},"messageThreadStore":{"_unreadThreads":{"asCreator":[],"asUser":[]},"projectFilters":[],"_messageThreads":{},"isLoadingMessageThreads":false,"selectedThreadId":null,"selectedThread":null},"messageArchiveThreadStore":{"_messageArchiveThreads":{},"_paging":{"offset":0,"limit":10,"next":""}},"rewardStore":{},"itemStore":{},"heroStore":{"heroes":[{"title":"시 읽기 좋은 날은  　　 이렇게 문득 옵니다 ","description":"시인들이 추천하는 시집, <아침달> 시리즈 론칭","url":"https://tumblbug.com/achimdal","coverImageFilename":"achimdal.jpg","coverImageUrl":"https://tumblbug-assets.imgix.net/heroes/achimdal.jpg?w=1800&h=600&fit=crop&q=60"},{"title":"짧아도 충분한  　　　　 포들한 휴식을 위하여 ","description":"허그와 같은 안락함을 전달하는 <포들 담요>","url":"https://tumblbug.com/podulblanket","coverImageFilename":"podulblanket.jpg","coverImageUrl":"https://tumblbug-assets.imgix.net/heroes/podulblanket.jpg?w=1800&h=600&fit=crop&q=60"},{"title":"개성 있는 캐릭터의 일상 취향 저격 판타지 만화!","description":"<친구따라 우주해적>이 된 외계조류와 해적들 이야기","url":"https://tumblbug.com/space_pirate_5","coverImageFilename":"space_pirate_5.jpg","coverImageUrl":"https://tumblbug-assets.imgix.net/heroes/space_pirate_5.jpg?w=1800&h=600&fit=crop&q=60"},{"title":"내 발걸음을   　　　　 보다 가볍고 멋스럽게 ","description":"300g의 무게, 가벼운 라이크 썸 모어 <폴리토 구두>","url":"https://tumblbug.com/lsm_88","coverImageFilename":"lsm_88.jpg","coverImageUrl":"https://tumblbug-assets.imgix.net/heroes/lsm_88.jpg?w=1800&h=600&fit=crop&q=60"}],"isLoaded":true,"randomHeroSeed":0},"postStore":{"_cachedProjectId":null,"_posts":{},"_postsPagination":null,"_comments":{},"_cachedPostId":null,"_commentPagination":null},"depositAccountStore":{}};
       
-  <link rel="apple-touch-icon" sizes="120x120" href="../tumblbug-assets.imgix.net/appicon/home-icon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="../tumblbug-assets.imgix.net/appicon/home-icon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../tumblbug-assets.imgix.net/appicon/home-icon/apple-icon-180x180.png">
-
-  <link rel="icon" type="image/png" sizes="48x48"  href="../tumblbug-assets.imgix.net/appicon/home-icon/android-icon-48x48.png">
-  <link rel="icon" type="image/png" sizes="72x72"  href="../tumblbug-assets.imgix.net/appicon/home-icon/android-icon-72x72.png">
-  <link rel="icon" type="image/png" sizes="96x96"  href="../tumblbug-assets.imgix.net/appicon/home-icon/android-icon-96x96.png">
-  <link rel="icon" type="image/png" sizes="144x144"  href="../tumblbug-assets.imgix.net/appicon/home-icon/android-icon-144x144.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="../tumblbug-assets.imgix.net/appicon/home-icon/android-icon-192x192.png">
-
-  <meta name="apple-mobile-web-app-title" content="tumblbug">
-  <meta name="application-name" content="tumblbug">
-
-      <script type="application/javascript">
-        window.MOBX_STATE = {"app":{"ssrLocation":"/start"},"currentUser":{"isLoading":false,"isLoaded":true,"id":null,"uuid":null,"fullname":null,"userPermalink":null,"avatarUrl":"https://tumblbug-upi.imgix.net/defaults/avatar_1.png?ixlib=rb-1.1.0&w=200&h=250&auto=format%2Ccompress&fit=facearea&facepad=2.0&ch=Save-Data&mask=ellipse&s=47160c157911f653f6dcd76e296f26b4","email":null,"isCreator":false,"isAdmin":false},"pledgeStore":{"apiEndpoint":"/api/v1/pledges.json?fields=id,createdAt,amount,isSurveyRequested,isSurveyResponded,paymentStatus&project=title,coverImageUrl,creatorName,fundingStatus&reward=description,items&&coverImageUrl[h]=240&coverImageUrl[w]=320&coverImageUrl[fit]=crop","isLoading":false,"isLoaded":false,"pledges":[],"pledgesCount":{},"currentPage":1,"filterType":"all","isPledgeDataLoading":false,"isMetaDataLoaded":false,"isPledgeDetailsDataLoading":true},"surveyStore":{"apiEndpoint":"/api/v1/pledges.json?fields=id,createdAt,amount,isSurveyRequested,isSurveyResponded,paymentStatus&project=title,coverImageUrl,creatorName,fundingStatus&reward=description,items&filter=surveyResponseNeeded&coverImageUrl[h]=240&coverImageUrl[w]=320&coverImageUrl[fit]=crop"},"taxpayerInformationStore":{"isLoaded":false},"collectionStore":{"collections":{},"featuredCollections":null},"projectStore":{},"messageThreadStore":{"_unreadThreads":{"asCreator":[],"asUser":[]},"projectFilters":[],"_messageThreads":{},"isLoadingMessageThreads":false,"selectedThreadId":null,"selectedThread":null},"messageArchiveThreadStore":{"_messageArchiveThreads":{},"_paging":{"offset":0,"limit":10,"next":""}},"rewardStore":{},"itemStore":{},"heroStore":{"isLoaded":false},"postStore":{"_cachedProjectId":null,"_posts":{},"_postsPagination":null,"_comments":{},"_cachedPostId":null,"_commentPagination":null},"depositAccountStore":{}};
-      </script>
-      <style type="text/css" data-styled-components="cXdlcp bYqief fzoeFq jPcWZN iVCTYT jdgWcI bteafZ kZLTLQ hcvfVq iGOIal kizyZz cfMrMC hHUgvf bpfGNO JUlEd buZCDD imIxKd gqXDKx fqdqdO hFrsFU dACkvL cxVJuM gGEKCL lnyOsS hZGKSB bZjbMV gQkaxZ bJiFzl jiqwKI fAOZDk bwttMn bNlufC iGzHdj kIVudD hDDvFE jvuQXE cFsNY eFKMQA esxgfG fxuIyO hKesKk itOJgv buHmWJ iaaZRK gIOyim cjYnUu fUrTBG fvaroY eZGHLA hKMyBu iLhPAj hTKeoc iWBzky kVvgyK bISUoC dpuEfz wbWBn gzcpNu cqbDMZ ePxcpz kZWRNW exyDzC irajPl bNQPtQ hnRMPW jJsAQC dAirgg cMBfhY hLRFHd hHZzHq hWABJR iCNmGI jSEjxH jYcZV" data-styled-components-is-local="true">
+</script>
+<style type="text/css"
+	data-styled-components="cXdlcp bYqief fzoeFq jPcWZN iVCTYT jdgWcI bteafZ kZLTLQ hcvfVq iGOIal kizyZz cfMrMC hHUgvf bpfGNO JUlEd buZCDD fQwQfp gqXDKx labhhf hEFTbE ikLgAw cyOybj iuosEt fNAOQh iToKBr jfnFWI bzlVdT gXZEJk kBDldE brhEhF iCczEI dUSIGe fhXjWk duKZDT iSHaZi jtYVGd ervGwJ hgvQtm buxDxm csIfer iEZvlH hEilqP hFAREh bGqbmB fOsIlY kCGzYC gEZuLR gUQbvW cWrfUF beYdFz ddAStM bpoHzD hEIXJa bxRvdW cEnTNJ nuOjL fmLEMz jftTar gEQpFE ykGDF hOKtVI bzwbvF bmtKYw qHzrD cSKjGh jYcZV"
+	data-styled-components-is-local="true">
 /* sc-component-id: SiteFooter__SROnlyLabel-s15w7vby-0 */
-
-.jYcZV {position: absolute;margin: -1px;padding: 0;height: 1px;width: 1px;border: 0;clip: rect(0 0 0 0);overflow: hidden;}
+.jYcZV {
+	position: absolute;
+	margin: -1px;
+	padding: 0;
+	height: 1px;
+	width: 1px;
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	overflow: hidden;
+}
 /* sc-component-id: sc-keyframes-cXdlcp */
-@-webkit-keyframes cXdlcp {0% {-webkit-transform: translateY(0%);-ms-transform: translateY(0%);transform: translateY(0%);opacity: 1;}50% {-webkit-transform: translateY(100%);-ms-transform: translateY(100%);transform: translateY(100%);opacity: .3;}100% {-webkit-transform: translateY(0%);-ms-transform: translateY(0%);transform: translateY(0%);opacity: 1;}}@keyframes cXdlcp {0% {-webkit-transform: translateY(0%);-ms-transform: translateY(0%);transform: translateY(0%);opacity: 1;}50% {-webkit-transform: translateY(100%);-ms-transform: translateY(100%);transform: translateY(100%);opacity: .3;}100% {-webkit-transform: translateY(0%);-ms-transform: translateY(0%);transform: translateY(0%);opacity: 1;}}
+@
+-webkit-keyframes cXdlcp { 0% {
+	-webkit-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+	transform: translateY(0%);
+	opacity: 1;
+}
+50%
+{
+-webkit-transform
+:
+ 
+translateY
+(100%);-ms-transform
+:
+ 
+translateY
+(100%);transform
+:
+ 
+translateY
+(100%);opacity
+:
+ 
+.3
+;
+}
+100%
+{
+-webkit-transform
+:
+ 
+translateY
+(0%);-ms-transform
+:
+ 
+translateY
+(0%);transform
+:
+ 
+translateY
+(0%);opacity
+:
+ 
+1;
+}
+}
+@
+keyframes cXdlcp { 0% {
+	-webkit-transform: translateY(0%);
+	-ms-transform: translateY(0%);
+	transform: translateY(0%);
+	opacity: 1;
+}
+50%
+{
+-webkit-transform
+:
+ 
+translateY
+(100%);-ms-transform
+:
+ 
+translateY
+(100%);transform
+:
+ 
+translateY
+(100%);opacity
+:
+ 
+.3
+;
+}
+100%
+{
+-webkit-transform
+:
+ 
+translateY
+(0%);-ms-transform
+:
+ 
+translateY
+(0%);transform
+:
+ 
+translateY
+(0%);opacity
+:
+ 
+1;
+}
+}
+/* sc-component-id: Button__Button-s1ng5xda-0 */
+.buxDxm {
+	cursor: pointer;
+	display: inline-block;
+	min-height: 1em;
+	outline: none;
+	border: none;
+	vertical-align: baseline;
+	box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px
+		rgba(0, 0, 0, 0.1) inset;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color
+		0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+	transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s
+		ease, box-shadow 0.1s ease, background 0.1s ease;
+	-webkit-tap-highlight-color: transparent;
+	margin: 0 .25em 0 0;
+	border-radius: 0.28571429rem;
+	text-transform: none;
+	text-shadow: none;
+	font-weight: bold;
+	line-height: 1em;
+	font-style: normal;
+	text-align: center;
+	text-decoration: none;
+}
+.buxDxm>i {
+	margin: 0 .42857143em 0 -.21428571em;
+}
+.buxDxm {
+	color: rgba(0, 0, 0, .6);
+	background-color: #e7e7e7;
+}
+.buxDxm:hover, .buxDxm:focus, .buxDxm:active {
+	background-color: #d9d9d9;
+	color: rgba(0, 0, 0, 8);
+}
+.buxDxm {
+	padding: 1em 1.5em;
+	font-size: 1em;
+	width:;
+	opacity: .3;
+	pointer-events: none;
+	padding: 1em;
+	background-color: transparent;
+	color: black;
+}
+.buxDxm>i {
+	margin: 0;
+}
+.buxDxm:hover, .buxDxm:focus, .buxDxm:active {
+	background-color: transparent;
+	color: black;
+}
+.buxDxm {;
+	
+}
+.csIfer {
+	cursor: pointer;
+	display: inline-block;
+	min-height: 1em;
+	outline: none;
+	border: none;
+	vertical-align: baseline;
+	box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px
+		rgba(0, 0, 0, 0.1) inset;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color
+		0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+	transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s
+		ease, box-shadow 0.1s ease, background 0.1s ease;
+	-webkit-tap-highlight-color: transparent;
+	margin: 0 .25em 0 0;
+	border-radius: 0.28571429rem;
+	text-transform: none;
+	text-shadow: none;
+	font-weight: bold;
+	line-height: 1em;
+	font-style: normal;
+	text-align: center;
+	text-decoration: none;
+}
+.csIfer>i {
+	margin: 0 .42857143em 0 -.21428571em;
+}
+.csIfer {
+	color: rgba(0, 0, 0, .6);
+	background-color: #e7e7e7;
+}
+.csIfer:hover, .csIfer:focus, .csIfer:active {
+	background-color: #d9d9d9;
+	color: rgba(0, 0, 0, 8);
+}
+.csIfer {
+	padding: 1em 1.5em;
+	font-size: 1em;
+	width:;
+	opacity: 1;
+	pointer-events:;
+	padding: 1em;
+	background-color: transparent;
+	color: black;
+}
+.csIfer>i {
+	margin: 0;
+}
+.csIfer:hover, .csIfer:focus, .csIfer:active {
+	background-color: transparent;
+	color: black;
+}
+.csIfer {;
+	
+}
 /* sc-component-id: Header__Header-s10wde3a-0 */
-
-.iVCTYT {width: 100vw;height: 58px;background-color: #ffffff;box-shadow: 0px 1px 2px 0px rgba(10, 10, 10, 0.1);display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-align-items: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;z-index: 999;;;;}@media (min-width: 1080px) {.iVCTYT {height: 65px;}}
+.iVCTYT {
+	width: 100vw;
+	height: 58px;
+	background-color: #ffffff;
+	box-shadow: 0px 1px 2px 0px rgba(10, 10, 10, 0.1);
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	z-index: 999;;;;
+}
+@media ( min-width : 1080px) {
+	.iVCTYT {
+		height: 65px;
+	}
+}
+/* sc-component-id: Divider__Divider-s16ihjfx-0 */
+.hEIXJa {
+	border-top: 1px solid transparent;
+	margin: 1.5rem 0;
+	height: 0;
+}
 /* sc-component-id: Container__Container-s1sxg7g4-0 */
-
-.jdgWcI {width: 100vw;margin: 0 auto;position: relative;padding: 0;}@media (min-width: 1080px) {.jdgWcI {width: 1080px;margin: 0 auto;}}
+.jdgWcI {
+	width: 100vw;
+	margin: 0 auto;
+	position: relative;
+	padding: 0;
+}
+@media ( min-width : 1080px) {
+	.jdgWcI {
+		width: 1080px;
+		margin: 0 auto;
+	}
+}
 /* sc-component-id: ProfileImg__ProfileImg-s1o99mme-0 */
-
-.fqdqdO {display: inline-block;background-image: url(../tumblbug-assets.imgix.net/assets/user-accountd986.png?s=08b1f9ecf24209994ac9b81900936c0e);width: 28px;height: 28px;background-size: cover;background-position: 50% 38%;border-radius: 50%;border: 1px solid #ddd;margin-right: 0;}@media (min-width: 1080px) {.fqdqdO {width: 38px;height: 38px;}}
+.labhhf {
+	display: inline-block;
+	background-image:
+		url(https://tumblbug-upi.imgix.net/defaults/avatar_0.png?ixlib=rb-1.1.0&w=200&h=250&auto=format%2Ccompress&fit=facearea&facepad=2.0&ch=Save-Data&mask=ellipse&s=87ba671c98b3debfae8ac85d36d0e7b4);
+	width: 28px;
+	height: 28px;
+	background-size: cover;
+	background-position: 50% 38%;
+	border-radius: 50%;
+	border: 1px solid #ddd;
+	margin-right: 0;
+}
+@media ( min-width : 1080px) {
+	.labhhf {
+		width: 38px;
+		height: 38px;
+	}
+}
 /* sc-component-id: TumblbugLogo__TumblbugLogo-s9od1ls-0 */
-
-.JUlEd {fill: #000000;width:  70px;height: 18.41px;}@media (min-width: 1080px) {.JUlEd {width: 85px;height: 22.36px;}}
+.JUlEd {
+	fill: #000000;
+	width: 70px;
+	height: 18.41px;
+}
+@media ( min-width : 1080px) {
+	.JUlEd {
+		width: 85px;
+		height: 22.36px;
+	}
+}
 /* sc-component-id: SiteHeader__SiteHeaderWrapper-s1s56ls8-0 */
-
-.jPcWZN {position: relative;}
+.jPcWZN {
+	position: relative;
+}
 /* sc-component-id: SiteHeader__SiteHeaderMenu-s1s56ls8-1 */
-
-.bteafZ {display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-align-items: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;-webkit-box-pack: space-between;-webkit-justify-content: space-between;-ms-flex-pack: space-between;justify-content: space-between;position: relative;}
+.bteafZ {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: space-between;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: space-between;
+	justify-content: space-between;
+	position: relative;
+}
 /* sc-component-id: SiteHeader__LeftMenu-s1s56ls8-2 */
-
-.kZLTLQ {-webkit-flex: 1 0 25%;-ms-flex: 1 0 25%;flex: 1 0 25%;text-align: center;display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;}
+.kZLTLQ {
+	-webkit-flex: 1 0 25%;
+	-ms-flex: 1 0 25%;
+	flex: 1 0 25%;
+	text-align: center;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+}
 /* sc-component-id: SiteHeader__CenterMenu-s1s56ls8-3 */
-
-.hHUgvf {width: 10rem;position: absolute;left: 0;right: 0;top: 0;bottom: 0;margin: 0 auto;padding: 0 1rem;cursor: pointer;display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-webkit-justify-content: center;-ms-flex-pack: center;justify-content: center;-webkit-align-items: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;}.hHUgvf:hover > div {fill: #757575;}
+.hHUgvf {
+	width: 10rem;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: 0 auto;
+	padding: 0 1rem;
+	cursor: pointer;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.hHUgvf:hover>div {
+	fill: #757575;
+}
 /* sc-component-id: SiteHeader__RightMenu-s1s56ls8-4 */
-
-.buZCDD {-webkit-flex: 1 0 25%;-ms-flex: 1 0 25%;flex: 1 0 25%;text-align: right;}
+.buZCDD {
+	-webkit-flex: 1 0 25%;
+	-ms-flex: 1 0 25%;
+	flex: 1 0 25%;
+	text-align: right;
+}
 /* sc-component-id: SiteHeader__ButtonLink-s1s56ls8-5 */
-
-.bpfGNO {color: inherit;}.bpfGNO:hover {color: inherit;}
-/* sc-component-id: sc-gzVnrw */
-
-.imIxKd {color: inherit;}.imIxKd:hover {color: inherit;}.imIxKd {display: -webkit-inline-box;display: -webkit-inline-flex;display: -ms-flexbox;display: inline-flex;-webkit-align-items: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;color: black;font-weight: bold;font-size: 1rem;cursor: pointer;line-height: 58px;padding: 0 1rem;}
+.bpfGNO {
+	color: inherit;
+}
+.bpfGNO:hover {
+	color: inherit;
+}
 /* sc-component-id: SiteHeader__LinkItem-s1s56ls8-6 */
-
-.cfMrMC {diplay: block;border: none;background: transparent;outline: none;color: black;font-weight: bold;font-size: 1rem;cursor: pointer;line-height: 58px;padding: 0 1rem;}.cfMrMC > i {font-size: 1.25em;}@media (min-width: 1080px) {.cfMrMC {line-height: 65px;}.cfMrMC > i {font-size: 1em;margin-right: 0.5em;}}.cfMrMC:hover {color: #757575;}
+.cfMrMC {
+	diplay: block;
+	border: none;
+	background: transparent;
+	outline: none;
+	color: black;
+	font-weight: bold;
+	font-size: 1rem;
+	cursor: pointer;
+	line-height: 58px;
+	padding: 0 1rem;
+}
+.cfMrMC>i {
+	font-size: 1.25em;
+}
+@media ( min-width : 1080px) {
+	.cfMrMC {
+		line-height: 65px;
+	}
+	.cfMrMC>i {
+		font-size: 1em;
+		margin-right: 0.5em;
+	}
+}
+.cfMrMC:hover {
+	color: #757575;
+}
 /* sc-component-id: SiteHeader__LinkButton-s1s56ls8-7 */
-
-.hcvfVq {border: none;background: transparent;outline: none;color: black;font-weight: bold;font-size: 1rem;cursor: pointer;line-height: 58px;padding: 0 1rem;}.hcvfVq > i {font-size: 1.25em;}@media (min-width: 1080px) {.hcvfVq {line-height: 65px;}.hcvfVq > i {font-size: 1em;margin-right: 0.5em;}}.hcvfVq:hover {color: #757575;}
+.hcvfVq {
+	border: none;
+	background: transparent;
+	outline: none;
+	color: black;
+	font-weight: bold;
+	font-size: 1rem;
+	cursor: pointer;
+	line-height: 58px;
+	padding: 0 1rem;
+}
+.hcvfVq>i {
+	font-size: 1.25em;
+}
+@media ( min-width : 1080px) {
+	.hcvfVq {
+		line-height: 65px;
+	}
+	.hcvfVq>i {
+		font-size: 1em;
+		margin-right: 0.5em;
+	}
+}
+.hcvfVq:hover {
+	color: #757575;
+}
+/* sc-component-id: sc-htoDjs */
+.fQwQfp {
+	diplay: block;
+	border: none;
+	background: transparent;
+	outline: none;
+	color: black;
+	font-weight: bold;
+	font-size: 1rem;
+	cursor: pointer;
+	line-height: 58px;
+	padding: 0 1rem;
+}
+.fQwQfp>i {
+	font-size: 1.25em;
+}
+@media ( min-width : 1080px) {
+	.fQwQfp {
+		line-height: 65px;
+	}
+	.fQwQfp>i {
+		font-size: 1em;
+		margin-right: 0.5em;
+	}
+}
+.fQwQfp:hover {
+	color: #757575;
+}
+.fQwQfp {
+	display: -webkit-inline-box;
+	display: -webkit-inline-flex;
+	display: -ms-flexbox;
+	display: inline-flex;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
 /* sc-component-id: SiteHeader__ItemLabel-s1s56ls8-8 */
-
-@media (max-width: 1079px) {.iGOIal {display: none;}}
+@media ( max-width : 1079px) {
+	.iGOIal {
+		display: none;
+	}
+}
 /* sc-component-id: SiteHeader__ForMobile-s1s56ls8-9 */
-
-.kizyZz {display: none;}@media (min-width: 1080px) {.kizyZz {display: inline;}}
+.kizyZz {
+	display: none;
+}
+@media ( min-width : 1080px) {
+	.kizyZz {
+		display: inline;
+	}
+}
 /* sc-component-id: SiteHeader__ProfileImageWrapper-s1s56ls8-10 */
-
-.gqXDKx {display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-align-items: center;-webkit-box-align: center;-ms-flex-align: center;align-items: center;position: relative;margin-left: 0.75rem;}
+.gqXDKx {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	position: relative;
+	margin-left: 0.75rem;
+}
 /* sc-component-id: sc-keyframes-bYqief */
-@-webkit-keyframes bYqief {0%, 100% {opacity: 1;}50% {opacity: 0;}}@keyframes bYqief {0%, 100% {opacity: 1;}50% {opacity: 0;}}
+@
+-webkit-keyframes bYqief { 0%, 100% {
+	opacity: 1;
+}
+50%
+{
+opacity
+:
+ 
+0;
+}
+}
+@
+keyframes bYqief { 0%, 100% {
+	opacity: 1;
+}
+50%
+{
+opacity
+:
+ 
+0;
+}
+}
+/* sc-component-id: HeroWidget__CurrentHeroContainer-s19x6dg8-0 */
+.ikLgAw {
+	position: relative;
+}
+/* sc-component-id: HeroWidget__PreviewButtonContainer-s19x6dg8-1 */
+.iCczEI {
+	position: absolute;
+	left: 1rem;
+	bottom: 1.5rem;
+}
+@media ( min-width : 1080px) {
+	.iCczEI {
+		right: 1rem;
+		bottom: 1.5rem;
+	}
+}
+/* sc-component-id: HeroWidget__HeroItem-s19x6dg8-2 */
+.cyOybj {
+	position: relative;
+	width: 100%;
+	height: auto;
+	margin-bottom: 1rem;
+}
+.cyOybj a {
+	color: #fff;
+	cursor: pointer;
+}
+.cyOybj a:hover {
+	color: #fff;
+}
+/* sc-component-id: HeroWidget__HeroImg-s19x6dg8-3 */
+.iuosEt {
+	background-image:
+		url(https://tumblbug-assets.imgix.net/heroes/achimdal.jpg?w=1800&h=600&fit=crop&q=60);
+	background-size: cover;
+	background-position: center center;
+	width: 100%;
+	height: 280px;
+	-webkit-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	position: relative;
+}
+.iuosEt:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.05);
+}
+@media ( min-width : 1080px) {
+	.iuosEt {
+		width: 100%;
+		height: 400px;
+	}
+	.iuosEt:before {
+		background-color: rgba(0, 0, 0, 0.05);
+	}
+}
+@media ( min-width : 1400px) {
+	.iuosEt {
+		height: 450px;
+	}
+}
+.gXZEJk {
+	background-image:
+		url(https://tumblbug-assets.imgix.net/heroes/podulblanket.jpg?w=1800&h=600&fit=crop&q=60);
+	background-size: cover;
+	background-position: center center;
+	width: 100%;
+	height: 280px;
+	-webkit-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	position: relative;
+}
+.gXZEJk:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.05);
+}
+@media ( min-width : 1080px) {
+	.gXZEJk {
+		width: 100%;
+		height: 400px;
+	}
+	.gXZEJk:before {
+		background-color: rgba(0, 0, 0, 0.05);
+	}
+}
+@media ( min-width : 1400px) {
+	.gXZEJk {
+		height: 450px;
+	}
+}
+.kBDldE {
+	background-image:
+		url(https://tumblbug-assets.imgix.net/heroes/space_pirate_5.jpg?w=1800&h=600&fit=crop&q=60);
+	background-size: cover;
+	background-position: center center;
+	width: 100%;
+	height: 280px;
+	-webkit-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	position: relative;
+}
+.kBDldE:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.05);
+}
+@media ( min-width : 1080px) {
+	.kBDldE {
+		width: 100%;
+		height: 400px;
+	}
+	.kBDldE:before {
+		background-color: rgba(0, 0, 0, 0.05);
+	}
+}
+@media ( min-width : 1400px) {
+	.kBDldE {
+		height: 450px;
+	}
+}
+.brhEhF {
+	background-image:
+		url(https://tumblbug-assets.imgix.net/heroes/lsm_88.jpg?w=1800&h=600&fit=crop&q=60);
+	background-size: cover;
+	background-position: center center;
+	width: 100%;
+	height: 280px;
+	-webkit-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+	position: relative;
+}
+.brhEhF:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.05);
+}
+@media ( min-width : 1080px) {
+	.brhEhF {
+		width: 100%;
+		height: 400px;
+	}
+	.brhEhF:before {
+		background-color: rgba(0, 0, 0, 0.05);
+	}
+}
+@media ( min-width : 1400px) {
+	.brhEhF {
+		height: 450px;
+	}
+}
+/* sc-component-id: HeroWidget__HeroContainer-s19x6dg8-4 */
+.fNAOQh {
+	position: relative;
+	max-width: 1080px;
+	margin: 0 auto;
+	height: 100%;
+}
+/* sc-component-id: HeroWidget__HeroTextWrapper-s19x6dg8-5 */
+.iToKBr {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	font-weight: bolder;
+	margin-bottom: 4rem;
+	padding: 2rem 1rem;
+	text-shadow: 0 2px 50px 5px rgba(0, 0, 0, 0.2);
+}
+@media ( min-width : 1080px) {
+	.iToKBr {
+		margin-bottom: 0.75rem;
+	}
+}
+/* sc-component-id: HeroWidget__HeroTitle-s19x6dg8-6 */
+.jfnFWI {
+	display: block;
+	font-size: 2.4rem;
+	line-height: 1.3;
+	word-spacing: -1px;
+	word-break: keep-all;
+	margin: 0 0 0.25em;
+	width: 10em;
+	padding-bottom: 0.5rem;
+}
+@media ( max-width : 320px) {
+	.jfnFWI {
+		font-size: 2rem;
+	}
+}
+@media ( min-width : 1080px) {
+	.jfnFWI {
+		font-size: 3.3rem;
+		margin: 0 0 0.3em;
+	}
+}
+/* sc-component-id: HeroWidget__HeroDescription-s19x6dg8-7 */
+.bzlVdT {
+	font-size: 1.1rem;
+	line-height: 1;
+}
+@media ( min-width : 1080px) {
+	.bzlVdT {
+		font-size: 1.5rem;
+	}
+}
+/* sc-component-id: HeroWidget__HeroPreviews-s19x6dg8-8 */
+.dUSIGe {
+	float: left;
+}
+@media ( min-width : 1080px) {
+	.dUSIGe {
+		float: right;
+	}
+}
+/* sc-component-id: HeroWidget__HeroPreviewButton-s19x6dg8-9 */
+.fhXjWk {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	overflow: hidden;
+	margin: 0 5px 0 0;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+	-webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+@media ( min-width : 1080px) {
+	.fhXjWk {
+		margin: 0 0 0 10px;
+		width: 50px;
+		height: 50px;
+	}
+	.fhXjWk:hover {
+		-webkit-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		transform: scale(1.1);
+	}
+}
+/* sc-component-id: HeroWidget__HeroPreviewImage-s19x6dg8-10 */
+.duKZDT {
+	position: absolute;
+	top: 0;
+	left: -140%;
+	right: -50%;
+	bottom: 0;
+	width: auto;
+	height: 100%;
+	margin: auto;
+}
+/* sc-component-id: Carousel__Link-fwcx6b-0 */
+.ervGwJ {
+	color: inherit;
+}
+.ervGwJ i {
+	opacity: .1;
+	padding-left: .2rem;
+}
+.ervGwJ:hover {
+	color: inherit;
+}
+.ervGwJ:hover i {
+	opacity: 1;
+	padding-left: 1rem;
+	-webkit-transition: all .2s;
+	transition: all .2s;
+}
+/* sc-component-id: Carousel__CarouselHeader-fwcx6b-1 */
+.iSHaZi {
+	margin: 0 -1.5rem 0 0;
+	padding: 0 1rem;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: space-between;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: space-between;
+	justify-content: space-between;
+}
+/* sc-component-id: Carousel__CarouselTitle-fwcx6b-2 */
+.jtYVGd {
+	color: black;
+	font-weight: bold;
+	font-size: 1rem;
+	cursor: pointer;
+}
+.jtYVGd:hover {
+	color: black;
+}
+/* sc-component-id: Carousel__CarouselButtons-fwcx6b-3 */
+.hgvQtm {
+	float: right;
+	text-align: right;
+}
+/* sc-component-id: Carousel__CarouselContents-fwcx6b-4 */
+.iEZvlH {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	margin: 0 -1rem;
+	padding: 0 1rem;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+}
+@media ( min-width : 1080px) {
+	.iEZvlH {
+		-webkit-flex-direction: row;
+		-ms-flex-direction: row;
+		flex-direction: row;
+	}
+}
+/* sc-component-id: Carousel__Column-fwcx6b-5 */
+.hEilqP {
+	width: 100%;
+	margin: 1rem;
+}
+@media ( min-width : 1080px) {
+	.hEilqP {
+		-webkit-flex: 1 0 20%;
+		-ms-flex: 1 0 20%;
+		flex: 1 0 20%;
+	}
+}
+/* sc-component-id: ProjectItem__ProjectItemCard-a1ypmo-0 */
+.hFAREh {
+	cursor: pointer;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	position: relative;
+	width: 100%;
+	background-color: #ffffff;
+	min-height: 105px;
+	height: auto;
+	padding-bottom: 0.75rem;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+@media ( max-width : 320px) {
+	.hFAREh {
+		min-height: 90px;
+		height: auto;
+	}
+}
+@media ( min-width : 1080px) {
+	.hFAREh {
+		-webkit-flex-direction: column;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		height: 100%;
+		padding-bottom: 0;
+		border: 1px solid rgba(0, 0, 0, 0.05);
+		border-radius: 2px !important;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+		-webkit-transition: box-shadow 0.2s ease;
+		transition: box-shadow 0.2s ease;
+	}
+	.hFAREh:hover {
+		box-shadow: 0 4px 50px -3px rgba(0, 0, 0, 0.1);
+	}
+}
+/* sc-component-id: ProjectItem__ProjectTextWrapper-a1ypmo-1 */
+.fOsIlY {
+	-webkit-order: 2;
+	-ms-flex-order: 2;
+	order: 2;
+	color: black;
+	font-size: 0.9rem;
+	line-height: 1.6;
+	max-width: 60%;
+	padding-bottom: 0;
+}
+@media ( min-width : 1080px) {
+	.fOsIlY {
+		max-width: 100%;
+		padding: 1rem 1.2rem 1rem 1.2rem;
+	}
+}
+/* sc-component-id: ProjectItem__ProjectTitle-a1ypmo-2 */
+.gEZuLR {
+	color: #3c3737;
+	font-size: 1.1rem;
+	font-weight: bold;
+	margin-bottom: 0;
+	line-height: 1.5;
+	word-break: keep-all;
+	word-wrap: break-word;
+}
+@media ( max-width : 320px) {
+	.gEZuLR {
+		font-size: 1rem;
+		line-height: 1.4;
+		word-break: break-all;
+		margin-bottom: 0.3rem;
+	}
+}
+@media ( min-width : 1080px) {
+	.gEZuLR {
+		font-size: 1rem;
+		word-spacing: -1px;
+	}
+}
+@media ( max-width : 1079px) {
+	.gEZuLR {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}
+/* sc-component-id: ProjectItem__CreatorName-a1ypmo-3 */
+.gUQbvW {
+	font-size: 0.8rem;
+	margin-bottom: 0;
+	color: #3c3737;
+}
+/* sc-component-id: ProjectItem__FundingRate-a1ypmo-4 */
+.bpoHzD {
+	margin-left: 0.2rem;
+	font-size: 0.6rem;
+	font-weight: 700;
+	color: #3c3737;
+}
+/* sc-component-id: ProjectItem__PercentageLine-a1ypmo-5 */
+.cWrfUF {
+	max-width: 100%;
+	height: 2px;
+	font-size: 0;
+}
+@media ( max-width : 1080px) {
+	.cWrfUF {
+		padding: 0 1rem 0 0.6rem;
+	}
+}
+/* sc-component-id: ProjectItem__ProjectCoverimage-a1ypmo-6 */
+.bGqbmB {
+	min-width: 120px;
+	width: 120px;
+	height: 90px;
+	margin-right: 1rem;
+	background-color: #efefef;
+	-webkit-transition: background-color 0.2s ease;
+	transition: background-color 0.2s ease;
+}
+@media ( max-width : 320px) {
+	.bGqbmB {
+		margin-right: 0;
+		min-width: 95px;
+		width: 95px;
+		height: 65px;
+	}
+}
+@media ( min-width : 1080px) {
+	.bGqbmB {
+		width: 240px;
+		height: 180px;
+		border-radius: 2px 2px 0 0;
+		margin-right: 0;
+	}
+}
+@media ( max-width : 1080px) {
+	.bGqbmB {
+		margin-right: 0;
+		position: relative;
+		top: 0;
+		bottom: 0;
+		margin: auto 0;
+		left: 0;
+	}
+}
+/* sc-component-id: ProjectItem__FundingInfo-a1ypmo-7 */
+.beYdFz {
+	margin-top: 0.4rem;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: space-between;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: space-between;
+	justify-content: space-between;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+@media ( max-width : 1080px) {
+	.beYdFz {
+		padding: 0 1rem 0 0.6rem;
+	}
+}
+/* sc-component-id: ProjectItem__FundingMoney-a1ypmo-8 */
+.ddAStM {
+	font-size: 0.8rem;
+	font-weight: 700;
+	color: #3c3737;
+}
+/* sc-component-id: ProjectItem__FundingTitle-a1ypmo-9 */
+.kCGzYC {
+	height: 60px;
+}
+@media ( max-width : 1080px) {
+	.kCGzYC {
+		padding: 0 1rem 0 0.6rem;
+	}
+}
+@media ( max-width : 320px) {
+	.kCGzYC {
+		height: 40px;
+	}
+}
+/* sc-component-id: ProjectStartBanner__ProjectStartBannerWrapper-nl10hp-0 */
+.hOKtVI {
+	margin: 2rem 0 0 0;
+}
+@media ( min-width : 1080px) {
+	.hOKtVI {
+		margin: 4rem 0 0 0;
+	}
+}
+/* sc-component-id: ProjectStartBanner__ProjectStartBanner-nl10hp-1 */
+.bzwbvF {
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	width: 100%;
+	height: 100px;
+	color: #fff;
+	font-size: 0.9rem;
+	cursor: pointer;
+	background: #9945d1;
+	background: -moz-linear-gradient(-45deg, #9945d1 0%, #694ed8 60%, #369ac9 100%);
+	background: -webkit-linear-gradient(-45deg, #9945d1 0%, #694ed8 60%, #369ac9 100%);
+	background: linear-gradient(135deg, #9945d1 0%, #694ed8 60%, #369ac9 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9945d1',
+		endColorstr='#369ac9', GradientType=1);
+}
+@media ( min-width : 1080px) {
+	.bzwbvF {
+		height: 100px;
+		font-size: 1rem;
+	}
+}
+/* sc-component-id: ProjectStartBanner__BannerBackground-nl10hp-2 */
+.bmtKYw {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-image:
+		url('https://tumblbug-assets.imgix.net/assets/ProjectStart/projectstart-banner-background.png');
+	background-size: cover;
+	background-position: center center;
+	opacity: 0.5;
+}
+/* sc-component-id: ProjectStartBanner__Title-nl10hp-3 */
+.qHzrD {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	font-size: 1.5rem;
+	margin-top: 0;
+	margin-bottom: 0.75rem;
+	line-height: 1.2;
+}
+@media ( min-width : 1080px) {
+	.qHzrD {
+		font-size: 1.75rem;
+	}
+}
+/* sc-component-id: ProjectStartBanner__Description-nl10hp-4 */
+.cSKjGh {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	font-weight: bold;
+	line-height: 1.5;
+}
+/* sc-component-id: CollectionBanners__CollectionBannersWrapper-m0b5b9-0 */
+.cEnTNJ {
+	max-width: 1080px;
+	margin: 0 auto;
+	margin-top: 0.5rem;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+@media ( min-width : 1080px) {
+	.cEnTNJ {
+		padding: 0 0.5rem;
+	}
+}
+/* sc-component-id: CollectionBanners__CollectionBannerColumn-m0b5b9-1 */
+.nuOjL {
+	-webkit-flex-basis: 50%;
+	-ms-flex-basis: 50%;
+	flex-basis: 50%;
+	-webkit-flex-grow: 1;
+	-ms-flex-grow: 1;
+	flex-grow: 1;
+	-webkit-flex-shrink: 0;
+	-ms-flex-shrink: 0;
+	flex-shrink: 0;
+	min-width: 320px;
+}
+@media ( min-width : 900px) {
+	.nuOjL {
+		min-width: 420px;
+	}
+}
+/* sc-component-id: CollectionBanners__CollectionBanner-m0b5b9-2 */
+.jftTar {
+	height: 90px;
+	cursor: pointer;
+	background-color: #19378a;
+	background-image:
+		url(https://tumblbug-assets.imgix.net/banners/banner-jfac2018-3.png?w=2000&h=250);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+@media ( max-width : 480px) {
+	.jftTar {
+		height: 95px;
+	}
+}
+@media ( min-width : 900px) {
+	.jftTar {
+		height: 100px;
+	}
+}
+@media ( min-width : 1080px) {
+	.jftTar {
+		margin: 0 0.5em 1rem 0.5em;
+		border-radius: 3px;
+	}
+}
+.ykGDF {
+	height: 90px;
+	cursor: pointer;
+	background-color: #e59b42;
+	background-image:
+		url(https://tumblbug-assets.imgix.net/banners/banner-bookstores2018.png?w=2000&h=250);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+@media ( max-width : 480px) {
+	.ykGDF {
+		height: 95px;
+	}
+}
+@media ( min-width : 900px) {
+	.ykGDF {
+		height: 100px;
+	}
+}
+@media ( min-width : 1080px) {
+	.ykGDF {
+		margin: 0 0.5em 1rem 0.5em;
+		border-radius: 3px;
+	}
+}
+/* sc-component-id: CollectionBanners__CollectionBannerTitle-m0b5b9-3 */
+.bxRvdW {
+	margin: 2rem -1.5rem 1rem 0;
+	padding: 0 1rem;
+	color: black;
+	font-weight: bold;
+	font-size: 1rem;
+}
+/* sc-component-id: CollectionBanners__CollectionLink-m0b5b9-4 */
+.fmLEMz {
+	diplay: relative;
+}
+/* sc-component-id: CollectionBanners__SROnlyLabel-m0b5b9-5 */
+.gEQpFE {
+	border: 0;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+}
+/* sc-component-id: FrontPage__HomeWrapper-s1kthteb-0 */
+.hEFTbE {
+	overflow-x: hidden;
+	background-color: #fff;
+	border-bottom: 1px solid #efefef;
+}
+@media ( min-width : 1080px;) {
+	.hEFTbE {
+		padding-bottom: 5rem;
+	}
+}
 /* sc-component-id: sc-keyframes-fzoeFq */
-@-webkit-keyframes fzoeFq {0%, 100% {-webkit-transform: translateX(0);-ms-transform: translateX(0);transform: translateX(0);}50% {-webkit-transform: translateX(4px);-ms-transform: translateX(4px);transform: translateX(4px);}}@keyframes fzoeFq {0%, 100% {-webkit-transform: translateX(0);-ms-transform: translateX(0);transform: translateX(0);}50% {-webkit-transform: translateX(4px);-ms-transform: translateX(4px);transform: translateX(4px);}}
-/* sc-component-id: sc-gqjmRU */
-
-.bJiFzl {cursor: pointer;display: inline-block;min-height: 1em;outline: none;border: none;vertical-align: baseline;box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;-webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease,background 0.1s ease;transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease,background 0.1s ease;-webkit-tap-highlight-color: transparent;margin: 0 .25em 0 0;border-radius: 0.28571429rem;text-transform: none;text-shadow: none;font-weight: bold;line-height: 1em;font-style: normal;text-align: center;text-decoration: none;}.bJiFzl > i {margin: 0 .42857143em 0 -.21428571em;}.bJiFzl {color: rgba(0, 0, 0, .6);background-color: #e7e7e7;}.bJiFzl:hover,.bJiFzl:focus,.bJiFzl:active {background-color: #d9d9d9;color: rgba(0, 0, 0, 8);}.bJiFzl {padding: 1em 1.5em;font-size: 1em;width: ;opacity: 1;pointer-events: ;;font-size: 1.2rem;background-color: #ffe955;color: #f25b3d;font-size: 1.4rem;box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);-webkit-transition: 0.2s ease;transition: 0.2s ease;min-width: 15rem;}.bJiFzl:hover,.bJiFzl:focus,.bJiFzl:active {color: #d62e0d;background-color: #ffe955;box-shadow: 0 0 35px 3px rgba(255, 255, 255, .4);}.bJiFzl {;}
-
-.cjYnUu {cursor: pointer;display: inline-block;min-height: 1em;outline: none;border: none;vertical-align: baseline;box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;-webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease,background 0.1s ease;transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease,background 0.1s ease;-webkit-tap-highlight-color: transparent;margin: 0 .25em 0 0;border-radius: 0.28571429rem;text-transform: none;text-shadow: none;font-weight: bold;line-height: 1em;font-style: normal;text-align: center;text-decoration: none;}.cjYnUu > i {margin: 0 .42857143em 0 -.21428571em;}.cjYnUu {color: rgba(0, 0, 0, .6);background-color: #e7e7e7;}.cjYnUu:hover,.cjYnUu:focus,.cjYnUu:active {background-color: #d9d9d9;color: rgba(0, 0, 0, 8);}.cjYnUu {background-color: #fa6462;color: #fff;}.cjYnUu:hover,.cjYnUu:focus,.cjYnUu:active {background-color: #ff4543;color: #fff;}.cjYnUu {padding: 1em 1.5em;font-size: 1em;width: ;opacity: 1;pointer-events: ;;font-size: 1.2rem;;}
-/* sc-component-id: ProjectStartHero__HeroWrapper-hxgqr8-0 */
-
-.hFrsFU {position: relative;overflow: hidden;background: #d95a4a;background: -moz-linear-gradient(-45deg, #32c1b5 0%, #d69546 26%, #d95a4a 59%, #782a83 100%);background: -webkit-linear-gradient(-45deg, #32c1b5 0%,#d69546 26%,#d95a4a 59%,#782a83 100%);background: linear-gradient(135deg, #32c1b5 0%,#d69546 26%,#d95a4a 59%,#782a83 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#32c1b5',endColorstr='#782a83',GradientType=1);}
-/* sc-component-id: ProjectStartHero__HeroBackgroundLeft-hxgqr8-1 */
-
-.dACkvL {position: absolute;top: 0;left: 0;bottom: 0;width: 30%;min-width: 10rem;height: 100%;background-image: url('../tumblbug-assets.imgix.net/assets/ProjectStart/projectstart-hero-background-left.png');background-size: cover;background-position: center center;opacity: 0.5;}
-/* sc-component-id: ProjectStartHero__HeroBackgroundRight-hxgqr8-2 */
-
-.cxVJuM {position: absolute;top: 0;right: 0;bottom: 0;width: 30%;min-width: 10rem;height: 100%;background-image: url('../tumblbug-assets.imgix.net/assets/ProjectStart/projectstart-hero-background-right.png');background-size: cover;background-position: center center;opacity: 0.5;}
-/* sc-component-id: ProjectStartHero__Container-hxgqr8-3 */
-
-.gGEKCL {position: relative;z-index: 99;padding: 4rem 0;max-width: 800px;margin: 0 auto;}@media only screen and (max-width: 1080px) {.gGEKCL {max-width: 768px;}}@media only screen and (max-width: 768px) {.gGEKCL {padding: 3rem 1rem;}}
-/* sc-component-id: ProjectStartHero__H1-hxgqr8-4 */
-
-.bZjbMV {font-size: 3rem;font-weight: 600;letter-spacing: -0.02em;line-height: 1.3;word-break: keep-all;margin: 0 0 1rem 0;}@media only screen and (max-width: 768px) {.bZjbMV {font-size: 2.6rem;}}@media only screen and (max-width: 480px) {.bZjbMV {font-size: 2.1rem;}}
-/* sc-component-id: ProjectStartHero__Contents-hxgqr8-5 */
-
-.hZGKSB {margin: 1rem 0 1.5rem 0;font-size: 1.4rem;letter-spacing: -0.01em;color: #fff;word-break: keep-all;}@media only screen and (max-width: 768px) {.hZGKSB {text-align: center;font-size: 1.2rem;}}@media only screen and (max-width: 480px) {.hZGKSB {font-size: 1.1rem;}}
-/* sc-component-id: ProjectStartHero__P-hxgqr8-6 */
-
-.gQkaxZ {margin: 0.5rem 0 2rem 0;}@media only screen and (max-width: 768px) {.gQkaxZ {margin: 1rem 0 2rem 0;}}
-/* sc-component-id: ProjectStartHero__Image-hxgqr8-7 */
-
-.lnyOsS {background-image: url('../tumblbug-assets.imgix.net/assets/ProjectStart/madeintumblbug-whiteoutline.png');display: block;float: left;width: 18rem;height: 25rem;margin: 0 4rem 0 0;background-size: contain;background-position: center 15%;background-repeat: no-repeat;}@media only screen and (max-width: 768px) {.lnyOsS {float: none;margin: 0 auto;width: 14rem;height: 17rem;}}
-/* sc-component-id: ProjectStartIntro__IntroWrapper-s2xdrfv-0 */
-
-.jiqwKI {position: relative;background-color: #ffffff;}
-/* sc-component-id: ProjectStartIntro__Image-s2xdrfv-1 */
-
-.fAOZDk {position: absolute;top: 0;right: 0;bottom: 0;width: 50%;max-width: 50rem;height: 100%;background-image: url('../tumblbug-assets.imgix.net/assets/ProjectStart/creators.jpg');background-size: cover;background-position: center center;}@media only screen and (max-width: 768px) {.fAOZDk {position: static;width: 100%;max-width: none;height: 10rem;background-image: url('../tumblbug-assets.imgix.net/assets/ProjectStart/creators-mobile.jpg');}}
-/* sc-component-id: ProjectStartIntro__Container-s2xdrfv-2 */
-
-.bwttMn {padding: 5rem 2rem;max-width: 992px;margin: 0 auto;}@media only screen and (max-width: 1080px) {.bwttMn {max-width: 768px;}}@media only screen and (max-width: 768px) {.bwttMn {padding: 4rem 4rem;}}
-/* sc-component-id: ProjectStartIntro__H1-s2xdrfv-3 */
-
-.iGzHdj {word-break: keep-all;font-size: 2rem;line-height: 1.5;margin: 0 0 2rem 0;}
-/* sc-component-id: ProjectStartIntro__Contents-s2xdrfv-4 */
-
-.bNlufC {width: 50%;margin: 2rem 0;padding: 0 4rem 0 0;font-size: 1.1rem;word-break: keep-all;}@media only screen and (max-width: 768px) {.bNlufC {width: 100%;margin: 0 0 2rem 0;padding: 0;}}
-/* sc-component-id: GuideCard__CardWrapper-tb3jf-0 */
-
-.esxgfG {display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-flex-wrap: wrap;-ms-flex-wrap: wrap;flex-wrap: wrap;padding: 0rem 2rem 1rem 2rem;text-align: center;-webkit-flex-basis: 33.333%;-ms-flex-basis: 33.333%;flex-basis: 33.333%;word-break: keep-all;}@media only screen and (max-width: 768px) {.esxgfG {-webkit-flex-wrap: nowrap;-ms-flex-wrap: nowrap;flex-wrap: nowrap;-webkit-flex-basis: 100%;-ms-flex-basis: 100%;flex-basis: 100%;text-align: left;}}
-/* sc-component-id: GuideCard__ImageWrapper-tb3jf-1 */
-
-.fxuIyO {-webkit-flex-grow: 0;-ms-flex-grow: 0;flex-grow: 0;-webkit-flex-shrink: 0;-ms-flex-shrink: 0;flex-shrink: 0;-webkit-flex-basis: 100%;-ms-flex-basis: 100%;flex-basis: 100%;}@media only screen and (max-width: 768px) {.fxuIyO {-webkit-flex-basis: 8rem;-ms-flex-basis: 8rem;flex-basis: 8rem;}}
-/* sc-component-id: GuideCard__Image-tb3jf-2 */
-
-.hKesKk {display: block;margin: 0 auto;width: 60%;}@media only screen and (max-width: 768px) {.hKesKk {width: 6rem;margin: 1rem 0;}}
-/* sc-component-id: GuideCard__Content-tb3jf-3 */
-
-.itOJgv {padding-top: 2rem;-webkit-flex-basis: 100%;-ms-flex-basis: 100%;flex-basis: 100%;-webkit-flex-grow: 0;-ms-flex-grow: 0;flex-grow: 0;-webkit-flex-shrink: 0;-ms-flex-shrink: 0;flex-shrink: 0;}@media only screen and (max-width: 768px) {.itOJgv {-webkit-flex-grow: 1;-ms-flex-grow: 1;flex-grow: 1;-webkit-flex-shrink: 1;-ms-flex-shrink: 1;flex-shrink: 1;padding: 1.5rem 0;}}
-/* sc-component-id: GuideCard__H4-tb3jf-4 */
-
-.buHmWJ {font-size: 1.3rem;font-weight: 600;margin-top: 2rem;}
-/* sc-component-id: GuideCard__P-tb3jf-5 */
-
-.iaaZRK {color: #555555;font-size: 1rem;word-break: keep-all;}
-/* sc-component-id: ProjectStartGuide__Container-yc0zw9-0 */
-
-.hDDvFE {padding: 4rem 2rem;font-size: 1.1rem;max-width: 992px;margin: 0 auto;}@media only screen and (max-width: 1080px) {.hDDvFE {max-width: 768px;}}@media only screen and (max-width: 768px) {.hDDvFE {padding: 4rem 4rem;}}
-/* sc-component-id: ProjectStartGuide__GuideWrapper-yc0zw9-1 */
-
-.kIVudD {position: relative;}
-/* sc-component-id: ProjectStartGuide__H2-yc0zw9-2 */
-
-.jvuQXE {word-break: keep-all;font-size: 2rem;line-height: 1.5;margin: 0 0 2rem 0;}
-/* sc-component-id: ProjectStartGuide__P-yc0zw9-3 */
-
-.cFsNY {margin: 2rem 0;word-break: keep-all;}
-/* sc-component-id: ProjectStartGuide__CardSet-yc0zw9-4 */
-
-.eFKMQA {display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-webkit-justify-content: center;-ms-flex-pack: center;justify-content: center;-webkit-flex-wrap: nowrap;-ms-flex-wrap: nowrap;flex-wrap: nowrap;margin: 0 -2rem 2rem -2rem;}@media only screen and (max-width: 768px) {.eFKMQA {display: block;}}
-/* sc-component-id: ProjectStartGuide__ButtonWrapper-yc0zw9-5 */
-
-.gIOyim {margin: 0 -1rem 0 -1rem;width: 33.33333%;text-align: center;}@media only screen and (max-width: 768px) {.gIOyim {margin: 1rem 0 0 0;width: 100%;text-align: left;}}
-/* sc-component-id: PersonaCard__CardWrapper-s15ltilf-0 */
-
-.iLhPAj {display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-flex-direction: column;-ms-flex-direction: column;flex-direction: column;width: 33.333333%;padding: 0 2rem;}@media only screen and (max-width: 768px) {.iLhPAj {display: block;width: 100%;margin-bottom: 5rem;}}
-/* sc-component-id: PersonaCard__H4-s15ltilf-1 */
-
-.hTKeoc {font-size: 1.5rem;line-height: 1.5;font-weight: bold;margin-bottom: 1rem;}
-/* sc-component-id: PersonaCard__Line-s15ltilf-2 */
-
-.iWBzky {display: block;background-color: #FFE6E6;border-radius: 3px;height: 5px;}
-
-.wbWBn {display: block;background-color: #E6EDFF;border-radius: 3px;height: 5px;}
-
-.cqbDMZ {display: block;background-color: #DFF8FC;border-radius: 3px;height: 5px;}
-/* sc-component-id: PersonaCard__H5-s15ltilf-3 */
-
-.kVvgyK {font-size: 1.3rem;line-height: 1.6;font-weight: normal;margin-bottom: 1.5rem;}
-/* sc-component-id: PersonaCard__P-s15ltilf-4 */
-
-.bISUoC {font-size: 1rem;margin-bottom: 2rem;}
-/* sc-component-id: PersonaCard__CollectionLink-s15ltilf-5 */
-
-.dpuEfz {display: inline-block;text-align: center;font-weight: bold;color: inherit;background-color: #FFE6E6;border-radius: 3px;padding: 0.5rem 1rem;}
-
-.gzcpNu {display: inline-block;text-align: center;font-weight: bold;color: inherit;background-color: #E6EDFF;border-radius: 3px;padding: 0.5rem 1rem;}
-
-.ePxcpz {display: inline-block;text-align: center;font-weight: bold;color: inherit;background-color: #DFF8FC;border-radius: 3px;padding: 0.5rem 1rem;}
-/* sc-component-id: ProjectStartPersona__PersonaWrapper-pa5aa5-0 */
-
-.fUrTBG {position: relative;background-color: #ffffff;}
-/* sc-component-id: ProjectStartPersona__Container-pa5aa5-1 */
-
-.fvaroY {padding: 4rem 2rem;max-width: 992px;margin: 0 auto;}@media only screen and (max-width: 1080px) {.fvaroY {max-width: 768px;}}@media only screen and (max-width: 768px) {.fvaroY {padding: 4rem 4rem;}}
-/* sc-component-id: ProjectStartPersona__H2-pa5aa5-2 */
-
-.eZGHLA {word-break: keep-all;font-size: 2rem;line-height: 1.5;margin: 0 0 3rem 0;}
-/* sc-component-id: ProjectStartPersona__CardSet-pa5aa5-3 */
-
-.hKMyBu {display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-webkit-justify-content: center;-ms-flex-pack: center;justify-content: center;-webkit-flex-wrap: nowrap;-ms-flex-wrap: nowrap;flex-wrap: nowrap;margin: 2rem -2rem 2rem -2rem;}@media only screen and (max-width: 768px) {.hKMyBu {display: block;}}
-/* sc-component-id: BenefitCard__CardWrapper-s1ulvf2-0 */
-
-.hnRMPW {display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-flex-direction: column;-ms-flex-direction: column;flex-direction: column;width: 33.333333%;padding: 0 2rem;}@media only screen and (max-width: 768px) {.hnRMPW {display: block;width: 100%;margin-bottom: 2rem;}}
-/* sc-component-id: BenefitCard__H4-s1ulvf2-1 */
-
-.jJsAQC {font-size: 1.3rem;font-weight: 600;margin-top: 2rem;}
-/* sc-component-id: BenefitCard__P-s1ulvf2-2 */
-
-.dAirgg {font-size: 1rem;}
-/* sc-component-id: ProjectStartBenefits__BenefitsWrapper-s12798m-0 */
-
-.kZWRNW {position: relative;}
-/* sc-component-id: ProjectStartBenefits__Container-s12798m-1 */
-
-.exyDzC {padding: 4rem 2rem;max-width: 992px;margin: 0 auto;}@media only screen and (max-width: 1080px) {.exyDzC {max-width: 768px;}}@media only screen and (max-width: 768px) {.exyDzC {padding: 4rem 4rem;}}
-/* sc-component-id: ProjectStartBenefits__H2-s12798m-2 */
-
-.irajPl {word-break: keep-all;font-size: 2rem;line-height: 1.5;margin: 0 0 2rem 0;}
-/* sc-component-id: ProjectStartBenefits__CardSet-s12798m-3 */
-
-.bNQPtQ {display: -webkit-box;display: -webkit-flex;display: -ms-flexbox;display: flex;-webkit-box-pack: center;-webkit-justify-content: center;-ms-flex-pack: center;justify-content: center;-webkit-flex-wrap: nowrap;-ms-flex-wrap: nowrap;flex-wrap: nowrap;margin: 0 -2rem 2rem -2rem;}@media only screen and (max-width: 768px) {.bNQPtQ {display: block;}}
-/* sc-component-id: ProjectStartFooter__FooterWrapper-s1w3slr4-0 */
-
-.cMBfhY {position: relative;background: #9945d1;background: -moz-linear-gradient(-45deg, #9945d1 0%, #694ed8 60%, #369ac9 100%);background: -webkit-linear-gradient(-45deg, #9945d1 0%, #694ed8 60%, #369ac9 100%);background: linear-gradient(135deg, #9945d1 0%, #694ed8 60%, #369ac9 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9945d1',endColorstr='#369ac9',GradientType=1);}
-/* sc-component-id: ProjectStartFooter__Container-s1w3slr4-1 */
-
-.hLRFHd {padding: 4rem 0 3rem 0;max-width: 992px;margin: 0 auto;text-align: center;}@media only screen and (max-width: 1080px) {.hLRFHd {max-width: 768px;}}@media only screen and (max-width: 768px) {.hLRFHd {padding: 4rem 4rem;}}
-/* sc-component-id: ProjectStartFooter__H2-s1w3slr4-2 */
-
-.hHZzHq {font-size: 3rem;font-weight: 600;color: #fff;line-height: 1.15;word-break: keep-all;margin: 0;}@media only screen and (max-width: 768px) {.hHZzHq {font-size: 2rem;}}
-/* sc-component-id: ProjectStartFooter__Contents-s1w3slr4-3 */
-
-.hWABJR {margin: 2rem 0;font-size: 1.3rem;color: #fff;word-break: keep-all;}
-/* sc-component-id: ProjectStartFooter__P-s1w3slr4-4 */
-
-.jSEjxH {margin: 2rem 0;font-size: 0.9rem;color: #fff;}
-/* sc-component-id: ProjectStartFooter__A-s1w3slr4-5 */
-
-.iCNmGI {color: inherit;display: inline-block;font-weight: bold;padding-bottom: 0.1em;border-bottom: 1px solid rgba(255, 255, 255, 0.6);}.iCNmGI:hover,.iCNmGI:focus,.iCNmGI:active {color: inherit;border-bottom: 1px solid rgba(255, 255, 255, 1);}
-
+@
+-webkit-keyframes fzoeFq { 0%, 100% {
+	-webkit-transform: translateX(0);
+	-ms-transform: translateX(0);
+	transform: translateX(0);
+}
+50%
+{
+-webkit-transform
+:
+ 
+translateX
+(4px);-ms-transform
+:
+ 
+translateX
+(4px);transform
+:
+ 
+translateX
+(4px);
+}
+}
+@
+keyframes fzoeFq { 0%, 100% {
+	-webkit-transform: translateX(0);
+	-ms-transform: translateX(0);
+	transform: translateX(0);
+}
+50%
+{
+-webkit-transform
+:
+ 
+translateX
+(4px);-ms-transform
+:
+ 
+translateX
+(4px);transform
+:
+ 
+translateX
+(4px);
+}
+}
 </style>
-    </head>
-    <body>
-      <div id="react-view"><div data-reactroot="" data-reactid="1" data-react-checksum="-488035693"><!-- react-empty: 2 --><div data-reactid="3"><div class="SiteHeader__SiteHeaderWrapper-s1s56ls8-0 jPcWZN" data-reactid="4"><div class="Header__Header-s10wde3a-0 iVCTYT" data-reactid="5"><div class="Container__Container-s1sxg7g4-0 jdgWcI" data-reactid="6"><div class="SiteHeader__SiteHeaderMenu-s1s56ls8-1 bteafZ" data-reactid="7"><div class="SiteHeader__LeftMenu-s1s56ls8-2 kZLTLQ" data-reactid="8"><button class="SiteHeader__LinkButton-s1s56ls8-7 hcvfVq" data-reactid="9"><i class="_3ZgG-OSv0XE3y-h3oPaDsl _1QY7TzdLHKX3-BKPDNNYKF" data-reactid="10"></i><span class="SiteHeader__ItemLabel-s1s56ls8-8 iGOIal" data-reactid="11">프로젝트 둘러보기</span></button><span class="SiteHeader__ForMobile-s1s56ls8-9 kizyZz" data-reactid="12"><a class="SiteHeader__LinkItem-s1s56ls8-6 cfMrMC" href="start.html" data-reactid="13"><span class="SiteHeader__ItemLabel-s1s56ls8-8 iGOIal" data-reactid="14">프로젝트 올리기</span></a></span></div><div class="SiteHeader__CenterMenu-s1s56ls8-3 hHUgvf" data-reactid="15"><a class="SiteHeader__ButtonLink-s1s56ls8-5 bpfGNO" href="index.html" data-reactid="16"><div class="TumblbugLogo__TumblbugLogo-s9od1ls-0 JUlEd" data-reactid="17"><svg id="tumblbug_logo" viewBox="0 0 107.89 28.39" data-reactid="18"><title data-reactid="19">TumblbugLogo</title><path d="M26.55,11.87H25c-.12,0-.23,0-.28.12l-2.27,5.5c-1.15,2.89-2.31,4.62-4.9,5a1.41,1.41,0,0,1-1.24-.32c-.27-.33-.26-.89.05-1.64l2.82-6.89,0-.07.58-1.43a.18.18,0,0,0,0-.21c-.06-.08-.15-.06-.25-.06H16c-.12,0-.24,0-.28.12l-.58,1.4a.35.35,0,0,0,0,.31.33.33,0,0,0,.25.16h1.46l-2.75,6.68a3.53,3.53,0,0,0,0,3h0a3.2,3.2,0,0,0,2.58,1.06A8.27,8.27,0,0,0,21,23.13l.08-.05,0,.09a2.27,2.27,0,0,0,1.37,1.29c.74.19,1.81.18,3.44-1.52a.31.31,0,0,0,0-.43l-.77-.76a.31.31,0,0,0-.45,0c-.47.6-.94.91-1.32.88a.39.39,0,0,1-.33-.26,3.77,3.77,0,0,1,.4-2,.31.31,0,0,0,0-.13l.22-.45,3.15-7.68a.18.18,0,0,0,0-.21C26.75,11.84,26.65,11.87,26.55,11.87Z" transform="translate(-3.1 -3.05)" data-reactid="20"></path><path d="M12.21,11.92H9.3l.94-2.43a.55.55,0,0,0,0-.39c-.06-.08-.15-.24-.25-.24H8.39c-.12,0-.24.22-.28.33l-1,2.73H5c-.12,0-.24,0-.28.12l-.58,1.4a.35.35,0,0,0,0,.31.33.33,0,0,0,.25.16H6.26L3.67,20.37v0l-.09.22c-.6,1.54-.63,2.62-.09,3.31a2.77,2.77,0,0,0,2.29.8,5.54,5.54,0,0,0,4.59-2.46,8.86,8.86,0,0,0,1.09-2,.31.31,0,0,0-.29-.42H9.49a.31.31,0,0,0-.28.18,4.5,4.5,0,0,1-2.38,2.49c-.57.16-1,.13-1.16-.1-.32-.38-.12-1.22.16-1.86l2.67-6.63h3.15a.35.35,0,0,0,.28-.23l.58-1.45a.19.19,0,0,0,0-.22C12.41,11.91,12.31,11.92,12.21,11.92Z" transform="translate(-3.1 -3.05)" data-reactid="21"></path><path d="M46.2,21.57a.31.31,0,0,0-.47.05c-.26.4-.8,1.08-1.49,1.08a.29.29,0,0,1-.27-.11c-.12-.17-.09-.42.08-.9L46.37,16a4.69,4.69,0,0,0,.24-3.32,2.35,2.35,0,0,0-1.54-1.28,5,5,0,0,0-1.49-.23,5.35,5.35,0,0,0-4,1.79l-.1.11,0-.14a2.14,2.14,0,0,0-1.86-1.53,4.82,4.82,0,0,0-3.4,1l-.23.18.28-.66a.27.27,0,0,0,0-.27.29.29,0,0,0-.26-.12h-3.5a.29.29,0,0,0-.28.17l-.58,1.42a.27.27,0,0,0,0,.27.29.29,0,0,0,.25.11h1.48l-.85,2.13v0l-3,7.58a.39.39,0,0,0,0,.33.35.35,0,0,0,.25.17h1.57a.35.35,0,0,0,.28-.23l2.24-5.59c1.13-2.57,3-4.27,4.85-4.41.63,0,.8.22.86.31.33.53-.05,1.62-.33,2.19v0l-3,7.2a.31.31,0,0,0,.28.42h1.57a.29.29,0,0,0,.28-.19l2.79-6.79c1.15-2.4,3-3.48,4.22-3.49a1.21,1.21,0,0,1,1.12.5c.4.7-.18,1.93-.36,2.29v0l-2.25,5.47a2.73,2.73,0,0,0-.16,2.27,1.81,1.81,0,0,0,1.54.8h.52A3.84,3.84,0,0,0,47,22.69a.31.31,0,0,0,0-.37Z" transform="translate(-3.1 -3.05)" data-reactid="22"></path><path d="M94.6,22.24l-.77-.76a.3.3,0,0,0-.23-.09.3.3,0,0,0-.22.12c-.34.43-.84.93-1.32.88a.39.39,0,0,1-.33-.26,3.77,3.77,0,0,1,.4-2,.3.3,0,0,0,0-.1l.23-.5,3.14-7.67a.18.18,0,0,0,0-.21c-.06-.08-.15-.06-.25-.06H93.66c-.12,0-.23,0-.28.12l-2.27,5.5c-1.15,2.89-2.31,4.62-4.91,5A1.4,1.4,0,0,1,85,21.95c-.27-.33-.26-.89.05-1.64l2.82-6.89,0-.07.58-1.43a.18.18,0,0,0,0-.21c-.06-.08-.15-.06-.25-.06H84.66c-.12,0-.24,0-.28.12l-.58,1.4a.35.35,0,0,0,0,.31.33.33,0,0,0,.25.16h1.46L82.8,20.3a3.51,3.51,0,0,0,0,3h0a3.2,3.2,0,0,0,2.58,1.06,8.27,8.27,0,0,0,4.28-1.52l.08-.05,0,.09a2.27,2.27,0,0,0,1.36,1.29c.74.19,1.81.18,3.44-1.52A.31.31,0,0,0,94.6,22.24Z" transform="translate(-3.1 -3.05)" data-reactid="23"></path><path d="M110.88,12.24a1.66,1.66,0,0,0-1-1,2.24,2.24,0,0,0-2.52.73l-.11.15-.05.08-.06-.07a4.44,4.44,0,0,0-3-1.39h-.33a5.56,5.56,0,0,0-5.34,4.59,5.11,5.11,0,0,0,.17,2.16l0,.07-.07,0A4.38,4.38,0,0,0,96.72,19a3,3,0,0,0,.34,3.88l.08.08L97,23a4.3,4.3,0,0,0-2.49,4.38h0a4.12,4.12,0,0,0,1.2,2.69c.92.91,2.34,1.35,4.36,1.34a14.5,14.5,0,0,0,3-.25c4.59-1,5.26-3.71,5.25-5.27a3.44,3.44,0,0,0-1.18-2.74c-2-1.67-5.77-1.08-5.93-1.05h0c-2.16-.13-2.5-.72-2.63-.94a1,1,0,0,1,0-1,2.26,2.26,0,0,1,1-.86l0,0,0,0a4.4,4.4,0,0,0,2.87,1.24h.31a5.5,5.5,0,0,0,5.39-4.56,5,5,0,0,0-.31-2.53l0,0,0,0a2.13,2.13,0,0,1,.8-.7.46.46,0,0,1,.36,0,.41.41,0,0,1,.22.26.85.85,0,0,1-.09.59.31.31,0,0,0,.14.4l.8.39a.31.31,0,0,0,.41-.14A2.69,2.69,0,0,0,110.88,12.24Zm-8,6.25h-.18a2.4,2.4,0,0,1-1.87-1.12,2.83,2.83,0,0,1-.32-1.76,3.38,3.38,0,0,1,3.27-2.74H104a2.31,2.31,0,0,1,1.68.81,2.7,2.7,0,0,1,.54,2.1A3.37,3.37,0,0,1,102.93,18.49Zm-6.05,7.84a3,3,0,0,1,2.18-2.25h0a10,10,0,0,0,3.7,0h0a4.42,4.42,0,0,1,2.78.7,1.8,1.8,0,0,1,.63,1.28,2.24,2.24,0,0,1-.63,1.58c-1,1.11-3,1.66-5.86,1.63a3.07,3.07,0,0,1-2.49-1A2.15,2.15,0,0,1,96.88,26.33Z" transform="translate(-3.1 -3.05)" data-reactid="24"></path><path d="M79.22,11.69h0a4.45,4.45,0,0,0-4.19-.5l-.18.07-.17.07,3.14-7.8a.36.36,0,0,0,0-.31.33.33,0,0,0-.25-.16H73.8a.33.33,0,0,0-.28.22l-.58,1.45a.39.39,0,0,0,0,.32.35.35,0,0,0,.25.17h1.7L70.07,17.27c-.09.23-.26.69-.54,1.63l0,0a4.7,4.7,0,0,0,1.37,4.83,3.84,3.84,0,0,0,2.42.79,5.68,5.68,0,0,0,1.81-.33A9.56,9.56,0,0,0,81,16.11,5,5,0,0,0,79.22,11.69ZM73.71,22.44a2.2,2.2,0,0,1-1.46-.52,2.7,2.7,0,0,1-.68-2.74L73.21,15a3.85,3.85,0,0,1,2.25-1.85,2.91,2.91,0,0,1,2.48.27A3,3,0,0,1,78.86,16c-.14,2.66-2.13,5.55-4.35,6.31A2.49,2.49,0,0,1,73.71,22.44Z" transform="translate(-3.1 -3.05)" data-reactid="25"></path><path d="M58.85,11.76a4.45,4.45,0,0,0-4.19-.5l-.18.07-.17.07,3.14-7.8a.36.36,0,0,0,0-.31.33.33,0,0,0-.25-.16H53.43a.33.33,0,0,0-.28.22L52.57,4.8a.39.39,0,0,0,0,.32.35.35,0,0,0,.25.17h1.7L49.7,17.35c-.23.58-.55,1.67-.55,1.68a4.7,4.7,0,0,0,1.37,4.84,3.84,3.84,0,0,0,2.42.79,5.65,5.65,0,0,0,1.81-.33,9.56,9.56,0,0,0,5.87-8.14A5.05,5.05,0,0,0,58.85,11.76ZM53.34,22.52A2.22,2.22,0,0,1,51.88,22a2.7,2.7,0,0,1-.68-2.74L52.84,15a3.85,3.85,0,0,1,2.25-1.85,2.91,2.91,0,0,1,2.47.27,3,3,0,0,1,.92,2.62c-.14,2.66-2.14,5.55-4.35,6.31A2.48,2.48,0,0,1,53.34,22.52Z" transform="translate(-3.1 -3.05)" data-reactid="26"></path><path d="M65.75,21.61a.31.31,0,0,0-.46,0c-.4.56-.77.86-1.12.89a.56.56,0,0,1-.47-.19c-.21-.24-.12-.85.07-1.3l7-17.51a.36.36,0,0,0,0-.31.33.33,0,0,0-.25-.16H67.06a.33.33,0,0,0-.28.22L66.2,4.75a.39.39,0,0,0,0,.32.35.35,0,0,0,.25.17H67.9L61.57,21h0l0,.12a3,3,0,0,0,.13,2.64,2.11,2.11,0,0,0,1.91.84,3.84,3.84,0,0,0,3-1.82.31.31,0,0,0,0-.39Z" transform="translate(-3.1 -3.05)" data-reactid="27"></path><path d="M69.87,26.86l-.94-.47a.45.45,0,0,0-.6.2l-.23.47a3.08,3.08,0,0,1-2.76,1.64,4.78,4.78,0,0,1-3.49-1.44l-.3-.43a.45.45,0,0,0-.29-.18.45.45,0,0,0-.33.07l-.86.6a.44.44,0,0,0-.18.29.44.44,0,0,0,.07.33l.27.42a6.34,6.34,0,0,0,4.28,2.22v0h.11a5.87,5.87,0,0,0,.79.06,5,5,0,0,0,4.44-2.69l.23-.47A.45.45,0,0,0,69.87,26.86Z" transform="translate(-3.1 -3.05)" data-reactid="28"></path></svg></div></a></div><div class="SiteHeader__RightMenu-s1s56ls8-4 buZCDD" data-reactid="29"><a class="sc-gzVnrw imIxKd" href="login.html" data-reactid="30"><span class="SiteHeader__ItemLabel-s1s56ls8-8 iGOIal" data-reactid="31">로그인 / 회원가입</span><span class="SiteHeader__ProfileImageWrapper-s1s56ls8-10 gqXDKx" data-reactid="32"><span class="ProfileImg__ProfileImg-s1o99mme-0 fqdqdO" data-reactid="33"></span></span></a></div></div></div></div></div><div data-reactid="34"><div data-reactid="35"><!-- react-empty: 36 --><main data-reactid="37"><div class="ProjectStartHero__HeroWrapper-hxgqr8-0 hFrsFU" data-reactid="38"><div class="ProjectStartHero__HeroBackgroundLeft-hxgqr8-1 dACkvL" data-reactid="39"></div><div class="ProjectStartHero__HeroBackgroundRight-hxgqr8-2 cxVJuM" data-reactid="40"></div><div class="ProjectStartHero__Container-hxgqr8-3 gGEKCL" data-reactid="41"><div class="ProjectStartHero__Image-hxgqr8-7 lnyOsS" data-reactid="42"></div><div class="ProjectStartHero__Contents-hxgqr8-5 hZGKSB" data-reactid="43"><h1 class="ProjectStartHero__H1-hxgqr8-4 bZjbMV" data-reactid="44"><!-- react-text: 45 -->마음 속 프로젝트 아이디어,<!-- /react-text --><br data-reactid="46"/><!-- react-text: 47 -->텀블벅에서 현실로.<!-- /react-text --></h1><p class="ProjectStartHero__P-hxgqr8-6 gQkaxZ" data-reactid="48"><!-- react-text: 49 -->크라우드펀딩으로 프로젝트를 위한 자금도 모으고,<!-- /react-text --><br data-reactid="50"/><!-- react-text: 51 -->든든한 후원자 네트워크도 확보할 수 있습니다.<!-- /react-text --></p><button class="sc-gqjmRU bJiFzl" data-reactid="52">지금 시작하기</button></div></div></div><div class="ProjectStartIntro__IntroWrapper-s2xdrfv-0 jiqwKI" data-reactid="53"><div class="ProjectStartIntro__Image-s2xdrfv-1 fAOZDk" data-reactid="54"></div><div class="ProjectStartIntro__Container-s2xdrfv-2 bwttMn" data-reactid="55"><div class="ProjectStartIntro__Contents-s2xdrfv-4 bNlufC" data-reactid="56"><h1 class="ProjectStartIntro__H1-s2xdrfv-3 iGzHdj" data-reactid="57"><!-- react-text: 58 -->텀블벅에서 펀딩에 성공한<!-- /react-text --><br data-reactid="59"/><!-- react-text: 60 -->5,000<!-- /react-text --><!-- react-text: 61 -->개 프로젝트와 함께 하세요.<!-- /react-text --></h1><p data-reactid="62"><!-- react-text: 63 -->디자인, 영화, 게임, 출판, 요리, 패션, 이벤트 …<!-- /react-text --><br data-reactid="64"/><!-- react-text: 65 -->분야를 가릴 것 없이 수많은 창작자와 창업자들의 프로젝트들이 매일같이 올라오는 텀블벅은 한국에서 가장 활성화된 크라우드펀딩 커뮤니티입니다. 지금껏 <!-- /react-text --><!-- react-text: 66 -->5,000<!-- /react-text --><!-- react-text: 67 -->개 넘는 창조적인 시도들이 <!-- /react-text --><!-- react-text: 68 -->36만 명<!-- /react-text --><!-- react-text: 69 -->의 후원자를 만나 세상에 나왔습니다.<!-- /react-text --></p></div></div></div><div class="ProjectStartGuide__GuideWrapper-yc0zw9-1 kIVudD" data-reactid="70"><div class="ProjectStartGuide__Container-yc0zw9-0 hDDvFE" data-reactid="71"><h2 class="ProjectStartGuide__H2-yc0zw9-2 jvuQXE" data-reactid="72">쉽게 시작할 수 있습니다.</h2><p class="ProjectStartGuide__P-yc0zw9-3 cFsNY" data-reactid="73">‘크라우드펀딩’은 어려울지 몰라도 텀블벅은 어렵지 않습니다. 수익을 내서 현금을 돌려주거나 소유권을 나누는 등의 복잡한 과정도 필요하지 않습니다. 펀딩으로 모은 금액을 통해 만들어낸 제품 또는 특별한 경험 그 자체를 후원자들과 약속하고 공유하면 됩니다.</p><div class="ProjectStartGuide__CardSet-yc0zw9-4 eFKMQA" data-reactid="74"><div class="GuideCard__CardWrapper-tb3jf-0 esxgfG" data-reactid="75"><div class="GuideCard__ImageWrapper-tb3jf-1 fxuIyO" data-reactid="76"><img class="GuideCard__Image-tb3jf-2 hKesKk" src="../d2om2e6rfn032x.cloudfront.net/wpa/6e078bfbb32d5f327d979b5304ce77cc.png" alt="프로젝트 만들기 이미지" data-reactid="77"/></div><div class="GuideCard__Content-tb3jf-3 itOJgv" data-reactid="78"><h4 class="GuideCard__H4-tb3jf-4 buHmWJ" data-reactid="79">프로젝트 올리기</h4><p class="GuideCard__P-tb3jf-5 iaaZRK" data-reactid="80">창작 아이디어를 소개하는 프로젝트 페이지를 작성합니다. 후원자들에게 금액대별 특별한 선물들을 약속합니다.</p></div></div><div class="GuideCard__CardWrapper-tb3jf-0 esxgfG" data-reactid="81"><div class="GuideCard__ImageWrapper-tb3jf-1 fxuIyO" data-reactid="82"><img class="GuideCard__Image-tb3jf-2 hKesKk" src="../d2om2e6rfn032x.cloudfront.net/wpa/8bb77b6ee1e1135e474c01eca206fc23.png" alt="펀딩 진행하기 이미지" data-reactid="83"/></div><div class="GuideCard__Content-tb3jf-3 itOJgv" data-reactid="84"><h4 class="GuideCard__H4-tb3jf-4 buHmWJ" data-reactid="85">펀딩 진행하기</h4><p class="GuideCard__P-tb3jf-5 iaaZRK" data-reactid="86">정해진 기간 동안 후원자를 모으기 위해 열심히 홍보합니다. 목표 금액을 달성해야만 후원금이 전달됩니다.</p></div></div><div class="GuideCard__CardWrapper-tb3jf-0 esxgfG" data-reactid="87"><div class="GuideCard__ImageWrapper-tb3jf-1 fxuIyO" data-reactid="88"><img class="GuideCard__Image-tb3jf-2 hKesKk" src="../d2om2e6rfn032x.cloudfront.net/wpa/41a6c7d14f01251ac4093f7b9b81e828.png" alt="만들고 보답하기 이미지" data-reactid="89"/></div><div class="GuideCard__Content-tb3jf-3 itOJgv" data-reactid="90"><h4 class="GuideCard__H4-tb3jf-4 buHmWJ" data-reactid="91">만들고 보답하기</h4><p class="GuideCard__P-tb3jf-5 iaaZRK" data-reactid="92">전달받은 후원금으로 창작에 돌입합니다. 틈틈히 진척사항을 알리고, 약속한 선물을 전달하면 프로젝트가 끝납니다.</p></div></div></div><div class="ProjectStartGuide__ButtonWrapper-yc0zw9-5 gIOyim" data-reactid="93"><button class="sc-gqjmRU cjYnUu" data-reactid="94">프로젝트 올리기 시작하기</button></div></div></div><div class="ProjectStartPersona__PersonaWrapper-pa5aa5-0 fUrTBG" data-reactid="95"><div class="ProjectStartPersona__Container-pa5aa5-1 fvaroY" data-reactid="96"><h2 class="ProjectStartPersona__H2-pa5aa5-2 eZGHLA" data-reactid="97">누구에게나 열려 있습니다.</h2><div class="ProjectStartPersona__CardSet-pa5aa5-3 hKMyBu" data-reactid="98"><div class="PersonaCard__CardWrapper-s15ltilf-0 iLhPAj" data-reactid="99"><h4 class="PersonaCard__H4-s15ltilf-1 hTKeoc" data-reactid="100">창작자</h4><div class="PersonaCard__Line-s15ltilf-2 iWBzky" color="#FFE6E6" data-reactid="101"></div><h5 class="PersonaCard__H5-s15ltilf-3 kVvgyK" data-reactid="102">평소 몰두했던 작업이나 구상만 하던 창작 아이디어를 본격적인 단계로 발전시킬 기회로 삼아보세요.</h5><p class="PersonaCard__P-s15ltilf-4 bISUoC" data-reactid="103">시작하는 창작자에게 텀블벅은 지원금, 공모전 등의 방식들보다 훨씬 자율적이고 독립적으로 나와 내 작업을 알릴 수 있는 새로운 길입니다. 이미 콘텐츠와 팬층을 확보한 작가라면 신선한 기획을 통해 팬들을 만나는 새로운 창구를 열어보는 건 어떨까요?</p><a class="PersonaCard__CollectionLink-s15ltilf-5 dpuEfz" target="_blank" rel="noopener noreffer" href="collections/creative.html" color="#FFE6E6" data-reactid="104"><!-- react-text: 105 -->창작자<!-- /react-text --><!-- react-text: 106 --> 성공사례 보기<!-- /react-text --></a></div><div class="PersonaCard__CardWrapper-s15ltilf-0 iLhPAj" data-reactid="107"><h4 class="PersonaCard__H4-s15ltilf-1 hTKeoc" data-reactid="108">브랜드</h4><div class="PersonaCard__Line-s15ltilf-2 wbWBn" color="#E6EDFF" data-reactid="109"></div><h5 class="PersonaCard__H5-s15ltilf-3 kVvgyK" data-reactid="110">초기 비용이나 재고 부담 없이 새로운 제품이나 서비스를 론칭하고 코어 팬 베이스를 확보하세요.</h5><p class="PersonaCard__P-s15ltilf-4 bISUoC" data-reactid="111">브랜드에 이목을 집중시키는 스토리를 통해 마케팅 효과를 극대화할 수 있습니다. 트렌디하면서도 개인의 취향과 가치가 강조되는 새로운 참여형 소비 창구로 각광받는 텀블벅에서 모인 후원자들의 신뢰는 일반 이커머스에서보다 훨씬 깊고 오래 가는 팬 베이스가 되어줄 것입니다.</p><a class="PersonaCard__CollectionLink-s15ltilf-5 gzcpNu" target="_blank" rel="noopener noreffer" href="collections/brands.html" color="#E6EDFF" data-reactid="112"><!-- react-text: 113 -->브랜드<!-- /react-text --><!-- react-text: 114 --> 성공사례 보기<!-- /react-text --></a></div><div class="PersonaCard__CardWrapper-s15ltilf-0 iLhPAj" data-reactid="115"><h4 class="PersonaCard__H4-s15ltilf-1 hTKeoc" data-reactid="116">캠페인</h4><div class="PersonaCard__Line-s15ltilf-2 cqbDMZ" color="#DFF8FC" data-reactid="117"></div><h5 class="PersonaCard__H5-s15ltilf-3 kVvgyK" data-reactid="118">임팩트 있는 캠페인을 통해 사회적 이슈를 지속가능한 참여와 후원으로 전환시켜보세요.</h5><p class="PersonaCard__P-s15ltilf-4 bISUoC" data-reactid="119">언론이나 소셜미디어에서 떠오르는 이슈들을 구체적인 행동으로 전환시키는 데에 텀블벅 프로젝트가 제격입니다. 새롭고 젊은 정치참여·사회운동 방식으로 주목받는 텀블벅 펀딩으로 더 많은 지지자를 얻고, 사회적 목소리를 증폭시켜보세요.</p><a class="PersonaCard__CollectionLink-s15ltilf-5 ePxcpz" target="_blank" rel="noopener noreffer" href="collections/campaigns.html" color="#DFF8FC" data-reactid="120"><!-- react-text: 121 -->캠페인<!-- /react-text --><!-- react-text: 122 --> 성공사례 보기<!-- /react-text --></a></div></div></div></div><div class="ProjectStartBenefits__BenefitsWrapper-s12798m-0 kZWRNW" data-reactid="123"><div class="ProjectStartBenefits__Container-s12798m-1 exyDzC" data-reactid="124"><h2 class="ProjectStartBenefits__H2-s12798m-2 irajPl" data-reactid="125">창조적인 도전을 잘 아는 사람들이 만듭니다.</h2><p data-reactid="126">6년 전 대학생 두 명이 창작 활동을 위해 직접 서비스를 시작한 이래 텀블벅의 목표는 늘 하나였습니다. 누구나 쉽고 빠르고 똑똑하게 아이디어를 실현할 수 있도록 창조적인 시도를 위한 기반을 만드는 것. 텀블벅 창작자와 후원자들은 독창적인 시도와 다양성이 존중받는 생태계를 함께 만들어가고 있습니다.</p><div class="ProjectStartBenefits__CardSet-s12798m-3 bNQPtQ" data-reactid="127"><div class="BenefitCard__CardWrapper-s1ulvf2-0 hnRMPW" data-reactid="128"><h4 class="BenefitCard__H4-s1ulvf2-1 jJsAQC" data-reactid="129">낮은 수수료, 빠른 정산</h4><p class="BenefitCard__P-s1ulvf2-2 dAirgg" data-reactid="130">펀딩에 성공한 경우에만 5%의 수수료를 받습니다. 직관적인 프로젝트 작성 도구를 이용해 미리 발생할 수수료와 정산 일정을 계산해 볼 수 있어 첫 프로젝트도 쉽게 계획할 수 있습니다.</p></div><div class="BenefitCard__CardWrapper-s1ulvf2-0 hnRMPW" data-reactid="131"><h4 class="BenefitCard__H4-s1ulvf2-1 jJsAQC" data-reactid="132">성공을 돕는 리소스</h4><p class="BenefitCard__P-s1ulvf2-2 dAirgg" data-reactid="133"><span data-reactid="134"><!-- react-text: 135 -->펀딩 시작 전, 각 분야의 생태를 잘 아는 에디터가 프로젝트를 검토하고 피드백을 드립니다. <!-- /react-text --><a href="https://help.tumblbug.com/hc/ko/categories/115001047328" target="_blank" rel="noreferrer noopener" data-reactid="136">헬프센터 내 창작자 센터</a><!-- react-text: 137 -->에는 각 단계별 성공을 위한 꼼꼼한 도움말이 준비되어 있습니다.<!-- /react-text --></span></p></div><div class="BenefitCard__CardWrapper-s1ulvf2-0 hnRMPW" data-reactid="138"><h4 class="BenefitCard__H4-s1ulvf2-1 jJsAQC" data-reactid="139">확산이 빠른 커뮤니티</h4><p class="BenefitCard__P-s1ulvf2-2 dAirgg" data-reactid="140">후원의 상당 부분이 40만 텀블벅 커뮤니티와 확장된 소셜네트워크에서 유입됩니다. 데이터에 기초해 스마트한 홍보와 진행을 할 수 있도록 노하우를 지원해 드리겠습니다.</p></div></div></div></div><div class="ProjectStartFooter__FooterWrapper-s1w3slr4-0 cMBfhY" data-reactid="141"><div class="ProjectStartFooter__Container-s1w3slr4-1 hLRFHd" data-reactid="142"><h2 class="ProjectStartFooter__H2-s1w3slr4-2 hHZzHq" data-reactid="143">프로젝트를 만들어보세요!</h2><p class="ProjectStartFooter__Contents-s1w3slr4-3 hWABJR" data-reactid="144"><!-- react-text: 145 -->직관적인 프로젝트 편집 도구로 곧바로 작성을 시작할 수 있습니다.<!-- /react-text --><br data-reactid="146"/><!-- react-text: 147 -->프로젝트를 공개할 준비가 되었을 때 에디터의 검토를 거치면 됩니다.<!-- /react-text --><br data-reactid="148"/><!-- react-text: 149 -->궁금한 점이 있으면 언제든지 <!-- /react-text --><a class="ProjectStartFooter__A-s1w3slr4-5 iCNmGI" href="https://help.tumblbug.com/hc/ko/requests/new" target="_blank" rel="noopener noreffer" data-reactid="150">문의를 남겨주세요.</a></p><button class="sc-gqjmRU bJiFzl" data-reactid="151">지금 시작하기</button><p class="ProjectStartFooter__P-s1w3slr4-4 jSEjxH" data-reactid="152"><!-- react-text: 153 -->제휴·협력 문의는<!-- /react-text --><br data-reactid="154"/><a class="ProjectStartFooter__A-s1w3slr4-5 iCNmGI" href="mailto:partnership@tumblbug.com" target="_blank" rel="noopener noreffer" data-reactid="155">partnership@tumblbug.com</a><!-- react-text: 156 --> 으로 부탁드립니다.<!-- /react-text --></p></div></div></main></div><div class="_2nkoQovCMNDdKtTjNi5W_x" data-reactid="157"><div class="_13KHfN73YmQgsYHxXvuh_J _1WARcEqqT_Pem8leg2dkMj" data-reactid="158"><div class="_13KHfN73YmQgsYHxXvuh_J _1V4AsGFqT8un0KZo8QWVRL kKeFxbI9p0TnKvSk7DzSR _1gTQggGV_yO4HJ6p7pil3E _1UmvYpZQFDG3yh_HWxQaF9 _12TAeoYDPLF0sfa3UIt6uZ _3ZTEzsKL-qDLECUGq4QcLv" data-reactid="159"><div class="_1ImF9kUktZoPfysBSwFigF _152MAijd_UogerBKCVqZR_ _1lLHKI5v9AoCyeggtffvGZ" data-reactid="160"><a href="https://careers.tumblbug.com/" class="_3TJ2LNmiyFnXVggSgiKX5Q" target="_blank" rel="noopener noreferrer" data-reactid="161">채용</a><br data-reactid="162"/><a href="https://creator.tumblbug.com/" class="_3TJ2LNmiyFnXVggSgiKX5Q" target="_blank" rel="noopener noreferrer" data-reactid="163">창작자 가이드</a><br data-reactid="164"/><a href="https://year.tumblbug.com/2017/" class="_3TJ2LNmiyFnXVggSgiKX5Q" target="_blank" rel="noopener noreferrer" data-reactid="165">2017년 결산</a></div><div class="_2joJTlnkt26WGpxyvkNuCH _152MAijd_UogerBKCVqZR_ _1lLHKI5v9AoCyeggtffvGZ" data-reactid="166"><a class="_3TJ2LNmiyFnXVggSgiKX5Q" href="terms-of-use.html" data-reactid="167">이용약관</a><!-- react-text: 168 --> <!-- /react-text --><label class="_13KHfN73YmQgsYHxXvuh_J _1DLNFgQRrQNEosKFB0zOK5 _3D9sfZXrWd8it3eUCuCTc8" data-reactid="169">개정</label><br data-reactid="170"/><a class="_3TJ2LNmiyFnXVggSgiKX5Q" href="privacy.html" data-reactid="171">개인정보 보호정책</a><br data-reactid="172"/><a href="https://help.tumblbug.com/" class="_3TJ2LNmiyFnXVggSgiKX5Q" target="_blank" data-reactid="173">헬프 센터</a></div><div class="_3bWlQdzIFpvwX2B8mnOzgn _152MAijd_UogerBKCVqZR_ _1lLHKI5v9AoCyeggtffvGZ _2h2Lxt21YmZS8bCMfCUMnE" data-reactid="174"><div data-reactid="175"><a href="https://www.facebook.com/tumblbug" class="_3TJ2LNmiyFnXVggSgiKX5Q" target="_blank" rel="noopener noreferrer" data-reactid="176"><i class="_1uz2PaH_Pc163IQLnwFtm8 _1oJMWnMCW_Y6GmNc1mhqaW _1QY7TzdLHKX3-BKPDNNYKF" data-reactid="177"></i><span class="SiteFooter__SROnlyLabel-s15w7vby-0 jYcZV" data-reactid="178">facebook 바로가기</span></a><!-- react-text: 179 -->  <!-- /react-text --><a href="https://twitter.com/tumblbug" class="_3TJ2LNmiyFnXVggSgiKX5Q" target="_blank" rel="noopener noreferrer" data-reactid="180"><i class="_2FxT97uoLyJpLIfoko0aQD _1oJMWnMCW_Y6GmNc1mhqaW _1QY7TzdLHKX3-BKPDNNYKF" data-reactid="181"></i><span class="SiteFooter__SROnlyLabel-s15w7vby-0 jYcZV" data-reactid="182">twitter 바로가기</span></a><!-- react-text: 183 -->  <!-- /react-text --><a href="https://www.instagram.com/tumblbug/" class="_3TJ2LNmiyFnXVggSgiKX5Q" target="_blank" rel="noopener noreferrer" data-reactid="184"><i class="jVeP2LZnw-ySfySkeJWoo _1oJMWnMCW_Y6GmNc1mhqaW _1QY7TzdLHKX3-BKPDNNYKF" data-reactid="185"></i><span class="SiteFooter__SROnlyLabel-s15w7vby-0 jYcZV" data-reactid="186">instagram 바로가기</span></a><!-- react-text: 187 -->  <!-- /react-text --><a href="http://post.naver.com/my.nhn?memberNo=23995853" class="_3TJ2LNmiyFnXVggSgiKX5Q" target="_blank" rel="noopener noreferrer" data-reactid="188"><svg class="_3wp2zfPfFJudKjknXrAhPI" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 18.31" data-reactid="189"><title data-reactid="190">naverIcon</title><path d="M20,19.15H13.33A0.34,0.34,0,0,1,13,19L7,10.22,6.84,10v9.15H0V0.85H6.68A0.32, 0.32,0,0,1,7,1l6,8.75a0.82,0.82,0,0,0,.19.22V0.86H20v18.3Z" transform="translate(0 -0.84)" data-reactid="191"></path></svg></a></div><div style="text-align:right;" data-reactid="192"><a href="https://help.tumblbug.com/hc/ko/requests/new" target="_blank" rel="noopener noreferrer" style="width:115px;margin:1rem 0 0 0;display:inline-block;" class="_13KHfN73YmQgsYHxXvuh_J _1Qdv504-1XMeYXZyb0xQZT _3SbGdzxKM6M_AeOQWLNqks" data-reactid="193"><i class="IOopdu3Yum3GyEGW_GKW6 _254YPhBOB9qv7-J8bIg7co _1QY7TzdLHKX3-BKPDNNYKF" data-reactid="194"></i><!-- react-text: 195 -->문의하기<!-- /react-text --></a></div></div><div class="_2AKJF7ih68n2TcW3TIF8-t _2EKbr4mCy_TvmSkhnSfA_a _152MAijd_UogerBKCVqZR_ _1lLHKI5v9AoCyeggtffvGZ" data-reactid="196"><span data-reactid="197">텀블벅(주) | 대표 염재승 105-87-52823 | 서울시 중구 삼일대로 343, 13층 | 통신판매업 2017-서울중구-1156 | 대표전화 02-6080-0760</span><span class="_1NwnhTlynaDwYqlZ_SKgmG" data-reactid="198"><span role="img" aria-labelledby="copyright emoji" data-reactid="199">©</span><!-- react-text: 200 --> <!-- /react-text --><!-- react-text: 201 -->2017 Tumblbug Inc.<!-- /react-text --></span></div></div></div></div></div></div></div></div>
-    </body>
+<style type="text/css"
+	data-styled-components="hIzDiB dLYLGx hGGMaO btBxPj cgjPcA bJJdfp fLGsgO gnrhzv eQgQLo"
+	data-styled-components-is-local="true">
+/* sc-component-id: sc-bdVaJa */
+.sc-bdVaJa {
+	
+}
+.eQgQLo {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	height: 100%;
+}
+/* sc-component-id: sc-bwzfXH */
+.sc-bwzfXH {
+	
+}
+.hIzDiB {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	margin: 0 auto;
+	height: 100vh;
+}
+/* sc-component-id: LoadingIndicator__Wrapper-s1ikuj59-1 */
+.LoadingIndicator__Wrapper-s1ikuj59-1 {
+	
+}
+.dLYLGx {
+	position: relative;
+	vertical-align: middle;
+	margin: 2rem 0;
+}
+/* sc-component-id: LoadingIndicator__Circle-s1ikuj59-2 */
+.LoadingIndicator__Circle-s1ikuj59-2 {
+	
+}
+.hGGMaO {
+	background: black;
+	float: left;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	margin-right: 5px;
+	-webkit-animation: cXdlcp .65s infinite;
+	animation: cXdlcp .65s infinite;
+}
+/* sc-component-id: sc-htpNat */
+.sc-htpNat {
+	
+}
+.btBxPj {
+	background: black;
+	float: left;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	margin-right: 5px;
+	-webkit-animation: cXdlcp .65s infinite;
+	animation: cXdlcp .65s infinite;
+	-webkit-animation-delay: -.1s;
+	animation-delay: -.1s;
+}
+/* sc-component-id: sc-bxivhb */
+.sc-bxivhb {
+	
+}
+.cgjPcA {
+	background: black;
+	float: left;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	margin-right: 5px;
+	-webkit-animation: cXdlcp .65s infinite;
+	animation: cXdlcp .65s infinite;
+	-webkit-animation-delay: -.2s;
+	animation-delay: -.2s;
+}
+/* sc-component-id: PayoutGuide__PayoutWrapper-s18hto5y-0 */
+.PayoutGuide__PayoutWrapper-s18hto5y-0 {
+	
+}
+.bJJdfp {
+	margin-bottom: 0.65em;
+	border: 1px solid #d4d4d5;
+	padding: 1em 1.5em;
+	min-height: 85px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+/* sc-component-id: PayoutGuide__H4-s18hto5y-1 */
+.PayoutGuide__H4-s18hto5y-1 {
+	
+}
+.fLGsgO {
+	color: #767676;
+	font-size: 0.92857143em;
+}
+/* sc-component-id: PayoutGuide__Description-s18hto5y-3 */
+.PayoutGuide__Description-s18hto5y-3 {
+	
+}
+.gnrhzv {
+	color: #757575;
+	word-break: keep-all;
+}
+.gnrhzv span {
+	color: #fa6462;
+}
+</style>
+<style type="text/css" data-styled-components=""
+	data-styled-components-is-local="true"></style>
+<style type="text/css" data-styled-components=""
+	data-styled-components-is-local="true"></style>
+<style type="text/css" data-styled-components=""
+	data-styled-components-is-local="true"></style>
+<style type="text/css" data-styled-components=""
+	data-styled-components-is-local="true"></style>
+<style type="text/css" data-styled-components=""
+	data-styled-components-is-local="true"></style>
+<style type="text/css"
+	data-styled-components="hFrsFU dACkvL cxVJuM gGEKCL lnyOsS hZGKSB bZjbMV gQkaxZ bJiFzl jiqwKI fAOZDk bwttMn bNlufC iGzHdj kIVudD hDDvFE jvuQXE cFsNY eFKMQA esxgfG fxuIyO hKesKk itOJgv buHmWJ iaaZRK gIOyim cjYnUu fUrTBG fvaroY eZGHLA hKMyBu iLhPAj hTKeoc iWBzky kVvgyK bISUoC dpuEfz wbWBn gzcpNu cqbDMZ ePxcpz hnRMPW jJsAQC"
+	data-styled-components-is-local="true">
+/* sc-component-id: sc-gqjmRU */
+.sc-gqjmRU {
+	
+}
+.bJiFzl {
+	cursor: pointer;
+	display: inline-block;
+	min-height: 1em;
+	outline: none;
+	border: none;
+	vertical-align: baseline;
+	box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px
+		rgba(0, 0, 0, 0.1) inset;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color
+		0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+	transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s
+		ease, box-shadow 0.1s ease, background 0.1s ease;
+	-webkit-tap-highlight-color: transparent;
+	margin: 0 .25em 0 0;
+	border-radius: 0.28571429rem;
+	text-transform: none;
+	text-shadow: none;
+	font-weight: bold;
+	line-height: 1em;
+	font-style: normal;
+	text-align: center;
+	text-decoration: none;
+}
+.bJiFzl>i {
+	margin: 0 .42857143em 0 -.21428571em;
+}
+.bJiFzl {
+	color: rgba(0, 0, 0, .6);
+	background-color: #e7e7e7;
+}
+.bJiFzl:hover, .bJiFzl:focus, .bJiFzl:active {
+	background-color: #d9d9d9;
+	color: rgba(0, 0, 0, 8);
+}
+.bJiFzl {
+	padding: 1em 1.5em;
+	font-size: 1em;
+	width:;
+	opacity: 1;
+	pointer-events:;;
+	font-size: 1.2rem;
+	background-color: #ffe955;
+	color: #f25b3d;
+	font-size: 1.4rem;
+	box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+	-webkit-transition: 0.2s ease;
+	transition: 0.2s ease;
+	min-width: 15rem;
+}
+.bJiFzl:hover, .bJiFzl:focus, .bJiFzl:active {
+	color: #d62e0d;
+	background-color: #ffe955;
+	box-shadow: 0 0 35px 3px rgba(255, 255, 255, .4);
+}
+.bJiFzl {;
+	
+}
+.cjYnUu {
+	cursor: pointer;
+	display: inline-block;
+	min-height: 1em;
+	outline: none;
+	border: none;
+	vertical-align: baseline;
+	box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px
+		rgba(0, 0, 0, 0.1) inset;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color
+		0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+	transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s
+		ease, box-shadow 0.1s ease, background 0.1s ease;
+	-webkit-tap-highlight-color: transparent;
+	margin: 0 .25em 0 0;
+	border-radius: 0.28571429rem;
+	text-transform: none;
+	text-shadow: none;
+	font-weight: bold;
+	line-height: 1em;
+	font-style: normal;
+	text-align: center;
+	text-decoration: none;
+}
+.cjYnUu>i {
+	margin: 0 .42857143em 0 -.21428571em;
+}
+.cjYnUu {
+	color: rgba(0, 0, 0, .6);
+	background-color: #e7e7e7;
+}
+.cjYnUu:hover, .cjYnUu:focus, .cjYnUu:active {
+	background-color: #d9d9d9;
+	color: rgba(0, 0, 0, 8);
+}
+.cjYnUu {
+	background-color: #fa6462;
+	color: #fff;
+}
+.cjYnUu:hover, .cjYnUu:focus, .cjYnUu:active {
+	background-color: #ff4543;
+	color: #fff;
+}
+.cjYnUu {
+	padding: 1em 1.5em;
+	font-size: 1em;
+	width:;
+	opacity: 1;
+	pointer-events:;;
+	font-size: 1.2rem;;
+}
+/* sc-component-id: ProjectStartHero__HeroWrapper-hxgqr8-0 */
+.ProjectStartHero__HeroWrapper-hxgqr8-0 {
+	
+}
+.hFrsFU {
+	position: relative;
+	overflow: hidden;
+	background: #d95a4a;
+	background: -moz-linear-gradient(-45deg, #32c1b5 0%, #d69546 26%, #d95a4a 59%,
+		#782a83 100%);
+	background: -webkit-linear-gradient(-45deg, #32c1b5 0%, #d69546 26%, #d95a4a 59%,
+		#782a83 100%);
+	background: linear-gradient(135deg, #32c1b5 0%, #d69546 26%, #d95a4a 59%, #782a83
+		100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#32c1b5',
+		endColorstr='#782a83', GradientType=1);
+}
+/* sc-component-id: ProjectStartHero__HeroBackgroundLeft-hxgqr8-1 */
+.ProjectStartHero__HeroBackgroundLeft-hxgqr8-1 {
+	
+}
+.dACkvL {
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	width: 30%;
+	min-width: 10rem;
+	height: 100%;
+	background-image:
+		url('https://tumblbug-assets.imgix.net/assets/ProjectStart/projectstart-hero-background-left.png');
+	background-size: cover;
+	background-position: center center;
+	opacity: 0.5;
+}
+/* sc-component-id: ProjectStartHero__HeroBackgroundRight-hxgqr8-2 */
+.ProjectStartHero__HeroBackgroundRight-hxgqr8-2 {
+	
+}
+.cxVJuM {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 30%;
+	min-width: 10rem;
+	height: 100%;
+	background-image:
+		url('https://tumblbug-assets.imgix.net/assets/ProjectStart/projectstart-hero-background-right.png');
+	background-size: cover;
+	background-position: center center;
+	opacity: 0.5;
+}
+/* sc-component-id: ProjectStartHero__Container-hxgqr8-3 */
+.ProjectStartHero__Container-hxgqr8-3 {
+	
+}
+.gGEKCL {
+	position: relative;
+	z-index: 99;
+	padding: 4rem 0;
+	max-width: 800px;
+	margin: 0 auto;
+}
+@media only screen and (max-width: 1080px) {
+	.gGEKCL {
+		max-width: 768px;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.gGEKCL {
+		padding: 3rem 1rem;
+	}
+}
+/* sc-component-id: ProjectStartHero__H1-hxgqr8-4 */
+.ProjectStartHero__H1-hxgqr8-4 {
+	
+}
+.bZjbMV {
+	font-size: 3rem;
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	line-height: 1.3;
+	word-break: keep-all;
+	margin: 0 0 1rem 0;
+}
+@media only screen and (max-width: 768px) {
+	.bZjbMV {
+		font-size: 2.6rem;
+	}
+}
+@media only screen and (max-width: 480px) {
+	.bZjbMV {
+		font-size: 2.1rem;
+	}
+}
+/* sc-component-id: ProjectStartHero__Contents-hxgqr8-5 */
+.ProjectStartHero__Contents-hxgqr8-5 {
+	
+}
+.hZGKSB {
+	margin: 1rem 0 1.5rem 0;
+	font-size: 1.4rem;
+	letter-spacing: -0.01em;
+	color: #fff;
+	word-break: keep-all;
+}
+@media only screen and (max-width: 768px) {
+	.hZGKSB {
+		text-align: center;
+		font-size: 1.2rem;
+	}
+}
+@media only screen and (max-width: 480px) {
+	.hZGKSB {
+		font-size: 1.1rem;
+	}
+}
+/* sc-component-id: ProjectStartHero__P-hxgqr8-6 */
+.ProjectStartHero__P-hxgqr8-6 {
+	
+}
+.gQkaxZ {
+	margin: 0.5rem 0 2rem 0;
+}
+@media only screen and (max-width: 768px) {
+	.gQkaxZ {
+		margin: 1rem 0 2rem 0;
+	}
+}
+/* sc-component-id: ProjectStartHero__Image-hxgqr8-7 */
+.ProjectStartHero__Image-hxgqr8-7 {
+	
+}
+.lnyOsS {
+	background-image:
+		url('https://tumblbug-assets.imgix.net/assets/ProjectStart/madeintumblbug-whiteoutline.png');
+	display: block;
+	float: left;
+	width: 18rem;
+	height: 25rem;
+	margin: 0 4rem 0 0;
+	background-size: contain;
+	background-position: center 15%;
+	background-repeat: no-repeat;
+}
+@media only screen and (max-width: 768px) {
+	.lnyOsS {
+		float: none;
+		margin: 0 auto;
+		width: 14rem;
+		height: 17rem;
+	}
+}
+/* sc-component-id: ProjectStartIntro__IntroWrapper-s2xdrfv-0 */
+.ProjectStartIntro__IntroWrapper-s2xdrfv-0 {
+	
+}
+.jiqwKI {
+	position: relative;
+	background-color: #ffffff;
+}
+/* sc-component-id: ProjectStartIntro__Image-s2xdrfv-1 */
+.ProjectStartIntro__Image-s2xdrfv-1 {
+	
+}
+.fAOZDk {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	width: 50%;
+	max-width: 50rem;
+	height: 100%;
+	background-image:
+		url('https://tumblbug-assets.imgix.net/assets/ProjectStart/creators.jpg');
+	background-size: cover;
+	background-position: center center;
+}
+@media only screen and (max-width: 768px) {
+	.fAOZDk {
+		position: static;
+		width: 100%;
+		max-width: none;
+		height: 10rem;
+		background-image:
+			url('https://tumblbug-assets.imgix.net/assets/ProjectStart/creators-mobile.jpg');
+	}
+}
+/* sc-component-id: ProjectStartIntro__Container-s2xdrfv-2 */
+.ProjectStartIntro__Container-s2xdrfv-2 {
+	
+}
+.bwttMn {
+	padding: 5rem 2rem;
+	max-width: 992px;
+	margin: 0 auto;
+}
+@media only screen and (max-width: 1080px) {
+	.bwttMn {
+		max-width: 768px;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.bwttMn {
+		padding: 4rem 4rem;
+	}
+}
+/* sc-component-id: ProjectStartIntro__H1-s2xdrfv-3 */
+.ProjectStartIntro__H1-s2xdrfv-3 {
+	
+}
+.iGzHdj {
+	word-break: keep-all;
+	font-size: 2rem;
+	line-height: 1.5;
+	margin: 0 0 2rem 0;
+}
+/* sc-component-id: ProjectStartIntro__Contents-s2xdrfv-4 */
+.ProjectStartIntro__Contents-s2xdrfv-4 {
+	
+}
+.bNlufC {
+	width: 50%;
+	margin: 2rem 0;
+	padding: 0 4rem 0 0;
+	font-size: 1.1rem;
+	word-break: keep-all;
+}
+@media only screen and (max-width: 768px) {
+	.bNlufC {
+		width: 100%;
+		margin: 0 0 2rem 0;
+		padding: 0;
+	}
+}
+/* sc-component-id: GuideCard__CardWrapper-tb3jf-0 */
+.GuideCard__CardWrapper-tb3jf-0 {
+	
+}
+.esxgfG {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding: 0rem 2rem 1rem 2rem;
+	text-align: center;
+	-webkit-flex-basis: 33.333%;
+	-ms-flex-basis: 33.333%;
+	flex-basis: 33.333%;
+	word-break: keep-all;
+}
+@media only screen and (max-width: 768px) {
+	.esxgfG {
+		-webkit-flex-wrap: nowrap;
+		-ms-flex-wrap: nowrap;
+		flex-wrap: nowrap;
+		-webkit-flex-basis: 100%;
+		-ms-flex-basis: 100%;
+		flex-basis: 100%;
+		text-align: left;
+	}
+}
+/* sc-component-id: GuideCard__ImageWrapper-tb3jf-1 */
+.GuideCard__ImageWrapper-tb3jf-1 {
+	
+}
+.fxuIyO {
+	-webkit-flex-grow: 0;
+	-ms-flex-grow: 0;
+	flex-grow: 0;
+	-webkit-flex-shrink: 0;
+	-ms-flex-shrink: 0;
+	flex-shrink: 0;
+	-webkit-flex-basis: 100%;
+	-ms-flex-basis: 100%;
+	flex-basis: 100%;
+}
+@media only screen and (max-width: 768px) {
+	.fxuIyO {
+		-webkit-flex-basis: 8rem;
+		-ms-flex-basis: 8rem;
+		flex-basis: 8rem;
+	}
+}
+/* sc-component-id: GuideCard__Image-tb3jf-2 */
+.GuideCard__Image-tb3jf-2 {
+	
+}
+.hKesKk {
+	display: block;
+	margin: 0 auto;
+	width: 60%;
+}
+@media only screen and (max-width: 768px) {
+	.hKesKk {
+		width: 6rem;
+		margin: 1rem 0;
+	}
+}
+/* sc-component-id: GuideCard__Content-tb3jf-3 */
+.GuideCard__Content-tb3jf-3 {
+	
+}
+.itOJgv {
+	padding-top: 2rem;
+	-webkit-flex-basis: 100%;
+	-ms-flex-basis: 100%;
+	flex-basis: 100%;
+	-webkit-flex-grow: 0;
+	-ms-flex-grow: 0;
+	flex-grow: 0;
+	-webkit-flex-shrink: 0;
+	-ms-flex-shrink: 0;
+	flex-shrink: 0;
+}
+@media only screen and (max-width: 768px) {
+	.itOJgv {
+		-webkit-flex-grow: 1;
+		-ms-flex-grow: 1;
+		flex-grow: 1;
+		-webkit-flex-shrink: 1;
+		-ms-flex-shrink: 1;
+		flex-shrink: 1;
+		padding: 1.5rem 0;
+	}
+}
+/* sc-component-id: GuideCard__H4-tb3jf-4 */
+.GuideCard__H4-tb3jf-4 {
+	
+}
+.buHmWJ {
+	font-size: 1.3rem;
+	font-weight: 600;
+	margin-top: 2rem;
+}
+/* sc-component-id: GuideCard__P-tb3jf-5 */
+.GuideCard__P-tb3jf-5 {
+	
+}
+.iaaZRK {
+	color: #555555;
+	font-size: 1rem;
+	word-break: keep-all;
+}
+/* sc-component-id: ProjectStartGuide__Container-yc0zw9-0 */
+.ProjectStartGuide__Container-yc0zw9-0 {
+	
+}
+.hDDvFE {
+	padding: 4rem 2rem;
+	font-size: 1.1rem;
+	max-width: 992px;
+	margin: 0 auto;
+}
+@media only screen and (max-width: 1080px) {
+	.hDDvFE {
+		max-width: 768px;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.hDDvFE {
+		padding: 4rem 4rem;
+	}
+}
+/* sc-component-id: ProjectStartGuide__GuideWrapper-yc0zw9-1 */
+.ProjectStartGuide__GuideWrapper-yc0zw9-1 {
+	
+}
+.kIVudD {
+	position: relative;
+}
+/* sc-component-id: ProjectStartGuide__H2-yc0zw9-2 */
+.ProjectStartGuide__H2-yc0zw9-2 {
+	
+}
+.jvuQXE {
+	word-break: keep-all;
+	font-size: 2rem;
+	line-height: 1.5;
+	margin: 0 0 2rem 0;
+}
+/* sc-component-id: ProjectStartGuide__P-yc0zw9-3 */
+.ProjectStartGuide__P-yc0zw9-3 {
+	
+}
+.cFsNY {
+	margin: 2rem 0;
+	word-break: keep-all;
+}
+/* sc-component-id: ProjectStartGuide__CardSet-yc0zw9-4 */
+.ProjectStartGuide__CardSet-yc0zw9-4 {
+	
+}
+.eFKMQA {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	margin: 0 -2rem 2rem -2rem;
+}
+@media only screen and (max-width: 768px) {
+	.eFKMQA {
+		display: block;
+	}
+}
+/* sc-component-id: ProjectStartGuide__ButtonWrapper-yc0zw9-5 */
+.ProjectStartGuide__ButtonWrapper-yc0zw9-5 {
+	
+}
+.gIOyim {
+	margin: 0 -1rem 0 -1rem;
+	width: 33.33333%;
+	text-align: center;
+}
+@media only screen and (max-width: 768px) {
+	.gIOyim {
+		margin: 1rem 0 0 0;
+		width: 100%;
+		text-align: left;
+	}
+}
+/* sc-component-id: PersonaCard__CardWrapper-s15ltilf-0 */
+.PersonaCard__CardWrapper-s15ltilf-0 {
+	
+}
+.iLhPAj {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 33.333333%;
+	padding: 0 2rem;
+}
+@media only screen and (max-width: 768px) {
+	.iLhPAj {
+		display: block;
+		width: 100%;
+		margin-bottom: 5rem;
+	}
+}
+/* sc-component-id: PersonaCard__H4-s15ltilf-1 */
+.PersonaCard__H4-s15ltilf-1 {
+	
+}
+.hTKeoc {
+	font-size: 1.5rem;
+	line-height: 1.5;
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+/* sc-component-id: PersonaCard__Line-s15ltilf-2 */
+.PersonaCard__Line-s15ltilf-2 {
+	
+}
+.iWBzky {
+	display: block;
+	background-color: #FFE6E6;
+	border-radius: 3px;
+	height: 5px;
+}
+.wbWBn {
+	display: block;
+	background-color: #E6EDFF;
+	border-radius: 3px;
+	height: 5px;
+}
+.cqbDMZ {
+	display: block;
+	background-color: #DFF8FC;
+	border-radius: 3px;
+	height: 5px;
+}
+/* sc-component-id: PersonaCard__H5-s15ltilf-3 */
+.PersonaCard__H5-s15ltilf-3 {
+	
+}
+.kVvgyK {
+	font-size: 1.3rem;
+	line-height: 1.6;
+	font-weight: normal;
+	margin-bottom: 1.5rem;
+}
+/* sc-component-id: PersonaCard__P-s15ltilf-4 */
+.PersonaCard__P-s15ltilf-4 {
+	
+}
+.bISUoC {
+	font-size: 1rem;
+	margin-bottom: 2rem;
+}
+/* sc-component-id: PersonaCard__CollectionLink-s15ltilf-5 */
+.PersonaCard__CollectionLink-s15ltilf-5 {
+	
+}
+.dpuEfz {
+	display: inline-block;
+	text-align: center;
+	font-weight: bold;
+	color: inherit;
+	background-color: #FFE6E6;
+	border-radius: 3px;
+	padding: 0.5rem 1rem;
+}
+.gzcpNu {
+	display: inline-block;
+	text-align: center;
+	font-weight: bold;
+	color: inherit;
+	background-color: #E6EDFF;
+	border-radius: 3px;
+	padding: 0.5rem 1rem;
+}
+.ePxcpz {
+	display: inline-block;
+	text-align: center;
+	font-weight: bold;
+	color: inherit;
+	background-color: #DFF8FC;
+	border-radius: 3px;
+	padding: 0.5rem 1rem;
+}
+/* sc-component-id: ProjectStartPersona__PersonaWrapper-pa5aa5-0 */
+.ProjectStartPersona__PersonaWrapper-pa5aa5-0 {
+	
+}
+.fUrTBG {
+	position: relative;
+	background-color: #ffffff;
+}
+/* sc-component-id: ProjectStartPersona__Container-pa5aa5-1 */
+.ProjectStartPersona__Container-pa5aa5-1 {
+	
+}
+.fvaroY {
+	padding: 4rem 2rem;
+	max-width: 992px;
+	margin: 0 auto;
+}
+@media only screen and (max-width: 1080px) {
+	.fvaroY {
+		max-width: 768px;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.fvaroY {
+		padding: 4rem 4rem;
+	}
+}
+/* sc-component-id: ProjectStartPersona__H2-pa5aa5-2 */
+.ProjectStartPersona__H2-pa5aa5-2 {
+	
+}
+.eZGHLA {
+	word-break: keep-all;
+	font-size: 2rem;
+	line-height: 1.5;
+	margin: 0 0 3rem 0;
+}
+/* sc-component-id: ProjectStartPersona__CardSet-pa5aa5-3 */
+.ProjectStartPersona__CardSet-pa5aa5-3 {
+	
+}
+.hKMyBu {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	margin: 2rem -2rem 2rem -2rem;
+}
+@media only screen and (max-width: 768px) {
+	.hKMyBu {
+		display: block;
+	}
+}
+/* sc-component-id: BenefitCard__CardWrapper-s1ulvf2-0 */
+.BenefitCard__CardWrapper-s1ulvf2-0 {
+	
+}
+.hnRMPW {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 33.333333%;
+	padding: 0 2rem;
+}
+@media only screen and (max-width: 768px) {
+	.hnRMPW {
+		display: block;
+		width: 100%;
+		margin-bottom: 2rem;
+	}
+}
+/* sc-component-id: BenefitCard__H4-s1ulvf2-1 */
+.BenefitCard__H4-s1ulvf2-1 {
+	
+}
+.jJsAQC {
+	font-size: 1.3rem;
+	font-weight: 600;
+	margin-top: 2rem;
+}
+</style>
+<style type="text/css"
+	data-styled-components="kZWRNW exyDzC irajPl bNQPtQ dAirgg cMBfhY hLRFHd hHZzHq hWABJR iCNmGI jSEjxH"
+	data-styled-components-is-local="true">
+/* sc-component-id: BenefitCard__P-s1ulvf2-2 */
+.BenefitCard__P-s1ulvf2-2 {
+	
+}
+.dAirgg {
+	font-size: 1rem;
+}
+/* sc-component-id: ProjectStartBenefits__BenefitsWrapper-s12798m-0 */
+.ProjectStartBenefits__BenefitsWrapper-s12798m-0 {
+	
+}
+.kZWRNW {
+	position: relative;
+}
+/* sc-component-id: ProjectStartBenefits__Container-s12798m-1 */
+.ProjectStartBenefits__Container-s12798m-1 {
+	
+}
+.exyDzC {
+	padding: 4rem 2rem;
+	max-width: 992px;
+	margin: 0 auto;
+}
+@media only screen and (max-width: 1080px) {
+	.exyDzC {
+		max-width: 768px;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.exyDzC {
+		padding: 4rem 4rem;
+	}
+}
+/* sc-component-id: ProjectStartBenefits__H2-s12798m-2 */
+.ProjectStartBenefits__H2-s12798m-2 {
+	
+}
+.irajPl {
+	word-break: keep-all;
+	font-size: 2rem;
+	line-height: 1.5;
+	margin: 0 0 2rem 0;
+}
+/* sc-component-id: ProjectStartBenefits__CardSet-s12798m-3 */
+.ProjectStartBenefits__CardSet-s12798m-3 {
+	
+}
+.bNQPtQ {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-flex-wrap: nowrap;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+	margin: 0 -2rem 2rem -2rem;
+}
+@media only screen and (max-width: 768px) {
+	.bNQPtQ {
+		display: block;
+	}
+}
+/* sc-component-id: ProjectStartFooter__FooterWrapper-s1w3slr4-0 */
+.ProjectStartFooter__FooterWrapper-s1w3slr4-0 {
+	
+}
+.cMBfhY {
+	position: relative;
+	background: #9945d1;
+	background: -moz-linear-gradient(-45deg, #9945d1 0%, #694ed8 60%, #369ac9 100%);
+	background: -webkit-linear-gradient(-45deg, #9945d1 0%, #694ed8 60%, #369ac9 100%);
+	background: linear-gradient(135deg, #9945d1 0%, #694ed8 60%, #369ac9 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9945d1',
+		endColorstr='#369ac9', GradientType=1);
+}
+/* sc-component-id: ProjectStartFooter__Container-s1w3slr4-1 */
+.ProjectStartFooter__Container-s1w3slr4-1 {
+	
+}
+.hLRFHd {
+	padding: 4rem 0 3rem 0;
+	max-width: 992px;
+	margin: 0 auto;
+	text-align: center;
+}
+@media only screen and (max-width: 1080px) {
+	.hLRFHd {
+		max-width: 768px;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.hLRFHd {
+		padding: 4rem 4rem;
+	}
+}
+/* sc-component-id: ProjectStartFooter__H2-s1w3slr4-2 */
+.ProjectStartFooter__H2-s1w3slr4-2 {
+	
+}
+.hHZzHq {
+	font-size: 3rem;
+	font-weight: 600;
+	color: #fff;
+	line-height: 1.15;
+	word-break: keep-all;
+	margin: 0;
+}
+@media only screen and (max-width: 768px) {
+	.hHZzHq {
+		font-size: 2rem;
+	}
+}
+/* sc-component-id: ProjectStartFooter__Contents-s1w3slr4-3 */
+.ProjectStartFooter__Contents-s1w3slr4-3 {
+	
+}
+.hWABJR {
+	margin: 2rem 0;
+	font-size: 1.3rem;
+	color: #fff;
+	word-break: keep-all;
+}
+/* sc-component-id: ProjectStartFooter__P-s1w3slr4-4 */
+.ProjectStartFooter__P-s1w3slr4-4 {
+	
+}
+.jSEjxH {
+	margin: 2rem 0;
+	font-size: 0.9rem;
+	color: #fff;
+}
+/* sc-component-id: ProjectStartFooter__A-s1w3slr4-5 */
+.ProjectStartFooter__A-s1w3slr4-5 {
+	
+}
+.iCNmGI {
+	color: inherit;
+	display: inline-block;
+	font-weight: bold;
+	padding-bottom: 0.1em;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+.iCNmGI:hover, .iCNmGI:focus, .iCNmGI:active {
+	color: inherit;
+	border-bottom: 1px solid rgba(255, 255, 255, 1);
+}
+.tikitakatitle{
+	font-family: sans-serif;
+}
+</style>
+<meta property="og:image"
+	content="https://tumblbug-assets.imgix.net/brand/tumblbug_introduction.png"
+	data-react-helmet="true">
+<meta property="og:url" content="https://www.tumblbug.com/"
+	data-react-helmet="true">
+<meta property="og:title" content="텀블벅 tumblbug"
+	data-react-helmet="true">
+<meta property="og:description" content="창작자를 위한 크라우드펀딩 플랫폼 텀블벅"
+	data-react-helmet="true">
+<meta name="twitter:image"
+	content="https://tumblbug-assets.imgix.net/brand/tumblbug_introduction.png"
+	data-react-helmet="true">
+<meta name="twitter:url" content="https://www.tumblbug.com/"
+	data-react-helmet="true">
+<meta name="twitter:title" content="텀블벅 tumblbug"
+	data-react-helmet="true">
+<meta name="twitter:description" content="창작자를 위한 크라우드펀딩 플랫폼 텀블벅"
+	data-react-helmet="true">
+
+</head>
+<body>
+	<div id="react-view">
+		<div data-reactroot="" data-reactid="1">
+			<!-- react-empty: 2 -->
+			<div>
+				<!-- react-empty: 733 -->
+				<div>
+					<div>
+						<header class="_13KHfN73YmQgsYHxXvuh_J _1roJokHGjgDRbKmh0exptw">
+							<div class="_23XXQ4Vzo-Xj_S_h3Wh5D">
+								<nav class="_15wNinHQvpbIp0_Wz43mfO">
+									<div class="_13KHfN73YmQgsYHxXvuh_J _1WARcEqqT_Pem8leg2dkMj">
+										<a class="_36JoJH6uhmIKdE1bWDYUlM rLqvd1axk9i-3cU72yTkF"
+											href="/u/doneyanibetaruza"><i
+											class="_36JoJH6uhmIKdE1bWDYUlM _3EDOT6mnWfo2CobuYD5UO7 _1QY7TzdLHKX3-BKPDNNYKF"></i><label>내
+												페이지</label></a><span
+											class="tikitakatitle">tikitaka</span><a
+											class="WU1ox0-AeDX_zneKjnNMO rLqvd1axk9i-3cU72yTkF"
+											href="https://help.tumblbug.com/hc/ko/categories/115001047328"
+											rel="noopener noreferrer" target="_blank"><i
+											class="jF23yVLzP1CzuuDAcv69S _1QY7TzdLHKX3-BKPDNNYKF"></i>
+										<!-- react-text: 746 -->창작자 센터<!-- /react-text --></a>
+									</div>
+								</nav>
+								<!-- react-empty: 747 -->
+								<div
+									class="_13KHfN73YmQgsYHxXvuh_J _3puWjwbvAnZpG2QCp8_2oS _1WARcEqqT_Pem8leg2dkMj _3rzNLoSt7yWgc2zzlY9duD">
+									<h1 class="_13KHfN73YmQgsYHxXvuh_J -UobvSeyUG6cEWYnht50S">
+										<span
+											class="_13KHfN73YmQgsYHxXvuh_J _2-N-uV2y5apkjtxqdVnsop _1Qdv504-1XMeYXZyb0xQZT _3fJsfvAPykJzj2xoMnxzWW _3D9sfZXrWd8it3eUCuCTc8">준비
+											중</span>
+										<!-- react-text: 751 -->
+										<!-- /react-text -->
+										<!-- react-text: 752 -->
+										기막힌 제목
+										<!-- /react-text -->
+									</h1>
+								</div>
+							</div>
+							<div>
+								<div class="_13KHfN73YmQgsYHxXvuh_J _1WARcEqqT_Pem8leg2dkMj"
+									style="margin-bottom: 0.5rem;">
+									<div
+										class="_13KHfN73YmQgsYHxXvuh_J _2mDWoxwh1QMJyLM49w7kMZ _3G8CRXtomRhisiZsw7Spx- _3sFSjAZS4gQdCAyN3OfyFG _2-N-uV2y5apkjtxqdVnsop jvBXmsw6c8TD5NU0Gn0P6">
+										<i
+											class="_3mTSvU3h91WI2gAoO_w9i4 _254YPhBOB9qv7-J8bIg7co _1QY7TzdLHKX3-BKPDNNYKF"></i><span>
+											<!-- react-text: 758 -->펀딩 준비에 앞서&nbsp;<!-- /react-text -->
+											<a target="_blank" rel="noopener noreferrer"
+											href="https://help.tumblbug.com/hc/ko/articles/115006302047"
+											style="font-weight: bold; color: rgb(58, 111, 242); cursor: pointer;">공개
+												검토 가이드라인</a>
+										<!-- react-text: 760 -->,&nbsp;<!-- /react-text -->
+											<a target="_blank" rel="noopener noreferrer"
+											href="https://help.tumblbug.com/hc/ko/categories/115001047328"
+											style="font-weight: bold; color: rgb(58, 111, 242); cursor: pointer;">창작자
+												센터</a>
+										<!-- react-text: 762 -->,&nbsp;<!-- /react-text -->
+											<a target="_blank" rel="noopener noreferrer"
+											href="https://tumblbug.com/guidelines"
+											style="font-weight: bold; color: rgb(58, 111, 242); cursor: pointer;">텀블벅
+												커뮤니티 운영원칙</a>
+										<!-- react-text: 764 -->을 확인해주세요.<!-- /react-text -->
+										</span>
+									</div>
+								</div>
+								<div
+									class="_13KHfN73YmQgsYHxXvuh_J _1WARcEqqT_Pem8leg2dkMj _3an1XS2KtYqHkt90bx9SHY">
+									<div
+										class="_13KHfN73YmQgsYHxXvuh_J _2mDWoxwh1QMJyLM49w7kMZ _3G8CRXtomRhisiZsw7Spx- _2-N-uV2y5apkjtxqdVnsop jvBXmsw6c8TD5NU0Gn0P6">
+										<i class="_21nJujXiuOiseLBwPOmGO4 _1QY7TzdLHKX3-BKPDNNYKF"></i><span>
+											<!-- react-text: 769 -->프로젝트를 개설하려면 네 개의 섹션을 완성해야 합니다. 완성된
+											섹션은<!-- /react-text -->
+											<i
+											class="_1oJMWnMCW_Y6GmNc1mhqaW _3RAU_1dXrlkkPhtkKyXSVj _3fJsfvAPykJzj2xoMnxzWW _254YPhBOB9qv7-J8bIg7co _1QY7TzdLHKX3-BKPDNNYKF"></i>
+										<!-- react-text: 771 -->탭 아이콘에<!-- /react-text -->
+											<i
+											class="_1oJMWnMCW_Y6GmNc1mhqaW _3sFSjAZS4gQdCAyN3OfyFG -o8oGI_QAOKsVIJOUOUmV _254YPhBOB9qv7-J8bIg7co _1QY7TzdLHKX3-BKPDNNYKF"></i>
+										<!-- react-text: 773 -->파랗게 불이 들어옵니다.<!-- /react-text -->
+										</span>
+									</div>
+									<div
+										class="_13KHfN73YmQgsYHxXvuh_J _2-N-uV2y5apkjtxqdVnsop T5IOxRC0hd8rBc-PLPMlF">
+										<a
+											class="_13KHfN73YmQgsYHxXvuh_J _3fJsfvAPykJzj2xoMnxzWW _1Qdv504-1XMeYXZyb0xQZT _3SbGdzxKM6M_AeOQWLNqks"
+											href="http://www.tumblbug.com/002b6727-e999-40ea-ba7d-3622154c927b"
+											style="z-index: 11; position: relative;"><i
+											class="_12_kkIo9po-wf5m9SVSerq _1QY7TzdLHKX3-BKPDNNYKF"></i><label>미리보기</label></a><a
+											class="_13KHfN73YmQgsYHxXvuh_J _2rCeEoFeBzvCYn76udqnww _1Qdv504-1XMeYXZyb0xQZT _3SbGdzxKM6M_AeOQWLNqks"
+											style="z-index: 11; position: relative;"><i
+											class="_1QY7TzdLHKX3-BKPDNNYKF _3NmqRmOUOqMEJDy6qtw95t"></i><label>검토
+												요청하기</label></a>
+									</div>
+								</div>
+								<div
+									class="_13KHfN73YmQgsYHxXvuh_J _3qrj1CcqiU767c8teG6imW _2Xkf-oIN3dW3T7P_qmRJv3">
+									<div class="_13KHfN73YmQgsYHxXvuh_J _1WARcEqqT_Pem8leg2dkMj">
+										<a class="rLqvd1axk9i-3cU72yTkF _3Syz9fGXYtzMNqK_55A2BW"
+											href="/edit-project/002b6727-e999-40ea-ba7d-3622154c927b/sections/project-outline"><h5>
+												<i
+													class="_13KHfN73YmQgsYHxXvuh_J _1oJMWnMCW_Y6GmNc1mhqaW _3RAU_1dXrlkkPhtkKyXSVj _3fJsfvAPykJzj2xoMnxzWW _254YPhBOB9qv7-J8bIg7co _1QY7TzdLHKX3-BKPDNNYKF"></i><label><span><span>프로젝트</span>
+													<!-- react-text: 789 --> <!-- /react-text -->
+														<span>개요</span></span></label>
+											</h5></a><a class="rLqvd1axk9i-3cU72yTkF"
+											href="/edit-project/002b6727-e999-40ea-ba7d-3622154c927b/sections/funding-reward"><h5>
+												<i
+													class="_13KHfN73YmQgsYHxXvuh_J _1oJMWnMCW_Y6GmNc1mhqaW _3RAU_1dXrlkkPhtkKyXSVj _3fJsfvAPykJzj2xoMnxzWW _254YPhBOB9qv7-J8bIg7co _1QY7TzdLHKX3-BKPDNNYKF"></i><label><span><span>펀딩
+															및</span>
+													<!-- react-text: 797 --> <!-- /react-text -->
+														<span>선물 구성</span></span></label>
+											</h5></a><a class="rLqvd1axk9i-3cU72yTkF"
+											href="/edit-project/002b6727-e999-40ea-ba7d-3622154c927b/sections/storytelling"><h5>
+												<i
+													class="_13KHfN73YmQgsYHxXvuh_J _1oJMWnMCW_Y6GmNc1mhqaW _3RAU_1dXrlkkPhtkKyXSVj _3fJsfvAPykJzj2xoMnxzWW _254YPhBOB9qv7-J8bIg7co _1QY7TzdLHKX3-BKPDNNYKF"></i><label><span><span>스토리</span><span>텔링</span></span></label>
+											</h5></a><a class="rLqvd1axk9i-3cU72yTkF"
+											href="/edit-project/002b6727-e999-40ea-ba7d-3622154c927b/sections/account-setup"><h5>
+												<i
+													class="_13KHfN73YmQgsYHxXvuh_J _1oJMWnMCW_Y6GmNc1mhqaW _3RAU_1dXrlkkPhtkKyXSVj _3fJsfvAPykJzj2xoMnxzWW _254YPhBOB9qv7-J8bIg7co _1QY7TzdLHKX3-BKPDNNYKF"></i><label><span><span>계좌</span>
+													<!-- react-text: 812 --> <!-- /react-text -->
+														<span>설정</span></span></label>
+											</h5></a>
+									</div>
+								</div>
+							</div>
+						</header>
+					</div>
+					<div></div>
+				</div>
+				<div>
+					<section>
+						<div
+							class="_13KHfN73YmQgsYHxXvuh_J _1abzWO2yE0ZJ7OiXOf85f5 _4S0ikJ5kL9iaC8TQbNr2J"></div>
+						<h3
+							class="_13KHfN73YmQgsYHxXvuh_J _2XNIh_QZv4rPkHih1iN3Yt _3o6iE1ko5_AeTlpXebXsBb">
+							<div class="_13KHfN73YmQgsYHxXvuh_J _1WARcEqqT_Pem8leg2dkMj">프로젝트
+								개요</div>
+						</h3>
+						<div
+							class="_13KHfN73YmQgsYHxXvuh_J CoIrJwj-n2Pdokdf8d4qE _1WARcEqqT_Pem8leg2dkMj">
+							<div
+								class="_13KHfN73YmQgsYHxXvuh_J saXk0rx00KnB6O_X8xIAv _2uxYQ-nuPwdol9sQhOjfH- _2Ixd--hCfOsqcysY6JfD3l">
+								<div class="_13KHfN73YmQgsYHxXvuh_J _3U6RUH-EASpZ_j8ls1HJyP">
+									<div class="_13KHfN73YmQgsYHxXvuh_J _3_IGkn3uaje0g2ZA6Tx9wd">
+										<label>프로젝트 제목</label>
+										<div
+											class="_13KHfN73YmQgsYHxXvuh_J _12TAeoYDPLF0sfa3UIt6uZ _3ZTEzsKL-qDLECUGq4QcLv"
+											style="cursor: pointer;">
+											<div
+												class="_2dKJQZGqcB1T0xe0DzKY0H _152MAijd_UogerBKCVqZR_ _1lLHKI5v9AoCyeggtffvGZ">
+												<div>
+													<a><i
+														class="_3WyCNpfRrfze5XqBAKgG6j WU1ox0-AeDX_zneKjnNMO _3wXDp_9ZjMHMVuf2NIy5Cg _1QY7TzdLHKX3-BKPDNNYKF"></i>
+													<!-- react-text: 1599 -->프로젝트 제목을 입력해주세요<!-- /react-text --></a>
+												</div>
+											</div>
+											<div
+												class="_2joJTlnkt26WGpxyvkNuCH _152MAijd_UogerBKCVqZR_ WU1ox0-AeDX_zneKjnNMO _3G8CRXtomRhisiZsw7Spx- _1lLHKI5v9AoCyeggtffvGZ">
+												<a><i
+													class="w6FPSPr8JA6xb8SSjkPtI _1QY7TzdLHKX3-BKPDNNYKF"></i>
+												<!-- react-text: 1603 --> <!-- /react-text -->
+													<!-- react-text: 1604 -->입력하기<!-- /react-text --></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="_13KHfN73YmQgsYHxXvuh_J saXk0rx00KnB6O_X8xIAv _37QxkzyLLTu59r6NSOaCE _2uxYQ-nuPwdol9sQhOjfH-">
+								<div class="_13KHfN73YmQgsYHxXvuh_J _3U6RUH-EASpZ_j8ls1HJyP">
+									<div class="_13KHfN73YmQgsYHxXvuh_J _3_IGkn3uaje0g2ZA6Tx9wd">
+										<label>프로젝트 대표 이미지</label>
+										<div
+											class="_13KHfN73YmQgsYHxXvuh_J _12TAeoYDPLF0sfa3UIt6uZ _3ZTEzsKL-qDLECUGq4QcLv"
+											style="cursor: pointer;">
+											<div
+												class="_10NcCOp7F98F1udFv3te-o _152MAijd_UogerBKCVqZR_ _1lLHKI5v9AoCyeggtffvGZ">
+												<a><i
+													class="_3WyCNpfRrfze5XqBAKgG6j WU1ox0-AeDX_zneKjnNMO _1QY7TzdLHKX3-BKPDNNYKF"></i>
+												<!-- react-text: 1613 --> 프로젝트 대표 이미지를 등록해주세요.<!-- /react-text --></a>
+											</div>
+											<div
+												class="_3bWlQdzIFpvwX2B8mnOzgn _152MAijd_UogerBKCVqZR_ WU1ox0-AeDX_zneKjnNMO _3G8CRXtomRhisiZsw7Spx- _1lLHKI5v9AoCyeggtffvGZ">
+												<a><i
+													class="w6FPSPr8JA6xb8SSjkPtI _1QY7TzdLHKX3-BKPDNNYKF"></i>
+												<!-- react-text: 1617 -->업로드하기<!-- /react-text --></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="_13KHfN73YmQgsYHxXvuh_J saXk0rx00KnB6O_X8xIAv _2uxYQ-nuPwdol9sQhOjfH- _2Ixd--hCfOsqcysY6JfD3l">
+								<div class="_13KHfN73YmQgsYHxXvuh_J _3U6RUH-EASpZ_j8ls1HJyP">
+									<div class="_13KHfN73YmQgsYHxXvuh_J _3_IGkn3uaje0g2ZA6Tx9wd">
+										<label>프로젝트 요약</label>
+										<div
+											class="_13KHfN73YmQgsYHxXvuh_J _12TAeoYDPLF0sfa3UIt6uZ _3ZTEzsKL-qDLECUGq4QcLv"
+											style="cursor: pointer;">
+											<div
+												class="_2dKJQZGqcB1T0xe0DzKY0H _152MAijd_UogerBKCVqZR_ _1lLHKI5v9AoCyeggtffvGZ">
+												<div>
+													<a><i
+														class="_3WyCNpfRrfze5XqBAKgG6j WU1ox0-AeDX_zneKjnNMO _3wXDp_9ZjMHMVuf2NIy5Cg _1QY7TzdLHKX3-BKPDNNYKF"></i>
+													<!-- react-text: 1627 -->프로젝트 요약을 입력해주세요<!-- /react-text --></a>
+												</div>
+											</div>
+											<div
+												class="_2joJTlnkt26WGpxyvkNuCH _152MAijd_UogerBKCVqZR_ WU1ox0-AeDX_zneKjnNMO _3G8CRXtomRhisiZsw7Spx- _1lLHKI5v9AoCyeggtffvGZ">
+												<a><i
+													class="w6FPSPr8JA6xb8SSjkPtI _1QY7TzdLHKX3-BKPDNNYKF"></i>
+												<!-- react-text: 1631 -->입력하기<!-- /react-text --></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="_13KHfN73YmQgsYHxXvuh_J saXk0rx00KnB6O_X8xIAv _2uxYQ-nuPwdol9sQhOjfH- _2Ixd--hCfOsqcysY6JfD3l">
+								<div class="_13KHfN73YmQgsYHxXvuh_J _3U6RUH-EASpZ_j8ls1HJyP">
+									<div class="_13KHfN73YmQgsYHxXvuh_J _3_IGkn3uaje0g2ZA6Tx9wd">
+										<label>프로젝트 카테고리</label>
+										<div
+											class="_13KHfN73YmQgsYHxXvuh_J _12TAeoYDPLF0sfa3UIt6uZ _3ZTEzsKL-qDLECUGq4QcLv"
+											style="cursor: pointer;">
+											<div
+												class="_2dKJQZGqcB1T0xe0DzKY0H _152MAijd_UogerBKCVqZR_ _1lLHKI5v9AoCyeggtffvGZ">
+												<div>
+													<a><i
+														class="_3WyCNpfRrfze5XqBAKgG6j WU1ox0-AeDX_zneKjnNMO _3wXDp_9ZjMHMVuf2NIy5Cg _1QY7TzdLHKX3-BKPDNNYKF"></i>
+													<!-- react-text: 1641 -->프로젝트 카테고리를 입력해주세요<!-- /react-text --></a>
+												</div>
+											</div>
+											<div
+												class="_2joJTlnkt26WGpxyvkNuCH _152MAijd_UogerBKCVqZR_ WU1ox0-AeDX_zneKjnNMO _3G8CRXtomRhisiZsw7Spx- _1lLHKI5v9AoCyeggtffvGZ">
+												<a><i
+													class="w6FPSPr8JA6xb8SSjkPtI _1QY7TzdLHKX3-BKPDNNYKF"></i>
+												<!-- react-text: 1645 -->입력하기<!-- /react-text --></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+						<h3
+							class="_13KHfN73YmQgsYHxXvuh_J _2XNIh_QZv4rPkHih1iN3Yt _3o6iE1ko5_AeTlpXebXsBb">
+							<div class="_13KHfN73YmQgsYHxXvuh_J _1WARcEqqT_Pem8leg2dkMj">진행자
+								정보</div>
+						</h3>
+						<div
+							class="_13KHfN73YmQgsYHxXvuh_J CoIrJwj-n2Pdokdf8d4qE _1WARcEqqT_Pem8leg2dkMj">
+							<div
+								class="_13KHfN73YmQgsYHxXvuh_J saXk0rx00KnB6O_X8xIAv _37QxkzyLLTu59r6NSOaCE _2uxYQ-nuPwdol9sQhOjfH-">
+								<div class="_13KHfN73YmQgsYHxXvuh_J _3U6RUH-EASpZ_j8ls1HJyP">
+									<div class="_13KHfN73YmQgsYHxXvuh_J _3_IGkn3uaje0g2ZA6Tx9wd">
+										<label>프로필 이미지</label>
+										<div
+											class="_13KHfN73YmQgsYHxXvuh_J _12TAeoYDPLF0sfa3UIt6uZ _3ZTEzsKL-qDLECUGq4QcLv"
+											style="cursor: pointer;">
+											<div
+												class="_3lIDndOaEWwBcdNUKuMYOQ _152MAijd_UogerBKCVqZR_ _1lLHKI5v9AoCyeggtffvGZ">
+												<a><i
+													class="_3WyCNpfRrfze5XqBAKgG6j WU1ox0-AeDX_zneKjnNMO _1QY7TzdLHKX3-BKPDNNYKF"></i>
+												<!-- react-text: 1671 --> 진행자님의 프로필 이미지를 올려주세요.<!-- /react-text --></a>
+											</div>
+											<div
+												class="_25P2Jb3SrgiAhvibHBFOrS _152MAijd_UogerBKCVqZR_ WU1ox0-AeDX_zneKjnNMO _3G8CRXtomRhisiZsw7Spx- _1lLHKI5v9AoCyeggtffvGZ">
+												<a><i
+													class="w6FPSPr8JA6xb8SSjkPtI _1QY7TzdLHKX3-BKPDNNYKF"></i>
+												<!-- react-text: 1675 --> 입력하기<!-- /react-text --></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="_13KHfN73YmQgsYHxXvuh_J saXk0rx00KnB6O_X8xIAv _2uxYQ-nuPwdol9sQhOjfH- _2Ixd--hCfOsqcysY6JfD3l">
+								<div class="_13KHfN73YmQgsYHxXvuh_J _3U6RUH-EASpZ_j8ls1HJyP">
+									<div class="_13KHfN73YmQgsYHxXvuh_J _3_IGkn3uaje0g2ZA6Tx9wd">
+										<label>진행자 이름</label>
+										<div
+											class="_13KHfN73YmQgsYHxXvuh_J _12TAeoYDPLF0sfa3UIt6uZ _3ZTEzsKL-qDLECUGq4QcLv"
+											style="cursor: pointer;">
+											<div
+												class="_2dKJQZGqcB1T0xe0DzKY0H _152MAijd_UogerBKCVqZR_ _1lLHKI5v9AoCyeggtffvGZ">
+												<div>
+													<h3>나신의</h3>
+												</div>
+											</div>
+											<div
+												class="_2joJTlnkt26WGpxyvkNuCH _152MAijd_UogerBKCVqZR_ WU1ox0-AeDX_zneKjnNMO _3G8CRXtomRhisiZsw7Spx- _1lLHKI5v9AoCyeggtffvGZ">
+												<a><i
+													class="w6FPSPr8JA6xb8SSjkPtI _1QY7TzdLHKX3-BKPDNNYKF"></i>
+												<!-- react-text: 1687 -->수정하기<!-- /react-text --></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="_13KHfN73YmQgsYHxXvuh_J saXk0rx00KnB6O_X8xIAv _2uxYQ-nuPwdol9sQhOjfH- _2Ixd--hCfOsqcysY6JfD3l">
+								<div class="_13KHfN73YmQgsYHxXvuh_J _3U6RUH-EASpZ_j8ls1HJyP">
+									<div class="_13KHfN73YmQgsYHxXvuh_J _3_IGkn3uaje0g2ZA6Tx9wd">
+										<label>진행자 소개</label>
+										<div
+											class="_13KHfN73YmQgsYHxXvuh_J _12TAeoYDPLF0sfa3UIt6uZ _3ZTEzsKL-qDLECUGq4QcLv"
+											style="cursor: pointer;">
+											<div
+												class="_2dKJQZGqcB1T0xe0DzKY0H _152MAijd_UogerBKCVqZR_ _1lLHKI5v9AoCyeggtffvGZ">
+												<div>
+													<a><i
+														class="_3WyCNpfRrfze5XqBAKgG6j WU1ox0-AeDX_zneKjnNMO _3wXDp_9ZjMHMVuf2NIy5Cg _1QY7TzdLHKX3-BKPDNNYKF"></i>
+													<!-- react-text: 1697 -->진행자 소개를 입력해주세요<!-- /react-text --></a>
+												</div>
+											</div>
+											<div
+												class="_2joJTlnkt26WGpxyvkNuCH _152MAijd_UogerBKCVqZR_ WU1ox0-AeDX_zneKjnNMO _3G8CRXtomRhisiZsw7Spx- _1lLHKI5v9AoCyeggtffvGZ">
+												<a><i
+													class="w6FPSPr8JA6xb8SSjkPtI _1QY7TzdLHKX3-BKPDNNYKF"></i>
+												<!-- react-text: 1701 -->입력하기<!-- /react-text --></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</section>
+					<br>
+					<br>
+					<div class="_13KHfN73YmQgsYHxXvuh_J _1WARcEqqT_Pem8leg2dkMj">
+						<div class="_1G9_ptFHThtCjXox_uifcH">
+							<div class="_352AVOtIZ7ivn3BRhw8ufq">
+								<button
+									class="_13KHfN73YmQgsYHxXvuh_J _1QY7TzdLHKX3-BKPDNNYKF _3sFSjAZS4gQdCAyN3OfyFG _3SbGdzxKM6M_AeOQWLNqks RcHjzQ_WjIsTCfrwHunls">
+									<!-- react-text: 1722 -->
+									다음
+									<!-- /react-text -->
+									<i
+										class="WU1ox0-AeDX_zneKjnNMO _1XlDYEGI6NQt_YZkSA5u6N _1QY7TzdLHKX3-BKPDNNYKF"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+					<br>
+					<br>
+				</div>
+				<br>
+			</div>
+		</div>
+	</div>
+</body>
 </html>

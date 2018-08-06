@@ -1,9 +1,11 @@
+
 package com.tikitaka.cloudFunding.member.controller;
 
 import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -75,11 +77,15 @@ public class MemberController {
 			@RequestParam("profileImage") MultipartFile profile_img,
 			HttpServletRequest request) {
 		
+		System.out.println("join.do");
+		
 		Member member = new Member();
 		member.setEmail(email);
 		member = memberService.selectMemeber(member);
 		
-		if(member == null) {
+		System.out.println("join.do : " + member);
+		
+		if(member != null) {
 			return "redirect:index.do";
 		}
 		
@@ -115,8 +121,50 @@ public class MemberController {
 		
 		return view;
 		
-				
-				
+	
+	}
+	
+	@RequestMapping("googleLogin.do")
+	public String googleLogin(
+			@RequestParam("googleEmail") String googleEmail,
+			@RequestParam("googleName") String googleName,
+			@RequestParam("googleProfileImage") String googleProfileImage,
+			HttpSession session
+			) {
+
+		Member member = new Member(googleEmail, googleName, "google", googleProfileImage);
+		Member user = memberService.selectMemeber(member);
+		
+		if(user != null) {
+			session.setAttribute("user", user);
+			
+		}else {
+			
+		}
+		
+		return "redirect:index.do";
+			
+		
+		
+	}
+	
+	
+	@RequestMapping("login.do")
+	public String login(@RequestParam("email") String email,
+			@RequestParam("password") String password,
+			HttpSession session) {
+		
+		Member member = new Member(email, password);
+		Member user = memberService.selectMemeber(member);
+		
+		if(user != null && member.getPassword().equals(user.getPassword())) {
+			session.setAttribute("user", user);
+		}else {
+			
+		}
+		
+		return "redirect:index.do";
+		
 		
 	}
 	

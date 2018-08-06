@@ -1,5 +1,7 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+   
+
     
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:import url="../common/header.jsp"/>
@@ -88,15 +90,39 @@
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
         
+        let googleEmail = profile.getEmail();
+        let googleName = profile.getName();
+        let googleProfileImage = profile.getImageUrl();
         
+        $("#googleEmail").val(googleEmail);
+        $("#googleName").val(googleName);
+        $("#googleProfileImage").val(googleProfileImage);
+        
+        $("#googleForm").submit();
         
         
         
       };
+      
+      
+      $(function(){
+    	 $("#join").click(function(){
+    		 location.href="joinPage.do";
+    	 });
+    	  
+      });
     </script>
 
 </head>
 <body>
+
+	<form id="googleForm" action="googleLogin.do" method="post">
+	   	<input type="hidden" id="googleEmail" name="googleEmail">
+	   	<input type="hidden" id="googleName" name="googleName">
+	   	<input type="hidden" id="googleProfileImage" name="googleProfileImage">
+   </form>
+   
+   
 
     <div class="container">
         <div class="row">
@@ -106,7 +132,10 @@
                         <h3 class="panel-title"><div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div></h3>
                     </div>
                     <div class="panel-body">
-                        <form accept-charset="UTF-8" role="form">
+                    
+                    <!-- accept-charset="UTF-8" role="form" -->
+                    
+                        <form method="post" action="login.do" >
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="yourmail@example.com" name="email" type="text">
@@ -114,11 +143,11 @@
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
-                                <div class="checkbox">
+                                <!-- <div class="checkbox">
                                     <label>
                                         <input name="remember" type="checkbox" value="Remember Me"> Remember Me
                                     </label>
-                                </div>
+                                </div> -->
                                 <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
                             </fieldset>
                         </form>
@@ -128,7 +157,7 @@
                         <center><h4>OR</h4></center>
                         
          
-                        <input class="btn btn-lg btn-facebook btn-block" type="submit" value="회원가입">
+                        <input id="join" class="btn btn-lg btn-facebook btn-block" type="submit" value="회원가입">
                     </div>
                 </div>
             </div>
