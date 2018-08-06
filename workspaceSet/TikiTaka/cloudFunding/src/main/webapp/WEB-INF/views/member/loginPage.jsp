@@ -88,7 +88,15 @@
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
         
+        let googleEmail = profile.getEmail();
+        let googleName = profile.getName();
+        let googleProfileImage = profile.getImageUrl();
         
+        $("#googleEmail").val(googleEmail);
+        $("#googleName").val(googleName);
+        $("#googleProfileImage").val(googleProfileImage);
+        
+        $("#googleForm").submit();
         
         
         
@@ -98,6 +106,14 @@
 </head>
 <body>
 
+	<form id="googleForm" action="googleLogin.do" method="post">
+	   	<input type="hidden" id="googleEmail" name="googleEmail">
+	   	<input type="hidden" id="googleName" name="googleName">
+	   	<input type="hidden" id="googleProfileImage" name="googleProfileImage">
+   </form>
+   
+   
+
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
@@ -106,7 +122,10 @@
                         <h3 class="panel-title"><div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div></h3>
                     </div>
                     <div class="panel-body">
-                        <form accept-charset="UTF-8" role="form">
+                    
+                    <!-- accept-charset="UTF-8" role="form" -->
+                    
+                        <form method="post" action="login.do" >
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="yourmail@example.com" name="email" type="text">
@@ -114,11 +133,11 @@
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                 </div>
-                                <div class="checkbox">
+                                <!-- <div class="checkbox">
                                     <label>
                                         <input name="remember" type="checkbox" value="Remember Me"> Remember Me
                                     </label>
-                                </div>
+                                </div> -->
                                 <input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
                             </fieldset>
                         </form>

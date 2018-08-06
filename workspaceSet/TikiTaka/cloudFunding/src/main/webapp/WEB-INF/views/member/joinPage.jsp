@@ -238,6 +238,19 @@
 			  return false;
 		  }
 		  
+		  
+		  var reemail = new RegExp('.{1,20}[@].{1,20}[.].{1,10}');
+		  if(!reemail.test($("#email").val())){
+			  alert("이메일을 다시 입력하세요.");
+			  return false;
+		  }
+		  
+		  var repwd = new RegExp('.{4,}');
+		  if(!repwd.test($("#password").val())){
+			  alert('비밀번호를 네 글자 이상 입력하세요.');
+			  return false;
+		  }
+		  
 	  }
 	  
 	  

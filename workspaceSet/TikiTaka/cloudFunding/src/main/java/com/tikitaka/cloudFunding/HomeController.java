@@ -30,15 +30,6 @@ private static final Logger logger = LoggerFactory.getLogger(HomeController.clas
 		
 		model.addAttribute("serverTime", formattedDate );
 
-
-		System.out.println("sd");
-		System.out.println("123");
-		System.out.println("333");
-		System.out.println("444");
-		System.out.println("정인 수정2");
-		System.out.println("지상");
-		System.out.println("가용");
-
 		return "home";
 	}
 	

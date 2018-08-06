@@ -26,6 +26,13 @@ public class Member {
 		this.password = password;
 		this.profile_img = profile_img;
 	}
+	
+	public Member(String email, String password) {
+		this.email = email;
+		this.password = password;
+	}
+	
+	
 
 	public String getEmail() {
 		return email;
