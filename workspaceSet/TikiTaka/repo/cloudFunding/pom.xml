@@ -182,6 +182,51 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.6</version>
 		</dependency>
+		
+		
+		<!-- https://developers.google.com/api-client-library/java/apis/gmail/v1 -->
+		<dependency>
+	      <groupId>com.google.apis</groupId>
+	      <artifactId>google-api-services-gmail</artifactId>
+	      <version>v1-rev92-1.24.1</version>
+	    </dependency>
+	    
+	    
+	    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+		<dependency>
+		    <groupId>org.projectlombok</groupId>
+		    <artifactId>lombok</artifactId>
+		    <version>1.16.10</version>
+		    <scope>provided</scope>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4</version>
+		</dependency>
+
+
+
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>${org.springframework-version}</version>
+		</dependency>
+		
+		
+		<!-- Java Mail API -->
+	  <dependency>
+	     <groupId>javax.mail</groupId>
+	     <artifactId>mail</artifactId>
+	     <version>1.4.3</version>
+	  </dependency>
+	  
+	  
+		
+		
+			
 		     
 	</dependencies>
     <build>

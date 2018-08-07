@@ -7,8 +7,7 @@
 <!-- http://www.mybatis.org/mybatis-3/ko/configuration.html#settings  -->
 
  <settings>
- 	<setting name="jdbcTypeForNull" value="NULL"/>
- 	<setting name="mapUnderscoreToCamelCase" value="true"/> 	
+ 	<setting name="jdbcTypeForNull" value="NULL"/> 	
  </settings>
 
 
