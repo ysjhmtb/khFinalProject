@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     
  <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-  
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -261,7 +261,9 @@
 
 </head>
 <body>
-	<c:import url="../common/header.jsp"/> 
+
+<c:import url="../common/header.jsp"/> 
+
 	
 	<div class="container">
     <div class="row main">
@@ -374,9 +376,10 @@
 
  <br>
 
-<c:import url="../common/footer.jsp"/>
+
 
 <script type="text/javascript" src="assets/js/bootstrap.js"></script>
-
+<br>
+<c:import url="../common/footer.jsp"/>
 </body>
 </html>
