@@ -18,7 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.tikitaka.cloudFunding.member.model.service.MemberService;
 import com.tikitaka.cloudFunding.member.model.vo.Member;
-import com.tikitaka.cloudFunding.member.model.vo.Profile;
+
 
 @Controller
 public class MemberController {
@@ -208,19 +208,19 @@ public class MemberController {
 			@RequestParam("phone3") String phone3,
 			HttpServletRequest request) {
 		
-		
-
 	
-		
-	System.out.println("setProfileImpl.do");
 	Member member = (Member)request.getSession().getAttribute("user");
 	System.out.println(member);
 	
 	member.setProfile_img("resources/images/profile/" + profileImg.getOriginalFilename());
 	member.setName(name);
+	member.setLocation(location);
+	member.setShortDescription(shortDescription);
+	member.setHomepage(homepage);
+	member.setPhone1(phone1);
+	member.setPhone2(phone2);
+	member.setPhone3(phone3);
 	
-	Profile profile = new Profile(member.getEmail(), location, shortDescription, homepage,
-			phone1, phone2, phone3);
 	
 	
 	String root = request.getSession().getServletContext().getRealPath("resources");
@@ -244,9 +244,8 @@ public class MemberController {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-		
-	int result1 = memberService.updateMember(member);
-	int result2 = memberService.insertProfile(profile);
+	
+	int result = memberService.updateMemberProfile(member);
 		
 		
 	return "redirect:index.do";
