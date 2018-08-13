@@ -15,11 +15,9 @@
   	</resultMap>
   	
   	<insert id="insertMember" parameterType="Member">
-  	
-  		INSERT INTO MEMBER(EMAIL, NAME, PASSWORD, PROFILE_IMG, ENROLL_DATE)
-		VALUES(#{email},#{name},#{password},#{profile_img},SYSDATE)
   		
-  		
+  		INSERT INTO MEMBER(EMAIL, NAME, PASSWORD, PROFILE_IMG, ENROLL_DATE) 
+  		VALUES(#{email}, #{name}, #{password}, #{profile_img}, SYSDATE)  		
   	</insert>
   	
   	<select id="selectMemberEmail" parameterType="Member" resultType="Member">
@@ -41,7 +39,13 @@
 		  PHONE3 = #{phone3}
 		WHERE EMAIL = #{email}
   	</update>
-  
+  	
+  	<update id="updateMemberPassword" parameterType="Member">
+  		UPDATE  MEMBER SET
+		  PASSWORD = #{password}
+		WHERE EMAIL = #{email}		  	
+  	</update>
+
   
 
   

@@ -8,7 +8,6 @@
 <!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
       <meta charset="utf-8">
-      <title data-react-helmet="true">하루 한 포로 스트레스 없는 다이어트: 투유투디 더블다운 :: 텀블벅</title>
       <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
       <link rel="dns-prefetch" href="https://tumblbug-assets.imgix.net/">
       <link rel="dns-prefetch" href="https://tumblbug-pci2.imgix.net/">
@@ -266,194 +265,20 @@
 /* sc-component-id: sc-keyframes-fzoeFq */
 @-webkit-keyframes fzoeFq {0%,  100% {-webkit-transform: translateX(0);-ms-transform: translateX(0);transform: translateX(0);}50% {-webkit-transform: translateX(4px);-ms-transform: translateX(4px);transform: translateX(4px);}}@keyframes fzoeFq {0%,  100% {-webkit-transform: translateX(0);-ms-transform: translateX(0);transform: translateX(0);}50% {-webkit-transform: translateX(4px);-ms-transform: translateX(4px);transform: translateX(4px);}}
 
+	#policyFixedBtn, #policyBtn{
+		color: rgb(0, 0, 0); border-bottom: 3px solid rgb(0, 0, 0); padding-bottom: calc(0.5rem - 3px);
+	}
 </style>
 </head>
 <body>
    	<header>
-		<c:import url="../common/header.jsp"/>
+		<c:import url="../../common/header.jsp"/>
 	</header>
-	<section>
 		<div data-reactid="34">
+			
 			<!-- react-empty: 35 -->
-			<div
-				class="ProjectIntroduction__ProjectIntroductionBackground-c7b94s-0 hsuyOO"
-				data-reactid="36">
-				<div class="Container__Container-s1sxg7g4-0 jdgWcI"
-					data-reactid="37">
-					<div
-						class="ProjectIntroduction__ProjectIntroductionWrapper-c7b94s-1 isebXd"
-						data-reactid="38">
-						<div class="ProjectIntroduction__ProjectOutline-c7b94s-2 gKkJpB"
-							data-reactid="39">
-							<div
-								class="ProjectIntroduction__ProjectOutlineInner-c7b94s-3 yNdyg"
-								data-reactid="40">
-								<a href="../category/food.html" data-reactid="41"><span
-									class="ProjectIntroduction__ProjectCategory-c7b94s-4 boFKej"
-									data-reactid="42">푸드</span></a>
-								<h1 class="ProjectIntroduction__ProjectTitle-c7b94s-5 cyqGTD"
-									data-reactid="43">하루 한 포로 스트레스 없는 다이어트: 투유투디 더블다운</h1>
-								<div class="ProjectIntroduction__Creators-c7b94s-6 guVzeB"
-									data-reactid="44">
-									<span class="ProfileImg__ProfileImg-s1o99mme-0 jZXZDW"
-										data-reactid="45"></span><a
-										class="ProjectIntroduction__CreatorName-c7b94s-7 gDTPbS"
-										href="https://tumblbug.com/u/donajutzutzududuchi/projects"
-										target="_blank" rel="noopener noreferrer" data-reactid="46">2U2D</a>
-								</div>
-							</div>
-						</div>
-						<div
-							class="ProjectIntroduction__ProjectIntroductionMainColumn-c7b94s-8 iTDPPg"
-							data-reactid="47">
-							<figure
-								class="ProjectIntroduction__ProjectCoverImageFigure-c7b94s-9 dIHovk"
-								data-reactid="48">
-								<div
-									class="ProjectIntroduction__ProjectCoverVideo-c7b94s-10 qtLrt"
-									data-reactid="49">
-									<div class="_28l6WJgn2lALsbqKkv3zIA " data-reactid="50">
-										<img class="_28l6WJgn2lALsbqKkv3zIA _3_tz3Sy3FDfeZv5NgSfOZK"
-											alt="기본 프로젝트 커버 이미지"
-											src="resources/images/header/tumblbug-pci.imgix.net/8b085638008ca0dae709b236a3d55e79acf01841/9e4763ece87639b114ec09ec708c690d1d3767eb/fc0b20273bd383739a2217ce3be8c131e7c5429e/4eae4f67-3e25-42f2-8b34-63571aaf64073a35.jpg?ixlib=rb-1.1.0&amp;w=620&amp;h=465&amp;auto=format%2Ccompress&amp;lossless=true&amp;fit=crop&amp;s=d0f66a0d81033433dae54d0941680785"
-											data-reactid="51" />
-										<div class="_28l6WJgn2lALsbqKkv3zIA Go6I0FosWRXRZxpmYjWEE"
-											data-reactid="52">
-											<i
-												class="_28l6WJgn2lALsbqKkv3zIA SRDMui3_OYHbzIL_aQFCl _1QY7TzdLHKX3-BKPDNNYKF"
-												style="color: black;" data-reactid="53"></i>
-										</div>
-									</div>
-								</div>
-							</figure>
-						</div>
-						<aside
-							class="ProjectIntroduction__ProjectIntroductionSubColumn-c7b94s-12 gujNFh"
-							data-reactid="54">
-							<div
-								class="ProjectIntroduction__FundingStatus-c7b94s-13 eIDmsW"
-								data-reactid="55">
-								<div class="ProjectIntroduction__Metric-c7b94s-14 leXkjY"
-									data-reactid="56">
-									<div
-										class="ProjectIntroduction__StatusTitle-c7b94s-15 htCDgL"
-										data-reactid="57">모인금액</div>
-									<div
-										class="ProjectIntroduction__StatusValue-c7b94s-16 bvKOwU"
-										data-reactid="58">
-										<!-- react-text: 59 -->
-										44,783,000
-										<!-- /react-text -->
-										<span class="ProjectIntroduction__Small-c7b94s-18 ihuRTA"
-											data-reactid="60">원</span><span
-											class="ProjectIntroduction__FundingRate-c7b94s-17 kIYDgq"
-											data-reactid="61">
-											<!-- react-text: 62 -->2239<!-- /react-text -->
-											<!-- react-text: 63 -->%<!-- /react-text -->
-										</span>
-									</div>
-								</div>
-								<div class="ProjectIntroduction__Metric-c7b94s-14 leXkjY"
-									data-reactid="64">
-									<div
-										class="ProjectIntroduction__StatusTitle-c7b94s-15 htCDgL"
-										data-reactid="65">남은시간</div>
-									<div
-										class="ProjectIntroduction__StatusValue-c7b94s-16 bvKOwU"
-										data-reactid="66">
-										<!-- react-text: 67 -->
-										21
-										<!-- /react-text -->
-										<span class="ProjectIntroduction__Small-c7b94s-18 ihuRTA"
-											data-reactid="68">일</span>
-									</div>
-								</div>
-								<div class="ProjectIntroduction__Metric-c7b94s-14 leXkjY"
-									data-reactid="69">
-									<div
-										class="ProjectIntroduction__StatusTitle-c7b94s-15 htCDgL"
-										data-reactid="70">후원자</div>
-									<div
-										class="ProjectIntroduction__StatusValue-c7b94s-16 bvKOwU"
-										data-reactid="71">
-										<!-- react-text: 72 -->
-										772
-										<!-- /react-text -->
-										<span class="ProjectIntroduction__Small-c7b94s-18 ihuRTA"
-											data-reactid="73">명</span>
-									</div>
-								</div>
-							</div>
-							<div
-								class="FundingInformation__FundingInformation-s1sct7xv-0 lfgWGK"
-								data-reactid="74">
-								<div
-									class="FundingInformation__FundingInformationInner-s1sct7xv-1 iJcLQj"
-									data-reactid="75">
-									<div data-reactid="76">펀딩 진행중</div>
-									<span data-reactid="77">
-										<!-- react-text: 78 -->목표 금액인 <!-- /react-text -->
-										<!-- react-text: 79 -->2,000,000<!-- /react-text -->
-										<!-- react-text: 80 -->원이 모여야만 결제됩니다.<!-- /react-text -->
-										<br data-reactid="81" />
-									<!-- react-text: 82 -->결제는 <!-- /react-text -->
-										<!-- react-text: 83 -->2018년 8월 11일<!-- /react-text -->
-										<!-- react-text: 84 -->에 다함께 진행됩니다.<!-- /react-text -->
-									</span>
-								</div>
-							</div>
-							<div
-								class="ProjectIntroduction__ProjectButtons-c7b94s-19 kwAiqA"
-								data-reactid="85">
-								<div
-									class="ProjectIntroduction__ProjectButtonsInner-c7b94s-20 bBsoai"
-									data-reactid="86">
-									<div
-										class="ProjectIntroduction__PrimaryButton-c7b94s-21 fjkRCm"
-										data-reactid="87">
-										<button class="Button__Button-s1ng5xda-0 dvkZSH"
-											data-reactid="88">프로젝트 밀어주기</button>
-									</div>
-									<div
-										class="ProjectIntroduction__SecondaryButton-c7b94s-22 cYmhAj"
-										data-reactid="89">
-										<button class="Button__Button-s1ng5xda-0 hZQjKf"
-											data-reactid="90">
-											<i class="rx2sgfroJA4ZdOppiL_2e _1QY7TzdLHKX3-BKPDNNYKF"
-												data-reactid="91"></i>
-										</button>
-									</div>
-								</div>
-							</div>
-						</aside>
-					</div>
-				</div>
-			</div>
-			<div id="contentsNavigation" data-reactid="92">
-				<span style="font-size: 0;" data-reactid="93"></span>
-				<nav
-					class="ContentsNavigation__ProjectContentsNavigation-s6dhfrc-1 lblHJx"
-					data-reactid="94">
-					<div
-						class="ContentsNavigation__ProjectContentsNavigationInner-s6dhfrc-2 eeeApW"
-						data-reactid="95">
-						<div class="ContentsNavigation__NavLeft-s6dhfrc-3 eSsILz"
-							data-reactid="96">
-							<a class="ContentsNavigation__NavItem-s6dhfrc-0 gEWplf"
-								href="projectDetail.do" data-reactid="97">스토리</a><a
-								class="ContentsNavigation__NavItem-s6dhfrc-0 gEWplf"
-								href="projectCommunity.do" data-reactid="98">
-								<!-- react-text: 99 -->커뮤니티<!-- /react-text -->
-								<span
-								class="ContentsNavigation__CommunityPostAmount-s6dhfrc-6 bReGoj"
-								data-reactid="100"></span>
-							</a><a class="ContentsNavigation__NavItem-s6dhfrc-0 gEWplf"
-								style="color: rgba(0, 0, 0, 1); border-bottom: 3px solid rgba(0, 0, 0, 1); padding-bottom: calc(0.5rem - 3px);"
-								href="projectPolicy.do" data-reactid="101">환불 및 교환</a>
-						</div>
-					</div>
-				</nav>
-			</div>
+			<c:import url="projectInfo.jsp"/>
+			
 			<div class="ProjectPage__ProjectContentsBackground-b1letw-0 cNWmvR"
 				data-reactid="102">
 				<div class="Container__Container-s1sxg7g4-0 jdgWcI"
@@ -483,104 +308,16 @@
 											</div>
 										</div>
 									</div>
-									<div class="PolicyCard__CardWrapper-s15bkvr9-3 dtFXbm"
-										data-reactid="113">
-										<div class="Card__Card-s1i1esb8-0 bJXRvz" data-reactid="114">
-											<div
-												class="CreatorContactCard__CreatorContactCardInner-s1n9u3yh-0 frQalE"
-												data-reactid="115">
-												<div
-													class="CreatorContactCard__CreatorContactContents-s1n9u3yh-1 cDaykX"
-													data-reactid="116">
-													<div
-														class="CreatorContactCard__CreatorContactCardLabel-s1n9u3yh-2 ldtjlR"
-														data-reactid="117">프로젝트에 대해 문의사항이 있으신가요?</div>
-													<div
-														class="CreatorContactCard__CreatorContactButton-s1n9u3yh-3 bHyDWq"
-														data-reactid="118">
-														<button class="Button__Button-s1ng5xda-0 dxWcyc"
-															data-reactid="119">
-															<i
-																class="_3YmAkQhwzI7o-uUWz_8Mp4 _1QY7TzdLHKX3-BKPDNNYKF"
-																data-reactid="120"></i>
-															<!-- react-text: 121 -->
-															창작자에게 문의하기
-															<!-- /react-text -->
-														</button>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
 								</div>
 							</div>
 						</div>
-						<div
-							class="ProjectPage__ProjectContentsSubColumn-b1letw-3 ceunQL"
-							data-reactid="122">
-							<div class="ProjectPage__SubColumnInner-b1letw-5 deZznN"
-								data-reactid="123">
-								<div class="Card__Card-s1i1esb8-0 bJXRvz" data-reactid="124">
-									<div class="CreatorCard__CreatorCardInner-yeytpy-0 cBbkfc"
-										data-reactid="125">
-										<div class="CreatorCard__CreatorCardLabel-yeytpy-1 fuCNpE"
-											data-reactid="126">창작자 소개</div>
-										<div class="CreatorCard__CreatorProfile-yeytpy-2 eYscdN"
-											data-reactid="127">
-											<span class="ProfileImg__ProfileImg-s1o99mme-0 daPkde"
-												data-reactid="128"></span><a
-												href="https://tumblbug.com/u/donajutzutzududuchi/projects"
-												data-reactid="129"><span
-												class="CreatorCard__CreatorName-yeytpy-3 fVfxlF"
-												data-reactid="130">2U2D</span></a>
-										</div>
-										<div class="CreatorCard__CreatorBiography-yeytpy-4 dHxdxH"
-											data-reactid="131">너무나도 바쁜 일상의 연속입니다. 건강관리는 어떻게 하고
-											계신가요? 팀 투유투디(2U2D) &quot;바쁜 생활 속 간편한 건강관리&quot;를 모토로 다양한
-											솔루션을 제공하고자 합니다. 사회생활 하시면서 갑자기 체중이 늘어 건강이 악화 되신분, 매일 반복되는
-											음주와의 전쟁에 지치신 분, 야근 때문에 피로가 누적 되신분들... 우리 주변에서 흔히 볼 수 있는
-											모습입니다. 팀 투유투디는 하루 하루 최선을 다해 살아가지만, 너무 바빠서 건강관리에 소홀해지신 모든
-											분들이 조금 더 쉽고 간편하게 접근 하실 수 있는 건강관리 문화를 만들기위해 노력하겠습니다.</div>
-										<div class="Divider__Divider-s16ihjfx-0 ilHpOi"
-											data-reactid="132"></div>
-										<div class="CreatorCard__CreatorStats-yeytpy-5 iBGoJt"
-											data-reactid="133">
-											<div data-reactid="134">
-												<!-- react-text: 135 -->
-												마지막 로그인  
-												<!-- /react-text -->
-												<b data-reactid="136">한 시간 전</b>
-											</div>
-											<!-- react-text: 137 -->
-											진행한 프로젝트  
-											<!-- /react-text -->
-											<b data-reactid="138">1</b>
-											<!-- react-text: 139 -->
-											     밀어준 프로젝트  
-											<!-- /react-text -->
-											<b data-reactid="140">0</b>
-										</div>
-										<div
-											class="CreatorCard__CreatorContactButton-yeytpy-6 khYIRi"
-											data-reactid="141">
-											<button class="Button__Button-s1ng5xda-0 dxWcyc"
-												data-reactid="142">
-												<i class="_3YmAkQhwzI7o-uUWz_8Mp4 _1QY7TzdLHKX3-BKPDNNYKF"
-													data-reactid="143"></i>
-												<!-- react-text: 144 -->
-												창작자에게 문의하기
-												<!-- /react-text -->
-											</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+						
+						<c:import url="creatorRewardsCard.jsp"/>
+						
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>	
 </body>
   
 <!-- Mirrored from tumblbug.com/doubledown/policy by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Jul 2018 07:21:32 GMT -->

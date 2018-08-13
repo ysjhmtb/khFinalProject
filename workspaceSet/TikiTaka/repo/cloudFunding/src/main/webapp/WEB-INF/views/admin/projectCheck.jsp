@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
     
     
   
@@ -10,7 +11,7 @@
 	background:lightgray;
 	}
 	
-	#memberTable{
+	#projectTable{
 	margin-top:50px;
 	}
 	
@@ -18,15 +19,19 @@
 	float: right;
 	}
 	
-	#inputBar{
+	#projectInputBar{
 	border-radius: 5px;
 	}
 	
-	#th3{
+	#th1,#th2,#th3,#th4,#th5,#th6,#th7{
 		text-align: center;
 	}
 	
-	#allSelectBtn{
+	#td1,#td2,#td3,#td4,#td5,#td6,#td7{
+		text-align: center;
+	}
+	
+	#allProjectSelectBtn{
 	margin-top:8px;
 	margin-right:10px;
 	}
@@ -49,16 +54,18 @@
 </style>
 <script>
 function validate(){
-	var inputBar = $("#inputBar").val();
 	
-	if(inputBar == ""){
+	var projectInputBar = $("#projectInputBar").val();
+	
+	if(projectInputBar == ""){
 		alert("프로젝트코드나 제목을 입력하세요");
 		return false;
 	}
+	
 	return true;
 }
 
-  function selectAll(){
+  function projectSelectAll(){
 	 location.href = "selectAll.do"; 
 	
 }  
@@ -83,34 +90,40 @@ function validate(){
 
 </script>
 
-<div id = "searchBar">
-<form class="navbar-form pull-left" action = "searchMember.do" onsubmit = "return validate();">
-  <input type="text" class="span2" id = "inputBar" name = "keyword">
+ <div id = "searchBar">
+<form class="navbar-form pull-left" action = "searchProject.do" onsubmit = "return validate();">
+  <input type="text" class="span2" id = "projectInputBar" name = "keyword">
   <button type="submit" class="btn">검색</button>
 </form>
-<button type="button" class="btn" id = "allSelectBtn" onclick = "selectAll();">전체조회</button>
-</div>
+<button type="button" class="btn" id = "allProjectSelectBtn" onclick = "projectSelectAll();">전체조회</button>
+</div> 
 
 
-<table class="table table-striped" id = "memberTable">
+<table class="table table-striped" id = "projectTable">
 <c:if test="${!empty projectList }">
   <thead>
     <tr>    
-      <th scope="col">코드번호</th>
-      <th scope="col">제목</th>
+      <th scope="col" id = "th1">프로젝트코드</th>
+      <th scope="col" id = "th2">제목</th>
       <th scope="col" id = "th3">진행자</th>
-      <th scope="col">분류</th>
-      <th scope="col">상세정보</th>
+      <th scope="col" id = "th4">마감일</th>
+      <th scope="col" id = "th5">목표금액</th>
+      <th scope="col" id = "th6">분류</th>
+      <th scope="col" id = "th7">관리자기능</th>
     </tr>
   </thead>
   <tbody>
   <c:forEach var="p" items="${projectList}">
     <tr>
-      <td><c:out value = "${p.projectCode }"/></td>
-      <td><c:out value = "${p.title }"/></td>
-      <td><c:out value = "${p.name }"/></td>
-      <td><c:out value = "${p.category }"/></td>
-      <td><button type="button" class="btn btn-secondary btn-xs">조회</button></td>
+      <td id = "td1"><c:out value = "${p.projectCode }"/></td>
+      <td id = "td2"><c:out value = "${p.title }"/></td>
+      <td id = "td3"><c:out value = "${p.name }"/></td>
+      <td id = "td4"><c:out value = "${p.endDate }"/></td>
+      <td id = "td5"><fmt:formatNumber value = "${p.price }" type = "number"/><c:out value="원"/></td>
+      <td id = "td6"><c:out value = "${p.category }"/></td>
+      <td id = "td7"><button type="button" class="btn btn-secondary btn-xs">상세정보</button>
+      		<button type="button" class="btn btn-secondary btn-xs">승인</button>
+      		<button type="button" class="btn btn-secondary btn-xs">거절</button></td>
     </tr>
    </c:forEach>
   </c:if>

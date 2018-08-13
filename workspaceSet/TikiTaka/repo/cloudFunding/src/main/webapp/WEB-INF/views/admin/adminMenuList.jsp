@@ -46,7 +46,7 @@
 
 	$(function(){
 		var tabIndex = sessionStorage.getItem("tab");
-		/* console.log("test", tabIndex); */
+		 /* console.log("test", tabIndex);  */
 		if(tabIndex == null){
 			tabIndex = 0;
 		}
@@ -105,7 +105,7 @@
     </div>
     
     <div id="menu4" class="tab-pane fade">
-     <p>Eaqu222222222e ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+     	<c:import url="banner.jsp"></c:import>
     </div>
     
   </div>
