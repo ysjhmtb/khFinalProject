@@ -16,38 +16,55 @@
   	
   	<insert id="insertMember" parameterType="Member">
   		
-  		INSERT INTO MEMBER(EMAIL, NAME, PASSWORD, PROFILE_IMG, ENROLL_DATE) 
-  		VALUES(#{email}, #{name}, #{password}, #{profile_img}, SYSDATE)  		
+  		INSERT INTO MEMBER VALUES(#{email}, #{name}, #{password},
+  				#{profile_img}, SYSDATE)  		
   	</insert>
   	
   	<select id="selectMemberEmail" parameterType="Member" resultType="Member">
-  		SELECT EMAIL, NAME, PASSWORD, PROFILE_IMG, ENROLL_DATE 
-  		FROM MEMBER
-		WHERE EMAIL = #{email}
+  		SELECT EMAIL, NAME, PASSWORD, PROFILE_IMG, ENROLL_DATE, 
+  				STOP_DATE, STOP_DATE + 3 AS EXPDATE
+		FROM MEMBER
+		WHERE EMAIL =  #{email}
   	</select>
-  	
-  	
-  	<update id="updateMemberProfile" parameterType="Member" >
-  		UPDATE  MEMBER SET
-		  NAME = #{name}, PASSWORD = #{password}, 
-		  PROFILE_IMG = #{profile_img},
-		  LOCATION = #{location},
-		  SHORTDESCRIPTION = #{shortDescription},
-		  HOMEPAGE = #{homepage},
-		  PHONE1 = #{phone1},
-		  PHONE2 = #{phone2},
-		  PHONE3 = #{phone3}
-		WHERE EMAIL = #{email}
-  	</update>
-  	
-  	<update id="updateMemberPassword" parameterType="Member">
-  		UPDATE  MEMBER SET
-		  PASSWORD = #{password}
-		WHERE EMAIL = #{email}		  	
-  	</update>
-
   
-
+  
+	<update id="insertUpdateCardInfo" parameterType="PaymentInfo">
+		MERGE INTO PAYMENT_INFO P1
+		  USING DUAL
+		  ON (P1.EMAIL = #{email})
+		  WHEN MATCHED THEN
+		    UPDATE SET
+		              P1.P_METHOD = #{p_method},
+		              P1.CARDNUM = #{cardnum},
+		              P1.VALIDITY = #{validity},
+		              P1.BIRTHDAY = #{birthday},
+		              P1.CARDPWD = #{cardpwd}
+		
+		  WHEN NOT MATCHED THEN
+		    INSERT (EMAIL, P_METHOD, CARDNUM, VALIDITY, BIRTHDAY, CARDPWD)
+		    VALUES(#{email},#{p_method},#{cardnum},#{validity},#{birthday},#{cardpwd})
+	</update>
+	
+	<update id="insertUpdateBankInfo" parameterType="PaymentInfo">
+		MERGE INTO PAYMENT_INFO P1
+		  USING DUAL
+		  ON (P1.EMAIL = #{email})
+		  WHEN MATCHED THEN
+		    UPDATE SET
+		    		  P1.P_METHOD = #{p_method},
+		              P1.BANK = #{bank},		              
+		              P1.ACNAME = #{acname},
+		              P1.ACINFO = #{acinfo},
+		              P1.BIRTHDAY = #{birthday},
+		              P1.ACNUM = #{acnum}
+		
+		  WHEN NOT MATCHED THEN
+		    INSERT (EMAIL, P_METHOD, BANK, ACNAME, ACINFO, BIRTHDAY, ACNUM)
+		    VALUES(#{email},#{p_method},#{bank},#{acname},#{acinfo}, #{birthday},#{acnum})
+		
+		
+	
+	</update>
   
   </mapper>
   

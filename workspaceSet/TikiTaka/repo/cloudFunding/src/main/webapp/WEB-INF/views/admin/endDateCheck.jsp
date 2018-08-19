@@ -111,7 +111,7 @@ function validate2(){
       <th scope="col" id = "th3">진행자</th>
       <th scope="col" id = "th4">남은기간</th>
       <th scope="col" id = "th5">성공여부(금액)</th>
-      <th scope="col" id = "th6">관리자기능</th>
+      <th scope="col" id = "th6">상세정보</th>
     </tr>
   </thead>
   <tbody>
@@ -124,12 +124,12 @@ function validate2(){
       <td id = "td3"><c:out value = "${fp.name }"/></td>
       <td id = "td4">
       
-      <c:if test ="${fp.endDate >= toDay }">
-      <c:out value = "종료임박 (${fp.endDate }까지)"/>
+      <c:if test ="${fp.endDate <= toDay }">
+      <c:out value = "종료임박 ( "/><c:out value = "${fp.endDate } "/><c:out value = " 까지) "/>
       </c:if>
-      <c:if test ="${fp.endDate < toDay }">
+      <c:if test ="${fp.endDate > toDay }">
       <c:out value = "종료 "/>
-      </c:if>
+      </c:if> 
       </td>
      
       <td id = "td5">
@@ -144,16 +144,8 @@ function validate2(){
       <%-- <c:out value = "${fp.category }"/> --%>
       
       </td>
-      <td id = "td6">
-      		<c:if test ="${fp.endDate >= toDay }">
-      			<button type="button" class="btn btn-secondary btn-xs">상세정보</button>
-      		</c:if>
-      		<c:if test ="${fp.endDate < toDay }">
-     			<button type="button" class="btn btn-secondary btn-xs">상세정보</button>
-      			<button type="button" class="btn btn-secondary btn-xs">종료확인</button>
-      		</c:if>
-      		
-      </td>
+      <td id = "td6"><button type="button" class="btn btn-secondary btn-xs">추가정보</button>
+      		<button type="button" class="btn btn-secondary btn-xs">종료확인</button></td>
     </tr>
    </c:forEach>
   </c:if>
@@ -170,17 +162,17 @@ function validate2(){
   </c:if>
   
   <c:if test="${!empty fprojectList }">
-	<a href="adminMenuList.do?no=${fpPaging.prevPage}" class="next"><span class="next">◀</span></a>&nbsp;
+	<a href="adminMenuList.do?fpNo=${fpPaging.prevPage}" class="next"><span class="next">◀</span></a>&nbsp;
 
 	<c:forEach var="i" begin="${fpPaging.startPage }" end="${fpPaging.endPage }" step="1">
 		<c:if test = "${fpPaging.curPage == i }">
-			<a href="adminMenuList.do?no=${i}" class = "selectI" onclick = "return false;">${i}</a>&nbsp;
+			<a href="adminMenuList.do?fpNo=${i}" class = "selectI" onclick = "return false;">${i}</a>&nbsp;
 		</c:if>
 		<c:if test = "${fpPaging.curPage != i }">
-			<a href="adminMenuList.do?no=${i}">${i}</a>&nbsp;
+			<a href="adminMenuList.do?fpNo=${i}">${i}</a>&nbsp;
 		</c:if>
 	</c:forEach>
 
-	<a href="adminMenuList.do?no=${fpPaging.nextPage}" class="next"><span class="next">▶</span></a>
+	<a href="adminMenuList.do?fpNo=${fpPaging.nextPage}" class="next"><span class="next">▶</span></a>
 	</c:if>
 </div><!-- 페이징 --> 

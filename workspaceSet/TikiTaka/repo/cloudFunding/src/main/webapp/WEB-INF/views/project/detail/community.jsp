@@ -280,8 +280,8 @@
 	.frVGN {
 	    display: inline-block;
 	    /* background-image: url(https://tumblbug-upi.imgix.net/8976925….JPG…a&facepad=2.0&ch=Save-Data&mask=ellipse&s=a1136e6…); */
-	    width: 40px;
-	    height: 40px;
+	    width: 30px;
+	    height: 30px;
 	    background-size: cover;
 	    background-position: 50% 38%;
 	    border-radius: 50%;
@@ -459,24 +459,161 @@
 	    margin-right: 0;
 	}
 	
-	#postListDiv, #writeBtnDiv{ display:block; }
-	#postFormDiv, .tojyI, #creatorPostDiv, #updatePostFormDiv{	display:none; }
+	.kzDOep {
+	    color: #000;
+	    font-weight: bolder;
+	    font-size: .9rem;
+	    margin-left: .75rem;
+	}
+	.kFkoaw {
+	    display: inline-block;
+	    background-color: #000;
+	    color: #fff;
+	    font-size: .9rem;
+	    font-weight: bolder;
+	    padding: .2rem .6rem;
+	    margin: .5rem 0 1.5rem;
+	}
+	
+	#deleteReplyBtn{
+		padding: inherit;
+    	margin-left: 10px;
+	}
+	
+	/* #postListDiv,  */#writeBtnDiv{ display:block; }
+	#postFormDiv, .tojyI, #creatorPostDiv, #updatePostFormDiv, #postListDiv{	display:none; }
 	
 	#communityFixedBtn, #communityBtn{ color: rgb(0, 0, 0); border-bottom: 3px solid rgb(0, 0, 0); padding-bottom: calc(0.5rem - 3px); }
-
+	#sharePostBtnDiv{ display:none; }
+	
+	
 </style>
 <script>
+	$(window).on("load", function(){ 
+		$(".loadingIndicator").css("display", "none");  
+		$(".dLYLGx").css("margin", "unset");  
+		$("#postListDiv").css("display", "block");  
+		setMoreBtnDisplayBlock();
+	});
+	 
+	$(function(){
+		// 댓글 달고나면 해당 게시글 상세화면 영역 보이게
+		var postCode;
+		if(null != sessionStorage.getItem("postCode")){
+			postCode = sessionStorage.getItem("postCode");
+		}
+		
+		/* console.log("test", tabIndex);  */
+	      if(postCode != null){
+			$(".tojyI").css("display", "block");
+			$("#postFormDiv").css("display", "none");
+			$("#postListDiv").css("display", "none");
+			$("#creatorPostDiv").css("display", "none");
+			$("#writeBtnDiv").css("display", "none");	   
+			setWindowScrollTop();
+			
+			$.ajax({
+				url : "selectPost.do",
+				type : "post",
+/* 				data : {index : $("#userIndexes").val()}, */
+				data : {postCode : postCode},
+				success : function(data){
+					$(".hKVypK > .storyContent").html(data.content);
+					$(".hINlJw").html(data.name);
+					$("#postWriterProfileImgSpan").html("<img class='ProfileImg__ProfileImg-s1o99mme-0 frVGN' src='" + data.profileImg + "'/>");
+					$("#replyWriterProfileImgDiv").html("<img class='ProfileImg__ProfileImg-s1o99mme-0 frVGN' src='${user.profile_img}'/>")
+					$("#postWrittenDate").html(moment(data.writtenDate).format("YYYY-MM-DD"));
+					$("#replyForm input[name=postCode]").val(data.postCode);
+					
+					var loginUserEmail = "<c:out value='${user.email}'/>";
+					var creatorEmail = "<c:out value='${project.email}'/>";
+					var postWriterEmail = data.email;
+					if(creatorEmail == postWriterEmail){
+						$("#sharePostBtnDiv").css("display", "flex");
+						$("#creatorLabel").html("창작자");
+						$("#postCategory").html("창작자 업데이트");
+						$("#postCategory").addClass("kFkoaw");
+					}else {
+						$("#sharePostBtnDiv").css("display", "none");
+						$("#postCategory").html("");
+						$("#postCategory").removeClass("kFkoaw");
+					}
+					
+					var projectCode = "<c:out value='${project.projectCode}'/>";		
+					
+					$(".Post__CommunityPostCommentsAmount-s1xz59uk-25").html("<strong>" + data.replyList.length + "</strong>개의 댓글이 있습니다");
+					var $replyDiv = $("#replyDiv");
+					var resultStr = "";
+					// 댓글이 없는 경우 구분하기
+					/* console.log(data.replyList[0].content); */
+					if(0 < data.replyList.length) {
+						for(var key in data.replyList) {
+							var reply = data.replyList[key];
+							resultStr += "<div class='Comment__Comment-wppgnq-0 hlvHZI'>";
+							resultStr += "<div class='Comment__CommentProfileImageWrapper-wppgnq-2 dbsGhw'>";
+							if(null != reply.profileImg) {
+								resultStr += "<img class='ProfileImg__ProfileImg-s1o99mme-0 wtQUk' src='" + reply.profileImg + "'/></div>";
+							} else {
+								resultStr += "<span class='ProfileImg__ProfileImg-s1o99mme-0 wtQUk'></span></div>";
+							}
+							resultStr += "<div class='Comment__CommentInner-wppgnq-1 TozEg'>";
+							resultStr += "<div class='Comment__CommentMeta-wppgnq-3 Ovbfn'>";
+							resultStr += "<div class='Comment__CommentAuthorFullnameWrapper-wppgnq-4 ingGrN'>";
+							resultStr += "<div class='Comment__CommentAuthorFullname-wppgnq-6 hGUkNg'>" + reply.name + "</div>";
+							if(creatorEmail == reply.email) {						
+								resultStr += "<span class='Comment__CommentCreatorLabel-wppgnq-7 heUSFE'>창작자</span>";
+							}
+							resultStr += "</div>";
+							/* moment(reply.writtenDate).format("YYYY.MM.DD hh:mm") */
+							resultStr += "<div class='Comment__CommentedAt-wppgnq-5 bryKXn'>" + reply.writtenDate + "</div></div>";
+							resultStr += "<div class='Comment__CommentContents-wppgnq-8 dNCkru'>" + reply.content + "</div>";
+							
+							/* 댓글 삭제 버튼 */
+							resultStr += "<div class='PostEditForm__DeleteButton-frv1rh-6 kWwLhn'>";
+							if(loginUserEmail == reply.email) {
+								resultStr += "<button id='deleteReplyBtn' class='Button__Button-s1ng5xda-0 fkKFAu' onclick='deleteReply(" + reply.replyCode + ", " + data.postCode + ");'>";
+								resultStr += "<i class='_1pt-5UHn7rWHPExbDO4EbO _2rCeEoFeBzvCYn76udqnww _1QY7TzdLHKX3-BKPDNNYKF'></i></button></div></div>";
+							} else {
+								resultStr += "<button class='Button__Button-s1ng5xda-0 fkKFAu'>";
+								resultStr += "</button></div></div>";
+							}
+							
+							resultStr += "</div>";
+						}
+					} else {
+						resultStr += "<div class='Post__NoCommentsPlaceHolder-s1xz59uk-26 cHZzdT'>";
+						resultStr += "<i class='_30LNYFhw6qsigZSbwlGCDz _1R0ZK0Z1zZIqLZ8NkjnsD6 t92eur5rwOw7wGfKPt3l8 _1QY7TzdLHKX3-BKPDNNYKF'></i>";
+						resultStr += "댓글이 없습니다</div>";
+					}
+					$replyDiv.html(resultStr);
+				}, beforeSend:function(){
+			        $(".tojyI").hide();
+			    }, complete:function(){
+			    	$(".tojyI").show();
+			    }, error : function(e){
+					console.log("ajax insertReply 에러 : ", e);
+				}
+			});
+	      }
+	});
+
 	function openPostForm(){
+		setWindowScrollTop();
 		$("#postFormDiv").css("display", "block");
 		$("#postListDiv").css("display", "none");
 		$("#writeBtnDiv").css("display", "none");
+		$("#creatorPostDiv").css("display", "none");
 	}
 	function closePostForm(){
+		setWindowScrollTop();
+		$("#postForm .note-editable").text("");
 		$("#postFormDiv").css("display", "none");
 		$("#postListDiv").css("display", "block");
 		$("#writeBtnDiv").css("display", "block");
+		setMoreBtnDisplayBlock();
 	}
 	function openUpdatePostForm(postCode){
+		setWindowScrollTop();
 		$("#updatePostFormDiv").css("display", "block");
 		$("#postListDiv").css("display", "none");
 		$("#writeBtnDiv").css("display", "none");
@@ -490,6 +627,7 @@
 			success : function(data){
 				$("#updatePostFormDiv .note-editable").html(data.content);
 				$("input[name=postCode]").val(data.postCode);
+				
 				/* console.log($("input[name=postCode]").val()); */
 			}, error : function(e){
 				console.log("ajax 게시글 수정 페이지 이동 시 에러");
@@ -497,24 +635,64 @@
 		});
 	}
 	function closeUpdatePostForm(){
+		setWindowScrollTop();
 		$("#updatePostFormDiv").css("display", "none");
 		$("#postListDiv").css("display", "block");
 		$("#writeBtnDiv").css("display", "block");
+		setMoreBtnDisplayBlock();
 	}
 	function closePostDetail(){
 		$(".tojyI").css("display", "none");
+		
+		$(".hKVypK > .storyContent").html("");
+		$(".hINlJw").html("");
+		$("#postWriterProfileImgSpan").html("");
+		$("#replyWriterProfileImgDiv").html("");
+		$("#replyDiv").html("");
+		$(".Post__CommunityPostCommentsAmount-s1xz59uk-25").html("");
+		$("#sharePostBtnDiv").css("display", "none");
+		$("#creatorLabel").html("");
+		$("#postCategory").html("");
+		$("#postCategory").removeClass("kFkoaw");
+		$("#postWrittenDate").html("");
+		
 		$("#postListDiv").css("display", "block");
 		$("#writeBtnDiv").css("display", "block");
+		sessionStorage.removeItem("postCode");
+		setMoreBtnDisplayBlock();
 	}
 	function openCreatorPost(){
 		$("#creatorPostDiv").css("display", "block");
 		$("#postListDiv").css("display", "none");
+		setMoreBtnDisplayBlock();
 	}
 	function closeCreatorPost(){
 		$("#postListDiv").css("display", "block");
 		$("#creatorPostDiv").css("display", "none");
+		setMoreBtnDisplayBlock();
 	}
-	
+	function setWindowScrollTop(){
+		var height = $(".hsuyOO").css("height").replace("px", "");
+	 	$(window).scrollTop(Math.ceil(height) + 10);
+	}
+	function setMoreBtnDisplayBlock(){
+		/* 더보기 버튼 보이게 */
+		$(".cywbQo").each(function(){
+			var $storyContentDiv = $(this).children("div").eq(0).children("div").children("div").eq(0);
+			var height = $storyContentDiv.css("height").replace("px", "");
+			var maxHeight = $(".fmSZUJ").css("max-height").replace("px", "");
+			
+			if(maxHeight <= height) {
+				$(this).children(".hwdRmE").css("display", "block");
+				$(this).siblings(".bPLTTN").css("display", "block");
+			}
+		});
+	}
+	function deleteReply(replyCode, postCode){
+		sessionStorage.setItem("postCode", postCode);
+		var projectCode = "<c:out value='${project.projectCode}'/>";
+		location.href="deleteReply.do?projectCode=" + projectCode + "&replyCode=" + replyCode;
+	}
 	
 </script>
     </head>
@@ -522,31 +700,28 @@
     	<header>
 			<c:import url="../../common/header.jsp"/>
 		</header>
-			<div data-reactid="34">
-				
-				<c:import url="projectInfo.jsp"/>
-				
-			<div class="ProjectPage__ProjectContentsBackground-b1letw-0 cNWmvR">
-				<div class="Container__Container-s1sxg7g4-0 jdgWcI">
-					<div class="ProjectPage__ProjectContents-b1letw-1 jPEdlL">
-						<div
-							class="ProjectPage__ProjectContentsMainColumn-b1letw-2 kJUlye">
-							
-							<div class="ProjectPage__MainColumnInner-b1letw-4 giKgfw">
-								<c:import url="../community/postList.jsp"/>
-								<c:import url="../community/postForm.jsp"/>
-								<c:import url="../community/updatePostForm.jsp"/>
-							</div>
-						 
+		<div data-reactid="34">
+			
+			<c:import url="projectInfo.jsp"/>
+			
+		<div class="ProjectPage__ProjectContentsBackground-b1letw-0 cNWmvR">
+			<div class="Container__Container-s1sxg7g4-0 jdgWcI">
+				<div class="ProjectPage__ProjectContents-b1letw-1 jPEdlL">
+					<div	class="ProjectPage__ProjectContentsMainColumn-b1letw-2 kJUlye">
+						<div class="ProjectPage__MainColumnInner-b1letw-4 giKgfw">
+							<c:import url="../community/postList.jsp"/>
+							<c:import url="../community/postForm.jsp"/>
+							<c:import url="../community/updatePostForm.jsp"/>
 						</div>
-						
-						<!-- 오른쪽 고정 영역(창작자소개, 선물 목록) -->
-						<c:import url="creatorRewardsCard.jsp"/>
-						
 					</div>
+
+					<!-- 오른쪽 고정 영역(창작자소개, 선물 목록) -->
+					<c:import url="creatorRewardsCard.jsp"/>
+
 				</div>
 			</div>
 		</div>
+	</div>
 </body>
   
 </html>

@@ -5,12 +5,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tikitaka.cloudFunding.community.model.service.CommunityService;
 import com.tikitaka.cloudFunding.community.model.vo.PostVo;
+import com.tikitaka.cloudFunding.community.model.vo.ReplyVo;
 import com.tikitaka.cloudFunding.project.model.service.ProjectService;
 import com.tikitaka.cloudFunding.project.model.vo.ProjectVo;
 
@@ -67,4 +69,17 @@ public class CommunityController {
 		return post;
 	}
 	
+	@RequestMapping("insertReply.do")
+	public String insertReply(int projectCode, int postCode, String email, String content, Model model){
+		ReplyVo reply = new ReplyVo(postCode, email, content);
+		int result = cService.insertReply(reply);
+		
+		return "redirect:projectCommunity.do?projectCode=" + projectCode;
+	}
+	@RequestMapping("deleteReply.do")
+	public String deleteReply(int projectCode, int replyCode){
+		int result = cService.deleteReply(replyCode);
+		
+		return "redirect:projectCommunity.do?projectCode=" + projectCode;
+	}
 }

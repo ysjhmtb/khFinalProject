@@ -8,13 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.tikitaka.cloudFunding.admin.model.service.AdminService;
+import com.tikitaka.cloudFunding.admin.model.vo.AdminVo;
 import com.tikitaka.cloudFunding.admin.model.vo.PagingVo;
 import com.tikitaka.cloudFunding.admin.model.vo.bPagingVo;
 import com.tikitaka.cloudFunding.admin.model.vo.bannerVo;
@@ -31,11 +32,33 @@ public class AdminController {
 
 	@RequestMapping("adminMenuList.do") // 관리자 페이지 이동
 	public ModelAndView adminMenuList(ModelAndView mv, PagingVo paging,projectPagingVo pPaging,
-			fProjectPagingVo fpPaging,bPagingVo bPaging, @RequestParam(defaultValue = "1") int no) {
+			fProjectPagingVo fpPaging,bPagingVo bPaging, @RequestParam(defaultValue = "1") int no,
+			@RequestParam(defaultValue = "1") int bNo,@RequestParam(defaultValue = "1") int pNo,
+			@RequestParam(defaultValue = "1") int fpNo) {
 
 		
+		//챠트
+		int allPrice = adminservice.allPrice(); //전체모금액
+		int price = adminservice.price(); //받은모금액
+		int category1 = adminservice.category();//카테고리 게임조회
+		int category2 = adminservice.category2();//카테고리 공연조회
+		int category3 = adminservice.category3();//카테고리 디자인조회
+		int memberMonth = adminservice.memberMonth();
+		/*int projectMonth = adminservice.projectMonth();*/
 		
 		
+		
+		mv.addObject("allPrice", allPrice);
+		mv.addObject("price", price);
+		mv.addObject("category1", category1);
+		mv.addObject("category2", category2);
+		mv.addObject("category3", category3);
+		mv.addObject("memberMonth", memberMonth);
+		
+		
+		
+		
+		//////////////////////////////////////////////////////////멤버 조회
 		int noticeCount = adminservice.TotalCount();
 		int rangeSize = paging.getRangeSize();
 		int pageSize = paging.getPageSize();
@@ -96,12 +119,12 @@ public class AdminController {
 		
 		
 		
-		//프로젝트부분 페이징처리
+		/////////////////////////////////////////////////////////////////프로젝트승인 페이징처리
 		
 		int projectCount = adminservice.projectTotalCount();
 		int pRangeSize = pPaging.getRangeSize();
 		int pPageSize = pPaging.getPageSize();
-		pPaging.setCurPage(no); // 현재 페이지 번호
+		pPaging.setCurPage(pNo); // 현재 페이지 번호
 		pPaging.setListCnt(projectCount);// 전체 게시물 수
 
 		// 전체 페이지 수
@@ -120,7 +143,7 @@ public class AdminController {
 		pPaging.setRangeCnt(pRangeCnt);
 
 		// 현재 블럭 번호
-		int pCurRange = (int) ((no - 1) / pRangeSize) + 1;
+		int pCurRange = (int) ((pNo - 1) / pRangeSize) + 1;
 		pPaging.setCurRange(pCurRange);
 
 		// 블록 내 시작 페이지
@@ -151,18 +174,18 @@ public class AdminController {
 		
 
 		
-		List<ProjectVo> list2 = adminservice.selectProjectList();
+		List<ProjectVo> list2 = adminservice.selectProjectList(pNo);
 		
 		mv.addObject("pPaging", pPaging);
 		mv.addObject("projectList", list2);
 		mv.addObject("projectTotalCount", projectCount);
 		
 		
-		
+		//////////////////////////////////////////////////////////////// 프로젝트 종료확인 페이징
 		int fprojectCount = adminservice.fprojectTotalCount();
 		int fpRangeSize = fpPaging.getRangeSize();
 		int fpPageSize = fpPaging.getPageSize();
-		fpPaging.setCurPage(no); // 현재 페이지 번호
+		fpPaging.setCurPage(fpNo); // 현재 페이지 번호
 		fpPaging.setListCnt(fprojectCount);// 전체 게시물 수
 
 		// 전체 페이지 수
@@ -181,7 +204,7 @@ public class AdminController {
 		fpPaging.setRangeCnt(fpRangeCnt);
 
 		// 현재 블럭 번호
-		int fpCurRange = (int) ((no - 1) / fpRangeSize) + 1;
+		int fpCurRange = (int) ((fpNo - 1) / fpRangeSize) + 1;
 		fpPaging.setCurRange(fpCurRange);
 
 		// 블록 내 시작 페이지
@@ -210,17 +233,19 @@ public class AdminController {
 			fpPaging.setEndPage(fpPaging.getPageCnt());
 		}
 		
-		List<ProjectVo> list3 = adminservice.selectfProjectList();
+		List<ProjectVo> list3 = adminservice.selectfProjectList(fpNo);
 		
 		mv.addObject("fpPaging", fpPaging);
 		mv.addObject("fprojectList", list3);
 		mv.addObject("fprojectTotalCount", fprojectCount);
 		
 		
+		
+		///////////////////////////////////////////////////////////////////////////////////배너리스트 조회
 		int bannerCount = adminservice.bannerTotalCount();
 		int bRangeSize = bPaging.getRangeSize();
 		int bPageSize = bPaging.getPageSize();
-		bPaging.setCurPage(no); // 현재 페이지 번호
+		bPaging.setCurPage(bNo); // 현재 페이지 번호
 		bPaging.setListCnt(bannerCount);// 전체 게시물 수
 
 		// 전체 페이지 수
@@ -239,7 +264,7 @@ public class AdminController {
 		bPaging.setRangeCnt(bRangeCnt);
 
 		// 현재 블럭 번호
-		int bCurRange = (int) ((no - 1) / bRangeSize) + 1;
+		int bCurRange = (int) ((bNo - 1) / bRangeSize) + 1;
 		bPaging.setCurRange(bCurRange);
 
 		// 블록 내 시작 페이지
@@ -268,7 +293,7 @@ public class AdminController {
 			bPaging.setEndPage(bPaging.getPageCnt());
 		}
 		
-		List<bannerVo> list4 = adminservice.bannerProjectList();
+		List<bannerVo> list4 = adminservice.bannerProjectList(bNo);
 		
 		mv.addObject("bPaging", bPaging);
 		mv.addObject("bannerList", list4);
@@ -279,27 +304,18 @@ public class AdminController {
 
 		return mv;
 
-		/*
-		 * List<MemberVo> list = adminservice.selectMemberList();
-		 * mv.addObject("memberList", list); mv.setViewName("admin/adminMenuList");
-		 * 
-		 * return mv;
-		 */
+
 	}
 
 	@RequestMapping("selectAll.do")//멤버,프로젝트 전체조회
 	public ModelAndView selectAll(ModelAndView mv, PagingVo paging, projectPagingVo pPaging,
-			fProjectPagingVo fpPaging,bPagingVo bPaging, @RequestParam(defaultValue = "1") int no) {
+			fProjectPagingVo fpPaging,bPagingVo bPaging, @RequestParam(defaultValue = "1") int no,
+			@RequestParam(defaultValue = "1") int bNo,@RequestParam(defaultValue = "1") int pNo,
+			@RequestParam(defaultValue = "1") int fpNo) {
 
-		/*
-		 * List<MemberVo> list = adminservice.selectMemberList();
-		 * model.addAttribute("memberList", list);
-		 * 
-		 * return "admin/adminMenuList";
-		 */
-		
-		
-
+	
+	
+									////////////////////////////////////////멤버페이징
 		int noticeCount = adminservice.TotalCount();
 		int rangeSize = paging.getRangeSize();
 		int pageSize = paging.getPageSize();
@@ -359,12 +375,12 @@ public class AdminController {
 		
 		
 		
-		//프로젝트부분 페이징처리
+		/////////////////////////////////////////////////////프로젝트승인 페이징처리
 		
 		int projectCount = adminservice.projectTotalCount();
 		int pRangeSize = pPaging.getRangeSize();
 		int pPageSize = pPaging.getPageSize();
-		pPaging.setCurPage(no); // 현재 페이지 번호
+		pPaging.setCurPage(pNo); // 현재 페이지 번호
 		pPaging.setListCnt(projectCount);// 전체 게시물 수
 
 		// 전체 페이지 수
@@ -383,7 +399,7 @@ public class AdminController {
 		pPaging.setRangeCnt(pRangeCnt);
 
 		// 현재 블럭 번호
-		int pCurRange = (int) ((no - 1) / pRangeSize) + 1;
+		int pCurRange = (int) ((pNo - 1) / pRangeSize) + 1;
 		pPaging.setCurRange(pCurRange);
 
 		// 블록 내 시작 페이지
@@ -414,16 +430,19 @@ public class AdminController {
 		
 
 		
-		List<ProjectVo> list2 = adminservice.selectProjectList();
+		List<ProjectVo> list2 = adminservice.selectProjectList(pNo);
 		
 		mv.addObject("pPaging", pPaging);
 		mv.addObject("projectList", list2);
 		mv.addObject("projectTotalCount", projectCount);
 		
+		
+												///////////////////////프로젝트종료확인 페이징
+		
 		int fprojectCount = adminservice.fprojectTotalCount();
 		int fpRangeSize = fpPaging.getRangeSize();
 		int fpPageSize = fpPaging.getPageSize();
-		fpPaging.setCurPage(no); // 현재 페이지 번호
+		fpPaging.setCurPage(fpNo); // 현재 페이지 번호
 		fpPaging.setListCnt(fprojectCount);// 전체 게시물 수
 
 		// 전체 페이지 수
@@ -442,7 +461,7 @@ public class AdminController {
 		fpPaging.setRangeCnt(fpRangeCnt);
 
 		// 현재 블럭 번호
-		int fpCurRange = (int) ((no - 1) / fpRangeSize) + 1;
+		int fpCurRange = (int) ((fpNo - 1) / fpRangeSize) + 1;
 		fpPaging.setCurRange(fpCurRange);
 
 		// 블록 내 시작 페이지
@@ -471,18 +490,19 @@ public class AdminController {
 			fpPaging.setEndPage(fpPaging.getPageCnt());
 		}
 		
-		List<ProjectVo> list3 = adminservice.selectfProjectList();
+		List<ProjectVo> list3 = adminservice.selectfProjectList(fpNo);
 		
 		mv.addObject("fpPaging", fpPaging);
 		mv.addObject("fprojectList", list3);
 		mv.addObject("fprojectTotalCount", fprojectCount);
 		
 		
+											//////////////////////////배너 페이징
 		
 		int bannerCount = adminservice.bannerTotalCount(); 
 		int bRangeSize = bPaging.getRangeSize();
 		int bPageSize = bPaging.getPageSize();
-		bPaging.setCurPage(no); // 현재 페이지 번호
+		bPaging.setCurPage(bNo); // 현재 페이지 번호
 		bPaging.setListCnt(bannerCount);// 전체 게시물 수
 
 		// 전체 페이지 수
@@ -501,7 +521,7 @@ public class AdminController {
 		bPaging.setRangeCnt(bRangeCnt);
 
 		// 현재 블럭 번호
-		int bCurRange = (int) ((no - 1) / bRangeSize) + 1;
+		int bCurRange = (int) ((bNo - 1) / bRangeSize) + 1;
 		bPaging.setCurRange(bCurRange);
 
 		// 블록 내 시작 페이지
@@ -532,7 +552,7 @@ public class AdminController {
 		
 		
 		
-		List<bannerVo> list4 = adminservice.bannerProjectList();
+		List<bannerVo> list4 = adminservice.bannerProjectList(bNo);
 		mv.addObject("bPaging", bPaging);
 		mv.addObject("bannerList", list4);
 		mv.addObject("bannerCount", bannerCount);
@@ -546,7 +566,9 @@ public class AdminController {
 
 	@RequestMapping("searchMember.do")//멤버검색
 	public ModelAndView searchMemberList(ModelAndView mv, PagingVo paging,projectPagingVo pPaging,
-			@RequestParam(defaultValue = "1") int no,bPagingVo bPaging,
+			@RequestParam(defaultValue = "1") int no,
+			@RequestParam(defaultValue = "1") int bNo,@RequestParam(defaultValue = "1") int pNo,
+			@RequestParam(defaultValue = "1") int fpNo,bPagingVo bPaging,
 			HttpServletRequest request, fProjectPagingVo fpPaging) {
 		
 		
@@ -555,7 +577,7 @@ public class AdminController {
 
 		List<Member> list = adminservice.searchMemberList(keyword, no);
 
-		int noticeCount = list.size();
+		int noticeCount = adminservice.searchMemberCount(keyword);
 		int rangeSize = paging.getRangeSize();
 		int pageSize = paging.getPageSize();
 		paging.setCurPage(no); // 현재 페이지 번호
@@ -610,10 +632,12 @@ public class AdminController {
 		mv.addObject("paging", paging);//멤버 페이징
 		mv.addObject("noticeTotalCount", noticeCount);//멤버
 		
+																						////승인페이징
+		
 		int projectCount = adminservice.projectTotalCount();
 		int pRangeSize = pPaging.getRangeSize();
 		int pPageSize = pPaging.getPageSize();
-		pPaging.setCurPage(no); // 현재 페이지 번호
+		pPaging.setCurPage(pNo); // 현재 페이지 번호
 		pPaging.setListCnt(projectCount);// 전체 게시물 수
 
 		// 전체 페이지 수
@@ -632,7 +656,7 @@ public class AdminController {
 		pPaging.setRangeCnt(pRangeCnt);
 
 		// 현재 블럭 번호
-		int pCurRange = (int) ((no - 1) / pRangeSize) + 1;
+		int pCurRange = (int) ((pNo - 1) / pRangeSize) + 1;
 		pPaging.setCurRange(pCurRange);
 
 		// 블록 내 시작 페이지
@@ -661,16 +685,18 @@ public class AdminController {
 			pPaging.setEndPage(pPaging.getPageCnt());
 		}
 		
-		List<ProjectVo> list2 = adminservice.selectProjectList();
+		List<ProjectVo> list2 = adminservice.selectProjectList(pNo);
 		
 		mv.addObject("pPaging", pPaging);
 		mv.addObject("projectList", list2);
 		mv.addObject("projectTotalCount", projectCount);
 		
+																						////////////////종료확인 페이징
+		
 		int fprojectCount = adminservice.fprojectTotalCount();
 		int fpRangeSize = fpPaging.getRangeSize();
 		int fpPageSize = fpPaging.getPageSize();
-		fpPaging.setCurPage(no); // 현재 페이지 번호
+		fpPaging.setCurPage(fpNo); // 현재 페이지 번호
 		fpPaging.setListCnt(fprojectCount);// 전체 게시물 수
 
 		// 전체 페이지 수
@@ -689,7 +715,7 @@ public class AdminController {
 		fpPaging.setRangeCnt(fpRangeCnt);
 
 		// 현재 블럭 번호
-		int fpCurRange = (int) ((no - 1) / fpRangeSize) + 1;
+		int fpCurRange = (int) ((fpNo - 1) / fpRangeSize) + 1;
 		fpPaging.setCurRange(fpCurRange);
 
 		// 블록 내 시작 페이지
@@ -718,18 +744,21 @@ public class AdminController {
 			fpPaging.setEndPage(fpPaging.getPageCnt());
 		}
 		
-		List<ProjectVo> list3 = adminservice.selectfProjectList();
+		List<ProjectVo> list3 = adminservice.selectfProjectList(fpNo);
 		
 		mv.addObject("fpPaging", fpPaging);
 		mv.addObject("fprojectList", list3);
 		mv.addObject("fprojectTotalCount", fprojectCount);
 		
-		List<bannerVo> list4 = adminservice.bannerProjectList();
+		
+																							//배너페이징
+		
+		List<bannerVo> list4 = adminservice.bannerProjectList(bNo);
 		
 		int bannerCount = adminservice.TotalCount();
 		int bRangeSize = bPaging.getRangeSize();
 		int bPageSize = bPaging.getPageSize();
-		bPaging.setCurPage(no); // 현재 페이지 번호
+		bPaging.setCurPage(bNo); // 현재 페이지 번호
 		bPaging.setListCnt(bannerCount);// 전체 게시물 수
 
 		// 전체 페이지 수
@@ -748,7 +777,7 @@ public class AdminController {
 		bPaging.setRangeCnt(bRangeCnt);
 
 		// 현재 블럭 번호
-		int bCurRange = (int) ((no - 1) / bRangeSize) + 1;
+		int bCurRange = (int) ((bNo - 1) / bRangeSize) + 1;
 		bPaging.setCurRange(bCurRange);
 
 		// 블록 내 시작 페이지
@@ -790,19 +819,21 @@ public class AdminController {
 	
 		@RequestMapping("searchProject.do")//프로젝트 승인여부 검색
 	public ModelAndView searchProject(ModelAndView mv, projectPagingVo pPaging,PagingVo paging,
-			@RequestParam(defaultValue = "1") int no,bPagingVo bPaging,
+			@RequestParam(defaultValue = "1") int no,
+			@RequestParam(defaultValue = "1") int bNo,@RequestParam(defaultValue = "1") int pNo,
+			@RequestParam(defaultValue = "1") int fpNo,bPagingVo bPaging,
 			HttpServletRequest request, fProjectPagingVo fpPaging) {
 			
 			
 			
 			String keyword = request.getParameter("keyword");
 			
-			List<ProjectVo> list2 = adminservice.searchProject(keyword,no);
-			int projectCount = list2.size();
+			List<ProjectVo> list2 = adminservice.searchProject(keyword,pNo);
+			int projectCount = adminservice.searchProjectCount(keyword);
 			
 			int pRangeSize = pPaging.getRangeSize();
 			int pPageSize = pPaging.getPageSize();
-			pPaging.setCurPage(no); // 현재 페이지 번호
+			pPaging.setCurPage(pNo); // 현재 페이지 번호
 			pPaging.setListCnt(projectCount);// 전체 게시물 수
 
 			// 전체 페이지 수
@@ -821,7 +852,7 @@ public class AdminController {
 			pPaging.setRangeCnt(pRangeCnt);
 
 			// 현재 블럭 번호
-			int pCurRange = (int) ((no - 1) / pRangeSize) + 1;
+			int pCurRange = (int) ((pNo - 1) / pRangeSize) + 1;
 			pPaging.setCurRange(pCurRange);
 
 			// 블록 내 시작 페이지
@@ -853,6 +884,8 @@ public class AdminController {
 			mv.addObject("pPaging", pPaging);
 			mv.addObject("projectList", list2);
 			mv.addObject("projectTotalCount", projectCount);
+			
+																				////////멤버 페이징처리
 			
 			int noticeCount = adminservice.TotalCount();
 			int rangeSize = paging.getRangeSize();
@@ -911,10 +944,12 @@ public class AdminController {
 			mv.addObject("paging", paging);
 			mv.addObject("noticeTotalCount", noticeCount);
 			
+																							//프로젝트 종료페이징처리
+			
 			int fprojectCount = adminservice.fprojectTotalCount();
 			int fpRangeSize = fpPaging.getRangeSize();
 			int fpPageSize = fpPaging.getPageSize();
-			fpPaging.setCurPage(no); // 현재 페이지 번호
+			fpPaging.setCurPage(fpNo); // 현재 페이지 번호
 			fpPaging.setListCnt(fprojectCount);// 전체 게시물 수
 
 			// 전체 페이지 수
@@ -933,7 +968,7 @@ public class AdminController {
 			fpPaging.setRangeCnt(fpRangeCnt);
 
 			// 현재 블럭 번호
-			int fpCurRange = (int) ((no - 1) / fpRangeSize) + 1;
+			int fpCurRange = (int) ((fpNo - 1) / fpRangeSize) + 1;
 			fpPaging.setCurRange(fpCurRange);
 
 			// 블록 내 시작 페이지
@@ -962,18 +997,20 @@ public class AdminController {
 				fpPaging.setEndPage(fpPaging.getPageCnt());
 			}
 			
-			List<ProjectVo> list3 = adminservice.selectfProjectList();
+			List<ProjectVo> list3 = adminservice.selectfProjectList(fpNo);
 			
 			mv.addObject("fpPaging", fpPaging);
 			mv.addObject("fprojectList", list3);
 			mv.addObject("fprojectTotalCount", fprojectCount);
 			
-			List<bannerVo> list4 = adminservice.bannerProjectList();
+																							/////////////////////배너 페이징
+			
+			List<bannerVo> list4 = adminservice.bannerProjectList(bNo);
 			
 			int bannerCount = adminservice.TotalCount();
 			int bRangeSize = bPaging.getRangeSize();
 			int bPageSize = bPaging.getPageSize();
-			bPaging.setCurPage(no); // 현재 페이지 번호
+			bPaging.setCurPage(bNo); // 현재 페이지 번호
 			bPaging.setListCnt(bannerCount);// 전체 게시물 수
 
 			// 전체 페이지 수
@@ -992,7 +1029,7 @@ public class AdminController {
 			bPaging.setRangeCnt(bRangeCnt);
 
 			// 현재 블럭 번호
-			int bCurRange = (int) ((no - 1) / bRangeSize) + 1;
+			int bCurRange = (int) ((bNo - 1) / bRangeSize) + 1;
 			bPaging.setCurRange(bCurRange);
 
 			// 블록 내 시작 페이지
@@ -1036,16 +1073,18 @@ public class AdminController {
 		
 		@RequestMapping("searchfProject.do")//프로젝트 종료 검색
 		public ModelAndView searchfProject(ModelAndView mv, projectPagingVo pPaging,PagingVo paging,
-				@RequestParam(defaultValue = "1") int no,bPagingVo bPaging,
+				@RequestParam(defaultValue = "1") int no,
+				@RequestParam(defaultValue = "1") int bNo,@RequestParam(defaultValue = "1") int pNo,
+				@RequestParam(defaultValue = "1") int fpNo,bPagingVo bPaging,
 				HttpServletRequest request, fProjectPagingVo fpPaging) {
 			
 			
 			
 			String keyword = request.getParameter("keyword");
 			
-			List<ProjectVo> list3 = adminservice.searchfProject(keyword,no);
+			List<ProjectVo> list3 = adminservice.searchfProject(keyword,fpNo);
 			
-			int fprojectCount = list3.size();
+			int fprojectCount = adminservice.searchfProjectCount(keyword);
 			int fpRangeSize = fpPaging.getRangeSize();
 			int fpPageSize = fpPaging.getPageSize();
 			fpPaging.setCurPage(no); // 현재 페이지 번호
@@ -1100,6 +1139,8 @@ public class AdminController {
 			mv.addObject("fpPaging", fpPaging);
 			mv.addObject("fprojectList", list3);
 			mv.addObject("fprojectTotalCount", fprojectCount);
+			
+																		///////////////멤버 페이징
 			
 			int noticeCount = adminservice.TotalCount();
 			int rangeSize = paging.getRangeSize();
@@ -1160,12 +1201,12 @@ public class AdminController {
 			
 			
 			
-			//프로젝트부분 페이징처리
+																		///////////////프로젝트승인부분 페이징처리
 			
 			int projectCount = adminservice.projectTotalCount();
 			int pRangeSize = pPaging.getRangeSize();
 			int pPageSize = pPaging.getPageSize();
-			pPaging.setCurPage(no); // 현재 페이지 번호
+			pPaging.setCurPage(pNo); // 현재 페이지 번호
 			pPaging.setListCnt(projectCount);// 전체 게시물 수
 
 			// 전체 페이지 수
@@ -1184,7 +1225,7 @@ public class AdminController {
 			pPaging.setRangeCnt(pRangeCnt);
 
 			// 현재 블럭 번호
-			int pCurRange = (int) ((no - 1) / pRangeSize) + 1;
+			int pCurRange = (int) ((pNo - 1) / pRangeSize) + 1;
 			pPaging.setCurRange(pCurRange);
 
 			// 블록 내 시작 페이지
@@ -1215,18 +1256,20 @@ public class AdminController {
 			
 
 			
-			List<ProjectVo> list2 = adminservice.selectProjectList();
+			List<ProjectVo> list2 = adminservice.selectProjectList(pNo);
 			
 			mv.addObject("pPaging", pPaging);
 			mv.addObject("projectList", list2);
 			mv.addObject("projectTotalCount", projectCount);
 			
-			List<bannerVo> list4 = adminservice.bannerProjectList();
+																								////배너 페이징 부분
+			
+			List<bannerVo> list4 = adminservice.bannerProjectList(bNo);
 			
 			int bannerCount = adminservice.TotalCount();
 			int bRangeSize = bPaging.getRangeSize();
 			int bPageSize = bPaging.getPageSize();
-			bPaging.setCurPage(no); // 현재 페이지 번호
+			bPaging.setCurPage(bNo); // 현재 페이지 번호
 			bPaging.setListCnt(bannerCount);// 전체 게시물 수
 
 			// 전체 페이지 수
@@ -1245,7 +1288,7 @@ public class AdminController {
 			bPaging.setRangeCnt(bRangeCnt);
 
 			// 현재 블럭 번호
-			int bCurRange = (int) ((no - 1) / bRangeSize) + 1;
+			int bCurRange = (int) ((bNo - 1) / bRangeSize) + 1;
 			bPaging.setCurRange(bCurRange);
 
 			// 블록 내 시작 페이지
@@ -1289,17 +1332,19 @@ public class AdminController {
 			
 			@RequestMapping("searchBanner.do")//배너 검색
 		public ModelAndView searchBanner(ModelAndView mv, projectPagingVo pPaging,PagingVo paging,
-				@RequestParam(defaultValue = "1") int no,bPagingVo bPaging,
+				@RequestParam(defaultValue = "1") int no,
+				@RequestParam(defaultValue = "1") int bNo,@RequestParam(defaultValue = "1") int pNo,
+				@RequestParam(defaultValue = "1") int fpNo,bPagingVo bPaging,
 				HttpServletRequest request, fProjectPagingVo fpPaging) {
 			
 				String keyword = request.getParameter("keyword");
 				
-				List<bannerVo> list4 = adminservice.bannerSearchList(keyword, no);
+				List<bannerVo> list4 = adminservice.bannerSearchList(keyword, bNo);
 				
-				int bannerCount = list4.size();
+				int bannerCount = adminservice.searchBannerCount(keyword);
 				int bRangeSize = bPaging.getRangeSize();
 				int bPageSize = bPaging.getPageSize();
-				bPaging.setCurPage(no); // 현재 페이지 번호
+				bPaging.setCurPage(bNo); // 현재 페이지 번호
 				bPaging.setListCnt(bannerCount);// 전체 게시물 수
 
 				// 전체 페이지 수
@@ -1318,7 +1363,7 @@ public class AdminController {
 				bPaging.setRangeCnt(bRangeCnt);
 
 				// 현재 블럭 번호
-				int bCurRange = (int) ((no - 1) / bRangeSize) + 1;
+				int bCurRange = (int) ((bNo - 1) / bRangeSize) + 1;
 				bPaging.setCurRange(bCurRange);
 
 				// 블록 내 시작 페이지
@@ -1352,6 +1397,8 @@ public class AdminController {
 				mv.addObject("bPaging", bPaging);
 				mv.addObject("bannerList", list4);
 				mv.addObject("bannerCount", bannerCount);
+				
+																			/////////////////멤버 페이징
 				
 				
 				int noticeCount = adminservice.TotalCount();
@@ -1414,12 +1461,12 @@ public class AdminController {
 				
 				
 				
-				//프로젝트부분 페이징처리
+																				////////////////////프로젝트승인 페이징처리
 				
 				int projectCount = adminservice.projectTotalCount();
 				int pRangeSize = pPaging.getRangeSize();
 				int pPageSize = pPaging.getPageSize();
-				pPaging.setCurPage(no); // 현재 페이지 번호
+				pPaging.setCurPage(pNo); // 현재 페이지 번호
 				pPaging.setListCnt(projectCount);// 전체 게시물 수
 
 				// 전체 페이지 수
@@ -1438,7 +1485,7 @@ public class AdminController {
 				pPaging.setRangeCnt(pRangeCnt);
 
 				// 현재 블럭 번호
-				int pCurRange = (int) ((no - 1) / pRangeSize) + 1;
+				int pCurRange = (int) ((pNo - 1) / pRangeSize) + 1;
 				pPaging.setCurRange(pCurRange);
 
 				// 블록 내 시작 페이지
@@ -1469,18 +1516,18 @@ public class AdminController {
 				
 
 				
-				List<ProjectVo> list2 = adminservice.selectProjectList();
+				List<ProjectVo> list2 = adminservice.selectProjectList(pNo);
 				
 				mv.addObject("pPaging", pPaging);
 				mv.addObject("projectList", list2);
 				mv.addObject("projectTotalCount", projectCount);
 				
-				
+																					////////////////프로젝트종료 페이징
 				
 				int fprojectCount = adminservice.fprojectTotalCount();
 				int fpRangeSize = fpPaging.getRangeSize();
 				int fpPageSize = fpPaging.getPageSize();
-				fpPaging.setCurPage(no); // 현재 페이지 번호
+				fpPaging.setCurPage(fpNo); // 현재 페이지 번호
 				fpPaging.setListCnt(fprojectCount);// 전체 게시물 수
 
 				// 전체 페이지 수
@@ -1499,7 +1546,7 @@ public class AdminController {
 				fpPaging.setRangeCnt(fpRangeCnt);
 
 				// 현재 블럭 번호
-				int fpCurRange = (int) ((no - 1) / fpRangeSize) + 1;
+				int fpCurRange = (int) ((fpNo - 1) / fpRangeSize) + 1;
 				fpPaging.setCurRange(fpCurRange);
 
 				// 블록 내 시작 페이지
@@ -1528,7 +1575,7 @@ public class AdminController {
 					fpPaging.setEndPage(fpPaging.getPageCnt());
 				}
 				
-				List<ProjectVo> list3 = adminservice.selectfProjectList();
+				List<ProjectVo> list3 = adminservice.selectfProjectList(fpNo);
 				
 				mv.addObject("fpPaging", fpPaging);
 				mv.addObject("fprojectList", list3);
@@ -1541,20 +1588,24 @@ public class AdminController {
 		
 		
 		@RequestMapping("bannerChange.do") 
-		public ModelAndView bannerChange(ModelAndView mv, PagingVo paging,projectPagingVo pPaging,fProjectPagingVo fpPaging, @RequestParam(defaultValue = "1") int no
-				,HttpServletRequest request) {
+		public String bannerChange(PagingVo paging,projectPagingVo pPaging,fProjectPagingVo fpPaging, @RequestParam(defaultValue = "1") int no
+				,HttpServletRequest request, ModelAndView mv) {
 			
-			String pCode = request.getParameter("pCode");// null 처리할 프로젝트 코드
-			String bCode = request.getParameter("bCode");//배치하고싶은 배너코드
+			String pCode = request.getParameter("pCode");// 배너계시하고싶은 프로젝트코드 >> 등록
+			String bCode = request.getParameter("bCode");//배치하고싶은 배너코드 >> 이용해서 >>삭제
 			
 			
 			int bDelete = adminservice.bannerDelete(bCode);
 			int bUpdate = adminservice.bannerUpdate(pCode,bCode);
-
 			
-			mv.setViewName("admin/adminMenuList");
+			/*List<AdminVo> bannerList = adminservice.bannerList();
 			
-			return mv;
+System.out.println(bannerList);
+			
+		mv.addObject("indexBannerList", bannerList);*/
+		/*mv.setViewName("home");*/
+			
+			return "redirect:adminMenuList.do";
 		}
 		
 		@RequestMapping("bannerPlus.do")

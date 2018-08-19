@@ -284,10 +284,12 @@ public class MemberController {
 		return "redirect:index.do";
 	}
 	
+	
 	@RequestMapping("setPayment.do")
 	public String setPayment() {
 		return "member/setPayment";
 	}
+	
 	
 	@RequestMapping("setPaymentImpl.do")
 	public String setPaymentInmp(
@@ -309,7 +311,7 @@ public class MemberController {
 		
 		
 		/*
-		 카드번호 - billKey
+		카드번호 - billKey
 		유효기간 월 - cardMonth
 		유효기간 연 - cardYear
 		생년월일 - billKeyBirth
@@ -340,9 +342,9 @@ public class MemberController {
 			
 			System.out.println(pi.toString());
 			
+			int result = memberService.insertUpdateCardInfo(pi);
 			
-			
-			
+		
 			
 		}else {
 			System.out.println("은행");
@@ -364,8 +366,8 @@ public class MemberController {
 			
 			System.out.println(pi.toString());
 			
-			
-			
+			int result = memberService.insertUpdateBankInfo(pi);
+		
 		}
 		
 		return "redirect:index.do";
