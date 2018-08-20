@@ -315,6 +315,8 @@
 <script>
 	var postCode;
 	$(function(){
+		$(".storyContent img").css("width", "100%");
+		
 		// 게시글 상세보기
 		$(".cywbQo, .bPLTTN").click(function(){
 			setWindowScrollTop();
@@ -322,7 +324,7 @@
 			postCode = $(this).children("h3").text();
 			sessionStorage.setItem("postCode", postCode);
 			
-			$(".tojyI").css("display", "block");
+			/* $(".tojyI").css("display", "block"); */
 			$("#postFormDiv").css("display", "none");
 			$("#postListDiv").css("display", "none");
 			$("#creatorPostDiv").css("display", "none");
@@ -335,6 +337,7 @@
 				data : {postCode : postCode},
 				success : function(data){
 					$(".hKVypK > .storyContent").html(data.content);
+					$(".storyContent img").css("width", "100%");
 					$(".hINlJw").html(data.name);
 					$("#postWriterProfileImgSpan").html("<img class='ProfileImg__ProfileImg-s1o99mme-0 frVGN' src='" + data.profileImg + "'/>");
 					$("#replyWriterProfileImgDiv").html("<img class='ProfileImg__ProfileImg-s1o99mme-0 frVGN' src='${user.profile_img}'/>");
@@ -363,12 +366,13 @@
 					
 					var projectCode = "<c:out value='${project.projectCode}'/>";		
 					
-					$(".Post__CommunityPostCommentsAmount-s1xz59uk-25").html("<strong>" + data.replyList.length + "</strong>개의 댓글이 있습니다");
+					var replyCount = data.replyCount == null ? 0 : data.replyCount;
+					$(".Post__CommunityPostCommentsAmount-s1xz59uk-25").html("<strong>" + replyCount + "</strong>개의 댓글이 있습니다");
 					var $replyDiv = $("#replyDiv");
 					var resultStr = "";
 					// 댓글이 없는 경우 구분하기
 					/* console.log(data.replyList[0].content); */
-					if(0 < data.replyList.length) {
+					if(0 < replyCount) {
 						for(var key in data.replyList) {
 							var reply = data.replyList[key];
 							resultStr += "<div class='Comment__Comment-wppgnq-0 hlvHZI'>";
@@ -408,7 +412,15 @@
 						resultStr += "댓글이 없습니다</div>";
 					}
 					$replyDiv.html(resultStr);
-				}, error : function(e){
+				}, beforeSend:function(){
+			        $(".loadingIndicator").css("display", "inline-block");  
+			        $(".dLYLGx").css("margin", "2rem 0"); 
+			        $(".tojyI").css("display", "none");
+			    }, complete:function(){
+			        $(".loadingIndicator").css("display", "none");  
+					$(".dLYLGx").css("margin", "unset"); 
+					$(".tojyI").css("display", "block");
+			    }, error : function(e){
 					console.log("ajax selectPost 에러");
 				}
 			});
@@ -476,13 +488,13 @@
 		</div>
 		
 		<!-- 로딩중 -->
-		<div class="LoadingIndicator__Wrapper-s1ikuj59-1 dLYLGx" data-reactid="110" align="center">
+		<!-- <div class="LoadingIndicator__Wrapper-s1ikuj59-1 dLYLGx" data-reactid="110" align="center">
 			<div class="loadingIndicator">
 				<div class="LoadingIndicator__Circle-s1ikuj59-2 hGGMaO" data-reactid="111"></div>
 				<div class="sc-htpNat btBxPj" data-reactid="112"></div>
 				<div class="sc-bxivhb cgjPcA" data-reactid="113"></div>
 			</div>
-		</div>
+		</div> -->
 		
 		<!-- 모든 게시글 리스트 -->
 		<div id="postListDiv">	
@@ -731,6 +743,7 @@
 										</div>
 									</div>
 									<div	class="CommunityPostSummaryCard__ContentsWrapper-s1yavd3r-11 cywbQo"	style="cursor: pointer;">
+										<h3 style="display:none;"><c:out value="${post.postCode }"/></h3>
 										<div>
 											<div	class="CommunityPostSummaryCard__Contents-s1yavd3r-13 fmSZUJ">
 												<div class="storyContent">

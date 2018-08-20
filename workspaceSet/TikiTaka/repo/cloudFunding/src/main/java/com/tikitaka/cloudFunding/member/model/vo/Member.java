@@ -20,7 +20,6 @@ public class Member {
 	private String phone1;
 	private String phone2;
 	private String phone3;
-
 	private Date stopDate;
 	private Date expDate;
 	
@@ -158,6 +157,7 @@ public class Member {
 	public void setPhone3(String phone3) {
 		this.phone3 = phone3;
 	}
+	
 
 	public Date getStopDate() {
 		return stopDate;
@@ -166,6 +166,8 @@ public class Member {
 	public void setStopDate(Date stopDate) {
 		this.stopDate = stopDate;
 	}
+
+	
 
 	public Date getExpDate() {
 		return expDate;
@@ -183,10 +185,6 @@ public class Member {
 				+ ", stopDate=" + stopDate + ", expDate=" + expDate + "]";
 	}
 
-	
-	
-	
-	
 	
 	
 	

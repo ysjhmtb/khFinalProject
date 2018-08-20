@@ -3157,7 +3157,10 @@ px
 					if ($(this).attr('id') == 'create-reward'
 							|| $(this).attr('id') == 'itemAdd'
 							|| $(this).attr('id') == 'itemBox'
-							|| $(this).attr('id') == 'addItem' || closeOn) {
+							|| $(this).attr('id') == 'addItem' ) {
+						return;
+					}
+					if(closeOn){
 						closeOn = false;
 						return;
 					}
@@ -3171,6 +3174,7 @@ px
 
 		$("#defaultItem").click(function() {
 			$(this).hide();
+			alert("아이템 이름이 중복 될때 같이 삭제되니 이름을 따로 정해 주세요");
 			$("#addItem").show();
 		});
 
@@ -3230,10 +3234,6 @@ px
 
 		$(".nextBtn").click(
 				function() {
-					
-					console.log("next");
-					console.log(currentPage);
-					console.log(pageNum);
 					
 					$(".rLqvd1axk9i-3cU72yTkF").prevAll('a').removeClass(
 							'_3Syz9fGXYtzMNqK_55A2BW');
@@ -3350,6 +3350,7 @@ px
 					"projectNum" : <c:out value="${project.projectNum}"/>,
 					"projectTitle" : $("#projectTitle").val(),
 					"projectShortTitle" : $("#projectShortTitle").val(),
+					"projectCode" : <c:out value="${project.projectCode}"/>,
 				},
 				success : function(data) {
 					var index = data.title.indexOf(',');
@@ -3399,6 +3400,7 @@ px
 				data : {
 					"updateNum":3,
 					"email" : '<c:out value="${user.email }"/>',
+					"projectCode" : <c:out value="${project.projectCode}"/>,
 					"projectNum" : <c:out value="${project.projectNum}"/>,
 					"summary":$("#projectSummary").val(),
 				},
@@ -3432,6 +3434,7 @@ px
 			formData.append("email",'${project.email}');
 			formData.append("projectNum",'${project.projectNum}');
 			formData.append("updateNum",'2');
+			formData.append("projectCode",'${project.projectCode}');
 			 $.ajax({
 	                url:'projectImageUpdate.do',
 	                processData: false,
@@ -3476,6 +3479,7 @@ px
 				data : {
 					"updateNum":4,
 					"email" : '<c:out value="${user.email }"/>',
+					"projectCode" : <c:out value="${project.projectCode}"/>,
 					"projectNum" : <c:out value="${project.projectNum}"/>,
 					"category":$(".category").val(),
 				},
@@ -3506,6 +3510,7 @@ px
 			formData.append("email",'${project.email}');
 			formData.append("projectNum",'${project.projectNum}');
 			formData.append("updateNum",'5');
+			formData.append("projectCode",'${project.projectCode}');
 			 $.ajax({
 	                url:'projectImageUpdate.do',
 	                processData: false,
@@ -3548,6 +3553,7 @@ px
 				data : {
 					"updateNum":6,
 					"email" : '<c:out value="${user.email }"/>',
+					"projectCode" : <c:out value="${project.projectCode}"/>,
 					"projectNum" : <c:out value="${project.projectNum}"/>,
 					"name":$("#MCName").val(),
 				},
@@ -3589,6 +3595,7 @@ px
 				data : {
 					"updateNum":7,
 					"email" : '<c:out value="${user.email }"/>',
+					"projectCode" : <c:out value="${project.projectCode}"/>,
 					"projectNum" : <c:out value="${project.projectNum}"/>,
 					"introduce":$("#MCIntroduce").val(),
 				},
@@ -3683,6 +3690,7 @@ px
 				data : {
 					"updateNum":8,
 					"email" : '<c:out value="${user.email }"/>',
+					"projectCode" : <c:out value="${project.projectCode}"/>,
 					"projectNum" : <c:out value="${project.projectNum}"/>,
 					"price":$("#fundingGoalAmountInput").val(),
 				},
@@ -3694,7 +3702,8 @@ px
 					$(".priceDiv").children('h3').text('');
 					$(".priceDiv").children('h3').append("<span style='white-space: pre-wrap;'>"+numberWithCommas(data.price)+"</span>");
 					$(".priceDiv").children('h3').css('display','inline-block');
-					$(".priceDiv").children('a').remove(); 
+					$(".priceDiv").children('a').remove();
+					blue(data);
 				},
 				error : function(e) {
 					console.log('ajax에러');
@@ -3732,6 +3741,7 @@ px
 				data : {
 					"updateNum":9,
 					"email" : '<c:out value="${user.email }"/>',
+					"projectCode" : <c:out value="${project.projectCode}"/>,
 					"projectNum" : <c:out value	="${project.projectNum}"/>,
 					"date" :$("#deadlineDate").val(),
 				},
@@ -3750,7 +3760,8 @@ px
 					$(".dateDiv").children('h3').text('');
 					$(".dateDiv").children('h3').append("<span style='white-space: pre-wrap;'>"+fulldate+"</span>");
 					$(".dateDiv").children('h3').css('display','inline-block');
-					$(".dateDiv").children('a').remove(); 
+					$(".dateDiv").children('a').remove();
+					blue(data);
 				},
 				error : function(e) {
 					console.log('ajax에러');
@@ -3770,6 +3781,7 @@ px
 			$(".projectItemModal").hide();
 
 		});
+		
 		$("#modalItemInput").keyup(function() {
 			$(".modalItemBtn").attr('disabled', false);
 			if ($(this).val().length > 50) {
@@ -3778,14 +3790,63 @@ px
 			}
 			$(".modalRemit").text(50 - $(this).val().length + '자 남았습니다');
 		});
-
+		
+		
+			
+		$(".existItem").hide();
 		$(".modalItemBtn").click(function() {
 			if (1 > $("#modalItemInput").val().length) {
 				alert("아이템 이름은 최소 한글자 이상 입력해야 됩니다.");
+				return;
 			}
+			$.ajax({
+				url : 'projectUpdate.do',
+				type : 'post',
+				data : {
+					"updateNum":10,
+					"email" : '<c:out value="${user.email }"/>',
+					"projectCode" : <c:out value="${project.projectCode}"/>,
+					"projectNum" : <c:out value	="${project.projectNum}"/>,
+					"item" :$("#modalItemInput").val(),
+				},
+				success : function(data) {
+					$("#modalItemInput").val('');
+					$("#addItem").hide();
+					$("#defaultItem").show();
+					$(".noneItem").hide();
+					$(".existItem").show();
+					
+					var temp = new Array();
+					temp = data.giftItem.split(",");
+					$(".appnedItem").children('div').remove();
+					for(var i=0;i<temp.length;i++){
+						$(".appnedItem").append("<div class='_13KHfN73YmQgsYHxXvuh_J saXk0rx00KnB6O_X8xIAv _2uxYQ-nuPwdol9sQhOjfH-'><div class='_13KHfN73YmQgsYHxXvuh_J _3U6RUH-EASpZ_j8ls1HJyP'><div class='_3ECP69YABwRBC-kxTDAokV'><div class='UVz11B8HH3zPgaD3ITNbg'>"+temp[i]+"</div> <div class='_1oHVPuCWp3V0T31vaNkzNX'><div><a class='_3wn6m5g7iiO4BmmcRH091v' onclick='deleteItem(this);' style='color: grey;'>삭제하기</a></div></div></div></div></div>");
+					}
+					
+					var itemAdd = $(".itemAdd").eq(0);
+					$(".itemAdd").remove();
+					 for(var i=0;i<temp.length;i++){
+						itemAdd.children().children().children().children('._29JGBV0ggQH38jcZcbYX3L').text(temp[i]);
+						itemAdd.children().children().children().children().children().children('button').css("background-color","rgb(224, 225, 226)");
+						itemAdd.children().children().children().children("._1isO96lTbXHWwvrnbZpWqR").children('div').text(0);
+						itemAdd.clone().insertAfter($("#itemBox"));
+					} 
+					 itemName.splice(0,itemName.length); 
+				},
+				error : function(e) {
+					console.log('ajax에러');
+				}	
+			});
+			
 			
 		});
 
+		
+		$(".modalItemCancelBtn").click(function(){
+			$("#addItem").hide();
+			$("#defaultItem").show();
+		});
+		
 		$("#giftDescription").keyup(function() {
 			if ($(this).val().length > 50) {
 				alert("최대 50자만 입력 가능합니다.");
@@ -3795,16 +3856,27 @@ px
 		});
 
 		$(".giftDay").on('click keyup', function() {
+			if($("#deadlineDate").val()==""){
+				alert("프로젝트 마감일을 정해주세요");
+				$(".giftDay").val(0);
+				$("#deadlineDate").focus();
+				return;
+			}
+			
+			
 			var date = new Date($("#deadlineDate").val());
 			var giftDay = $(".giftDay").val();
-
+			if(parseInt(giftDay)<0){
+				giftDay=0;
+				$(".giftDay").val(0);
+			}
 			date.setDate(parseInt(date.getDate()) + parseInt(giftDay));
 
 			var year = date.getFullYear();
 			var month = date.getMonth() + 1;
 			var day = date.getDate();
 
-			$(".giftDate").val(year + '.' + month + '.' + day);
+			$(".giftDate").val(year + '-' + month + '-' + day);
 		});
 
 		$("#isRewardQuantityLimited").click(function() {
@@ -3840,6 +3912,7 @@ px
 			data : {
 				"updateNum":11,
 				"email" : '<c:out value="${user.email }"/>',
+				"projectCode" : <c:out value="${project.projectCode}"/>,
 				"projectNum" : <c:out value	="${project.projectNum}"/>,
 				"refund" :$("#RefundTextArea").val(),
 			},
@@ -3852,24 +3925,399 @@ px
 				$(".refundDiv").children('h3').append("<span style='white-space: pre-wrap;'>"+data.refund+"</span>");
 				$(".refundDiv").children('h3').css('display','inline-block');
 				$(".refundDiv").children('a').remove(); 
+				blue(data);
 			},
 			error : function(e) {
 				console.log('ajax에러');
 			}
-			})
+			});
 		});
 		
-		function blue(pro){
-			if(null != pro.title && null != pro.repImg &&null != pro.summary &&
-					null != pro.category &&null != pro.profileImg&&null != pro.name&&null != pro.introduce){
-				console.log("파란불");
-				$(".row1").children('i').remove();
-				$(".row1").prepend("<i class='_13KHfN73YmQgsYHxXvuh_J _1oJMWnMCW_Y6GmNc1mhqaW _3sFSjAZS4gQdCAyN3OfyFG -o8oGI_QAOKsVIJOUOUmV _254YPhBOB9qv7-J8bIg7co _1QY7TzdLHKX3-BKPDNNYKF'></i>");
+		
+		$(".itemSendBtn").click(function(){
+			itemSend();
+		});
+		
+		/* $(".emailBtn").click(function(){
+			
+		}); */
+		
+		$(".telInBtn").click(function(){
+			var regExp = /^\d{3}-\d{3,4}-\d{4}$/;
+			if ( !regExp.test($(".telInput").val())) {
+			      alert("잘못된 휴대폰 번호입니다. 숫자, - 를 포함한 숫자만 입력하세요.");
+			      return;
 			}
-		}
-				
-				
+			$.ajax({
+				url : 'projectUpdate.do',
+				type : 'post',
+				data : {
+					"updateNum":13,
+					"email" : '<c:out value="${user.email }"/>',
+					"projectCode" : <c:out value="${project.projectCode}"/>,
+					"projectNum" : <c:out value	="${project.projectNum}"/>,
+					"pPhone" :$(".telInput").val(),
+				},
+				success : function(data) {
+					$(".telDiv").children('h3').text('');
+					$(".telDiv").children('h3').append(data.pPhone);
+					$(".telDiv").children('h3').css('display','inline-block');
+					$(".telDiv").children('a').remove();
+					$(".telMode").children('a').text('');
+					$(".telMode").children('a').append("<i class='w6FPSPr8JA6xb8SSjkPtI _1QY7TzdLHKX3-BKPDNNYKF'></i>"+'수정하기');
+					$(".addD").hide();
+					$(".defaultD").show();
+					blue(data);
+				},
+				error : function(e) {
+					console.log('ajax에러');
+				}
+				});
+			
+			
+		});
+		
+		$(".bankNameInput").keyup(function(){
+			$(".bankBtn").attr("disabled",false);	
+		});
+		$('input[name="depositAccountType"]').change(function(){
+			currentPage='#accountSetup';
+		});
+		
+		 $(".bankBtn").click(function(){
+			var bankNameSelect=$(".bankNameSelect").val();
+			var bankNameInput=$(".bankNameInput").val();
+			var bankNumInput=$(".bankNumInput").val();
+			var radio = $('input[name="depositAccountType"]:checked').val();
+			var regExp = /(5[1-5]\d{14})|(4\d{12})(\d{3}?)|3[47]\d{13}|(6011\d{12})/; 
+			console.log();
+			 if(""==bankNameInput||""==bankNumInput||"undefined"==radio){
+				alert("계좌 정보는 필수 입력 정보 입니다.");
+				return;
+			} 
+			
+			 if(!regExp.test(bankNumInput)){
+				alert("계좌 번호를 확인해 주세요.");
+				return;
+			} 
+			 
+			  $.ajax({
+					url : 'projectUpdate.do',
+					type : 'post',
+					data : {
+						"updateNum":14,
+						"email" : '<c:out value="${user.email }"/>',
+						"projectCode" : <c:out value="${project.projectCode}"/>,
+						"projectNum" : <c:out value	="${project.projectNum}"/>,
+						"bankTrading":bankNameSelect,
+						"bankName":bankNameSelect,
+						"bankNumber":bankNumInput,
+						"bankKinds":radio=="personal"?'P':'B',
+					},
+					success : function(data) {
+						currentPage='#accountSetup';
+						$(".bankDiv").children('h3').text('');
+						$(".bankDiv").children('h3').append(data.bankTrading);
+						$(".bankDiv").children('h3').css('display','inline-block');
+						$(".bankDiv").children('a').remove();
+						$(".bankMode").children('a').text('');
+						$(".bankMode").children('a').append("<i class='w6FPSPr8JA6xb8SSjkPtI _1QY7TzdLHKX3-BKPDNNYKF'></i>"+'수정하기');
+						$(".addD").hide();
+						$(".defaultD").show();
+						blue(data);
+					},
+					error : function(e) {
+						console.log('실패');
+					}
+					}); 
+		}); 
+		
 	});
+				var itemListLength=0;
+				function blue(pro){
+					if(null != pro.title && null != pro.repImg &&null != pro.summary &&
+							null != pro.category &&null != pro.profileImg&&null != pro.name&&null != pro.introduce){
+						$(".row1").children('i').remove();
+						$(".row1").prepend("<i class='_13KHfN73YmQgsYHxXvuh_J _1oJMWnMCW_Y6GmNc1mhqaW _3sFSjAZS4gQdCAyN3OfyFG -o8oGI_QAOKsVIJOUOUmV _254YPhBOB9qv7-J8bIg7co _1QY7TzdLHKX3-BKPDNNYKF'></i>");
+					}
+					if(0<pro.price&&null!=pro.endDate&&0 < itemListLength&&null!=pro.refund){
+						$(".row2").children('i').remove();
+						$(".row2").prepend("<i class='_13KHfN73YmQgsYHxXvuh_J _1oJMWnMCW_Y6GmNc1mhqaW _3sFSjAZS4gQdCAyN3OfyFG -o8oGI_QAOKsVIJOUOUmV _254YPhBOB9qv7-J8bIg7co _1QY7TzdLHKX3-BKPDNNYKF'></i>");
+					}else{
+						$(".row2").children('i').remove();
+						$(".row2").prepend("<i class='_13KHfN73YmQgsYHxXvuh_J _1oJMWnMCW_Y6GmNc1mhqaW _3RAU_1dXrlkkPhtkKyXSVj _3fJsfvAPykJzj2xoMnxzWW _254YPhBOB9qv7-J8bIg7co _1QY7TzdLHKX3-BKPDNNYKF'></i>");
+					}
+				}
+				
+				var itemName = new Array();	
+				
+				function select(item){
+					var str = $(item).parent().siblings('._29JGBV0ggQH38jcZcbYX3L').text();
+					var count = $(item).parent().siblings('._1isO96lTbXHWwvrnbZpWqR').children('div').text();
+					
+					var text = str+"(x"+count+")";
+					
+					
+					if(str=="아이템을 만들어주세요"){
+						alert("아이템을 만들어주세요");
+						return;
+					}
+					var color = $(item).children().css('background-color');
+					if(color=='rgb(224, 225, 226)'){
+						$(item).children().css('background-color','blue');
+					}else{
+						$(item).children().css('background-color','rgb(224, 225, 226)');
+					}
+					
+					
+					
+					var itemlength = itemName.length;
+					for(var i=0;i<itemlength;i++){
+						if(itemName[i]==text){
+							itemName.splice(i, 1);
+						}
+					}
+					if(itemlength==itemName.length){
+						itemName[itemName.length]=text;
+					}
+					if(itemName.length==0){
+						$(".itemSendBtn").attr("disabled",true);
+					}else{
+						$(".itemSendBtn").attr("disabled",false);
+					}
+					return false;
+				}
+	
+	function up(item){
+		var str = $(item).parent().siblings('._29JGBV0ggQH38jcZcbYX3L').text();
+		if(str=="아이템을 만들어주세요"){
+			alert("아이템을 만들어주세요");
+			return;
+		}
+		var count = $(item).siblings('div').text();
+		var text = str+"(x"+count+")";
+		if(parseInt(count)!=100){
+		$(item).siblings('div').text(parseInt(count)+1);
+		}
+		var itemlength = itemName.length;
+		for(var i=0;i<itemlength;i++){
+			if(itemName[i]==text&&parseInt(count)!=100){
+				text=str+"(x"+(parseInt(count)+1)+")";
+				itemName[i]=text;
+				
+			}
+			
+		}
+		
+		return false;
+	}	
+	
+	function down(item){
+		var str = $(item).parent().siblings('._29JGBV0ggQH38jcZcbYX3L').text();
+		
+		if(str=="아이템을 만들어주세요"){
+			alert("아이템을 만들어주세요");
+			return;
+		}
+		var count = $(item).siblings('div').text();
+		var text = str+"(x"+count+")";
+		if(parseInt(count)!=0){
+			$(item).siblings('div').text(parseInt(count)-1);
+		}
+		var itemlength = itemName.length;
+		for(var i=0;i<itemlength;i++){
+			if(itemName[i]==text &&parseInt(count)!=0){
+				text=str+"(x"+(parseInt(count)-1)+")";
+				itemName[i]=text;
+			}
+			
+		}
+		
+		return false;
+	}		
+	
+	
+	
+	
+	function deleteItem(item){
+		var lastindex = $(item).parent().parent().parent().text().indexOf(" ");
+		var deletestr = $(item).parent().parent().parent().text().substring(0,lastindex);
+		$.ajax({
+			url : 'projectUpdate.do',
+			type : 'post',
+			data : {
+				"updateNum":12,
+				"email" : '<c:out value="${user.email }"/>',
+				"projectCode" : <c:out value="${project.projectCode}"/>,
+				"projectNum" : <c:out value	="${project.projectNum}"/>,
+				"deletestr" :deletestr,
+			},
+			success : function(data) {
+				
+				var temp = new Array();
+				if(null!=data.giftItem){
+					temp = data.giftItem.split(",");
+				}else{
+					temp[0] = "아이템을 만들어주세요";
+				}
+				
+				$(".appnedItem").children('div').remove();
+				for(var i=0;i<temp.length;i++){
+					if(temp!='아이템을 만들어주세요'){
+						$(".appnedItem").append("<div class='_13KHfN73YmQgsYHxXvuh_J saXk0rx00KnB6O_X8xIAv _2uxYQ-nuPwdol9sQhOjfH-'><div class='_13KHfN73YmQgsYHxXvuh_J _3U6RUH-EASpZ_j8ls1HJyP'><div class='_3ECP69YABwRBC-kxTDAokV'><div class='UVz11B8HH3zPgaD3ITNbg'>"+temp[i]+"</div> <div class='_1oHVPuCWp3V0T31vaNkzNX'><div><a class='_3wn6m5g7iiO4BmmcRH091v' onclick='deleteItem(this);' style='color: grey;'>삭제하기</a></div></div></div></div></div>");	
+					}else{
+						 $(".noneItem").show();
+						 $(".existItem").hide();
+					}
+				}
+				
+				var itemAdd = $(".itemAdd").eq(0);
+				$(".itemAdd").remove();
+				 for(var i=0;i<temp.length;i++){
+					itemAdd.children().children().children().children('._29JGBV0ggQH38jcZcbYX3L').text(temp[i]);
+					itemAdd.clone().insertAfter($("#itemBox"));
+				} 
+			},
+			error : function(e) {
+				console.log('ajax에러');
+			}
+		});
+	}			
+	function itemSend(){
+		var regexp = /^[0-9]*$/;
+		var price = $("#supportGoal").val();
+		var description = $("#giftDescription").val();
+		var remited ="null"; 
+		var transferCheck =$("#transferCheck").is(":checked");
+		
+		if($("#isRewardQuantityLimited").is(":checked")){
+			remited = $("#rewardLimit").val();
+		}else{
+			remited="null";
+		}
+		
+		if (!regexp.test(price)) {
+			alert("목표 금액은 숫자만 입력 가능합니다.");
+			$("#supportGoal").val('');
+			$("#supportGoal").focus();
+			return;
+		}
+		if (5000 > price) {
+			alert("금액은 5000원 이상 가능합니다.");
+			$("#supportGoal").focus();
+			return;
+		}
+		if($(".giftDate").val()=="마감일을 설정해 주세요"){
+			alert("마감일을 설정해 주세요");
+			$("#new-reward").show();				
+			$("#create-reward").hide();
+			return;
+		}
+		$.ajax({
+			url: 'insertGift.do',			
+			type : 'post',
+			data : {
+				"email" : '<c:out value="${user.email }"/>',
+				"projectCode" : <c:out value="${project.projectCode}"/>,
+				"price": price,
+				"description" : description,
+				"remit" : remited,
+				"transferCheck":transferCheck, 
+				"sendDate" : $(".giftDate ").val(),
+				"items" :itemName,
+			},
+			success : function(data) {
+				itemName.splice(0,itemName.length); 
+				$(".itemAdd").children().children().children().children().children().children('button').css("background-color","rgb(224, 225, 226)");
+				$(".itemAdd").children().children().children().children("._1isO96lTbXHWwvrnbZpWqR").children('div').text(0);
+				$("#giftDescription").val('');
+				$(".giftRemit").val('50자 남았습니다');
+				$("#isRewardQuantityLimited").prop('checked', false);
+				$("#transferCheck").prop('checked', false) ;
+				$("#rewardLimit").val(0);
+				$("#rewardLimit").attr("disabled",true);
+				$("#new-reward").show();				
+				$("#create-reward").hide();
+				$(".rewardlist").css("display","inline-block");
+				var rewardlist = $(".rewardlist").eq(0);
+				$(".rewardlist").remove();
+				for(var i=0;i<data.giftArry.length;i++){
+					var date = new Date(data.giftArry[i].sendDate);
+					var year = date.getFullYear();
+					var month = date.getMonth() + 1;
+					var day = date.getDate();
+					var fulldate = year + '년' + month + '월' + day+'일'; 
+					
+					rewardlist.children().children(".-UobvSeyUG6cEWYnht50S").children('h4').text(data.giftArry[i].price+" 원 이상 밀어주시는 분께");
+					rewardlist.children().children("._3F_kXgcqjiYVIFqaGYLV_x").children('p').text(data.giftArry[i].description);
+					rewardlist.children().children(".itemLists").children('div').text(data.giftArry[i].item);
+					rewardlist.children().children(".VgMYktFPH-SSPJjPTFMC").children('strong').text(fulldate);
+					rewardlist.children("._3ZgG-OSv0XE3y-h3oPaDsl").children().children('.remitDisplay').text(data.giftArry[i].remited+"개 남음");
+					rewardlist.children().children().children().attr('onclick','deleteItemList('+data.giftArry[i].giftCode+')');
+					if(data.giftArry[i].transferCheck=="false"){
+						rewardlist.children("._3ZgG-OSv0XE3y-h3oPaDsl").children().children('.sendCondition').hide();
+					} else{
+						rewardlist.children("._3ZgG-OSv0XE3y-h3oPaDsl").children().children('.sendCondition').show();
+					}
+					rewardlist.clone().insertAfter($(".rewardappend"));
+				}
+				itemListLength = data.giftArry.length;
+				blue(data);
+			},
+			error : function(e) {
+				console.log('ajax에러');
+			}
+			
+		});
+	}
+	
+	 function deleteItemList(giftNum){
+		 $.ajax({
+			url:'deleteGift.do',
+			type : 'post',
+			data : {
+				"projectCode" : <c:out value="${project.projectCode}"/>,
+				"giftCode":giftNum,
+			},
+			success : function(data) {
+				if(data==""){
+					itemListLength = 0;					
+					$(".rewardlist").hide();
+					blue(data);
+				}else{
+					var rewardlist = $(".rewardlist").eq(0);
+					
+					$(".rewardlist").remove();
+					for(var i=0;i<data.giftArry.length;i++){
+						var date = new Date(data.giftArry[i].sendDate);
+						var year = date.getFullYear();
+						var month = date.getMonth() + 1;
+						var day = date.getDate();
+						var fulldate = year + '년' + month + '월' + day+'일'; 
+						
+						rewardlist.children().children(".-UobvSeyUG6cEWYnht50S").children('h4').text(data.giftArry[i].price+" 원 이상 밀어주시는 분께");
+						rewardlist.children().children("._3F_kXgcqjiYVIFqaGYLV_x").children('p').text(data.giftArry[i].description);
+						rewardlist.children().children(".itemLists").children('div').text(data.giftArry[i].item);
+						rewardlist.children().children(".VgMYktFPH-SSPJjPTFMC").children('strong').text(fulldate);
+						rewardlist.children("._3ZgG-OSv0XE3y-h3oPaDsl").children().children('.remitDisplay').text(data.giftArry[i].remited+"개 남음");
+						rewardlist.children().children().children().attr('onclick','deleteItemList('+data.giftArry[i].giftCode+')');
+						if(data.giftArry[i].transferCheck=="false"){
+							rewardlist.children("._3ZgG-OSv0XE3y-h3oPaDsl").children().children('.sendCondition').hide();
+						} else{
+							rewardlist.children("._3ZgG-OSv0XE3y-h3oPaDsl").children().children('.sendCondition').show();
+						}
+						rewardlist.clone().insertAfter($(".rewardappend"));
+					}
+				}
+				
+			},
+			error : function(e) {
+				console.log('ajax에러');
+			}
+			
+		});
+ 		return false;
+	} 
 </script>
 </head>
 <body>
@@ -3975,7 +4423,7 @@ px
 														<!-- react-text: 789 --> <!-- /react-text --> <span>개요</span></span></label>
 											</h5>
 										</a> <a class="rLqvd1axk9i-3cU72yTkF" href="#fundingReward">
-											<h5>
+											<h5 class="row2">
 												<i
 													class="_13KHfN73YmQgsYHxXvuh_J _1oJMWnMCW_Y6GmNc1mhqaW _3RAU_1dXrlkkPhtkKyXSVj _3fJsfvAPykJzj2xoMnxzWW _254YPhBOB9qv7-J8bIg7co _1QY7TzdLHKX3-BKPDNNYKF"></i><label><span><span>펀딩
 															및</span> <!-- react-text: 797 --> <!-- /react-text --> <span>선물

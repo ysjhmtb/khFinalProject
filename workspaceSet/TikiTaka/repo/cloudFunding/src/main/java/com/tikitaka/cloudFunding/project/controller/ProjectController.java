@@ -2,6 +2,7 @@ package com.tikitaka.cloudFunding.project.controller;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,11 +16,13 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-
 import com.tikitaka.cloudFunding.community.model.service.CommunityService;
+import com.tikitaka.cloudFunding.community.model.vo.PostVo;
 import com.tikitaka.cloudFunding.common.MyRenamePolicy;
+
 import com.tikitaka.cloudFunding.member.model.vo.Member;
 import com.tikitaka.cloudFunding.project.model.service.ProjectService;
+import com.tikitaka.cloudFunding.project.model.vo.GiftVo;
 import com.tikitaka.cloudFunding.project.model.vo.ProjectVo;
 
 @Controller
@@ -31,16 +34,20 @@ public class ProjectController {
 	CommunityService cService;
 
 	@RequestMapping("projectList.do")
-	public String projectList(){
-		return "project/projectList";
+	public ModelAndView projectList(ModelAndView mv){
+		List<ProjectVo> list = projectService.selectprojectList();
+		mv.addObject("list", list);
+		mv.setViewName("project/projectList");
+		return mv;
 	}
-	@RequestMapping("payment.do")
-	public String payment(){
-		return "project/payment/payment";
-	}
-	@RequestMapping("payment_after.do")
-	public String payment_a(){
-		return "project/payment/payment_after";
+	
+	@RequestMapping("popularList.do")
+	public ModelAndView popularList(ModelAndView mv){
+		List<ProjectVo> list = projectService.selectPopularList();
+		System.out.println(list);
+		mv.addObject("list", list);
+		mv.setViewName("project/popularList");
+		return mv;
 	}
 
 	@RequestMapping("projectStart.do")
@@ -72,10 +79,14 @@ public class ProjectController {
 	
 	/*,produces="application/text; charset=utf-8"*/
 	@RequestMapping("projectUpdate.do" )
-	public @ResponseBody ProjectVo projectUpdate(ProjectVo projectVo,String projectTitle,String projectShortTitle,String date){
+	public @ResponseBody ProjectVo projectUpdate(ProjectVo projectVo,String projectTitle,String projectShortTitle,String date
+			,String item,String deletestr){
 		String ptitle = projectTitle+','+projectShortTitle;
 		HashMap params = new HashMap();
 		ProjectVo project=null;
+		params.put("userId", projectVo.getEmail());
+		params.put("projectNum",projectVo.getProjectNum());
+		project = projectService.selectProject(params);
 		
 		projectVo.setTitle(ptitle);
 		
@@ -83,11 +94,29 @@ public class ProjectController {
 			projectVo.setEndDate(java.sql.Date.valueOf(date));
 		}
 		
+		if(projectVo.getUpdateNum()==10&&project.getGiftItem()!=null){
+			projectVo.setGiftItem(project.getGiftItem()+","+item);
+		}else{
+			projectVo.setGiftItem(item);
+		}
+		
+		
+		if(projectVo.getUpdateNum()==12&&project.getGiftItem()!=null){
+			String newGiftItem="";
+			String shim = project.getGiftItem().contains(",")?",":"";
+			int maxLength = project.getGiftItem().length();
+			
+			newGiftItem = project.getGiftItem().replaceAll(deletestr+shim, "");
+			if(maxLength==newGiftItem.length()){
+				newGiftItem =project.getGiftItem().replaceAll(shim+deletestr, "");
+			}
+			projectVo.setGiftItem(newGiftItem);
+			projectVo.setUpdateNum(10);
+		}
+		
 		int result = projectService.updateProject(projectVo);
 		
 		if(0<result){
-			params.put("userId", projectVo.getEmail());
-			params.put("projectNum",projectVo.getProjectNum());
 			project = projectService.selectProject(params);
 		}
 		
@@ -95,7 +124,7 @@ public class ProjectController {
 	}
 	@RequestMapping("projectImageUpdate.do")
 	public @ResponseBody ProjectVo projectUpdate(MultipartHttpServletRequest mreq,@RequestParam("email") String email,
-			@RequestParam("projectNum") String projectNum, @RequestParam("updateNum") String updateNum){
+			@RequestParam("projectNum") String projectNum, @RequestParam("updateNum") String updateNum,@RequestParam("projectCode") String projectCode){
 		
 		
 		
@@ -144,6 +173,7 @@ public class ProjectController {
 		ProjectVo projectVo = new ProjectVo();
 		projectVo.setEmail(email);
 		projectVo.setProjectNum(Integer.parseInt(projectNum));
+		projectVo.setProjectCode(Integer.parseInt(projectCode));
 		
 		if(Integer.parseInt(updateNum)==2){
 			projectVo.setRepImg(rename);
@@ -164,24 +194,55 @@ public class ProjectController {
 		return project;
 	}
 	
-	
 	@RequestMapping("projectDetail.do")
 	public ModelAndView selectProjectDetail(int projectCode, ModelAndView mv){
-		ProjectVo project = projectService.selectProjectDetail(projectCode);
+		ProjectVo project = projectService.selectProjectGift(projectCode);
+		List<PostVo> postList = cService.selectPostList(projectCode);
 		int count = cService.selectPostCount(projectCode);
+		int supportedCount = projectService.selectSupportedCount(project.getEmail());
+		
 		mv.addObject("count", count);
 		mv.addObject("project", project);
+		mv.addObject("postList", postList);
+		mv.addObject("supportedCount", supportedCount);
+		
 		mv.setViewName("project/detail/projectDetail");
 		return mv;
 		
 	}
 	@RequestMapping("projectPolicy.do")
-	public ModelAndView projectPolicy(int projectCode, ModelAndView mv){
+	public @ResponseBody ProjectVo projectPolicy(int projectCode){
 		ProjectVo project = projectService.selectProjectDetail(projectCode);
-		int count = cService.selectPostCount(projectCode);
-		mv.addObject("count", count);
-		mv.addObject("project", project);
-		mv.setViewName("project/detail/policy");
-		return mv;
+		return project;
+	}
+	
+	//, @RequestParam("items") String[] items
+	@RequestMapping("insertGift.do")
+	public @ResponseBody ProjectVo insertGift(GiftVo gift ,String remit,@RequestParam(value="items[]") String items){
+		ProjectVo project =null;
+		if(!remit.equals("null")){
+			gift.setRemited(Integer.parseInt(remit));
+		}
+		gift.setItem(items);
+		System.out.println(gift);
+		int result = projectService.insertGift(gift);
+		
+		if(0<result){
+			project = projectService.selectProjectGift(gift.getProjectCode());
+		}
+		System.out.println(project);
+		
+		return project;
+	}
+	
+	@RequestMapping("deleteGift.do")
+	public @ResponseBody ProjectVo deleteGfit(String projectCode, String giftCode){
+		
+		ProjectVo project =null;
+		int result = projectService.deleteGift(Integer.parseInt(giftCode));
+		if(0<result){
+			project = projectService.selectProjectGift(Integer.parseInt(projectCode));
+		}
+		return project;
 	}
 }
