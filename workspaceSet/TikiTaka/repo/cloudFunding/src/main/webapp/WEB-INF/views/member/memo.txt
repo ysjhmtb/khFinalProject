@@ -1,0 +1,79 @@
+		var memberMe = new Object();
+		
+		memberMe.email = "${user.email}";
+		memberMe.name = "${user.name}";
+		memberMe.password = "${user.password}";
+		memberMe.profile_img = "${user.profile_img}";
+		memberMe.enroll_date = "${user.enroll_date}";
+		memberMe.location = "${user.location}";
+		memberMe.shortDescription = "${user.shortDescription}";
+		memberMe.homepage = "${user.homepage}";
+		memberMe.phone1 = "${user.phone1}";
+		memberMe.phone2 = "${user.phone2}";
+		memberMe.phone3 = "${user.phone3}";
+		memberMe.stopDate = "${user.stopDate}";
+		memberMe.expDate = "${user.expDate}";
+		
+		$("#memberMeProfileImg").attr("src",memberMe.profile_img);
+		$("#memberMeName").text(memberMe.name + "님의 후원현황");
+		
+	
+		var projectList = new Array();
+		
+		<c:forEach var="item" items="${list}" varStatus="status">
+			
+			var temp = new Object();
+			
+			temp.email = ${item.email};
+			temp.projectCode = ${item.projectCode};
+			temp.projectNum = ${item.projectNum};
+			temp.title = ${item.title};
+			temp.repImg = ${tem.repImg};
+			temp.summary = ${item.summary};
+			temp.category = ${item.category};
+			temp.profileImg = ${item.profileImg};
+			temp.name = ${item.name};
+			temp.introduce = ${item.introduce};
+			temp.price = ${item.price};
+			temp.endDate = ${item.endDate};
+			temp.giftItem = ${item.giftItem};
+			temp.refund = ${item.refund};
+			temp.descriptionVideo = ${item.descriptionVideo};
+			temp.story = ${item.story};
+			temp.pEmail = ${item.pEmail};
+			temp.pPhone = ${item.pPhone};
+			temp.bankTrading = ${item.bankTrading};
+			temp.bankName = ${item.bankName};
+			temp.bankNumber = ${item.bankNumber};
+			temp.bankKinds = ${item.bankKinds};
+			temp.pConfirm = ${item.pConfirm};
+			temp.sendConfirm = ${item.sendConfirm};
+			temp.currentAmount = ${item.currentAmount};
+			temp.updateNum = ${item.updateNum};
+			temp.supportCount = ${item.supportCount};
+			temp.enrollDate = ${item.enrollDate};
+			temp.giftArry = new Array(); 
+			
+			<c:forEach var="gift" items="item" varStatus="status">
+			
+				var temp2 = new Object();
+				
+				temp2.giftCode = ${gift.giftCode};
+				temp2.projectCode = ${gift.projectCode};
+				temp2.email = ${gift.email};
+				temp2.price = ${gift.price};
+				temp2.description = ${gift.description};
+				temp2.item = ${gift.item};
+				temp2.sendDate = ${gift.sendDate};
+				temp2.remited = ${gift.remited};
+				temp2.selectedCount = ${gift.selectedCount};
+				temp.transferCheck = ${gift.transferCheck};
+				
+				giftArray.push(temp2);
+				
+			</c:forEach> 
+			
+			projectList.push(temp);
+			
+						
+		</c:forEach>  

@@ -19,13 +19,13 @@
 
 <insert id="insertProject" parameterType="Member">
 	INSERT INTO PROJECT 
-	(EMAIL,P_PROJECT_CODE,P_PROJECT_NUMBER,P_NAME,P_EMAIL,P_PRICE,P_END_DATE,P_OK,P_SEND_CONFIRM,P_CURRENTAMOUNT,P_SPONSOR_COUNT,P_ENROLL_DATE)  
+	(EMAIL,P_PROJECT_CODE,P_PROJECT_NUMBER,P_NAME,P_EMAIL,P_PRICE,P_OK,P_SEND_CONFIRM,P_CURRENTAMOUNT,P_SPONSOR_COUNT,P_ENROLL_DATE)  
 	VALUES
-	(#{email},SEQ_P_NUM.NEXTVAL,(select count(*) from project where EMAIL = #{email})+1,#{name},#{email},0,SYSDATE,'0','F',0,0,SYSDATE)
+	(#{email},SEQ_P_NUM.NEXTVAL,(select count(*) from project where EMAIL = #{email})+1,#{name},#{email},0,'0','F',0,0,SYSDATE)
 </insert>
 
 <insert id="insertGift" parameterType="Gift">
-	INSERT INTO GIFT VALUES(#{projectCode},#{email},SEQ_G_NUM.NEXTVAL,#{price},#{description},#{item},#{sendDate},#{remited},#{transferCheck})
+	INSERT INTO GIFT VALUES(#{projectCode},#{email},SEQ_G_NUM.NEXTVAL,#{price},#{description},#{item},#{sendDate},#{remited},#{transferCheck},0)
 </insert>
 <select id="selectProjectNum" parameterType="string" resultType="int">
 	SELECT COUNT(*)  FROM PROJECT 
@@ -42,6 +42,7 @@
 		<result property="sendDate" column="G_SEND_DATE"/>
 		<result property="remited" column="G_REMITED"/>
 		<result property="transferCheck" column="G_TRANSFER_CHECK"/>
+		<result property="selectedCount" column="G_SELECTED_COUNT"/>
 </resultMap>
 
 <resultMap type="Project" id="projectMap">
@@ -105,12 +106,13 @@
 <result property="enrollDate" column="P_ENROLL_DATE"/>
 </resultMap>
 
-<select id="selectProjectList" resultMap="projectMap2">
+<select id="selectProjectList" resultMap="projectMap2" parameterType="string" >
 SELECT EMAIL, P_PROJECT_CODE,P_PROJECT_NUMBER, P_TITLE, P_REP_IMG, P_SUMMARY, P_CATEGORY, P_PROFILE_IMG, 
 P_NAME, P_INTRODUCE, P_PRICE, P_END_DATE, P_GIFT_ITEM, P_REFUND, P_DESCRIPTION_VIDEO,
 P_STORY, P_EMAIL, P_PHONE, P_BANK_TRADING, P_BANK_NAME, P_BANK_NUMBER, P_BANK_KINDS, 
 P_OK, P_SEND_CONFIRM, P_CURRENTAMOUNT,P_SPONSOR_COUNT,P_ENROLL_DATE
 FROM PROJECT
+ORDER BY P_SPONSOR_COUNT DESC
 </select>
 
 <select id="selectPopularList" resultMap="projectMap2">
@@ -128,6 +130,21 @@ FROM PROJECT
 WHERE RowIdx = 1
 </select>
 
+<select id="selectPopularList4" parameterType="int" resultMap="projectMap2">
+SELECT * 
+FROM (SELECT EMAIL, P_PROJECT_CODE,P_PROJECT_NUMBER, P_TITLE, P_REP_IMG, P_SUMMARY, P_CATEGORY, P_PROFILE_IMG, 
+			            P_NAME, P_INTRODUCE, P_PRICE, P_END_DATE, P_GIFT_ITEM, P_REFUND, P_DESCRIPTION_VIDEO,
+			            P_STORY, P_EMAIL, P_PHONE, P_BANK_TRADING, P_BANK_NAME, P_BANK_NUMBER, P_BANK_KINDS, 
+			            P_OK, P_SEND_CONFIRM, P_CURRENTAMOUNT,P_SPONSOR_COUNT,P_ENROLL_DATE, ROWNUM AS R_NUM
+			FROM (SELECT EMAIL, P_PROJECT_CODE,P_PROJECT_NUMBER, P_TITLE, P_REP_IMG, P_SUMMARY, P_CATEGORY, P_PROFILE_IMG, 
+						            P_NAME, P_INTRODUCE, P_PRICE, P_END_DATE, P_GIFT_ITEM, P_REFUND, P_DESCRIPTION_VIDEO,
+						            P_STORY, P_EMAIL, P_PHONE, P_BANK_TRADING, P_BANK_NAME, P_BANK_NUMBER, P_BANK_KINDS, 
+						            P_OK, P_SEND_CONFIRM, P_CURRENTAMOUNT,P_SPONSOR_COUNT,P_ENROLL_DATE, ROW_NUMBER() OVER(PARTITION BY P_CATEGORY  ORDER BY P_SPONSOR_COUNT DESC) AS ROWIDX
+			            FROM PROJECT) 
+			WHERE ROWIDX = 1)
+WHERE R_NUM BETWEEN #{btnIdx} AND (#{btnIdx} + 3)
+</select>
+
 <select id = "selectProjectDetail" resultMap="projectMap" parameterType="int">
 SELECT EMAIL, P_PROJECT_CODE,P_PROJECT_NUMBER, P_TITLE, P_REP_IMG, P_SUMMARY, P_CATEGORY, P_PROFILE_IMG, 
 	P_NAME, P_INTRODUCE, P_PRICE, P_END_DATE, P_GIFT_ITEM, P_REFUND, P_DESCRIPTION_VIDEO,
@@ -143,6 +160,28 @@ WHERE P_PROJECT_CODE = #{projectCode}
 	WHERE EMAIL = #{email}
 </select>
 
+<select id="searchProjectByKeyword" parameterType="string" resultMap="projectMap2">
+    SELECT * FROM PROJECT 
+    WHERE P_TITLE LIKE '%' || #{keyword} || '%'
+    OR P_CATEGORY LIKE '%' || #{keyword} || '%'
+</select>
+
+<select id="searchProjectByCategory" parameterType="string" resultMap="projectMap2">
+    SELECT * FROM PROJECT 
+    WHERE P_CATEGORY LIKE '%' || #{category} || '%'
+</select>
+
+<select id="projectListOrderByDeadline" resultMap="projectMap2">
+    SELECT * 
+    FROM PROJECT
+	ORDER BY (P_END_DATE - SYSDATE)
+</select>
+
+<select id="projectListOrderByEnrollDate" resultMap="projectMap2">
+    SELECT * 
+    FROM PROJECT
+	ORDER BY P_ENROLL_DATE DESC
+</select>
 <select id="selectProjectGift" resultMap="projectMap" parameterType="int">
 SELECT P.EMAIL EMAIL,
 P.P_PROJECT_CODE P_PROJECT_CODE,
@@ -179,7 +218,9 @@ G.G_DESCRIPTION G_DESCRIPTION,
 G.G_ITEM G_ITEM,
 G.G_SEND_DATE G_SEND_DATE,
 G.G_REMITED G_REMITED,
-G.G_TRANSFER_CHECK G_TRANSFER_CHECK FROM PROJECT P
+G.G_TRANSFER_CHECK G_TRANSFER_CHECK,
+G.G_SELECTED_COUNT 
+FROM PROJECT P
 LEFT JOIN GIFT G ON(P.P_PROJECT_CODE=G.P_PROJECT_CODE)
 WHERE P.P_PROJECT_CODE=#{projectCode}
 </select>
@@ -193,6 +234,14 @@ P_NAME, P_INTRODUCE, P_PRICE, P_END_DATE, P_GIFT_ITEM, P_REFUND, P_DESCRIPTION_V
 FROM PROJECT WHERE  EMAIL = #{userId} AND P_PROJECT_NUMBER = #{projectNum}
 </select>
 
+<select id="selectMyProjectList" resultMap="projectMap2" parameterType="Member" >
+SELECT EMAIL, P_PROJECT_CODE,P_PROJECT_NUMBER, P_TITLE, P_REP_IMG, P_SUMMARY, P_CATEGORY, P_PROFILE_IMG, 
+P_NAME, P_INTRODUCE, P_PRICE, P_END_DATE, P_GIFT_ITEM, P_REFUND, P_DESCRIPTION_VIDEO,
+P_STORY, P_EMAIL, P_PHONE, P_BANK_TRADING, P_BANK_NAME, P_BANK_NUMBER, P_BANK_KINDS, 
+P_OK, P_SEND_CONFIRM, P_CURRENTAMOUNT,P_SPONSOR_COUNT,P_ENROLL_DATE
+FROM PROJECT
+WHERE EMAIL = #{email}
+</select>
 
 <update id="updateProject" parameterType="Project">
 	UPDATE PROJECT
@@ -245,6 +294,15 @@ FROM PROJECT WHERE  EMAIL = #{userId} AND P_PROJECT_NUMBER = #{projectNum}
       	</when>
       	<when test="updateNum==14">
       	SET P_BANK_TRADING = #{bankTrading} ,P_BANK_NAME =#{bankName} ,P_BANK_NUMBER= #{bankNumber},P_BANK_KINDS=#{bankKinds}
+      	</when>
+      	<when test="updateNum==15">
+      	SET P_STORY = #{story}
+      	</when>
+      	<when test="updateNum==16">
+      	SET P_DESCRIPTION_VIDEO = #{descriptionVideo}
+      	</when>
+      	<when test="updateNum==17">
+      	SET P_OK = '1'
       	</when>
       	<otherwise>
       	

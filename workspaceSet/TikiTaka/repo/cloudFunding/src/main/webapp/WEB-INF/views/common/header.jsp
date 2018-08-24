@@ -1,15 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+
 <!DOCTYPE html>
 <html>
 
 <head>
 
-	<script>
-		function loginPage(){
-			location.href="loginPage.do";
-		}
-	</script>
+	
 
       <meta charset="utf-8">
       <title>티키타카 :: TIKITAKA</title>
@@ -722,11 +720,23 @@
 	    line-height: 1.2;
 	}
 	
+	/* 마이페이지 탭 프로필 이미지 스타일 */
+	.kIYXPc {
+	    display: inline-block;
+	    width: 4rem;
+	    height: 4rem;
+	    background-size: cover;
+	    background-position: 50% 38%;
+	    border-radius: 50%;
+	    border: 1px solid #ddd;
+	    margin-right: 1rem;
+	}
+	
 </style>
 <script>
 
 	$(function(){
-		// 카테고리 펼치기/접기
+		// 프로젝트 둘러보기 카테고리 버튼 하위메뉴 펼치기/접기
 		$(".cwYjsy").click(function(){
 			$(this).parent().siblings(0).children().toggle();
 			if($(this).children("span").eq(1).children("div").attr("class") == "DiscoverMenuDropdown__TriangleUpIcon-s116h97f-0 bVfzeY"){
@@ -752,19 +762,65 @@
 				$("#searchBtn").addClass("cdAaGX");
 			}
 		});
+		
+		$(".searchProjectByCategory").click(function(){
+			var category = $(this).text();
+			location.href="searchProjectByCategory.do?category=" + category;
+		});
+		
 	});
 	
-	function closeTab(){
+	function closeSearchTab(){
 		$("body").css("overflow", "auto");
-		$(".FullscreenModal__Modal-s1csgj37-0").css("display", "none");
+		$("#searchTab").css("display", "none");
 	}
-	
-	function openTab(){
+	function openSearchTab(){
 		$("body").css("overflow", "hidden");
-		$(".FullscreenModal__Modal-s1csgj37-0").css("display", "block");
-		
+		$("#searchTab").css("display", "block");
 	}
 	
+	function closeMyPageTab(){
+		$("body").css("overflow", "auto");
+		$("#myPageTab").css("display", "none");
+	}
+	function openMyPageTab(){
+		$("body").css("overflow", "hidden");
+		$("#myPageTab").css("display", "block");
+	}
+	
+	
+	function loginPage(){
+		location.href="loginPage.do";
+	}
+	
+	$(function(){
+		var memberAdmin = new Object();
+		
+		memberAdmin.email = "${user.email}";
+		memberAdmin.name = "${user.name}";
+		memberAdmin.password = "${user.password}";
+		memberAdmin.profile_img = "${user.profile_img}";
+		memberAdmin.enroll_date = "${user.enroll_date}";
+		memberAdmin.location = "${user.location}";
+		memberAdmin.shortDescription = "${user.shortDescription}";
+		memberAdmin.homepage = "${user.homepage}";
+		memberAdmin.phone1 = "${user.phone1}";
+		memberAdmin.phone2 = "${user.phone2}";
+		memberAdmin.phone3 = "${user.phone3}";
+		memberAdmin.stopDate = "${user.stopDate}";
+		memberAdmin.expDate = "${user.expDate}";
+		
+		console.log(memberAdmin.email);
+		$("#loginIdAcc").click(function(){
+			if(memberAdmin.email == 'admin@admin.com'){
+				location.href="adminMenuList.do";
+			} else {
+				openMyPageTab();
+			}
+		});
+					
+	});
+
 </script>
 </head>
 <body>
@@ -776,7 +832,7 @@
 					data-reactid="7">
 					<div class="SiteHeader__LeftMenu-s1s56ls8-2 kZLTLQ"
 						data-reactid="8">
-						<button class="SiteHeader__LinkButton-s1s56ls8-7 hcvfVq" onclick="openTab();"
+						<button class="SiteHeader__LinkButton-s1s56ls8-7 hcvfVq" onclick="openSearchTab();"
 							data-reactid="9">
 							<i class="_3ZgG-OSv0XE3y-h3oPaDsl _1QY7TzdLHKX3-BKPDNNYKF"
 								data-reactid="10"></i><span
@@ -804,7 +860,7 @@
 					
 					<c:if test="${(!empty user) && (null eq user.stopDate) }">						
 		
-						<a class="sc-htoDjs fQwQfp" data-reactid="30">
+						<a id="loginIdAcc" class="sc-htoDjs fQwQfp" data-reactid="30">
 							<span class="SiteHeader__ItemLabel-s1s56ls8-8 iGOIal" data-reactid="31">
 								<c:out value="${user.name } "/>
 							</span>
@@ -813,8 +869,12 @@
 								src="${user.profile_img }" width="42" height="42" />
 							</span>
 						</a>
+						
+					
 						 					
 					</c:if>
+					
+					
 					
 					
 					<c:if test="${empty user }">
@@ -850,17 +910,16 @@
 			</div>
 		</div>
 	</div>
+	
 	<div>
-	
-	
 		<!-- 프로젝트 검색 탭 -->
-		<div class="FullscreenModal__Modal-s1csgj37-0 gXCSaI">
+		<div id="searchTab" class="FullscreenModal__Modal-s1csgj37-0 gXCSaI">
 			<div class="Header__Header-s10wde3a-0 ewshKB">
 				<div class="Container__Container-s1sxg7g4-0 iTXcwb">
 					<div class="FullscreenModal__ModalHeader-s1csgj37-1 gDcVdH">
 						<div class="FullscreenModal__ActionMenu-s1csgj37-2 bwyOOq">
 							<div class="FullscreenModal__CloseButton-s1csgj37-6 GTIIn">
-								<button class="Button__Button-s1ng5xda-0 fkKFAu" onclick="closeTab();">
+								<button class="Button__Button-s1ng5xda-0 fkKFAu" onclick="closeSearchTab();">
 									<i class="RyvusKQjJRQNgaH8kOM4J _1QY7TzdLHKX3-BKPDNNYKF"></i>
 								</button>
 							</div>
@@ -878,11 +937,9 @@
 					<div class="Discover__Search-s1vowecn-1 fdKmEL">
 						<div class="Discover__DiscoverMenuTitle-s1vowecn-0 cWTOml">검색</div>
 						<div class="SearchWidget__SerchInputWidget-s9c21z8-0 hJaXtH">
-							<form action="">
-								<input type="search" id="searchText"
-									class="SearchWidget__Input-s9c21z8-1 cEJRUu"
-									placeholder="프로젝트를 검색해주세요"><input
-									type="submit" style="display: none;">
+							<form action="searchProjectByKeyword.do">
+								<input type="search" id="searchText" name="keyword" class="SearchWidget__Input-s9c21z8-1 cEJRUu" placeholder="프로젝트를 검색해주세요">
+								<input	type="submit" style="display: none;">
 								<button id="searchBtn" class="Button__Button-s1ng5xda-0 cdAaGX" disabled>검색하기</button>
 							</form>
 						</div>
@@ -892,26 +949,26 @@
 				<div class="Container__Container-s1sxg7g4-0 iTXcwb">
 					<div class="Divider__Divider-s16ihjfx-0 cdILTf"></div>
 					<div class="MenuItem__MenuItem-no2u3j-0 cwYjsy">
-						<a href="/projects"><span
+						<a href="projectList.do"><span
 							class="MenuItem__MenuItemTitle-no2u3j-1 enzRKc">모든 프로젝트</span></a>
 					</div>
 					<div class="MenuItem__MenuItem-no2u3j-0 cwYjsy">
-						<a href="/projects/popular"><span
+						<a href="popularList.do"><span
 							class="MenuItem__MenuItemTitle-no2u3j-1 enzRKc">분야별 인기
 								프로젝트</span></a>
 					</div>
 					<div class="MenuItem__MenuItem-no2u3j-0 cwYjsy">
-						<a href="/projects/ending-soon"><span
+						<a href="projectListOrderByDeadline.do"><span
 							class="MenuItem__MenuItemTitle-no2u3j-1 enzRKc">마감 앞둔
 								프로젝트</span></a>
 					</div>
 					<div class="MenuItem__MenuItem-no2u3j-0 cwYjsy">
-						<a href="/projects/new"><span
+						<a href="projectListOrderByEnrollDate.do"><span
 							class="MenuItem__MenuItemTitle-no2u3j-1 enzRKc">새로운
 								프로젝트</span></a>
 					</div>
 					<div class="Divider__Divider-s16ihjfx-0 hEIXJa"></div>
-					<div>
+					<div style="display:none;">
 						<div class="Discover__DiscoverMenuTitle-s1vowecn-0 cWTOml">기획전</div>
 						<div class="MenuItem__MenuItem-no2u3j-0 cwYjsy">
 							<a href="/collections/jfac2018"><span
@@ -971,23 +1028,21 @@
 						</div>
 						<div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/game">
-									<!-- react-text: 849 -->모든 <!-- /react-text -->
-									<!-- react-text: 850 -->게임<!-- /react-text -->
-									<!-- react-text: 851 --> 프로젝트<!-- /react-text -->
+								<a href="searchProjectByCategory.do?category=게임">
+									모든 게임 프로젝트
 								</a>
 							</div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/tabletop-rpg">TRPG</a>
+								<a class="searchProjectByCategory">TRPG</a>
 							</div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/mobile-game">모바일 게임</a>
+								<a class="searchProjectByCategory">모바일 게임</a>
 							</div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/board-game">보드게임</a>
+								<a class="searchProjectByCategory">보드게임</a>
 							</div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/video-game">비디오게임</a>
+								<a class="searchProjectByCategory">비디오게임</a>
 							</div>
 						</div>
 					</div>
@@ -1000,23 +1055,21 @@
 						</div>
 						<div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/performance">
-									<!-- react-text: 865 -->모든 <!-- /react-text -->
-									<!-- react-text: 866 -->공연<!-- /react-text -->
-									<!-- react-text: 867 --> 프로젝트<!-- /react-text -->
+								<a href="searchProjectByCategory.do?category=공연">
+									모든 공연 프로젝트
 								</a>
 							</div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/dance">무용</a>
+								<a class="searchProjectByCategory">무용</a>
 							</div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/musical">뮤지컬</a>
+								<a class="searchProjectByCategory">뮤지컬</a>
 							</div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/theater">연극</a>
+								<a class="searchProjectByCategory">연극</a>
 							</div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/festival">페스티벌</a>
+								<a class="searchProjectByCategory">페스티벌</a>
 							</div>
 						</div>
 					</div>
@@ -1031,23 +1084,21 @@
 						</div>
 						<div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/design">
-									<!-- react-text: 929 -->모든 <!-- /react-text -->
-									<!-- react-text: 930 -->디자인<!-- /react-text -->
-									<!-- react-text: 931 --> 프로젝트<!-- /react-text -->
+								<a href="searchProjectByCategory.do?category=디자인">
+									모든 디자인 프로젝트
 								</a>
 							</div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/space-design">공간디자인</a>
+								<a class="searchProjectByCategory">공간디자인</a>
 							</div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/graphic-design">시각디자인</a>
+								<a class="searchProjectByCategory">시각디자인</a>
 							</div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/product-design">제품디자인</a>
+								<a class="searchProjectByCategory">제품디자인</a>
 							</div>
 							<div class="DropdownItem__DropdownItem-s12jl0ab-0 lhFUmi">
-								<a href="/category/character-design">캐릭터 디자인</a>
+								<a class="searchProjectByCategory">캐릭터 디자인</a>
 							</div>
 						</div>
 					</div>
@@ -1324,6 +1375,64 @@
 							</div>
 						</div> -->
 					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 로그인한 사용자 페이지 탭 -->
+		<div id="myPageTab" class="FullscreenModal__Modal-s1csgj37-0 gXCSaI">
+			<div class="Header__Header-s10wde3a-0 ewshKB">
+				<div class="Container__Container-s1sxg7g4-0 iTXcwb">
+					<div class="FullscreenModal__ModalHeader-s1csgj37-1 gDcVdH">
+						<div class="FullscreenModal__ActionMenu-s1csgj37-2 bwyOOq"></div>
+						<div class="FullscreenModal__CenterMenu-s1csgj37-3 dvzFpS">
+							<div class="FullscreenModal__ModalTitle-s1csgj37-4 dPAoUk">내
+								페이지</div>
+						</div>
+						<div class="FullscreenModal__ActionMenu-s1csgj37-2 bwyOOq">
+							<div class="FullscreenModal__CloseButton-s1csgj37-6 jBPHQu">
+								<button class="Button__Button-s1ng5xda-0 fkKFAu" onclick="closeMyPageTab();">
+									<i class="RyvusKQjJRQNgaH8kOM4J _1QY7TzdLHKX3-BKPDNNYKF"></i>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="FullscreenModal__ModalBody-s1csgj37-5 eiVCyY">
+				<div class="Container__Container-s1sxg7g4-0 iTXcwb">
+					<div class="MyPage__MyPageProfile-s1rrrcge-0 hvPJrg">
+						<!-- <span class="ProfileImg__ProfileImg-s1o99mme-0 kIYXPc"> -->
+							<img class="ProfileImg__ProfileImg-s1o99mme-0 kIYXPc" src="<c:out value='${user.profile_img }'/>"/>
+						<!-- </span> -->
+						<span class="MyPage__UserFullname-s1rrrcge-1 bPHUVK"><c:out value="${user.name }"/></span>
+					</div>
+					<div class="Divider__Divider-s16ihjfx-0 XTtld"></div>
+					<a href="/messages"><div
+							class="MenuItem__MenuItem-no2u3j-0 cwYjsy">
+							<span class="MenuItem__MenuItemTitle-no2u3j-1 enzRKc">메시지</span>
+						</div></a><a href="readyPage.do"><div
+							class="MenuItem__MenuItem-no2u3j-0 cwYjsy">
+							<span class="MenuItem__MenuItemTitle-no2u3j-1 enzRKc">내
+								후원현황</span>
+						</div></a><a href="myProject.do"><div
+							class="MenuItem__MenuItem-no2u3j-0 cwYjsy">
+							<span class="MenuItem__MenuItemTitle-no2u3j-1 enzRKc">내가
+								만든 프로젝트</span>
+						</div></a>
+					<div class="Divider__Divider-s16ihjfx-0 XTtld"></div>
+					<a href="setProfile.do"><div
+							class="MenuItem__MenuItem-no2u3j-0 cwYjsy">
+							<span class="MenuItem__MenuItemTitle-no2u3j-1 enzRKc">프로필
+								설정</span>
+						</div></a><a href="setPayment.do"><div
+							class="MenuItem__MenuItem-no2u3j-0 cwYjsy">
+							<span class="MenuItem__MenuItemTitle-no2u3j-1 enzRKc">지불
+								정보 설정</span>
+						</div></a><a href="logout.do"><div
+							class="MenuItem__MenuItem-no2u3j-0 cwYjsy">
+							<span class="MenuItem__MenuItemTitle-no2u3j-1 enzRKc">로그아웃</span>
+						</div></a>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,83 @@
+INSERT INTO MEMBER VALUES ('is930217@gmail.com','유지상','vnrisknsh454','NULL',SYSDATE,'평택',NULL,NULL,'010','3938','1229',NULL);
+INSERT INTO MEMBER VALUES ('rpwi343@gmail.com','김혜현','baebaer434','NULL',SYSDATE,'수원',NULL,NULL,'010','7234','7496',NULL);
+INSERT INTO MEMBER VALUES ('bbbnfn3@gmail.com','배명은','umrsteb87','NULL',SYSDATE,'안양',NULL,NULL,'010','9564','5287',NULL);
+INSERT INTO MEMBER VALUES ('ribndf0900@naver.com','이현','bvscwe@43','NULL',SYSDATE,'부산',NULL,NULL,'010','6273','7496',NULL);
+INSERT INTO MEMBER VALUES ('mano3939@gmail.com','김만호','btevrwrce87','NULL',SYSDATE,'목포',NULL,NULL,'010','1734','5138',NULL);
+INSERT INTO MEMBER VALUES ('a38503948@naver.com','이아름','kabnmwgr67','NULL',SYSDATE,'대구',NULL,NULL,'010','8247','7689',NULL);
+INSERT INTO MEMBER VALUES ('naknak33@gmail.com','최낙현','vaerbntrarff','NULL',SYSDATE,'과천',NULL,NULL,'010','6782','4153',NULL);
+INSERT INTO MEMBER VALUES ('ienpw009@gmail.com','박상천','atbtebtea42','NULL',SYSDATE,'서울',NULL,NULL,'010','1828','7184',NULL);
+INSERT INTO MEMBER VALUES ('uju36@naver.com','오민호','nevrnku47','NULL',SYSDATE,'서울',NULL,NULL,'010','9382','8263',NULL);
+INSERT INTO MEMBER VALUES ('vwrhr123@gmail.com','석호민','arbtnmev384','NULL',SYSDATE,'천안',NULL,NULL,'010','5714','7418',NULL);
+INSERT INTO MEMBER VALUES ('olpu83@naver.com','김사랑','mubevdcq842','NULL',SYSDATE,'광명',NULL,NULL,'010','9828','1852',NULL);
+INSERT INTO MEMBER VALUES ('becw64@gmail.com','이우영','ecebryke27','NULL',SYSDATE,'울산',NULL,NULL,'010','1835','8962',NULL);
+INSERT INTO MEMBER VALUES ('qynyw032@gmail.com','김수진','wjcrhtkeg4111','NULL',SYSDATE,'광주',NULL,NULL,'010','7482','1256',NULL);
+
+INSERT INTO BANNER VALUES (프로젝트코드,'slide1.jpg',1);
+INSERT INTO BANNER VALUES (프로젝트코드,'slide2.jpg',2);
+INSERT INTO BANNER VALUES (프로젝트코드,'slide3.jpg',3);
+INSERT INTO BANNER VALUES (프로젝트코드,'slide4.jpg',4);
+INSERT INTO BANNER VALUES (프로젝트코드,'slide5.jpg',5);
+
+INSERT INTO PROJECT VALUES ('is930217@gmail.com',SEQ_P_NUM.NEXTVAL,1,'운도 전략이다! 생존보드게임 서클 : 무인도','resources/pupload/1.PNG','가데이터요약','게임','프로필이미지','유지상','가데이터제작자소개',5000000,'18/10/20','선물1,선물2,선물3',
+'가데이터환불정책', NULL,'프로젝트스토리','is930217@gmail.com','010-6729-3898','신한은행','유지상','110-351-721053','P','2','F',1800000,24,'18/08/20',NULL);
+INSERT INTO PROJECT VALUES ('is930217@gmail.com',SEQ_P_NUM.NEXTVAL,2,'불타는 해적선에서 보물찾기 - 죽은 자는 말이 없다','resources/pupload/2.PNG','가데이터요약','게임','프로필이미지','유지상','가데이터제작자소개',3000000,'18/10/30','선물1,선물2,선물3,선물4',
+'가데이터환불정책', NULL,'프로젝트스토리','is930217@gmail.com','010-6729-3898','신한은행','유지상','110-351-721053','P','2','F',2100000,12,'18/08/21',NULL);
+INSERT INTO PROJECT VALUES ('is930217@gmail.com',SEQ_P_NUM.NEXTVAL,3,'한국 문화재 어드벤처 게임 <호연지기>','resources/pupload/3.PNG','가데이터요약','게임','프로필이미지','유지상','가데이터제작자소개',1500000,'18/10/31','선물1,선물2',
+'가데이터환불정책', NULL,'프로젝트스토리','is930217@gmail.com','010-6729-3898','신한은행','유지상','110-351-721053','P','2','F',1000000,10,'18/08/22',NULL);
+INSERT INTO PROJECT VALUES ('rpwi343@gmail.com',SEQ_P_NUM.NEXTVAL,1,'ROYAL black :로얄 블랙','resources/pupload/4.PNG','가데이터요약','게임','프로필이미지','김혜현','가데이터제작자소개',2500000,'18/11/30','선물1,선물2,선물3',
+'가데이터환불정책', NULL,'프로젝트스토리','rpwi343@gmail.com','010-2847-2744','하나은행','김혜현','110242-32551-053','P','2','F',1400000,43,'18/08/20',NULL);
+INSERT INTO PROJECT VALUES ('rpwi343@gmail.com',SEQ_P_NUM.NEXTVAL,2,'레인 오브 다이스 - 새로운 보드게임을 만나다','resources/pupload/5.PNG','가데이터요약','게임','프로필이미지','김혜현','가데이터제작자소개',1700000,'18/11/10','선물1,선물2',
+'가데이터환불정책', NULL,'프로젝트스토리','rpwi343@gmail.com','010-2847-2744','하나은행','김혜현','110242-32551-053','P','2','F',1400000,30,'18/08/10',NULL);
+INSERT INTO PROJECT VALUES ('bbbnfn3@gmail.com',SEQ_P_NUM.NEXTVAL,1,'지친 영혼을 달래주는 두뇌유희 프로젝트, 기억여행자','resources/pupload/6.PNG','가데이터요약','게임','프로필이미지','배명은','가데이터제작자소개',3000000,'18/08/30','선물1,선물2,선물3,선물4',
+'가데이터환불정책', NULL,'프로젝트스토리','bbbnfn3@gmail.com','010-9663-2645','국민은행','배명은','7342-944652-25','P','2','F',3200000,20,'18/08/24',NULL);
+INSERT INTO PROJECT VALUES ('bbbnfn3@gmail.com',SEQ_P_NUM.NEXTVAL,2,'마음과 감정에 관한 슈팅 게임, <in My Mind>','resources/pupload/7.PNG','가데이터요약','게임','프로필이미지','배명은','가데이터제작자소개',2000000,'18/11/01','선물1,선물2',
+'가데이터환불정책', NULL,'프로젝트스토리','bbbnfn3@gmail.com','010-9663-2645','국민은행','배명은','7342-944652-25','P','2','F',1700000,19,'18/08/02',NULL);
+
+INSERT INTO PROJECT VALUES ('ribndf0900@naver.com',SEQ_P_NUM.NEXTVAL,1,'서울예술대학교 2018 하계 워크숍 연극 <팸의 아이들>','resources/pupload/8.PNG','가데이터요약','공연','프로필이미지','이현','가데이터제작자소개',2200000,'18/11/17','선물1,선물2,선물3',
+'가데이터환불정책', NULL,'프로젝트스토리','ribndf0900@naver.com','010-3866-0297','농협','이현','82-9859-486523','P','2','F',1350000,17,'18/08/16',NULL);
+INSERT INTO PROJECT VALUES ('ribndf0900@naver.com',SEQ_P_NUM.NEXTVAL,2,'2018 뮤지컬 <폴>','resources/pupload/9.PNG','가데이터요약','공연','프로필이미지','이현','가데이터제작자소개',5000000,'18/08/30','선물1,선물2,선물3,선물4',
+'가데이터환불정책', NULL,'프로젝트스토리','ribndf0900@naver.com','010-3866-0297','농협','이현','82-9859-486523','P','2','F',4500000,30,'18/08/18',NULL);
+INSERT INTO PROJECT VALUES ('ribndf0900@naver.com',SEQ_P_NUM.NEXTVAL,3,'연극 <헤어드라이기>','resources/pupload/10.PNG','가데이터요약','공연','프로필이미지','이현','가데이터제작자소개',2800000,'18/09/10','선물1,선물2',
+'가데이터환불정책', NULL,'프로젝트스토리','ribndf0900@naver.com','010-3866-0297','농협','이현','82-9859-486523','P','2','F',1800000,11,'18/08/10',NULL);
+INSERT INTO PROJECT VALUES ('mano3939@gmail.com',SEQ_P_NUM.NEXTVAL,1,'더 가까이, 사랑에 빠지는 거리 1미터마술 공연','resources/pupload/11.PNG','가데이터요약','공연','프로필이미지','김만호','가데이터제작자소개',2600000,'18/09/07','선물1,선물2,선물3',
+'가데이터환불정책', NULL,'프로젝트스토리','mano3939@gmail.com','010-1512-0743','우리은행','김만호','825-25-24232356','P','2','F',3000000,74,'18/08/10',NULL);
+INSERT INTO PROJECT VALUES ('mano3939@gmail.com',SEQ_P_NUM.NEXTVAL,2,'이화 총연 가을공연 연극 <장미의 성>에 어서 오세요','resources/pupload/12.PNG','가데이터요약','공연','프로필이미지','김만호','가데이터제작자소개',6000000,'18/09/20','선물1,선물2,선물3,선물4',
+'가데이터환불정책', NULL,'프로젝트스토리','mano3939@gmail.com','010-1512-0743','우리은행','김만호','825-25-24232356','P','2','F',5500000,25,'18/08/22',NULL);
+INSERT INTO PROJECT VALUES ('a38503948@naver.com',SEQ_P_NUM.NEXTVAL,1,'짐 없는 여행의 시작, 짐캐리','resources/pupload/13.PNG','가데이터요약','공연','프로필이미지','이아름','가데이터제작자소개',2000000,'18/09/18','선물1,선물2',
+'가데이터환불정책', NULL,'프로젝트스토리','a38503948@naver.com','010-2412-0676','신한은행','이아름','115-235-233251','P','2','F',1800000,31,'18/08/04',NULL);
+
+INSERT INTO PROJECT VALUES ('naknak33@gmail.com',SEQ_P_NUM.NEXTVAL,1,'오리와 아보카도의 만남! 아보카덕 쿠션담요','resources/pupload/14.PNG','가데이터요약','디자인','프로필이미지','최낙현','가데이터제작자소개',3000000,'18/09/07','선물1,선물2,선물3',
+'가데이터환불정책', NULL,'프로젝트스토리','naknak33@gmail.com','010-8346-5337','우리은행','최낙현','25-204-7593651','P','2','F',2750000,53,'18/08/16',NULL);
+INSERT INTO PROJECT VALUES ('naknak33@gmail.com',SEQ_P_NUM.NEXTVAL,2,'반영구적으로 사용 가능한 실리콘 스트로우','resources/pupload/15.PNG','가데이터요약','디자인','프로필이미지','최낙현','가데이터제작자소개',4000000,'18/09/12','선물1,선물2,선물3,선물4',
+'가데이터환불정책', NULL,'프로젝트스토리','naknak33@gmail.com','010-8346-5337','우리은행','최낙현','25-204-7593651','P','2','F',1750000,25,'18/08/25',NULL);
+INSERT INTO PROJECT VALUES ('ienpw009@gmail.com',SEQ_P_NUM.NEXTVAL,1,'슬기로운 도자기, 슬기로운 컵라면 생활','resources/pupload/16.PNG','가데이터요약','디자인','프로필이미지','박상천','가데이터제작자소개',1400000,'18/09/01','선물1,선물2',
+'가데이터환불정책', NULL,'프로젝트스토리','ienpw009@gmail.com','010-5738-2572','국민은행','박상천','22245-83-23173','P','2','F',1750000,17,'18/08/02',NULL);
+INSERT INTO PROJECT VALUES ('uju36@naver.com',SEQ_P_NUM.NEXTVAL,1,'심각했던 피부고민의 해답, 식품등급의 천연원료 화장품!','resources/pupload/17.PNG','가데이터요약','디자인','프로필이미지','오민호','가데이터제작자소개',2000000,'18/09/27','선물1,선물2,선물3',
+'가데이터환불정책', NULL,'프로젝트스토리','uju36@naver.com','010-3734-9596','신한은행','오민호','335-241-834568','P','2','F',1150000,20,'18/08/06',NULL);
+INSERT INTO PROJECT VALUES ('vwrhr123@gmail.com',SEQ_P_NUM.NEXTVAL,1,'날 위로해주는 선인장 곰 <고미> 인형','resources/pupload/18.PNG','가데이터요약','디자인','프로필이미지','석호민','가데이터제작자소개',3000000,'18/09/05','선물1,선물2',
+'가데이터환불정책', NULL,'프로젝트스토리','vwrhr123@gmail.com','010-2968-5877','농협','석호민','947-004-580493','P','2','F',2800000,50,'18/08/10',NULL);
+
+INSERT INTO PROJECT VALUES ('olpu83@naver.com',SEQ_P_NUM.NEXTVAL,1,'내맘대로 만들어 먹는 아이스초코 - 초콜릿베이스','resources/pupload/19.PNG','가데이터요약','푸드','프로필이미지','김사랑','가데이터제작자소개',3500000,'18/10/02','선물1,선물2,선물3',
+'가데이터환불정책', NULL,'프로젝트스토리','olpu83@naver.com','010-2643-0653','신한은행','김사랑','110-5123-935733','P','2','F',1750000,25,'18/08/11',NULL);
+INSERT INTO PROJECT VALUES ('olpu83@naver.com',SEQ_P_NUM.NEXTVAL,2,'쇼콜라띠에의 초콜릿 디저트, 글라소디 봉봉&마카롱','resources/pupload/20.PNG','가데이터요약','푸드','프로필이미지','김사랑','가데이터제작자소개',2000000,'18/10/04','선물1,선물2,선물3,선물4',
+'가데이터환불정책', NULL,'프로젝트스토리','olpu83@naver.com','010-2643-0653','신한은행','김사랑','110-5123-935733','P','2','F',1150000,15,'18/08/20',NULL);
+INSERT INTO PROJECT VALUES ('becw64@gmail.com',SEQ_P_NUM.NEXTVAL,1,'행복한 맛을 꿈꾸는 호시탐탐의 테린느','resources/pupload/21.PNG','가데이터요약','푸드','프로필이미지','이우영','가데이터제작자소개',1700000,'18/09/15','선물1,선물2',
+'가데이터환불정책', NULL,'프로젝트스토리','becw64@gmail.com','010-1631-0636','우리은행','이우영','1524-3512-2453','P','2','F',2150000,31,'18/08/17',NULL);
+INSERT INTO PROJECT VALUES ('qynyw032@gmail.com',SEQ_P_NUM.NEXTVAL,1,'[추석 선물세트] 소원성취 토달 콩콩세트','resources/pupload/22.PNG','가데이터요약','푸드','프로필이미지','김수진','가데이터제작자소개',4200000,'18/10/08','선물1,선물2,선물3',
+'가데이터환불정책', NULL,'프로젝트스토리','qynyw032@gmail.com','010-8323-9512','국민은행','김수진','100-3834413-61','P','2','F',3150000,81,'18/08/22',NULL);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

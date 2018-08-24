@@ -4,6 +4,7 @@ package com.tikitaka.cloudFunding.member.controller;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,6 +21,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.tikitaka.cloudFunding.member.model.service.MemberService;
 import com.tikitaka.cloudFunding.member.model.vo.Member;
 import com.tikitaka.cloudFunding.member.model.vo.PaymentInfo;
+import com.tikitaka.cloudFunding.project.model.service.ProjectService;
+import com.tikitaka.cloudFunding.project.model.vo.ProjectVo;
 
 
 @Controller
@@ -27,6 +30,9 @@ public class MemberController {
 	
 	@Autowired
 	MemberService memberService;
+	
+	@Autowired
+	ProjectService projectService;
 
 	
 	@RequestMapping("loginPage.do")
@@ -215,25 +221,32 @@ public class MemberController {
 	id="user_phone2" name="phone2" 
 	id="user_phone3" name="phone3" 
 
+	
 	 */
 	
 	@RequestMapping("setProfileImpl.do")
 	public String setProfileImpl(
-			@RequestParam("profile_img") MultipartFile profileImg,
-			@RequestParam("name") String name,
-			@RequestParam("location") String location,
-			@RequestParam("shortDescription") String shortDescription,
-			@RequestParam("homepage") String homepage,
-			@RequestParam("phone1") String phone1,
-			@RequestParam("phone2") String phone2,
-			@RequestParam("phone3") String phone3,
+			@RequestParam(value="profile_img", required=false) MultipartFile profileImg,
+			@RequestParam(value="name", required=false) String name,
+			@RequestParam(value="location", required=false) String location,
+			@RequestParam(value="shortDescription", required=false) String shortDescription,
+			@RequestParam(value="homepage", required=false) String homepage,
+			@RequestParam(value="phone1", required=false) String phone1,
+			@RequestParam(value="phone2", required=false) String phone2,
+			@RequestParam(value="phone3", required=false) String phone3,
 			HttpServletRequest request) {
 		
 	
+	
+		
 	Member member = (Member)request.getSession().getAttribute("user");
 	System.out.println(member);
 	
-	member.setProfile_img("resources/images/profile/" + profileImg.getOriginalFilename());
+	if(profileImg.getOriginalFilename().length() > 0) {
+		member.setProfile_img("resources/images/profile/" + profileImg.getOriginalFilename());
+	}
+	
+	
 	member.setName(name);
 	member.setLocation(location);
 	member.setShortDescription(shortDescription);
@@ -244,27 +257,33 @@ public class MemberController {
 	
 	
 	
-	String root = request.getSession().getServletContext().getRealPath("resources");
-	String path = root + "/images/profile";
-	String filePath = "";
-	
-	File folder = new File(path);
-	
-	if(!folder.exists()) {
-		folder.mkdir();
+	if(profileImg.getOriginalFilename().length() > 0) {
+		
+		System.out.println("profileImg : "  + profileImg.getOriginalFilename());
+		
+		String root = request.getSession().getServletContext().getRealPath("resources");
+		String path = root + "/images/profile";
+		String filePath = "";
+		
+		File folder = new File(path);
+		
+		if(!folder.exists()) {
+			folder.mkdir();
+		}
+		
+		filePath = path + "/" + profileImg.getOriginalFilename();
+		
+		try {
+			profileImg.transferTo(new File(filePath));
+		} catch (IllegalStateException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	filePath = path + "/" + profileImg.getOriginalFilename();
-	
-	try {
-		profileImg.transferTo(new File(filePath));
-	} catch (IllegalStateException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
 	
 	int result = memberService.updateMemberProfile(member);
 		
@@ -393,6 +412,26 @@ public class MemberController {
 	}
 	
 	
+	@RequestMapping("sponsor.do")
+	public ModelAndView sponsor(ModelAndView mv) {
+		
+		List<ProjectVo> list = projectService.selectprojectList();
+		mv.addObject("list", list);
+		mv.setViewName("member/sponsor");
+		return mv;
+	}
+	
+	
+	@RequestMapping("logout.do")
+	public String logout(HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		if(session != null) {
+			session.invalidate();
+		}
+		
+		return "redirect:index.do";
+	}
 	
 	
 	

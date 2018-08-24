@@ -62,4 +62,29 @@ public class ProjectDao {
 		return sqlSession.selectOne("projectMapper.selectSupportedCount",email);
 	}
 
+	public List<ProjectVo> searchProjectByKeyword(String keyword) {
+		return sqlSession.selectList("projectMapper.searchProjectByKeyword", keyword);
+	}
+
+	public List<ProjectVo> searchProjectByCategory(String category) {
+		return sqlSession.selectList("projectMapper.searchProjectByCategory", category);
+	}
+
+	public List<ProjectVo> projectListOrderByDeadline() {
+		return sqlSession.selectList("projectMapper.projectListOrderByDeadline");
+	}
+
+	public List<ProjectVo> projectListOrderByEnrollDate() {
+		return sqlSession.selectList("projectMapper.projectListOrderByEnrollDate");
+	}
+
+	public List<ProjectVo> selectPopularList4(int btnIdx) {
+		return sqlSession.selectList("projectMapper.selectPopularList4", btnIdx);
+	}
+
+	public List<ProjectVo> selectMyProjectList(Member member) {
+		return sqlSession.selectList("projectMapper.selectMyProjectList", member);
+	}
+
+
 }

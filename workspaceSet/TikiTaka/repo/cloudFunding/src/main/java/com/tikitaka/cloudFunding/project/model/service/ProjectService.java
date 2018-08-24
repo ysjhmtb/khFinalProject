@@ -62,5 +62,30 @@ public class ProjectService {
 		return dao.selectSupportedCount(email);
 	}
 
+	public List<ProjectVo> searchProjectByKeyword(String keyword) {
+		return dao.searchProjectByKeyword(keyword);
+	}
+
+	public List<ProjectVo> searchProjectByCategory(String category) {
+		return dao.searchProjectByCategory(category);
+	}
+
+	public List<ProjectVo> projectListOrderByDeadline() {
+		return dao.projectListOrderByDeadline();
+	}
+
+	public List<ProjectVo> projectListOrderByEnrollDate() {
+		return dao.projectListOrderByEnrollDate();
+	}
+
+	public List<ProjectVo> selectPopularList4(int btnIdx) {
+		return dao.selectPopularList4(btnIdx);
+	}
+
+	public List<ProjectVo> selectMyProjectList(Member member) {
+		return dao.selectMyProjectList(member);
+	}
+
+
 
 }

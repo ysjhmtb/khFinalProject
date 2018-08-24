@@ -3864,7 +3864,10 @@ px
 	data-react-helmet="true">
 
 </head>
+<script>
 
+
+</script>
 
 <body>
 
@@ -3875,29 +3878,19 @@ px
 				data-reactid="37">
 				<div class="Container__Container-s1sxg7g4-0 jdgWcI"
 					data-reactid="38">
-					<h1 class="PageIntroduction__IntroductionTitle-s7qbeqe-1 gfyIVD"
-						data-reactid="39"> </h1>
+					<h1 class="PageIntroduction__IntroductionTitle-s7qbeqe-1 gfyIVD" data-reactid="39"> 
+						<c:if test="${!empty text }">
+							<c:out value="${text }"/>
+						</c:if>
+					</h1>
 				</div>
 			</div>
 			<div class="PageIntroduction__ProjectsFilterBar-s7qbeqe-2 knAdBT"
 				data-reactid="40">
 				<div class="Container__Container-s1sxg7g4-0 iTXcwb"
 					data-reactid="41">
-					<div
-						class="PageIntroduction__ProjectSortDropdownWrapper-s7qbeqe-3 iZgHCU"
-						data-reactid="42">
-						<select
-							class="PageIntroduction__ProjectsSortDropdown-s7qbeqe-4 hDDlHs"
-							id="searchCondition">
-							<option selected="" value="count" data-reactid="44">최다 후원순</option>
-							<option value="amount" data-reactid="45">최다 금액순</option>
-							<option value="ended_at" data-reactid="46">마감 임박순</option>
-							<option value="published_at" data-reactid="47">최신순</option>
-						</select>
-					</div>
-					<span class="PageIntroduction__ProjectsFilter-s7qbeqe-5 kEslfd" data-reactid="48"> <input type="checkbox" value="true"
-						data-reactid="49" /> 펀딩 마감된 프로젝트 보기
-					</span>
+					
+					
 				</div>
 			</div>
 		</div>
@@ -3924,7 +3917,7 @@ px
 										<div
 											class="_13KHfN73YmQgsYHxXvuh_J _2nZxogWCtwxgZvigECqiKs yx45-aQ3xTwP4lNZQ2qQs _18TDror949wcy2NyVIqpHo UxeYqEszWK5hhpRXaGHBr">
 											<div class="-Qv21-og1HcmTC9fTAwhk">
-												<img src="https://tumblbug-pci2.imgix.net/8b085638008ca0dae709b236a3d55e79acf01841/9e4763ece87639b114ec09ec708c690d1d3767eb/fc0b20273bd383739a2217ce3be8c131e7c5429e/4eae4f67-3e25-42f2-8b34-63571aaf6407.jpg?w=620&amp;h=465&amp;auto=format%2Ccompress&amp;lossless=true&amp;fit=crop&amp;q=60"
+												<img src="<c:out value='${project.repImg }'/>"
 													alt="${project.title }"
 													class="_145Uy81NIiw-12IK7rJ920">
 											</div>
@@ -3939,7 +3932,7 @@ px
 												class="_13KHfN73YmQgsYHxXvuh_J _28LKn930rfRFkZT8rldrUE IHUALIalgwgMpH2DEQooZ _1Wxx18kEfVPxJvla-FdZGF _3Syz9fGXYtzMNqK_55A2BW gVW7lZgUR9vVu2Lczdjm3"
 												>
 												<div class="_2L0-7hWDrYoa3rVDPaZC_T"
-													style="width: <c:out value="${percent }"/>%; min-width: 0%; background: rgb(250, 100, 98); transition-duration: 200ms; height: 2px;">
+													style="width: <c:out value="${percent }"/>%; max-width: 100%; min-width: 0%; background: rgb(250, 100, 98); transition-duration: 200ms; height: 2px;">
 													<div class="_1Wxx18kEfVPxJvla-FdZGF"></div>
 												</div>
 											</div>

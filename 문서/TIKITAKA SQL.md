@@ -1,4 +1,36 @@
 ```sql
+
+1. 테이블 전체 조회 후 삭제
+
+
+
+Begin
+
+    for c in (select table_name from user_tables) loop
+
+    execute immediate ('drop table '||c.table_name||' cascade constraints');
+
+    end loop;
+
+End;
+
+
+
+2. 휴지통 비우기
+
+
+
+PURGE RECYCLEBIN;
+
+
+
+출처: http://itparadigm.tistory.com/53 [IT Paradigm]
+
+
+-------------------------------------------------
+
+
+
 CREATE USER TIKITAKA IDENTIFIED BY TIKITAKA;
 GRANT RESOURCE, CONNECT, CREATE VIEW TO TIKITAKA;
 

@@ -5,14 +5,10 @@
 
 <!DOCTYPE html>
 <html>
-
-<!-- Mirrored from tumblbug.com/category/food by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Jul 2018 07:21:32 GMT -->
-<!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<!-- /Added by HTTrack -->
 <head>
 <meta charset="utf-8">
-<title>프로젝트 리스트</title>
+<title>프로젝트 검색 결과</title>
 <script type="text/javascript" src="resources/js/jquery-3.3.1.min.js"></script>
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
@@ -2642,19 +2638,6 @@ px
 	
 }
 
-.knAdBT {
-	background-color: white;
-	padding: .5rem 0;
-	position: relative;
-	border-top: 1px solid #efefef;
-	box-shadow: 0px 1px 2px 0px rgba(10, 10, 10, 0.1);
-}
-
-@media ( min-width : 1080px) {
-	.knAdBT {
-		padding: 1rem 0;
-	}
-}
 /* sc-component-id: PageIntroduction__ProjectSortDropdownWrapper-s7qbeqe-3 */
 .PageIntroduction__ProjectSortDropdownWrapper-s7qbeqe-3 {
 	
@@ -3864,6 +3847,8 @@ px
 	data-react-helmet="true">
 
 </head>
+
+
 <body>
 
 	<c:import url="../common/header.jsp" />
@@ -3874,15 +3859,7 @@ px
 				<div class="Container__Container-s1sxg7g4-0 jdgWcI"
 					data-reactid="38">
 					<h1 class="PageIntroduction__IntroductionTitle-s7qbeqe-1 gfyIVD"
-						data-reactid="39">분야별 인기 프로젝트</h1>
-				</div>
-			</div>
-			<div class="PageIntroduction__ProjectsFilterBar-s7qbeqe-2 knAdBT"
-				data-reactid="40">
-				<div class="Container__Container-s1sxg7g4-0 iTXcwb"
-					data-reactid="41">
-					
-					
+						data-reactid="39">[<c:out value='${keyword }'/>]에 대한 검색 결과</h1>
 				</div>
 			</div>
 		</div>
@@ -3909,7 +3886,7 @@ px
 										<div
 											class="_13KHfN73YmQgsYHxXvuh_J _2nZxogWCtwxgZvigECqiKs yx45-aQ3xTwP4lNZQ2qQs _18TDror949wcy2NyVIqpHo UxeYqEszWK5hhpRXaGHBr">
 											<div class="-Qv21-og1HcmTC9fTAwhk">
-												<img src="https://tumblbug-pci2.imgix.net/8b085638008ca0dae709b236a3d55e79acf01841/9e4763ece87639b114ec09ec708c690d1d3767eb/fc0b20273bd383739a2217ce3be8c131e7c5429e/4eae4f67-3e25-42f2-8b34-63571aaf6407.jpg?w=620&amp;h=465&amp;auto=format%2Ccompress&amp;lossless=true&amp;fit=crop&amp;q=60"
+												<img src="<c:out value='${project.repImg }'/> "
 													alt="${project.title }"
 													class="_145Uy81NIiw-12IK7rJ920">
 											</div>
@@ -3924,7 +3901,7 @@ px
 												class="_13KHfN73YmQgsYHxXvuh_J _28LKn930rfRFkZT8rldrUE IHUALIalgwgMpH2DEQooZ _1Wxx18kEfVPxJvla-FdZGF _3Syz9fGXYtzMNqK_55A2BW gVW7lZgUR9vVu2Lczdjm3"
 												>
 												<div class="_2L0-7hWDrYoa3rVDPaZC_T"
-													style="width: <c:out value="${percent }"/>%; min-width: 0%; background: rgb(250, 100, 98); transition-duration: 200ms; height: 2px;">
+													style="width: <c:out value="${percent }"/>%; min-width: 0%; max-width: 100%; background: rgb(250, 100, 98); transition-duration: 200ms; height: 2px;">
 													<div class="_1Wxx18kEfVPxJvla-FdZGF"></div>
 												</div>
 											</div>
@@ -3952,19 +3929,6 @@ px
 						</div>
 					</div>
 					</c:if>
-	
-	<!-- 
-	<div>
-      <div style="padding:6em;" data-reactid="51">
-            <div class="sc-bdVaJa eQgQLo" data-reactid="52">
-              <div class="LoadingIndicator__Wrapper-s1ikuj59-1 dLYLGx" data-reactid="53">
-                <div class="LoadingIndicator__Circle-s1ikuj59-2 hGGMaO" data-reactid="54"></div>
-                <div class="sc-htpNat btBxPj" data-reactid="55"></div>
-                <div class="sc-bxivhb cgjPcA" data-reactid="56"></div>
-              </div>
-            </div>
-          </div> 
-     </div> -->
 	<c:import url="../common/footer.jsp" />
 	
 </body>
