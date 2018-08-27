@@ -40,9 +40,7 @@
 <link rel="stylesheet" type="text/css"
 	href="https://d2om2e6rfn032x.cloudfront.net/wpa/app.f0ed3932e778a7f95ef1c52983d12741.css">
 
-<link
-	href="https://tumblbug-assets.imgix.net/appicon/favicon/favicon-32x32.png"
-	rel="icon" type="image/x-icon">
+<link href=resources/images/header/tktkFavicon.png rel="icon" type="image/x-icon">
 
 <link rel="apple-touch-icon" sizes="120x120"
 	href="https://tumblbug-assets.imgix.net/appicon/home-icon/apple-icon-120x120.png">
@@ -3643,8 +3641,15 @@ px
 				.children('input')
 				.change(
 						function() {
-
-							var formData = new FormData();
+							var fileName =$("#file").val();
+							var ext = fileName.slice(fileName.lastIndexOf(".") + 1).toLowerCase();
+						    
+							if (!(ext == "gif" || ext == "jpg" || ext == "png")) {
+						        alert("이미지파일 (.jpg, .png, .gif ) 만 업로드 가능합니다.");
+						        return false;
+						    }
+							
+							 var formData = new FormData();
 							formData.append("file", $("#file")[0].files[0]);
 							formData.append("email", '${project.email}');
 							formData.append("projectNum",
@@ -3662,7 +3667,6 @@ px
 										type : 'POST',
 										success : function(result) {
 											var imgsrc = result.repImg;
-											console.log(imgsrc);
 											$(".projectImage").css("display",
 													'none');
 											$(".projectImage2").children()
@@ -3691,7 +3695,7 @@ px
 										error : function() {
 											console.log("ajax에러");
 										}
-									});
+									}); 
 
 						});
 
@@ -3770,6 +3774,21 @@ px
 		$("#projectImageInput")
 				.change(
 						function() {
+							
+							var fileName =$("#projectImageInput").val();
+							var ext = fileName.slice(fileName.lastIndexOf(".") + 1).toLowerCase();
+							
+							if (upNum == 5) {
+							if (!(ext == "gif" || ext == "jpg" || ext == "png")) {
+						        alert("이미지파일 (.jpg, .png, .gif ) 만 업로드 가능합니다.");
+						        return false;
+						    }
+							}else{
+								if (!(ext == "mp4" || ext == "wmv" || ext == "avi"||ext == "mov")) {
+							        alert("동영상파일 (.mp4, .wmv, .avi, .mov ) 만 업로드 가능합니다.");
+							        return false;
+							    }
+							}
 							var formData = new FormData();
 							formData.append("file",
 									$("#projectImageInput")[0].files[0]);
@@ -4420,7 +4439,6 @@ px
 															+ '수정하기');
 											$(".addD").hide();
 											$(".defaultD").show();
-											console.log(data.pPhone);
 											blue(data);
 										},
 										error : function(e) {
@@ -4447,13 +4465,18 @@ px
 			}
 
 		}
-
+		$(".bankNumInput").keyup(function(){
+			$(".accountText").text('최소 11자 /'+(16-$(".bankNumInput").val().length)+'자 남았습니다');
+			
+		});
 		$(".bankBtn")
 				.click(
 						function() {
 							var bankNameSelect = $(".bankNameSelect").val();
 							var bankNameInput = $(".bankNameInput").val();
 							var bankNumInput = $(".bankNumInput").val();
+							var regexp = /^[0-9]*$/;
+							
 							var radio = $(
 									'input[name="depositAccountType"]:checked')
 									.val();
@@ -4462,8 +4485,16 @@ px
 								alert("계좌 정보는 필수 입력 정보 입니다.");
 								return;
 							}
-
-
+							if(!regexp.test(bankNumInput)){
+								alert("계좌 번호는 숫자만 입력 가능합니다.");
+								$(".bankNumInput").val('');
+								$(".bankNumInput").focus();
+								return;
+							}
+							if($(".bankNumInput").val().length<11){
+								alert("계좌 번호는 11자 이상 입력 해야 합니다.");
+								return;
+							}
 							$
 									.ajax({
 										url : 'projectUpdate.do',
@@ -4497,7 +4528,6 @@ px
 																	+ '수정하기');
 											$(".addD").hide();
 											$(".defaultD").show();
-											console.log(data.bankNumber);
 											blue(data);
 										},
 										error : function(e) {
@@ -4506,21 +4536,23 @@ px
 									});
 						});
 		
-		if('${project.giftItem}'!=null){
+		if('${project.giftItem}'!=""){
 			if('${project.giftItem}'.indexOf(",") == -1) {
+				$(".itemAdd").eq(0).remove();
 				$(".itemAdd").children().children().children().children('._29JGBV0ggQH38jcZcbYX3L').text('${project.giftItem}');
 			}else{
 				$(".itemAdd").eq(0).remove();
 				$(".itemAdd").show();
 			}
+			$(".noneItem").hide();
+			$(".existItem").show();	 
 		}
-		
-		if('${project.descriptionVideo}'!=null){
+		if('${project.descriptionVideo}'!=""){
 			$(".projectVideo").hide();
 			$(".videoplay").show();
 			$(".updateVideoBtn").show();
 		}
-		
+		$(".itemSendBtn").attr('diabled',true);
 		if ('${fn:length(project.giftArry)}' > 0) {
 			//작업중
 			var list;
@@ -4531,7 +4563,7 @@ px
 			$(".rewardlist").eq(0).remove();
 			$(".rewardlist").show();
 			$(".rewardlist").each(function(index,item){
-				$(item).children().children().children().attr('onclick',"deleteItemList("+list[index] +")");
+				$(item).children().children().children('.ContextualAction__LinkButton-lcypnk-0').attr('onclick',"deleteItemList("+list[index] +")");
 			});
 			
 		}
@@ -4771,7 +4803,13 @@ px
 					var month = date.getMonth() + 1;
 					var day = date.getDate();
 					var fulldate = year + '년' + month + '월' + day + '일';
-
+					var text;
+					if(data.giftArry[i].remited==-1){
+						text ='무제한';
+					}else{
+						text=data.giftArry[i].remited+"개 남음";
+					}
+					
 					rewardlist.children().children(".-UobvSeyUG6cEWYnht50S")
 							.children('h4').text(
 									data.giftArry[i].price + " 원 이상 밀어주시는 분께");
@@ -4782,9 +4820,9 @@ px
 					rewardlist.children().children(".VgMYktFPH-SSPJjPTFMC")
 							.children('strong').text(fulldate);
 					rewardlist.children("._3ZgG-OSv0XE3y-h3oPaDsl").children()
-							.children('.remitDisplay').text(
-									data.giftArry[i].remited + "개 남음");
-					rewardlist.children().children().children()
+							.children('.remitDisplay').text(text
+									);
+					rewardlist.children().children().children('.ContextualAction__LinkButton-lcypnk-0')
 							.attr(
 									'onclick',
 									'deleteItemList('
@@ -4799,7 +4837,6 @@ px
 					rewardlist.clone().insertAfter($(".rewardappend"));
 				}
 				itemListLength = data.giftArry.length;
-				console.log(itemListLength);
 				blue(data);
 			},
 			error : function(e) {
@@ -4847,7 +4884,7 @@ px
 						rewardlist.children("._3ZgG-OSv0XE3y-h3oPaDsl")
 								.children().children('.remitDisplay').text(
 										data.giftArry[i].remited + "개 남음");
-						rewardlist.children().children().children().attr(
+						rewardlist.children().children().children('.ContextualAction__LinkButton-lcypnk-0').attr(
 								'onclick',
 								'deleteItemList(' + data.giftArry[i].giftCode
 										+ ')');

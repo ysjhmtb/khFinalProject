@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-   
+    
+
 
 <html lang="ko">
 <head>
+<link href=resources/images/header/tktkFavicon.png rel="icon" type="image/x-icon">
 <style>
 	#mainTitle{
 		text-align: center;
 		margin-top:50px;
+		font-family: 'Anton', sans-serif;
+		font-family: 'Jua', sans-serif;
 	}
+	
+	#nodatatitle{
+	font-family: 'Anton', sans-serif;
+		font-family: 'Jua', sans-serif;
+	}
+	
 	
 	.container{
 	margin-top:70px;
@@ -23,6 +33,12 @@
 	margin-bottom: 30px;
 	}
 	
+	#logoutBtn{
+	/* margin-top:30px; */
+	margin-right:210px;
+	float:right;
+	}
+	
 	
 </style>
 
@@ -32,7 +48,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Anton|Jua" rel="stylesheet">
 <script>
+
+
 
 /* $(function(){
 	$("li a").click(function(){
@@ -81,7 +100,8 @@ $(function(){
 <body>
 	<c:import url="../common/header.jsp"></c:import>
 
-  <h1 id = "mainTitle">TIKITAKA 관리</h1>
+  <h1 id = "mainTitle">TIKITAKA 관리자페이지</h1>
+  <button type="button" id = "logoutBtn" class="btn btn-secondary btn-xs btn-warning" onclick="javascript:location.href='logout.do'">로그아웃</button>
 <div class="container" id = "tebMenu">
   
 
@@ -114,10 +134,12 @@ $(function(){
     </div>
     
     <div id="menu4" class="tab-pane fade">
-	<c:import url="banner.jsp"></c:import>    </div>
+	<c:import url="banner.jsp"></c:import> 
+	   </div>
     
+  
   </div>
-</div>
+</div> 
 	<c:import url="../common/footer.jsp"></c:import>
 
 </body>

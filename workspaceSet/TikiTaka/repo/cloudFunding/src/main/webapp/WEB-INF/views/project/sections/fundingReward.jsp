@@ -302,8 +302,8 @@
 				<div class="_13KHfN73YmQgsYHxXvuh_J _1WARcEqqT_Pem8leg2dkMj">
 					<div class="PayoutGuide__PayoutWrapper-s18hto5y-0 bJJdfp">
 						<p class="PayoutGuide__Description-s18hto5y-3 gnrhzv">펀딩에 성공할
-							경우, 마감일 다음날부터 7일간 결제가 진행되어 2018년 8월 17일에 모든 후원자의 결제가 종료됩니다. 결제
-							종료일로부터 추가로 은행 영업일 기준 7일(공휴일 및 주말 제외) 후 모금액이 창작자님의 계좌로 입금됩니다.</p>
+							경우, 결제 종료일로부터 추가로 은행 영업일 기준 7일(공휴일 및 주말 제외) 후 모금액이 창작자님의 계좌로 입금됩니다.</p>
+							
 					</div>
 				</div>
 			</div>
@@ -400,8 +400,8 @@
 							<!-- react-text: 630 -->선택한 사람이 없음 <!-- /react-text -->
 								<span
 								class="remitDisplay _13KHfN73YmQgsYHxXvuh_J IHUALIalgwgMpH2DEQooZ _3fJsfvAPykJzj2xoMnxzWW _1Qdv504-1XMeYXZyb0xQZT _3D9sfZXrWd8it3eUCuCTc8">
-								<c:if test="${-1==list.remited }">0</c:if>
-								<c:if test="${-1!=list.remited }"><c:out value="${list.remited }"></c:out> </c:if>
+								<c:if test="${-1==list.remited }">무제한</c:if>
+								<c:if test="${-1!=list.remited }"><c:out value="${list.remited }"></c:out>개 남음 </c:if>
 								</span>
 								<c:if test="${list.transferCheck }">
 							<div class="sendCondition WU1ox0-AeDX_zneKjnNMO oAeG34mYkuDyUTybhBMrQ">

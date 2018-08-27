@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <meta property="og:image" content="${project.repImg }">
 <meta property="og:title" content="${project.title }">
@@ -21,7 +22,7 @@
 <script src="https://vjs.zencdn.net/7.1.0/video.js"></script>
 <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
 <!-- <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script> -->
-
+<link href=resources/images/header/tktkFavicon.png rel="icon" type="image/x-icon">
 <style>
 	
 	/* 공유하기 	버튼 팝업 스타일 */
@@ -280,6 +281,48 @@
 	    text-align: center;
 	    text-decoration: none;
 	}
+	.hJStHI {
+	    padding: 1.2em 2em;
+	    font-size: 1em;
+	    width: 100%;
+	    padding: .8em 1.2em;
+	    font-size: .95em;
+	    opacity: .3;
+	    pointer-events: none;
+	}
+	.hJStHI {
+	    background-color: #fa6462;
+	    color: #fff;
+	}
+	.hJStHI {
+	    color: rgba(0, 0, 0, .6);
+	    background-color: #e7e7e7;
+	}
+	.hJStHI {
+	    cursor: pointer;
+	    display: inline-block;
+	    min-height: 1em;
+	    outline: none;
+	    border: none;
+	    vertical-align: baseline;
+	    box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(0, 0, 0, 0.1) inset;
+	    -webkit-user-select: none;
+	    -moz-user-select: none;
+	    -ms-user-select: none;
+	    user-select: none;
+	    -webkit-transition: opacity 0.1s ease,  background-color 0.1s ease,  color 0.1s ease,  box-shadow 0.1s ease, background 0.1s ease;
+	    transition: opacity 0.1s ease,  background-color 0.1s ease,  color 0.1s ease,  box-shadow 0.1s ease, background 0.1s ease;
+	    -webkit-tap-highlight-color: transparent;
+	    margin: 0 .25em 0 0;
+	    border-radius: 0.28571429rem;
+	    text-transform: none;
+	    text-shadow: none;
+	    font-weight: bold;
+	    line-height: 1em;
+	    font-style: normal;
+	    text-align: center;
+	    text-decoration: none;
+	}
 	
 	
 </style>
@@ -324,6 +367,8 @@
 					$("#postFormDiv").css("display", "none");
 					$("#creatorPostDiv").css("display", "none");
 					$("#communityDiv").css("display", "block");
+					$("#writeBtnDiv").css("display", "block");
+					$("#postListDiv").css("display", "block");
 					
 					$("#policyFixedBtn, #policyBtn, #storyFixedBtn, #storyBtn").removeClass("btnUnderline");
 					$("#communityFixedBtn, #communityBtn").addClass("btnUnderline");
@@ -430,7 +475,7 @@
 		}	
 	}
 	
-	function shareFacebook() {
+	/* function shareFacebook() {
 		var content = "<c:out value='${project.title}'/>";
 		var link = "http://localhost:8081/cloudFunding/projectDetail.do?projectCode=<c:out value='${project.projectCode}'/>";
 		var popOption = "width=370, height=360, resizable=no, scrollbars=no, status=no;";
@@ -440,7 +485,7 @@
 		if (wp) {
 			wp.focus();
 		}
-	}
+	} */
 
 	
 	/* 스크롤 이벤트 */
@@ -466,6 +511,11 @@
 		video.attr('src', src);
 		video.get(0).play();
 	}
+	
+	function payForProject(){
+		var projectCode = "<c:out value='${project.projectCode}'/>";
+		location.href="selectpayment.do?projectCode=" + projectCode;
+	}
 </script>
 
 </head>
@@ -489,12 +539,23 @@
 					</a>
 					<a id="policyFixedBtn" class="ContentsNavigation__NavItem-s6dhfrc-0 gEWplf">환불 및 교환</a>
 				</div>
-				<div class="ContentsNavigation__NavRight-s6dhfrc-4 eAgLGx">
-					<button class="Button__Button-s1ng5xda-0 jKslKa">프로젝트 밀어주기</button>
-				</div>
+				<jsp:useBean id="now" class="java.util.Date" />
+				<c:set var="DateData" value="${project.endDate }"/>
+				<fmt:parseNumber var="remain" value="${( DateData.time-now.time ) / (1000*60*60*24) }" integerOnly="true" />
+				<c:if test="${remain lt 1 }">
+					<div class="ContentsNavigation__NavRight-s6dhfrc-4 eAgLGx">
+						<button class="Button__Button-s1ng5xda-0 hJStHI" disabled>밀어주기가 마감되었습니다</button>
+					</div>
+				</c:if>
+				<c:if test="${remain gt 0 }">
+					<div class="ContentsNavigation__NavRight-s6dhfrc-4 eAgLGx">
+						<button class="Button__Button-s1ng5xda-0 jKslKa" onclick="payForProject();">프로젝트 밀어주기</button>
+					</div>
+				</c:if>
 			</div>
 		</nav>
 	</div>
+	
 	<div class="ContentsNavigation__FixedBar-s6dhfrc-5 cHpUtP show-on-scroll">
 		<button class="Button__Button-s1ng5xda-0 bIabCF">프로젝트 밀어주기</button>
 	</div>
@@ -517,13 +578,13 @@
 					</div>
 					<div class="Modal__ModalBody-s1q54ra0-7 fJUlRA">
 						<div>
-							<div
+							<!-- <div
 								class="SocialMediaShareButton SocialMediaShareButton--facebook">
 								<button class="ShareModal__ShareButton-xl7vb0-0 cXqVXt" onclick="shareFacebook();">
 									<i class="_1uz2PaH_Pc163IQLnwFtm8 _1QY7TzdLHKX3-BKPDNNYKF"></i>
 									페이스북 공유하기
 								</button>
-							</div>
+							</div> -->
 							<div
 								class="SocialMediaShareButton SocialMediaShareButton--twitter">
 								<button id="kakao-link-btn" class="ShareModal__ShareButton-xl7vb0-0 kQbXwX" onclick="shareTwitter();">
@@ -618,9 +679,6 @@
 								남은시간
 							</div>
 							<div	class="ProjectIntroduction__StatusValue-c7b94s-16 bvKOwU"  data-reactid="66">
-								<jsp:useBean id="now" class="java.util.Date" />
-								<c:set var="DateData" value="${project.endDate }"/>
-								<fmt:parseNumber var="remain" value="${( DateData.time-now.time ) / (1000*60*60*24) }" integerOnly="true" />
 								<c:if test="${remain lt 0 }">
 									<c:set var="remain" value="0"/>
 								</c:if>
@@ -660,7 +718,7 @@
 							</c:if>
 							<c:if test="${remain gt 0 }">
 								<div	class="ProjectIntroduction__PrimaryButton-c7b94s-21 fjkRCm" data-reactid="87">
-									<button class="Button__Button-s1ng5xda-0 dvkZSH"  data-reactid="88">프로젝트 밀어주기</button>
+									<button class="Button__Button-s1ng5xda-0 dvkZSH"  data-reactid="88" onclick="payForProject();">프로젝트 밀어주기</button>
 								</div>
 							</c:if>
 							<div	class="ProjectIntroduction__SecondaryButton-c7b94s-22 cYmhAj"	data-reactid="89">

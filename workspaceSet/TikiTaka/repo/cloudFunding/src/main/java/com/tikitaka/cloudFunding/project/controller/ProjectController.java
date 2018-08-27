@@ -1,7 +1,6 @@
 package com.tikitaka.cloudFunding.project.controller;
 
 import java.io.File;
-import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,6 +23,7 @@ import com.tikitaka.cloudFunding.member.model.vo.Member;
 import com.tikitaka.cloudFunding.project.model.service.ProjectService;
 import com.tikitaka.cloudFunding.project.model.vo.GiftVo;
 import com.tikitaka.cloudFunding.project.model.vo.ProjectVo;
+import com.tikitaka.cloudFunding.support.model.vo.SupportVo;
 
 @Controller
 public class ProjectController {
@@ -50,11 +50,24 @@ public class ProjectController {
 		return mv;
 	}
 
-	@RequestMapping("popularList4.do")
-	public @ResponseBody List<ProjectVo> popularList4(int btnIdx, ModelAndView mv){
-		List<ProjectVo> list = projectService.selectPopularList4(btnIdx);
+	@RequestMapping("index_popularList.do")
+	public @ResponseBody List<ProjectVo> index_popularList(int btnIdx, ModelAndView mv){
+		List<ProjectVo> list = projectService.selectindex_popularList(btnIdx);
 		return list;
 	}
+	
+	@RequestMapping("index_enrollDateList.do")
+	public @ResponseBody List<ProjectVo> index_enrollDateList(int btnIdx1, ModelAndView mv){
+		List<ProjectVo> list = projectService.selectindex_enrollDateList(btnIdx1);
+		return list;
+	}
+	
+	@RequestMapping("index_DeadlineList.do")
+	public @ResponseBody List<ProjectVo> index_DeadlineList(int btnIdx2, ModelAndView mv){
+		List<ProjectVo> list = projectService.selectindex_DeadlineList(btnIdx2);
+		return list;
+	}
+	
 	
 	@RequestMapping("projectStart.do")
 	public String projectStart(){
@@ -259,15 +272,27 @@ public class ProjectController {
 	}
 	
 	@RequestMapping("projectDetail.do")
-	public ModelAndView selectProjectDetail(int projectCode, ModelAndView mv){
+	public ModelAndView selectProjectDetail(int projectCode, ModelAndView mv, HttpSession session){
 		ProjectVo project = projectService.selectProjectGift(projectCode);
 		List<PostVo> postList = cService.selectPostList(projectCode);
 		int count = cService.selectPostCount(projectCode);
 		int supportedCount = projectService.selectSupportedCount(project.getEmail());
-		
+		// 해당 프로젝트에 후원한 유저인지 체크
+		Member user = (Member) session.getAttribute("user");
+		boolean supportFlag = false;
+		if(null != user) {
+			SupportVo support = new SupportVo();
+			support.setEmail(user.getEmail());
+			support.setProjectCode(projectCode);
+			int supportCount = projectService.checkSupportFlag(support);
+			if(0 < supportCount) {
+				supportFlag = true;
+			}
+		}
 		mv.addObject("count", count);
 		mv.addObject("project", project);
 		mv.addObject("postList", postList);
+		mv.addObject("supportFlag", supportFlag);
 		mv.addObject("supportedCount", supportedCount);
 		
 		mv.setViewName("project/detail/projectDetail");
@@ -298,6 +323,17 @@ public class ProjectController {
 		mv.addObject("category", category);
 		mv.addObject("list", list);
 		mv.setViewName("project/projectListByCategory");
+		
+		return mv;
+	}
+	
+	@RequestMapping("searchProjectByHashtag.do")
+	public ModelAndView searchProjectByHashtag(String tag, ModelAndView mv){
+		List<ProjectVo> list = projectService.searchProjectByHashtag(tag);
+		
+		mv.addObject("keyword", tag);
+		mv.addObject("list", list);
+		mv.setViewName("project/projectListByKeyword");
 		
 		return mv;
 	}
@@ -392,21 +428,31 @@ public class ProjectController {
 	}
 	
 	@RequestMapping("myProject.do")
-	public ModelAndView myProject(HttpSession session,ModelAndView mv){
+	public ModelAndView myProject(HttpSession session,ModelAndView mv,String msg){
 		Member member = (Member)session.getAttribute("user");
 		List<ProjectVo> list = projectService.selectMyProjectList(member);
+		if(null != msg){
+			mv.addObject("msg",msg);
+		}
 		mv.addObject("list", list);
 		mv.setViewName("project/projects");
 		return mv;
 	}
 	
 	@RequestMapping("updateProjectForm.do")
-	public ModelAndView updateProject(int projectCode , ModelAndView mv){
+	public String updateProject(int projectCode , Model model){
 		ProjectVo projectVo = new ProjectVo();
 		projectVo.setProjectCode(projectCode);
 		projectVo = projectService.selectProjectGift(projectCode);
-		mv.addObject("project",projectVo);
-		mv.setViewName("project/projectForm");
-		return mv;
+		
+		if(projectVo.getpConfirm().equals("2")){
+			return "redirect:projectDetail.do?projectCode="+projectVo.getProjectCode();
+		}
+		
+		if(projectVo.getpConfirm().equals("1")){
+			return "redirect:myProject.do?msg=승인대기 중인 프로젝트 입니다.";
+		}
+		model.addAttribute("project",projectVo);
+		return"project/projectForm";
 	}
 }

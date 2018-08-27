@@ -10,6 +10,7 @@ import com.tikitaka.cloudFunding.member.model.vo.Member;
 import com.tikitaka.cloudFunding.project.model.dao.ProjectDao;
 import com.tikitaka.cloudFunding.project.model.vo.GiftVo;
 import com.tikitaka.cloudFunding.project.model.vo.ProjectVo;
+import com.tikitaka.cloudFunding.support.model.vo.SupportVo;
 
 @Service
 public class ProjectService {
@@ -78,12 +79,28 @@ public class ProjectService {
 		return dao.projectListOrderByEnrollDate();
 	}
 
-	public List<ProjectVo> selectPopularList4(int btnIdx) {
-		return dao.selectPopularList4(btnIdx);
+	public List<ProjectVo> selectindex_popularList(int btnIdx) {
+		return dao.selectindex_popularList(btnIdx);
 	}
 
 	public List<ProjectVo> selectMyProjectList(Member member) {
 		return dao.selectMyProjectList(member);
+	}
+
+	public List<ProjectVo> selectindex_enrollDateList(int btnIdx1) {
+		return dao.selectindex_enrollDateList(btnIdx1);
+	}
+
+	public List<ProjectVo> selectindex_DeadlineList(int btnIdx2) {
+		return dao.selectindex_DeadlineList(btnIdx2);
+	}
+
+	public List<ProjectVo> searchProjectByHashtag(String tag) {
+		return dao.searchProjectByHashtag(tag);
+	}
+
+	public int checkSupportFlag(SupportVo support) {
+		return dao.checkSupportFlag(support);
 	}
 
 
