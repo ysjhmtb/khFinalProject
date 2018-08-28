@@ -376,15 +376,14 @@
 	$(function(){
 		var projectCode = "<c:out value='${project.projectCode}'/>";
 		$("#storyBtn, #storyFixedBtn").click(function(){
-			sessionStorage.removeItem("postCode");
-			sessionStorage.removeItem("page");
+			/* sessionStorage.removeItem("postCode");
+			sessionStorage.removeItem("page"); */
 			$.ajax({
 				url : "projectDetail.do",
 				type : "post",
  				/* data : {index : $("#userIndexes").val()}, */ 
 				data : {projectCode : projectCode},
 				success : function(project){
-					/* console.log(data); */
 					$("#policyDiv").css("display", "none");
 					$("#communityDiv").css("display", "none");
 					$("#storyDiv").css("display", "block");
@@ -398,48 +397,50 @@
 		});
 		
 		$("#communityBtn, #communityFixedBtn").click(function(){
-			sessionStorage.removeItem("page");
-			sessionStorage.setItem("page", "community");
+			/* sessionStorage.removeItem("page");
+			sessionStorage.setItem("page", "community"); */
 			$.ajax({
 				url : "projectCommunity.do",
 				type : "post",
  				/* data : {index : $("#userIndexes").val()}, */ 
 				data : {projectCode : projectCode},
 				success : function(data){
+					
+					$("#communityDiv").css("display", "block");
+					$("#writeBtnDiv").css("display", "block");
+					$("#postListDiv").css("display", "block");
+					
+				/* 	if(null == sessionStorage.getItem("postCode")){
+						$("#postListDiv").css("display", "block");  
+						$("#writeBtnDiv").css("display", "block");  
+					} */
+					setMoreBtnDisplayBlock();
+				} , beforeSend:function(){
+					$("#policyFixedBtn, #policyBtn, #storyFixedBtn, #storyBtn").removeClass("btnUnderline");
+					$("#communityFixedBtn, #communityBtn").addClass("btnUnderline");
+					
 					$("#policyDiv").css("display", "none");
 					$("#storyDiv").css("display", "none");
 					$(".tojyI").css("display", "none");
 					$("#updatePostFormDiv").css("display", "none");
 					$("#postFormDiv").css("display", "none");
 					$("#creatorPostDiv").css("display", "none");
-					$("#communityDiv").css("display", "block");
-					$("#writeBtnDiv").css("display", "block");
-					$("#postListDiv").css("display", "block");
-					
-					$("#policyFixedBtn, #policyBtn, #storyFixedBtn, #storyBtn").removeClass("btnUnderline");
-					$("#communityFixedBtn, #communityBtn").addClass("btnUnderline");
-					
-					if(null == sessionStorage.getItem("postCode")){
-						$("#postListDiv").css("display", "block");  
-						$("#writeBtnDiv").css("display", "block");  
-					}
-					setMoreBtnDisplayBlock();
-				}/* , beforeSend:function(){
 			        $(".loadingIndicator").css("display", "inline-block");  
+			        $(".dLYLGx").css("margin", "2rem 0");  
 			    }, complete:function(){
 			        $(".loadingIndicator").css("display", "none");  
 					$(".dLYLGx").css("margin", "unset"); 
-					$(".tojyI").css("display", "block");
-			    } */, error:function(e){
-					console.log("프로젝트 스토리 조회 에러 : ", e);
+					/* $(".tojyI").css("display", "block"); */
+			    } , error:function(e){
+					console.log("프로젝트 게시글 조회 에러 : ", e);
 				}
 			});
 		});
 		
 		$("#policyBtn, #policyFixedBtn").click(function(){
-			sessionStorage.removeItem("page");
+			/* sessionStorage.removeItem("page");
 			sessionStorage.removeItem("postCode");
-			sessionStorage.setItem("page", "policy");
+			sessionStorage.setItem("page", "policy"); */
 			$.ajax({
 				url : "projectPolicy.do",
 				type : "post",
@@ -562,6 +563,10 @@
 		var projectCode = "<c:out value='${project.projectCode}'/>";
 		location.href="selectpayment.do?projectCode=" + projectCode;
 	}
+	
+	function openCreatorProject(){
+		$("#creatorForm").submit();
+	}
 </script>
 
 </head>
@@ -677,8 +682,13 @@
 						<div class="ProjectIntroduction__Creators-c7b94s-6 guVzeB" data-reactid="44">
 							<img class="ProfileImg__ProfileImg-s1o99mme-0 hXkusX" src="<c:out value='${project.profileImg }'/>"/>
 							<a class="ProjectIntroduction__CreatorName-c7b94s-7 gDTPbS"
-								href="myPage.do"
-								target="_blank" rel="noopener noreferrer" data-reactid="46"><c:out value="${project.name }"/></a>
+								onclick="openCreatorProject();"
+								target="_blank" rel="noopener noreferrer" data-reactid="46">
+								<form id="creatorForm" name="creatorForm" action="creatorProject.do" method="post">
+									<input type="hidden" name="creatorEmail" value="<c:out value='${project.email }'/>"/>
+								</form>
+								<c:out value="${project.name }"/>
+							</a>
 						</div>
 					</div>
 				</div>

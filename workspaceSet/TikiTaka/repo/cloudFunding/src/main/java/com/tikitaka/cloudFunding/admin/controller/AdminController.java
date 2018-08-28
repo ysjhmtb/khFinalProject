@@ -1848,6 +1848,7 @@ System.out.println(bannerList);
 						//제한 숫자 1씩 감소
 					}*/
 					
+					
 					return "redirect:index.do";
 				}
 }
