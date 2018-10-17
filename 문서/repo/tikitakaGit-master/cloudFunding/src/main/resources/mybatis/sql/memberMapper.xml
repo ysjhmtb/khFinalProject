@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="MemberMapper">
+  
+ 
+  	<resultMap type="Member" id="memberMap">
+  		<id property="email" column="EMAIL"/>
+  		<result property="name" column="NAME"/>
+  		<result property="password" column="PASSWORD"/>
+  		<result property="profile_img" column="PROFILE_IMG"/>
+  		
+  	</resultMap>
+  	
+  	<insert id="insertMember" parameterType="Member">
+  		
+  		INSERT INTO MEMBER(EMAIL,NAME,PASSWORD,PROFILE_IMG,ENROLL_DATE) 
+  		VALUES(#{email}, #{name}, #{password},#{profile_img}, SYSDATE)  		
+  	</insert>
+  	
+  	<select id="selectMemberEmail" parameterType="Member" resultType="Member">
+  		SELECT EMAIL, NAME, PASSWORD, PROFILE_IMG, ENROLL_DATE, LOCATION,
+  				SHORTDESCRIPTION, HOMEPAGE, PHONE1, PHONE2, PHONE3,
+  				STOP_DATE, STOP_DATE AS EXPDATE	
+		FROM MEMBER
+		WHERE EMAIL =  #{email}
+  	</select>
+  
+   <update id="updateMemberProfile" parameterType="Member">
+   		UPDATE  MEMBER SET
+		  NAME = #{name}, PASSWORD = #{password}, 
+		  
+		  <if test = "profile_img != null">
+		  	PROFILE_IMG = #{profile_img},
+		  </if>
+		  
+		  LOCATION = #{location},
+		  SHORTDESCRIPTION = #{shortDescription},
+		  HOMEPAGE = #{homepage},
+		  PHONE1 = #{phone1},
+		  PHONE2 = #{phone2},
+		  PHONE3 = #{phone3}
+		WHERE EMAIL = #{email}
+   </update>
+  
+	<update id="insertUpdateCardInfo" parameterType="PaymentInfo">
+		MERGE INTO PAYMENT_INFO P1
+		  USING DUAL
+		  ON (P1.EMAIL = #{email})
+		  WHEN MATCHED THEN
+		    UPDATE SET
+		              P1.P_METHOD = #{p_method},
+		              P1.CARDNUM = #{cardnum},
+		              P1.VALIDITY = #{validity},
+		              P1.BIRTHDAY = #{birthday},
+		              P1.CARDPWD = #{cardpwd}
+		
+		  WHEN NOT MATCHED THEN
+		    INSERT (EMAIL, P_METHOD, CARDNUM, VALIDITY, BIRTHDAY, CARDPWD)
+		    VALUES(#{email},#{p_method},#{cardnum},#{validity},#{birthday},#{cardpwd})
+	</update>
+	
+	<update id="insertUpdateBankInfo" parameterType="PaymentInfo">
+		MERGE INTO PAYMENT_INFO P1
+		  USING DUAL
+		  ON (P1.EMAIL = #{email})
+		  WHEN MATCHED THEN
+		    UPDATE SET
+		    		  P1.P_METHOD = #{p_method},
+		              P1.BANK = #{bank},		              
+		              P1.ACNAME = #{acname},
+		              P1.ACINFO = #{acinfo},
+		              P1.BIRTHDAY = #{birthday},
+		              P1.ACNUM = #{acnum}
+		
+		  WHEN NOT MATCHED THEN
+		    INSERT (EMAIL, P_METHOD, BANK, ACNAME, ACINFO, BIRTHDAY, ACNUM)
+		    VALUES(#{email},#{p_method},#{bank},#{acname},#{acinfo}, #{birthday},#{acnum})
+		
+		
+	
+	</update>
+  
+  </mapper>
+  
+  
+  
+  

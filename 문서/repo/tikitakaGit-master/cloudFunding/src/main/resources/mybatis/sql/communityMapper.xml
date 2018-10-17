@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC
+"-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="communityMapper">
+	<resultMap type="Post" id="postMap">
+		<id property="postCode" column="POST_CODE" />
+		<result property="projectCode" column="P_PROJECT_CODE"/>
+		<result property="email" column="EMAIL"/>
+		<result property="content" column="CONTENT"/>
+		<result property="writtenDate" column="WRITTEN_DATE"/>
+		<result property="delflag" column="DELFLAG"/>
+		<result property="name" column="NAME"/>
+		<result property="profileImg" column="PROFILE_IMG"/>
+		<result property="replyCount" column="REPLY_COUNT"/>
+		<collection property="replyList" column="REPLY_CODE" ofType="Reply" resultMap="replyMap"/>
+	</resultMap>
+	<resultMap type="Reply" id="replyMap">
+		<id property="replyCode" column="REPLY_CODE"/>        
+		<result property="postCode" column="R_POST_CODE"/>
+		<result property="content" column="R_CONTENT"/>
+		<result property="email" column="R_EMAIL"/>
+		<result property="writtenDate" column="R_WRITTEN_DATE"/>
+		<result property="delflag" column="R_DELFLAG"/>
+		<result property="name" column="R_NAME"/>
+		<result property="profileImg" column="R_PROFILE_IMG"/>
+	</resultMap>
+
+	<!-- to_char(sysdate,'yyyy/mm/dd hh24:mi:ss') -->
+	<!-- TO_CHAR(R.WRITTEN_DATE,'YYYY/MM/DD HH24:MI') -->
+	<!-- <sql id="selectPostHeader">
+	   SELECT P.POST_CODE, P_PROJECT_CODE, P.EMAIL, P.CONTENT, P.WRITTEN_DATE, P.DELFLAG, NAME, PROFILE_IMG,
+        				R.REPLY_CODE, R.EMAIL AS R_EMAIL, R.CONTENT AS R_CONTENT, TO_CHAR(R.WRITTEN_DATE,'YYYY-MM-DD HH24:MI') AS R_WRITTEN_DATE, R.DELFLAG AS R_DELFLAG, 
+        					(SELECT NAME FROM MEMBER WHERE MEMBER.EMAIL = R.EMAIL) AS R_NAME,
+                  (SELECT PROFILE_IMG FROM MEMBER WHERE MEMBER.EMAIL = R.EMAIL) AS R_PROFILE_IMG,
+                  (SELECT COUNT(*) FROM REPLY WHERE P.POST_CODE = POST_CODE  AND DELFLAG != 'T') AS REPLY_COUNT
+		FROM POST P
+		FULL JOIN REPLY R ON(P.POST_CODE = R.POST_CODE)
+    	LEFT JOIN MEMBER M ON(P.EMAIL = M.EMAIL)
+	</sql> -->
+	<select id="selectPostList" parameterType="int" resultMap="postMap">
+	    SELECT P.POST_CODE, P_PROJECT_CODE, P.EMAIL, P.CONTENT, TO_CHAR(P.WRITTEN_DATE,'YYYY-MM-DD HH24:MI') AS WRITTEN_DATE, P.DELFLAG, NAME, PROFILE_IMG,
+        				(SELECT COUNT(*) FROM REPLY WHERE P.POST_CODE = POST_CODE  AND DELFLAG != 'T') AS REPLY_COUNT
+		FROM POST P
+		FULL JOIN REPLY R ON(P.POST_CODE = R.POST_CODE)
+    	LEFT JOIN MEMBER M ON(P.EMAIL = M.EMAIL)
+	    WHERE P_PROJECT_CODE = #{projectCode}
+	    AND P.DELFLAG != 'T'
+	    ORDER BY P.POST_CODE DESC
+	</select>
+	<select id="selectPost" parameterType="int" resultMap="postMap">
+		SELECT P.POST_CODE, P_PROJECT_CODE, P.EMAIL, P.CONTENT, P.WRITTEN_DATE, P.DELFLAG, NAME, PROFILE_IMG,
+        				R.REPLY_CODE, R.EMAIL AS R_EMAIL, R.CONTENT AS R_CONTENT, TO_CHAR(R.WRITTEN_DATE,'YYYY-MM-DD HH24:MI') AS R_WRITTEN_DATE, R.DELFLAG AS R_DELFLAG, 
+       					(SELECT NAME FROM MEMBER WHERE MEMBER.EMAIL = R.EMAIL) AS R_NAME,
+                		(SELECT PROFILE_IMG FROM MEMBER WHERE MEMBER.EMAIL = R.EMAIL) AS R_PROFILE_IMG,
+                 		(SELECT COUNT(*) FROM REPLY WHERE P.POST_CODE = POST_CODE AND DELFLAG != 'T') AS REPLY_COUNT
+		FROM POST P
+    	LEFT JOIN MEMBER M ON(P.EMAIL = M.EMAIL)
+      	LEFT JOIN (SELECT * FROM REPLY WHERE DELFLAG != 'T') R ON(P.POST_CODE = R.POST_CODE)
+      	WHERE P.DELFLAG != 'T' 
+		AND P.POST_CODE = #{postCode}
+	</select>
+	<select id="selectPostCount" parameterType="int" resultType="int">
+		SELECT COUNT(*) AS COUNT
+		FROM POST
+		WHERE P_PROJECT_CODE = #{projectCode}	   
+		AND DELFLAG != 'T' 
+	</select>
+	
+	<insert id="insertPost" parameterType="Post">
+		INSERT INTO POST VALUES(SEQ_POST.NEXTVAL, #{projectCode}, #{email}, #{content}, SYSDATE, DEFAULT)	    
+	</insert>
+
+	<update id="updatePost" parameterType="Post">
+	    UPDATE POST SET CONTENT = #{content}
+	    WHERE POST_CODE = #{postCode}
+	</update>
+	
+	<!-- <delete id="deletePost" parameterType="int">
+	    DELETE FROM POST
+	    WHERE POST_CODE = #{postCode}
+	</delete> -->
+	<delete id="deletePost" parameterType="int">
+	    UPDATE POST
+	    SET DELFLAG = 'T'
+	    WHERE POST_CODE = #{postCode}
+	</delete>
+	
+	<insert id="insertReply" parameterType="Reply">
+		INSERT INTO REPLY VALUES(SEQ_REPLY.NEXTVAL, #{postCode}, #{content}, #{email}, SYSDATE, DEFAULT)    
+	</insert>
+	
+	<delete id="deleteReply" parameterType="int">
+	    UPDATE REPLY
+	    SET DELFLAG = 'T'
+	    WHERE REPLY_CODE = #{replyCode}
+	</delete>
+</mapper>
